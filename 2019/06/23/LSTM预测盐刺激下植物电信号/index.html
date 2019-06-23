@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Machine Learing,">
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="坚持是一种品格">
-<meta property="og:type" content="website">
-<meta property="og:title" content="姚杰鹏的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="LSTM预测盐刺激下植物电信号数据处理出现问题创建的模型预测盐刺激后的电信号拟合程度很好。使用的模型： 123456789model = Sequential()model.add(LSTM(units=30, input_shape=(4, 1),return_sequences=True))model.add(Dropout(0.3))model.add(Activation(&apos;relu&apos;))">
+<meta name="keywords" content="Machine Learing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LSTM预测盐刺激下植物电信号">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/LSTM预测盐刺激下植物电信号/index.html">
 <meta property="og:site_name" content="姚杰鹏的博客">
-<meta property="og:description" content="坚持是一种品格">
+<meta property="og:description" content="LSTM预测盐刺激下植物电信号数据处理出现问题创建的模型预测盐刺激后的电信号拟合程度很好。使用的模型： 123456789model = Sequential()model.add(LSTM(units=30, input_shape=(4, 1),return_sequences=True))model.add(Dropout(0.3))model.add(Activation(&apos;relu&apos;))">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-23T08:44:11.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚杰鹏的博客">
-<meta name="twitter:description" content="坚持是一种品格">
+<meta name="twitter:title" content="LSTM预测盐刺激下植物电信号">
+<meta name="twitter:description" content="LSTM预测盐刺激下植物电信号数据处理出现问题创建的模型预测盐刺激后的电信号拟合程度很好。使用的模型： 123456789model = Sequential()model.add(LSTM(units=30, input_shape=(4, 1),return_sequences=True))model.add(Dropout(0.3))model.add(Activation(&apos;relu&apos;))">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/23/LSTM预测盐刺激下植物电信号/">
 
 
 
 
 
-  <title>姚杰鹏的博客</title>
+  <title>LSTM预测盐刺激下植物电信号 | 姚杰鹏的博客</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +238,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,9 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/23/LSTM预测盐刺激下植物电信号/" itemprop="url">LSTM预测盐刺激下植物电信号</a></h1>
+          <h1 class="post-title" itemprop="name headline">LSTM预测盐刺激下植物电信号</h1>
         
 
         <div class="post-meta">
@@ -321,9 +320,7 @@
       
 
       
-        
-          
-            <h2 id="LSTM预测盐刺激下植物电信号"><a href="#LSTM预测盐刺激下植物电信号" class="headerlink" title="LSTM预测盐刺激下植物电信号"></a>LSTM预测盐刺激下植物电信号</h2><h3 id="数据处理出现问题"><a href="#数据处理出现问题" class="headerlink" title="数据处理出现问题"></a>数据处理出现问题</h3><p>创建的模型预测盐刺激后的电信号拟合程度很好。<br>使用的模型：</p>
+        <h2 id="LSTM预测盐刺激下植物电信号"><a href="#LSTM预测盐刺激下植物电信号" class="headerlink" title="LSTM预测盐刺激下植物电信号"></a>LSTM预测盐刺激下植物电信号</h2><h3 id="数据处理出现问题"><a href="#数据处理出现问题" class="headerlink" title="数据处理出现问题"></a>数据处理出现问题</h3><p>创建的模型预测盐刺激后的电信号拟合程度很好。<br>使用的模型：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(units=30, input_shape=(4, 1),return_sequences=True))</span><br><span class="line">model.add(Dropout(0.3))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(LSTM(units=30))</span><br><span class="line">model.add(Dropout(0.3))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(units=4))</span><br><span class="line">model.compile(optimizer=Adam(0.01), loss=<span class="string">'mse'</span>)</span><br></pre></td></tr></table></figure>
 
 <p>但是在检查代码的时候发现数据划分的时候出现问题：trainX和trainY都是盐刺激后的数据。</p>
@@ -335,8 +332,6 @@
 <h5 id="存在问题："><a href="#存在问题：" class="headerlink" title="存在问题："></a>存在问题：</h5><p>同一品种的小麦采集到的稳定状态下的波形不像，原因未知。后续把数据弄好，先看看训练效果。</p>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-          
-        
       
     </div>
     
@@ -351,266 +346,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/22/First-Blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/22/First-Blog/" itemprop="url">First Blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-22T00:25:31+08:00">
-                2019-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Machine-Learing/" rel="tag"># Machine Learing</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>测试第一篇博客，以后在这里记录自己解决问题的思路，以及踩到的坑。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/21/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-21T23:10:42+08:00">
-                2019-06-21
-              </time>
+              <a href="/2019/06/22/First-Blog/" rel="next" title="First Blog">
+                <i class="fa fa-chevron-left"></i> First Blog
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -620,10 +385,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -631,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -651,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -703,6 +482,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM预测盐刺激下植物电信号"><span class="nav-number">1.</span> <span class="nav-text">LSTM预测盐刺激下植物电信号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据处理出现问题"><span class="nav-number">1.1.</span> <span class="nav-text">数据处理出现问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决思路"><span class="nav-number">1.2.</span> <span class="nav-text">解决思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个思路："><span class="nav-number">1.2.1.</span> <span class="nav-text">一个思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#存在问题："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">存在问题：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -836,6 +631,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
