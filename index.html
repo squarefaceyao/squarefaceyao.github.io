@@ -252,6 +252,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/制作数据集-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/25/制作数据集-2/" itemprop="url">制作数据集(2)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T10:51:41+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="调试成功一个函数，可以把ndarray格式数组保存为csv"><a href="#调试成功一个函数，可以把ndarray格式数组保存为csv" class="headerlink" title="调试成功一个函数，可以把ndarray格式数组保存为csv"></a>调试成功一个函数，可以把ndarray格式数组保存为csv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def save_to_csv(output_dir, data, name_prefix,</span><br><span class="line">                header=None, n_parts=10):</span><br><span class="line">    <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    numpy.ndarray ----&gt; save to csv</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    path_format = os.path.join(output_dir, <span class="string">"&#123;&#125;_&#123;:02d&#125;.csv"</span>)</span><br><span class="line">    filenames = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> file_idx, row_indices <span class="keyword">in</span> enumerate(</span><br><span class="line">        np.array_split(np.arange(len(data)), n_parts)):</span><br><span class="line">        part_csv = path_format.format(name_prefix, file_idx)</span><br><span class="line">        filenames.append(part_csv)</span><br><span class="line">        with open(part_csv, <span class="string">"wt"</span>, encoding=<span class="string">"utf-8"</span>) as f:</span><br><span class="line">            <span class="keyword">if</span> header is not None:</span><br><span class="line">                f.write(header + <span class="string">"\n"</span>)</span><br><span class="line">            <span class="keyword">for</span> row_index <span class="keyword">in</span> row_indices:</span><br><span class="line">                f.write(<span class="string">","</span>.join(</span><br><span class="line">                    [repr(col) <span class="keyword">for</span> col <span class="keyword">in</span> data[row_index]]))</span><br><span class="line">                f.write(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="built_in">return</span> filenames</span><br></pre></td></tr></table></figure>
+
+<p>调用函数，使用fetch_california_housing数据集进行测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">output_dir = <span class="string">"/Users/squareface/code/generate_csv"</span></span><br><span class="line"><span class="keyword">if</span> not os.path.exists(output_dir):</span><br><span class="line">    os.mkdir(output_dir)</span><br><span class="line"></span><br><span class="line">train_data = np.c_[x_train_scaled, y_train]</span><br><span class="line">valid_data = np.c_[x_valid_scaled, y_valid]</span><br><span class="line">test_data = np.c_[x_test_scaled, y_test]</span><br><span class="line"></span><br><span class="line">header_cols = housing.feature_names + [<span class="string">"MidianHouseValue"</span>]</span><br><span class="line">head_str = <span class="string">","</span>.join(header_cols)</span><br><span class="line"></span><br><span class="line">train_filenames = save_to_csv(output_dir, train_data, <span class="string">"train"</span>, </span><br><span class="line">                                          head_str, n_parts=20)</span><br><span class="line">valid_filenames = save_to_csv(output_dir, valid_data, <span class="string">"valid"</span>, </span><br><span class="line">                                          head_str, n_parts=10)</span><br><span class="line">test_filenames = save_to_csv(output_dir, test_data, <span class="string">"test"</span>, </span><br><span class="line">                                          head_str, n_parts=10)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h2><p>阅读大牛的code，tf.dataAPI在读取csv文件比较便捷，去翻看下Tensorflow2.0的API文档。</p>
+<p>tf读取一个文件夹里所有的csv文件方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first step: filename ----&gt; filenames</span></span><br><span class="line"><span class="comment"># second step: read file ----&gt; dataset ----&gt; datasets ----&gt; merge</span></span><br><span class="line"><span class="comment"># third step: parse csv</span></span><br><span class="line">def parse_csv_line(line, n_fields = 9):</span><br><span class="line">    defs = [tf.constant(np.nan)] * n_fields</span><br><span class="line">    parsed_fields = tf.io.decode_csv(line, record_defaults=defs)</span><br><span class="line">    x = tf.stack(parsed_fields[0:-1])</span><br><span class="line">    y = tf.stack(parsed_fields[-1:])</span><br><span class="line">    <span class="built_in">return</span> x, y</span><br><span class="line"></span><br><span class="line"><span class="comment"># parse_csv_line(b'-0.9868720801669367,0.832863080552588,-0.18684708416901633,-0.14888949288707784,-0.4532302419670616,-0.11504995754593579,1.6730974284189664,-0.7465496877362412,1.138',</span></span><br><span class="line"><span class="comment">#                n_fields=9)</span></span><br><span class="line"></span><br><span class="line">def csv_reader_dataset(filenames, n_readers=5,</span><br><span class="line">                       batch_size=32, n_parse_threads=5,</span><br><span class="line">                       shuffle_buffer_size=10000):</span><br><span class="line">    dataset = tf.data.Dataset.list_files(filenames)</span><br><span class="line">    dataset = dataset.repeat()</span><br><span class="line">    dataset = dataset.interleave(</span><br><span class="line">        lambda filename: tf.data.TextLineDataset(filename).skip(1),</span><br><span class="line">        cycle_length = n_readers</span><br><span class="line">    )</span><br><span class="line">    dataset.shuffle(shuffle_buffer_size)</span><br><span class="line">    dataset = dataset.map(parse_csv_line,</span><br><span class="line">                          num_parallel_calls=n_parse_threads)</span><br><span class="line">    dataset = dataset.batch(batch_size)</span><br><span class="line">    <span class="built_in">return</span> dataset</span><br><span class="line"></span><br><span class="line">train_set = csv_reader_dataset(train_filenames, batch_size=3)</span><br><span class="line"><span class="keyword">for</span> x_batch, y_batch <span class="keyword">in</span> train_set.take(2):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"x:"</span>)</span><br><span class="line">    pprint.pprint(x_batch)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"y:"</span>)</span><br><span class="line">    pprint.pprint(y_batch)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/制作数据集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -814,7 +962,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
