@@ -252,6 +252,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/27/制作数据集-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/27/制作数据集-4/" itemprop="url">制作数据集(4)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T18:48:32+08:00">
+                2019-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="readcsv-split-trainX-trainY"><a href="#readcsv-split-trainX-trainY" class="headerlink" title="readcsv_split_trainX_trainY"></a>readcsv_split_trainX_trainY</h2><p>今天把区分X和Y的函数写出来，并且可以达到需要的功能。<br>通过往列表插入数据的方式实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">from os import walk</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">def readcsv_split_trainX_trainY(path, cycle):</span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"># path： 文件所在目录</span></span><br><span class="line"><span class="string"># cycle：第几个周期区分X和Y</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"><span class="comment"># 读取文件夹数据</span></span><br><span class="line">    <span class="keyword">for</span> root, <span class="built_in">dirs</span>, files <span class="keyword">in</span> walk(path, topdown=False):</span><br><span class="line">        <span class="built_in">print</span>(files)</span><br><span class="line">    num = len(files)</span><br><span class="line">    <span class="comment"># 创建列表，用于存储x y</span></span><br><span class="line">    x, y = list(), list()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        newdata = pd.read_csv(path + <span class="string">'/%s'</span> % files[i], header=None, usecols=[1])</span><br><span class="line">        newdata = newdata.drop(index=[0])</span><br><span class="line">        newdata = newdata.values</span><br><span class="line">        x_new = newdata[0:cycle*588, 0]</span><br><span class="line">        x_new = x_new.tolist()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(x_new)):</span><br><span class="line">            x.append(x_new[j])</span><br><span class="line">        y_new = newdata[cycle*588:, 0]</span><br><span class="line">        y_new = y_new.tolist()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(y_new)):</span><br><span class="line">            y.append(y_new[j])</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> x, y</span><br><span class="line"></span><br><span class="line">x, y = readcsv_split_trainX_trainY(path=<span class="string">'/Users/squareface/Downloads/salt_5880'</span>,cycle=5)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(len(x))</span><br><span class="line"><span class="built_in">print</span>(len(y))</span><br></pre></td></tr></table></figure>
+
+<p>函数输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'DK_6_5880.csv'</span>, <span class="string">'DK_7_5880.csv'</span>, <span class="string">'DK_1_5880.csv'</span>, </span><br><span class="line"><span class="string">'DK_5_5880.csv'</span>, <span class="string">'DK_4_5880.csv'</span>, <span class="string">'DK_2_5880.csv'</span>, <span class="string">'DK_3_5880.csv'</span>]</span><br><span class="line">20580</span><br><span class="line">20580</span><br></pre></td></tr></table></figure>
+
+<h2 id="LIRB波形"><a href="#LIRB波形" class="headerlink" title="LIRB波形"></a>LIRB波形</h2><p>盐刺激前的波形和盐刺激后的波形是有关系的，刺激后的波形是在刺激前的波形基础上变换的。刺激前后的波形好像是有一个方程对应的。</p>
+<p>今天老师有说到“参考波”这个名词，a波即参考波。子洋师兄大论文中写到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本研究提取了 3 个具有代表性的周期波形进行特征提取，</span><br><span class="line">分别是盐胁迫前最后一组完整周期，称为 a 波;</span><br><span class="line">盐胁迫时的第一周期波形，称为 b 波;</span><br><span class="line">盐胁迫 2 小时后的第一组完 整周期，称为 c 波。</span><br><span class="line">一般情况下:</span><br><span class="line">        a 波作为该小麦的参考波，</span><br><span class="line">        b 波是盐胁迫后的第一个波，作为反映小麦响应短期盐胁迫的波，</span><br><span class="line">        c 波作为小麦响应长期盐胁迫的波</span><br><span class="line">因此本文中不同类型小麦 LIRB 在 a 波和 b 波之间跳变差异，均是由盐胁迫导致细胞极化程度变化导致</span><br></pre></td></tr></table></figure>
+
+<p>需要理解一下这个公式，可能有帮助：</p>
+<h4 id="E-E-1-E-2-E-0-frac-RT-nF-log-alpha-1-E-0-frac-RT-nF-log-alpha-2"><a href="#E-E-1-E-2-E-0-frac-RT-nF-log-alpha-1-E-0-frac-RT-nF-log-alpha-2" class="headerlink" title="\(  E = E_1 - E_2 = E_0 - \frac{RT}{nF} \log\alpha_1 - (E_0 - \frac{RT}{nF} \log{\alpha_2}) \)"></a>\(  E = E_1 - E_2 = E_0 - \frac{RT}{nF} \log\alpha_1 - (E_0 - \frac{RT}{nF} \log{\alpha_2}) \)</h4><p>式中，\(R\)为气体常数，\(T\)为绝对温度，\(n\)为反应中的电子数，\(F\) 为法拉第常数。<br>\(E1，E2\) 为换盖子前后的接触电势，\(E0\) 为基础电势，\(\alpha_1，\alpha_2\) 为换盖子前后的氯离子活度<br>离子活度计算公式如下所示，</p>
+<h4 id="alpha-i-c-i-times-gamma-i"><a href="#alpha-i-c-i-times-gamma-i" class="headerlink" title="\(\alpha_i = c_i \times \gamma_i\)"></a>\(\alpha_i = c_i \times \gamma_i\)</h4><p>计算中使用的活度因子为:<br>10mM KCl: \(\gamma_{CI} \approx 0.9\)  </p>
+<p>300mM NaCl: \(\gamma_{CI} \approx 0.7^{[255]}\)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/制作数据集-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -293,6 +448,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1087,7 +1264,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
