@@ -252,6 +252,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/制作数据集-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/26/制作数据集-3/" itemprop="url">制作数据集(3)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-26T13:30:41+08:00">
+                2019-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="人工处理数据"><a href="#人工处理数据" class="headerlink" title="人工处理数据"></a>人工处理数据</h2><p>今天把植物电信号原始数据人工处理，<br>一个周期588个数据<br>人工找出一个周期的起始点，用代码辅助工作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># read csv</span></span><br><span class="line">df = pd.read_csv(inputdir, header=None, usecols=[1])</span><br><span class="line">df = df.drop(index=[0,1])</span><br><span class="line"><span class="comment"># split salt stimulation befor</span></span><br><span class="line">n=3</span><br><span class="line">befor_start = 932</span><br><span class="line">befor_end = befor_start+(n*588)</span><br><span class="line">df_befor = df[befor_start:befor_end]</span><br><span class="line">df_befor = df_befor.astype(<span class="built_in">float</span>)</span><br><span class="line">df_befor.plot()</span><br><span class="line">df_befor.shape</span><br><span class="line"></span><br><span class="line"><span class="comment"># split salt stimulation after</span></span><br><span class="line">n=5</span><br><span class="line">after_start = 3276</span><br><span class="line">after_end = after_start+(n*588)</span><br><span class="line">df_after = df[after_start:after_end]</span><br><span class="line">df_after = df_after.astype(<span class="built_in">float</span>)</span><br><span class="line">df_after.plot()</span><br><span class="line">df_after.shape</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># merge data </span></span><br><span class="line"></span><br><span class="line">DK_1 = df_befor.append(df_after)</span><br><span class="line">DK_1 = DK_1.astype(<span class="built_in">float</span>)</span><br><span class="line">a = len(DK_1) / 588</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"all data cycle : "</span>, a)</span><br><span class="line"><span class="built_in">print</span>(DK_1.values)</span><br><span class="line">DK_1.plot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(df_befor.values)</span></span><br></pre></td></tr></table></figure>
+
+<p>在处理数据的时候发现，发现变成把问题变成一个拟合问题，有点想预测房价。</p>
+<p>x1 —-&gt; y1<br>x2 —-&gt; y2<br>x3 —-&gt; y3<br>x4 —-&gt; y4<br>x5 —-&gt; y5<br>   …..<br>xn —-&gt; yn<br>利用这些数据集建立拟合一个神经网络。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>刺激前的信号和刺激后的信号有无关系。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/制作数据集-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -962,7 +1087,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
