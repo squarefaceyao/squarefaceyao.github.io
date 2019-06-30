@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="log,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="坚持是一种品格">
+<meta name="description" content="今天复习了LSTM预测北京机场的污染预测，有新的收获。预测PM2.5 是一个多因素的问题，就是有8个x —&amp;gt; y很长的代码是在处理数据，即把原始的数据变成x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)k 其中x1(t-1) = y(t-1) trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)trainy = y 在model.add(L">
+<meta name="keywords" content="log">
 <meta property="og:type" content="article">
 <meta property="og:title" content="制作数据集(6)">
 <meta property="og:url" content="http://yoursite.com/2019/06/29/制作数据集-6/index.html">
 <meta property="og:site_name" content="姚杰鹏的博客">
-<meta property="og:description" content="坚持是一种品格">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T15:21:01.052Z">
+<meta property="og:description" content="今天复习了LSTM预测北京机场的污染预测，有新的收获。预测PM2.5 是一个多因素的问题，就是有8个x —&amp;gt; y很长的代码是在处理数据，即把原始的数据变成x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)k 其中x1(t-1) = y(t-1) trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)trainy = y 在model.add(L">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-30T14:29:59.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="制作数据集(6)">
-<meta name="twitter:description" content="坚持是一种品格">
+<meta name="twitter:description" content="今天复习了LSTM预测北京机场的污染预测，有新的收获。预测PM2.5 是一个多因素的问题，就是有8个x —&amp;gt; y很长的代码是在处理数据，即把原始的数据变成x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)k 其中x1(t-1) = y(t-1) trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)trainy = y 在model.add(L">
 
 
 
@@ -97,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -105,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -137,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -185,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
           </a>
         </li>
       
@@ -195,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            About
+            关于
           </a>
         </li>
       
@@ -205,7 +206,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -215,7 +216,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -257,7 +258,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -279,9 +280,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-29T23:21:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T23:21:01+08:00">
                 2019-06-29
               </time>
             
@@ -292,6 +293,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -302,6 +325,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  168
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -319,7 +373,14 @@
       
 
       
-        
+        <p>今天复习了LSTM预测北京机场的污染预测，有新的收获。<br>预测PM2.5 是一个多因素的问题，就是有8个x —&gt; y<br>很长的代码是在处理数据，即把原始的数据变成<br>x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)<br>k
+其中x1(t-1) = y(t-1)</p>
+<p>trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)<br>trainy = y</p>
+<p>在model.add(LSTM)，inputshape=(8,1)<br>只有一层LSTM<br> <a id="more"></a></p>
+<h2 id="启发"><a href="#启发" class="headerlink" title="启发"></a>启发</h2><p>在我制作的数据集中：<br>x代表a波，是一个(n<em>588，1)的矩阵<br>y代表c波，是一个(n</em>588，1)的矩阵</p>
+<p>x(t-1) –&gt;y</p>
+<p>我是不是输出的时候把y转换成(588,1)</p>
+
       
     </div>
     
@@ -334,6 +395,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/log/" rel="tag"># log</a>
+          
+        </div>
+      
 
       
       
@@ -343,7 +410,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/29/制作数据集-5/" rel="next" title="制作数据集(5)">
+              <a href="/2019/06/28/制作数据集-5/" rel="next" title="制作数据集(5)">
                 <i class="fa fa-chevron-left"></i> 制作数据集(5)
               </a>
             
@@ -352,6 +419,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/30/制作数据集-7/" rel="prev" title="是否使用LSTM">
+                是否使用LSTM <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -403,10 +474,21 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
               <p class="site-description motion-element" itemprop="description">坚持是一种品格</p>
@@ -419,8 +501,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -431,7 +513,7 @@
               <div class="site-state-item site-state-categories">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 
               </div>
             
@@ -442,7 +524,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
@@ -465,6 +547,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启发"><span class="nav-number">1.</span> <span class="nav-text">启发</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -485,10 +583,19 @@
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.8k</span>
+  
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -496,7 +603,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -595,6 +702,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
