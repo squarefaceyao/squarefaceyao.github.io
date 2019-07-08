@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/制作数据集-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/Long-short-term-memory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/25/制作数据集-2/" itemprop="url">制作数据集(2)</a></h1>
+                <a class="post-title-link" href="/2019/07/01/Long-short-term-memory/" itemprop="url">Long short-term memory</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T10:51:41+08:00">
-                2019-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T22:53:50+08:00">
+                2019-07-01
               </time>
             
 
@@ -327,37 +327,6 @@
           
 
           
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  361
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
 
           
 
@@ -376,14 +345,8 @@
       
         
           
-            <h2 id="调试成功一个函数，可以把ndarray格式数组保存为csv"><a href="#调试成功一个函数，可以把ndarray格式数组保存为csv" class="headerlink" title="调试成功一个函数，可以把ndarray格式数组保存为csv"></a>调试成功一个函数，可以把ndarray格式数组保存为csv</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def save_to_csv(output_dir, data, name_prefix,</span><br><span class="line">                header=None, n_parts=10):</span><br><span class="line">    <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    numpy.ndarray ----&gt; save to csv</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    path_format = os.path.join(output_dir, <span class="string">"&#123;&#125;_&#123;:02d&#125;.csv"</span>)</span><br><span class="line">    filenames = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> file_idx, row_indices <span class="keyword">in</span> enumerate(</span><br><span class="line">        np.array_split(np.arange(len(data)), n_parts)):</span><br><span class="line">        part_csv = path_format.format(name_prefix, file_idx)</span><br><span class="line">        filenames.append(part_csv)</span><br><span class="line">        with open(part_csv, <span class="string">"wt"</span>, encoding=<span class="string">"utf-8"</span>) as f:</span><br><span class="line">            <span class="keyword">if</span> header is not None:</span><br><span class="line">                f.write(header + <span class="string">"\n"</span>)</span><br><span class="line">            <span class="keyword">for</span> row_index <span class="keyword">in</span> row_indices:</span><br><span class="line">                f.write(<span class="string">","</span>.join(</span><br><span class="line">                    [repr(col) <span class="keyword">for</span> col <span class="keyword">in</span> data[row_index]]))</span><br><span class="line">                f.write(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="built_in">return</span> filenames</span><br></pre></td></tr></table></figure>
+            <p>今天阅读了1997年提出的lstm，重新理解了网络结构，但是没有什么新的发现。</p>
 
-<p>调用函数，使用fetch_california_housing数据集进行测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">output_dir = <span class="string">"/Users/squareface/code/generate_csv"</span></span><br><span class="line"><span class="keyword">if</span> not os.path.exists(output_dir):</span><br><span class="line">    os.mkdir(output_dir)</span><br><span class="line"></span><br><span class="line">train_data = np.c_[x_train_scaled, y_train]</span><br><span class="line">valid_data = np.c_[x_valid_scaled, y_valid]</span><br><span class="line">test_data = np.c_[x_test_scaled, y_test]</span><br><span class="line"></span><br><span class="line">header_cols = housing.feature_names + [<span class="string">"MidianHouseValue"</span>]</span><br><span class="line">head_str = <span class="string">","</span>.join(header_cols)</span><br><span class="line"></span><br><span class="line">train_filenames = save_to_csv(output_dir, train_data, <span class="string">"train"</span>, </span><br><span class="line">                                          head_str, n_parts=20)</span><br><span class="line">valid_filenames = save_to_csv(output_dir, valid_data, <span class="string">"valid"</span>, </span><br><span class="line">                                          head_str, n_parts=10)</span><br><span class="line">test_filenames = save_to_csv(output_dir, test_data, <span class="string">"test"</span>, </span><br><span class="line">                                          head_str, n_parts=10)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h2><p>阅读大牛的code，tf.dataAPI在读取csv文件比较便捷，去翻看下Tensorflow2.0的API文档。</p>
-<p>tf读取一个文件夹里所有的csv文件方法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first step: filename ----&gt; filenames</span></span><br><span class="line"><span class="comment"># second step: read file ----&gt; dataset ----&gt; datasets ----&gt; merge</span></span><br><span class="line"><span class="comment"># third step: parse csv</span></span><br><span class="line">def parse_csv_line(line, n_fields = 9):</span><br><span class="line">    defs = [tf.constant(np.nan)] * n_fields</span><br><span class="line">    parsed_fields = tf.io.decode_csv(line, record_defaults=defs)</span><br><span class="line">    x = tf.stack(parsed_fields[0:-1])</span><br><span class="line">    y = tf.stack(parsed_fields[-1:])</span><br><span class="line">    <span class="built_in">return</span> x, y</span><br><span class="line"></span><br><span class="line"><span class="comment"># parse_csv_line(b'-0.9868720801669367,0.832863080552588,-0.18684708416901633,-0.14888949288707784,-0.4532302419670616,-0.11504995754593579,1.6730974284189664,-0.7465496877362412,1.138',</span></span><br><span class="line"><span class="comment">#                n_fields=9)</span></span><br><span class="line"></span><br><span class="line">def csv_reader_dataset(filenames, n_readers=5,</span><br><span class="line">                       batch_size=32, n_parse_threads=5,</span><br><span class="line">                       shuffle_buffer_size=10000):</span><br><span class="line">    dataset = tf.data.Dataset.list_files(filenames)</span><br><span class="line">    dataset = dataset.repeat()</span><br><span class="line">    dataset = dataset.interleave(</span><br><span class="line">        lambda filename: tf.data.TextLineDataset(filename).skip(1),</span><br><span class="line">        cycle_length = n_readers</span><br><span class="line">    )</span><br><span class="line">    dataset.shuffle(shuffle_buffer_size)</span><br><span class="line">    dataset = dataset.map(parse_csv_line,</span><br><span class="line">                          num_parallel_calls=n_parse_threads)</span><br><span class="line">    dataset = dataset.batch(batch_size)</span><br><span class="line">    <span class="built_in">return</span> dataset</span><br><span class="line"></span><br><span class="line">train_set = csv_reader_dataset(train_filenames, batch_size=3)</span><br><span class="line"><span class="keyword">for</span> x_batch, y_batch <span class="keyword">in</span> train_set.take(2):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"x:"</span>)</span><br><span class="line">    pprint.pprint(x_batch)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"y:"</span>)</span><br><span class="line">    pprint.pprint(y_batch)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -431,7 +394,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/制作数据集/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/制作数据集-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -450,7 +413,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/24/制作数据集/" itemprop="url">制作数据集</a></h1>
+                <a class="post-title-link" href="/2019/06/30/制作数据集-7/" itemprop="url">是否使用LSTM</a></h1>
         
 
         <div class="post-meta">
@@ -462,8 +425,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T12:27:03+08:00">
-                2019-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T22:15:32+08:00">
+                2019-06-30
               </time>
             
 
@@ -506,37 +469,6 @@
           
 
           
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  380
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
 
           
 
@@ -554,18 +486,17 @@
 
       
         
-          
-            <h2 id="批量处理信号"><a href="#批量处理信号" class="headerlink" title="批量处理信号"></a>批量处理信号</h2><h3 id="把trainX放到一个CSV、trainY放到一个CSV"><a href="#把trainX放到一个CSV、trainY放到一个CSV" class="headerlink" title="把trainX放到一个CSV、trainY放到一个CSV"></a>把trainX放到一个CSV、trainY放到一个CSV</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def read_salt_data(path,name):</span><br><span class="line">    </span><br><span class="line">    <span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">    this function reads csv in batch</span></span><br><span class="line"><span class="string">    path is the folder where the files are located</span></span><br><span class="line"><span class="string">        name is the files name</span></span><br><span class="line"><span class="string">    "</span><span class="string">""</span></span><br><span class="line">    file=glob.glob(os.path.join(path, name))</span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> file:  </span><br><span class="line">        dl=pd.read_excel(f,header=None,usecols=[1])</span><br><span class="line">        dl=dl.drop(index=[0,1])</span><br><span class="line">        <span class="built_in">print</span>(dl.values)        </span><br><span class="line"><span class="comment">#         dl_befor = dl[:1550]</span></span><br><span class="line"><span class="comment">#         dl_after = dl[1551:]</span></span><br><span class="line"><span class="comment">#         print(dl_befor.shape)</span></span><br><span class="line"><span class="comment">#         dl_befor.plot()</span></span><br><span class="line"><span class="comment"># #         plt.xlabel("time")</span></span><br><span class="line"><span class="comment"># #         plt.ylabel("value")</span></span><br><span class="line"><span class="comment"># #         plt.grid(True)</span></span><br><span class="line"><span class="comment"># #         dl.plot()</span></span><br><span class="line"></span><br><span class="line">path=<span class="string">'/Users/squareface/Downloads/salt_data'</span></span><br><span class="line">name=<span class="string">"*.xlsx"</span></span><br><span class="line">df = read_salt_data(path,name)</span><br></pre></td></tr></table></figure>
-
-<h2 id="遇到问题："><a href="#遇到问题：" class="headerlink" title="遇到问题："></a>遇到问题：</h2><p>现在可以把一个文件夹里的csv都存储到dl里面，可以把刺激前和刺激后的数据划分，但是无法对在for循环里保存每次读取到的文件</p>
-<h2 id="学习代码："><a href="#学习代码：" class="headerlink" title="学习代码："></a>学习代码：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">list_l = [[1, 3, 3, 5, 4], [11, 7, 15, 13, 9], [4, 2, 7, 9, 3], [15, 11, 12, 6, 11]]</span><br><span class="line">date_range = pd.date_range(start=<span class="string">"20180701"</span>, periods=4)</span><br><span class="line">df = pd.DataFrame(list_l, index=date_range,</span><br><span class="line">                  columns=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>])</span><br><span class="line">out:</span><br><span class="line">                        a   b   c   d   e</span><br><span class="line">            2018-07-01   1   3   3   5   4</span><br><span class="line">            2018-07-02  11   7  15  13   9</span><br><span class="line">            2018-07-03   4   2   7   9   3</span><br><span class="line">            2018-07-04  15  11  12   6  11</span><br></pre></td></tr></table></figure>
-
-<p>这段代码可以把字典保存为CSV文件，并且可以弹出一个可视化界面选择文件保存路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import tkinter as tk</span><br><span class="line">from tkinter import filedialog</span><br><span class="line">from pandas import DataFrame</span><br><span class="line"><span class="comment"># 制作字典数据</span></span><br><span class="line">Cars = &#123;<span class="string">'Brand'</span>: [<span class="string">'Honda Civic'</span>,<span class="string">'Toyota Corolla'</span>,<span class="string">'Ford Focus'</span>,<span class="string">'Audi A4'</span>],</span><br><span class="line">        <span class="string">'Price'</span>: [22000,25000,27000,35000]</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment"># 字典存为DataFrame格式</span></span><br><span class="line">df = DataFrame(Cars, columns= [<span class="string">'Brand'</span>, <span class="string">'Price'</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">root= tk.Tk()</span><br><span class="line">canvas1 = tk.Canvas(root, </span><br><span class="line">                    width = 300, </span><br><span class="line">                    height = 300, </span><br><span class="line">                    <span class="built_in">bg</span> = <span class="string">'lightsteelblue2'</span>, </span><br><span class="line">                    relief = <span class="string">'raised'</span>)</span><br><span class="line">canvas1.pack()</span><br><span class="line"></span><br><span class="line">def exportCSV ():</span><br><span class="line">    global df</span><br><span class="line">    export_file_path = filedialog.asksaveasfilename(defaultextension=<span class="string">'.csv'</span>)</span><br><span class="line">    df.to_csv (export_file_path, index = None, header=True)</span><br><span class="line"></span><br><span class="line">saveAsButton_CSV = tk.Button(text=<span class="string">'Export CSV'</span>, </span><br><span class="line">                            <span class="built_in">command</span>=exportCSV, </span><br><span class="line">                            <span class="built_in">bg</span>=<span class="string">'green'</span>, </span><br><span class="line">                            <span class="built_in">fg</span>=<span class="string">'white'</span>, </span><br><span class="line">                            font=(<span class="string">'helvetica'</span>, 12, <span class="string">'bold'</span>))</span><br><span class="line"></span><br><span class="line">canvas1.create_window(150, 150, window=saveAsButton_CSV)</span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
-          
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我要做的是用红框里的一个周期数据（刺激前）预测绿框里的一个周期数据（刺激后），一个周期是588个点。<br>参考LSTM预测股票、污染，发现一个结论：<br>刺激前的数据和刺激后的数据不在同一个时刻上，如果单纯的在数据上做一一对应，我认为没有可解释性。因为这两个数据本身是有一个先后顺序的。<br><img src="http://i2.tiimg.com/692414/c864ab7be8ba9931.jpg" alt="Markdown"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/30/制作数据集-7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -609,7 +540,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/23/LSTM预测盐刺激下植物电信号/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/29/制作数据集-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -628,7 +559,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/23/LSTM预测盐刺激下植物电信号/" itemprop="url">LSTM预测盐刺激下植物电信号</a></h1>
+                <a class="post-title-link" href="/2019/06/29/制作数据集-6/" itemprop="url">制作数据集(6)</a></h1>
         
 
         <div class="post-meta">
@@ -640,8 +571,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T10:57:44+08:00">
-                2019-06-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T23:21:01+08:00">
+                2019-06-29
               </time>
             
 
@@ -651,6 +582,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -661,37 +614,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  328
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -710,23 +632,20 @@
 
       
         
-          
-            <h2 id="LSTM预测盐刺激下植物电信号"><a href="#LSTM预测盐刺激下植物电信号" class="headerlink" title="LSTM预测盐刺激下植物电信号"></a>LSTM预测盐刺激下植物电信号</h2><h3 id="数据处理出现问题"><a href="#数据处理出现问题" class="headerlink" title="数据处理出现问题"></a>数据处理出现问题</h3><p>创建的模型预测盐刺激后的电信号拟合程度很好。<br>使用的模型：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(units=30, input_shape=(4, 1),return_sequences=True))</span><br><span class="line">model.add(Dropout(0.3))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(LSTM(units=30))</span><br><span class="line">model.add(Dropout(0.3))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(units=4))</span><br><span class="line">model.compile(optimizer=Adam(0.01), loss=<span class="string">'mse'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>但是在检查代码的时候发现数据划分的时候出现问题：trainX和trainY都是盐刺激后的数据。</p>
-<h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>把电信号分为两个部分：      </p>
-<p>X：刺激前\((x_1,x_2,x_3,…,x_n)\)    </p>
-<p>Y：刺激后\((y_1,y_2,y_3,…,y_n)\)    </p>
-<h4 id="一个思路："><a href="#一个思路：" class="headerlink" title="一个思路："></a>一个思路：</h4><p>X和Y都选取稳定状态下一个周期的波形。每一个样本总共选择6个周期，即X3个、Y3个。</p>
-<p>1、 在软件中手动截取DK小麦稳定状态下的波形，刺激前3个周期，刺激后3个周期，保存为DK-*.xlsx<br>2、 创建数据集，今日思考：X和Y应该如何对应呢？<br>            同一品种的小麦，在稳定状态下的电信号不一样，那x和y应该如何对应起来？</p>
-<h5 id="存在问题："><a href="#存在问题：" class="headerlink" title="存在问题："></a>存在问题：</h5><p>同一品种的小麦采集到的稳定状态下的波形不像，原因未知。后续把数据弄好，先看看训练效果。</p>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-          
+          <p>今天复习了LSTM预测北京机场的污染预测，有新的收获。<br>预测PM2.5 是一个多因素的问题，就是有8个x —&gt; y<br>很长的代码是在处理数据，即把原始的数据变成<br>x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)<br>k
+其中x1(t-1) = y(t-1)</p>
+<p>trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)<br>trainy = y</p>
+<p>在model.add(LSTM)，inputshape=(8,1)<br>只有一层LSTM<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/29/制作数据集-6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -770,7 +689,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/22/First-Blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/制作数据集-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -789,7 +708,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/22/First-Blog/" itemprop="url">First Blog</a></h1>
+                <a class="post-title-link" href="/2019/06/28/制作数据集-5/" itemprop="url">制作数据集(5)</a></h1>
         
 
         <div class="post-meta">
@@ -801,8 +720,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-22T00:25:31+08:00">
-                2019-06-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T19:20:49+08:00">
+                2019-06-28
               </time>
             
 
@@ -812,6 +731,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -822,37 +763,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  29
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -872,7 +782,10 @@
       
         
           
-            <p>测试第一篇博客，以后在这里记录自己解决问题的思路，以及踩到的坑。</p>
+            <p>今天把之前写的代码组合成为一个函数，可以直接调用，代码更清爽。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">def read_csv(inputdir):</span><br><span class="line">    df = pd.read_csv(inputdir, header=None, usecols=[1])</span><br><span class="line">    df = df.drop(index=[0, 1])</span><br><span class="line">    df = df.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> df</span><br><span class="line"></span><br><span class="line">def x_split_one_csv(df, befor_start, cycle):</span><br><span class="line">    befor_end = befor_start + (cycle * 588)</span><br><span class="line">    x = df[befor_start:befor_end]</span><br><span class="line">    x = x.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> x</span><br><span class="line"></span><br><span class="line">def y_split_one_csv(df, after_start, cycle):</span><br><span class="line">    after_end = after_start + (cycle * 588)</span><br><span class="line">    y = df[after_start:after_end]</span><br><span class="line">    y = y.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> df_after</span><br><span class="line"></span><br><span class="line">def plt_wave(df):</span><br><span class="line">    pd.DataFrame(df).plot(figsize=(8,5))</span><br><span class="line">    plt.grid(True)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def merge(stress_befor, stress_after):</span><br><span class="line">    outfile = stress_befor.append(stress_after)</span><br><span class="line">    outfile = outfile.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> outfile</span><br></pre></td></tr></table></figure>
+
+<p>x代表a波，是一个(588,1)的时间序列<br>y代表c波，是一个(588,1)的时间序列</p>
 
           
         
@@ -921,7 +834,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/27/制作数据集-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -940,7 +853,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/21/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2019/06/27/制作数据集-4/" itemprop="url">制作数据集(4)</a></h1>
         
 
         <div class="post-meta">
@@ -952,8 +865,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-21T23:10:42+08:00">
-                2019-06-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-27T18:48:32+08:00">
+                2019-06-27
               </time>
             
 
@@ -963,6 +876,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
+                    <span itemprop="name">machine learing</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -973,37 +908,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
           
 
           
@@ -1023,19 +927,20 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <h2 id="readcsv-split-trainX-trainY"><a href="#readcsv-split-trainX-trainY" class="headerlink" title="readcsv_split_trainX_trainY"></a>readcsv_split_trainX_trainY</h2><p>今天把区分X和Y的函数写出来，并且可以达到需要的功能。<br>通过往列表插入数据的方式实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">from os import walk</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">def readcsv_split_trainX_trainY(path, cycle):</span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string"># path： 文件所在目录</span></span><br><span class="line"><span class="string"># cycle：第几个周期区分X和Y</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"><span class="comment"># 读取文件夹数据</span></span><br><span class="line">    <span class="keyword">for</span> root, <span class="built_in">dirs</span>, files <span class="keyword">in</span> walk(path, topdown=False):</span><br><span class="line">        <span class="built_in">print</span>(files)</span><br><span class="line">    num = len(files)</span><br><span class="line">    <span class="comment"># 创建列表，用于存储x y</span></span><br><span class="line">    x, y = list(), list()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        newdata = pd.read_csv(path + <span class="string">'/%s'</span> % files[i], header=None, usecols=[1])</span><br><span class="line">        newdata = newdata.drop(index=[0])</span><br><span class="line">        newdata = newdata.values</span><br><span class="line">        x_new = newdata[0:cycle*588, 0]</span><br><span class="line">        x_new = x_new.tolist()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(x_new)):</span><br><span class="line">            x.append(x_new[j])</span><br><span class="line">        y_new = newdata[cycle*588:, 0]</span><br><span class="line">        y_new = y_new.tolist()</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(y_new)):</span><br><span class="line">            y.append(y_new[j])</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> x, y</span><br><span class="line"></span><br><span class="line">x, y = readcsv_split_trainX_trainY(path=<span class="string">'/Users/squareface/Downloads/salt_5880'</span>,cycle=5)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(len(x))</span><br><span class="line"><span class="built_in">print</span>(len(y))</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>函数输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'DK_6_5880.csv'</span>, <span class="string">'DK_7_5880.csv'</span>, <span class="string">'DK_1_5880.csv'</span>, </span><br><span class="line"><span class="string">'DK_5_5880.csv'</span>, <span class="string">'DK_4_5880.csv'</span>, <span class="string">'DK_2_5880.csv'</span>, <span class="string">'DK_3_5880.csv'</span>]</span><br><span class="line">20580</span><br><span class="line">20580</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h2 id="LIRB波形"><a href="#LIRB波形" class="headerlink" title="LIRB波形"></a>LIRB波形</h2><p>盐刺激前的波形和盐刺激后的波形是有关系的，刺激后的波形是在刺激前的波形基础上变换的。刺激前后的波形好像是有一个方程对应的。</p>
+<p>今天老师有说到“参考波”这个名词，a波即参考波。子洋师兄大论文中写到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">本研究提取了 3 个具有代表性的周期波形进行特征提取，</span><br><span class="line">分别是盐胁迫前最后一组完整周期，称为 a 波;</span><br><span class="line">盐胁迫时的第一周期波形，称为 b 波;</span><br><span class="line">盐胁迫 2 小时后的第一组完 整周期，称为 c 波。</span><br><span class="line">一般情况下:</span><br><span class="line">        a 波作为该小麦的参考波，</span><br><span class="line">        b 波是盐胁迫后的第一个波，作为反映小麦响应短期盐胁迫的波，</span><br><span class="line">        c 波作为小麦响应长期盐胁迫的波</span><br><span class="line">因此本文中不同类型小麦 LIRB 在 a 波和 b 波之间跳变差异，均是由盐胁迫导致细胞极化程度变化导致</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>需要理解一下这个公式，可能有帮助：</p>
+<h4 id="E-E-1-E-2-E-0-frac-RT-nF-log-alpha-1-E-0-frac-RT-nF-log-alpha-2"><a href="#E-E-1-E-2-E-0-frac-RT-nF-log-alpha-1-E-0-frac-RT-nF-log-alpha-2" class="headerlink" title="\(  E = E_1 - E_2 = E_0 - \frac{RT}{nF} \log\alpha_1 - (E_0 - \frac{RT}{nF} \log{\alpha_2}) \)"></a>\(  E = E_1 - E_2 = E_0 - \frac{RT}{nF} \log\alpha_1 - (E_0 - \frac{RT}{nF} \log{\alpha_2}) \)</h4><p>式中，\(R\)为气体常数，\(T\)为绝对温度，\(n\)为反应中的电子数，\(F\) 为法拉第常数。<br>\(E1，E2\) 为换盖子前后的接触电势，\(E0\) 为基础电势，\(\alpha_1，\alpha_2\) 为换盖子前后的氯离子活度<br>离子活度计算公式如下所示，</p>
+<h4 id="alpha-i-c-i-times-gamma-i"><a href="#alpha-i-c-i-times-gamma-i" class="headerlink" title="\(\alpha_i = c_i \times \gamma_i\)"></a>\(\alpha_i = c_i \times \gamma_i\)</h4><p>计算中使用的活度因子为:<br>10mM KCl: \(\gamma_{CI} \approx 0.9\)  </p>
+<p>300mM NaCl: \(\gamma_{CI} \approx 0.7^{[255]}\)</p>
 
           
         
@@ -1075,7 +980,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1123,7 +1028,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1134,7 +1039,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1145,7 +1050,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1188,15 +1093,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
-  
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">2.8k</span>
   
 </div>
 
@@ -1351,6 +1247,19 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
 
 
 
