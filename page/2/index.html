@@ -324,13 +324,8 @@
         
           
             <p>重新理解LSTM结构</p>
-<div id="flowchart-0" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">
-st=>start: X_t + h_t-1
-op1=>operation: sigmoid
-e=>end: h_t
+<p>把lstm里面的四个激活单元，当作是全连接网络。</p>
 
-st(right)->op1->e
-st->op1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
           
         
       

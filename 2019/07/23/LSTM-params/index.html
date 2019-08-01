@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="重新理解LSTM结构  st=&amp;gt;start: X_t + h_t-1 op1=&amp;gt;operation: sigmoid e=&amp;gt;end: h_t  st(right)-&amp;gt;op1-&amp;gt;e st-&amp;gt;op1-&amp;gt;e{&quot;scale&quot;:1,&quot;line-width&quot;:2,&quot;line-length&quot;:50,&quot;text-margin&quot;:10,&quot;font-size&quot;:12}  var code = document.get">
+<meta name="description" content="重新理解LSTM结构 把lstm里面的四个激活单元，当作是全连接网络。">
 <meta name="keywords" content="LSTM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LSTM params">
 <meta property="og:url" content="http://yoursite.com/2019/07/23/LSTM-params/index.html">
 <meta property="og:site_name" content="姚杰鹏的博客">
-<meta property="og:description" content="重新理解LSTM结构  st=&amp;gt;start: X_t + h_t-1 op1=&amp;gt;operation: sigmoid e=&amp;gt;end: h_t  st(right)-&amp;gt;op1-&amp;gt;e st-&amp;gt;op1-&amp;gt;e{&quot;scale&quot;:1,&quot;line-width&quot;:2,&quot;line-length&quot;:50,&quot;text-margin&quot;:10,&quot;font-size&quot;:12}  var code = document.get">
+<meta property="og:description" content="重新理解LSTM结构 把lstm里面的四个激活单元，当作是全连接网络。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-25T06:29:38.044Z">
+<meta property="og:updated_time" content="2019-08-01T08:10:16.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM params">
-<meta name="twitter:description" content="重新理解LSTM结构  st=&amp;gt;start: X_t + h_t-1 op1=&amp;gt;operation: sigmoid e=&amp;gt;end: h_t  st(right)-&amp;gt;op1-&amp;gt;e st-&amp;gt;op1-&amp;gt;e{&quot;scale&quot;:1,&quot;line-width&quot;:2,&quot;line-length&quot;:50,&quot;text-margin&quot;:10,&quot;font-size&quot;:12}  var code = document.get">
+<meta name="twitter:description" content="重新理解LSTM结构 把lstm里面的四个激活单元，当作是全连接网络。">
 
 
 
@@ -331,13 +331,8 @@
 
       
         <p>重新理解LSTM结构</p>
-<div id="flowchart-0" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">
-st=>start: X_t + h_t-1
-op1=>operation: sigmoid
-e=>end: h_t
+<p>把lstm里面的四个激活单元，当作是全连接网络。</p>
 
-st(right)->op1->e
-st->op1->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script>
       
     </div>
     
