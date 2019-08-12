@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mc,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。 #我感觉链表推导式就是让代码看上去更清爽。。。 a,b for c, d in  1234567891011121314[In]a = [(1,2),(3,4),(5,6)]print(type(a))print(len(a))[out]&amp;lt;class &apos;list&apos;&amp;gt;3[In]def a(a):    return(p">
+<meta name="keywords" content="mc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python链表推导式">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/python链表推导式/index.html">
+<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:description" content="链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。 #我感觉链表推导式就是让代码看上去更清爽。。。 a,b for c, d in  1234567891011121314[In]a = [(1,2),(3,4),(5,6)]print(type(a))print(len(a))[out]&amp;lt;class &apos;list&apos;&amp;gt;3[In]def a(a):    return(p">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-12T13:21:01.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python链表推导式">
+<meta name="twitter:description" content="链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。 #我感觉链表推导式就是让代码看上去更清爽。。。 a,b for c, d in  1234567891011121314[In]a = [(1,2),(3,4),(5,6)]print(type(a))print(len(a))[out]&amp;lt;class &apos;list&apos;&amp;gt;3[In]def a(a):    return(p">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/12/python链表推导式/">
+
+
+
+
+
+  <title>python链表推导式 | 姚杰鹏的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">姚杰鹏的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/python链表推导式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python链表推导式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T21:16:07+08:00">
+                2019-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/12/python链表推导式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/12/python链表推导式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。</p>
+<p>#我感觉链表推导式就是让代码看上去更清爽。。。</p>
+<p>a,b for c, d in </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[In]</span><br><span class="line">a = [(1,2),(3,4),(5,6)]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(len(a))</span><br><span class="line">[out]</span><br><span class="line">&lt;class <span class="string">'list'</span>&gt;</span><br><span class="line">3</span><br><span class="line">[In]</span><br><span class="line">def a(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line">def b(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line"></span><br><span class="line">a(c),b(d) <span class="keyword">for</span> c,d <span class="keyword">in</span> a</span><br></pre></td></tr></table></figure>
+
+<h3 id="Python-中形如-xx-for-xx-in-yy-的链表推导式"><a href="#Python-中形如-xx-for-xx-in-yy-的链表推导式" class="headerlink" title="Python 中形如 xx for xx in yy 的链表推导式"></a>Python 中形如 xx for xx in yy 的链表推导式</h3><h1 id="以-a-0-1-2-3-4-5-为例"><a href="#以-a-0-1-2-3-4-5-为例" class="headerlink" title="以 a = [0,1,2,3,4,5] 为例"></a>以 a = [0,1,2,3,4,5] 为例</h1><h2 id="1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"><a href="#1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候" class="headerlink" title="1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"></a>1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候</h2><p> 比如：求 a 内每个元素的平方，我们直接写</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b = [ x**2 for x in a]<br>b
+[0, 1, 4, 9, 16, 25]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"><a href="#2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件" class="headerlink" title="2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"></a>2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件</h2><p> 比如：取出 a 内 &gt; 0 的元素</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c = [ x for x in a if x &gt; 0 ]<br>c
+[1, 2, 3, 4, 5]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"><a href="#3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求" class="headerlink" title="3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"></a>3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求</h2><p> 比如：我们要知道 a 内偶数元素的位置</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a_even_id = [ i for i,x in enumerate(a) if x%2 == 0 ]<br>a_even_id<br>[0, 2, 4]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"><a href="#4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时" class="headerlink" title="4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"></a>4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时</h2><p>A0 = [ 0,’ ‘,1,2,4,5,’ ‘,’3’,2]<br> A是由整数（int)和空格’ ‘, 以及字符串’3’组成的<br> 我们要将空格替换为 0 ，将’3’ 替换为 整形 3<br> (1).判断是否是整形： type(x) == int<br> (2).不是整形，则判断是否是空格：x == ‘ ‘，是则替换为 0，<br> (3).判断是否是数字构成的字符串：x.isdigit(),(isdigit()是字符串方法），是则转化为整形数<br> (4). 如果是其他，则均替换为 0 ,(这一步必须有，以为要穷尽多有可能，否则会因为条件没有覆盖到而导致无法执行）</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>A = [ x if type(x)==int else 0 if x == ‘ ‘ else int(x) if x.isdigit() else 0 for x in A0 ]<br>A
+[0, 0, 1, 2, 4, 5, 0, 3, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："><a href="#5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：" class="headerlink" title="5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："></a>5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>A_int = [x for x in A0 if type(x)==int ]<br>A_int<br>[0, 1, 2, 4, 5, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mc/" rel="tag"># mc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/11/Generate-x-y-data-v1-函数理解/" rel="next" title="Generate_x_y_data_v1()函数理解">
+                <i class="fa fa-chevron-left"></i> Generate_x_y_data_v1()函数理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+            
+              <p class="site-author-name" itemprop="name">Square Face</p>
+              <p class="site-description motion-element" itemprop="description">坚持是一种品格</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-中形如-xx-for-xx-in-yy-的链表推导式"><span class="nav-number">1.</span> <span class="nav-text">Python 中形如 xx for xx in yy 的链表推导式</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#以-a-0-1-2-3-4-5-为例"><span class="nav-number"></span> <span class="nav-text">以 a = [0,1,2,3,4,5] 为例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"><span class="nav-number"></span> <span class="nav-text">1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"><span class="nav-number"></span> <span class="nav-text">2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"><span class="nav-number"></span> <span class="nav-text">3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"><span class="nav-number"></span> <span class="nav-text">4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："><span class="nav-number">1.</span> <span class="nav-text">5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Square Face</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'squarefaceyao',
+            repo: 'SquarefaceyaoBlogComment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67d773eb8c34c8c51cfae4e93d8eb006b5e4b58d',
+            
+                client_id: 'Iv1.34be5dac3293773f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

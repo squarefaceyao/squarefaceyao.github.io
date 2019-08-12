@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/tensorflow-docker/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/python链表推导式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/01/tensorflow-docker/" itemprop="url">tensorflow_docker</a></h1>
+                <a class="post-title-link" href="/2019/08/12/python链表推导式/" itemprop="url">python链表推导式</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T15:57:35+08:00">
-                2019-08-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T21:16:07+08:00">
+                2019-08-12
               </time>
             
 
@@ -323,13 +323,53 @@
       
         
           
-            <p>因为需要要安装tensorflow1.13，但是anaconda的虚拟环境不好用。所以使用Docker</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+            <p>链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。</p>
+<p>#我感觉链表推导式就是让代码看上去更清爽。。。</p>
+<p>a,b for c, d in </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[In]</span><br><span class="line">a = [(1,2),(3,4),(5,6)]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(len(a))</span><br><span class="line">[out]</span><br><span class="line">&lt;class <span class="string">'list'</span>&gt;</span><br><span class="line">3</span><br><span class="line">[In]</span><br><span class="line">def a(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line">def b(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line"></span><br><span class="line">a(c),b(d) <span class="keyword">for</span> c,d <span class="keyword">in</span> a</span><br></pre></td></tr></table></figure>
 
-<p>Docker Pull Command</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -rm -v $(realpath ~/notebooks):/tf/notebooks -p 8888:8888 tensorflow/tensrflow:latest-py3-jupyter</span><br></pre></td></tr></table></figure>
-
-<p>Run a jupyter notebook server with your own notebook directory (assumed here to be ~/notebooks).<br>To use it, navigate to localhost:8888 in you browers</p>
+<h3 id="Python-中形如-xx-for-xx-in-yy-的链表推导式"><a href="#Python-中形如-xx-for-xx-in-yy-的链表推导式" class="headerlink" title="Python 中形如 xx for xx in yy 的链表推导式"></a>Python 中形如 xx for xx in yy 的链表推导式</h3><h1 id="以-a-0-1-2-3-4-5-为例"><a href="#以-a-0-1-2-3-4-5-为例" class="headerlink" title="以 a = [0,1,2,3,4,5] 为例"></a>以 a = [0,1,2,3,4,5] 为例</h1><h2 id="1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"><a href="#1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候" class="headerlink" title="1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"></a>1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候</h2><p> 比如：求 a 内每个元素的平方，我们直接写</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b = [ x**2 for x in a]<br>b
+[0, 1, 4, 9, 16, 25]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"><a href="#2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件" class="headerlink" title="2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"></a>2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件</h2><p> 比如：取出 a 内 &gt; 0 的元素</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c = [ x for x in a if x &gt; 0 ]<br>c
+[1, 2, 3, 4, 5]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"><a href="#3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求" class="headerlink" title="3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"></a>3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求</h2><p> 比如：我们要知道 a 内偶数元素的位置</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a_even_id = [ i for i,x in enumerate(a) if x%2 == 0 ]<br>a_even_id<br>[0, 2, 4]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"><a href="#4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时" class="headerlink" title="4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"></a>4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时</h2><p>A0 = [ 0,’ ‘,1,2,4,5,’ ‘,’3’,2]<br> A是由整数（int)和空格’ ‘, 以及字符串’3’组成的<br> 我们要将空格替换为 0 ，将’3’ 替换为 整形 3<br> (1).判断是否是整形： type(x) == int<br> (2).不是整形，则判断是否是空格：x == ‘ ‘，是则替换为 0，<br> (3).判断是否是数字构成的字符串：x.isdigit(),(isdigit()是字符串方法），是则转化为整形数<br> (4). 如果是其他，则均替换为 0 ,(这一步必须有，以为要穷尽多有可能，否则会因为条件没有覆盖到而导致无法执行）</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>A = [ x if type(x)==int else 0 if x == ‘ ‘ else int(x) if x.isdigit() else 0 for x in A0 ]<br>A
+[0, 0, 1, 2, 4, 5, 0, 3, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："><a href="#5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：" class="headerlink" title="5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："></a>5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>A_int = [x for x in A0 if type(x)==int ]<br>A_int<br>[0, 1, 2, 4, 5, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
           
         
@@ -378,7 +418,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/seq-2-seq/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Generate-x-y-data-v1-函数理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -397,7 +437,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/29/seq-2-seq/" itemprop="url">seq_2_seq</a></h1>
+                <a class="post-title-link" href="/2019/08/11/Generate-x-y-data-v1-函数理解/" itemprop="url">Generate_x_y_data_v1()函数理解</a></h1>
         
 
         <div class="post-meta">
@@ -409,8 +449,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T22:20:52+08:00">
-                2019-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T21:14:04+08:00">
+                2019-08-11
               </time>
             
 
@@ -449,14 +489,24 @@
       
         
           
-            <p>学习seq to seq 的模型，先学会使用模型，把电信号数据修改成相匹配的格式，喂进模型去。</p>
-<p>这是一个汉译英的demo。原始数据：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> inputs    targets</span><br><span class="line">0     Hi.     \t嗨。\n</span><br><span class="line">1     Hi.    \t你好。\n</span><br><span class="line">2    Run.  \t你用跑的。\n</span><br><span class="line">3   Wait!    \t等等！\n</span><br><span class="line">4  Hello!    \t你好。\n</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">def generate_x_y_data_v1(isTrain, batch_size):</span><br><span class="line"><span class="comment">#     """</span></span><br><span class="line"><span class="comment"># 练习数据1。</span></span><br><span class="line"><span class="comment">#      返回：元组（X，Y）</span></span><br><span class="line"><span class="comment">#          X是从0.0 * pi到1.5 * pi的正弦和余弦</span></span><br><span class="line"><span class="comment">#          Y是从1.5 * pi到3.0 * pi的正弦和余弦</span></span><br><span class="line"><span class="comment">#      因此，Y跟随X.还有一个通常应用于X和Y的随机偏移。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#      返回的数组具有以下形状：（seq_length，batch_size，output_dim）</span></span><br><span class="line"><span class="comment">#         因此：（10，batch_size，2）</span></span><br><span class="line"><span class="comment">#      对于本练习，让我们忽略“isTrain”</span></span><br><span class="line"><span class="comment">#      论证和测试相同的数据。</span></span><br><span class="line"><span class="comment">#     """</span></span><br><span class="line">seq_length = 3</span><br><span class="line">batch_size = 3</span><br><span class="line"></span><br><span class="line">batch_x = []</span><br><span class="line">batch_y = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(batch_size):</span><br><span class="line">    rand = random.random() * 2 * math.pi</span><br><span class="line"></span><br><span class="line">    sig1 = np.sin(np.linspace(0.0 * math.pi + rand,</span><br><span class="line">                              3.0 * math.pi + rand, seq_length * 2))</span><br><span class="line">    <span class="built_in">print</span>(_)</span><br><span class="line">    <span class="built_in">print</span>(sig1)</span><br><span class="line">    sig2 = np.cos(np.linspace(0.0 * math.pi + rand,</span><br><span class="line">                              3.0 * math.pi + rand, seq_length * 2))</span><br><span class="line">    x1 = sig1[:seq_length]</span><br><span class="line">    y1 = sig1[seq_length:]</span><br><span class="line">    x2 = sig2[:seq_length]</span><br><span class="line">    y2 = sig2[seq_length:]</span><br><span class="line"></span><br><span class="line">    x_ = np.array([x1, x2])</span><br><span class="line">    y_ = np.array([y1, y2])</span><br><span class="line">    x_, y_ = x_.T, y_.T</span><br><span class="line"></span><br><span class="line">    batch_x.append(x_)</span><br><span class="line">    batch_y.append(y_)</span><br><span class="line"></span><br><span class="line">batch_x = np.array(batch_x)</span><br><span class="line">batch_y = np.array(batch_y)</span><br><span class="line"><span class="comment"># shape: (batch_size, seq_length, output_dim)</span></span><br><span class="line"></span><br><span class="line">batch_x = np.array(batch_x).transpose((1, 0, 2))</span><br><span class="line">batch_y = np.array(batch_y).transpose((1, 0, 2))</span><br><span class="line"><span class="comment"># shape: (seq_length, batch_size, output_dim)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> batch_x, batch_y</span><br></pre></td></tr></table></figure>
 
-<h2 id="demo-定义的变量所代表的含义。"><a href="#demo-定义的变量所代表的含义。" class="headerlink" title="demo 定义的变量所代表的含义。"></a>demo 定义的变量所代表的含义。</h2><p>input_text len: 1000 type: list  print(input_texts[1:5])<br>            [‘Hi.’, ‘Run.’, ‘Wait!’, ‘Hello!’]</p>
-<p>output_text len: 1000 type: list print(target_texts[1:5])<br>        [‘\t你好。\n’, ‘\t你用跑的。\n’, ‘\t等等！\n’, ‘\t你好。\n’]</p>
-<p>NUM_SAMPLES = 1000 样本的数量</p>
-<p>input_characters 英文的总字符, list类型<br>target_characters 汉语的总字符, list类型<br>INUPT_LENGTH 30，最长的英语句子，1000个样本中，int类型<br>OUTPUT_LENGTH 22，最长的中文句子，1000个样本中，int类型<br>INPUT_FEATURE_LENGTH  73，英文的总字符数，int类型<br>OUTPUT_FEATURE_LENGTH 2623， 中文的总字符数，int类型</p>
+<p>sig1 是ndarray类型，长度为seq_length*2 , 主要np.linspace()函数。</p>
+<p>numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</p>
+<p>sig2 和sig1 一样的思路<br>x1 y1 是对sig1的截取，分别取前半段和后半段<br>x2 y2 是对sig2的截取，分别取前半段和后半段</p>
+<p>batch_x 就是x1 x2 形成的矩阵。<br>batch_y 就是y1 y2 形成的矩阵。</p>
+<p>batch_x.shape = (seq_length, batch_size,2)</p>
+<p>有seq_length个样本，每个样本的维度 (batch_size,2)</p>
+<h3 id="span-english"><a href="#span-english" class="headerlink" title="span-english"></a>span-english</h3><ol>
+<li>preprocessing data</li>
+<li>build model</li>
+<li>1 encoder</li>
+<li>2 Attention</li>
+<li>3 decoder</li>
+<li>evaluation</li>
+<li>1 given sentence, return translated results</li>
+<li>2 visualize results(attention)</li>
+</ol>
 
           
         
@@ -505,7 +555,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/电池连线/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/0810调试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -524,7 +574,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/28/电池连线/" itemprop="url">电池连线</a></h1>
+                <a class="post-title-link" href="/2019/08/10/0810调试/" itemprop="url">0810调试</a></h1>
         
 
         <div class="post-meta">
@@ -536,8 +586,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:27:49+08:00">
-                2019-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T22:05:49+08:00">
+                2019-08-10
               </time>
             
 
@@ -575,11 +625,141 @@
 
       
         
-          
-            <p>买了两块8.4V 电池。<br>用杜邦线串联起来。<br>电池还需要边冲边用。</p>
-<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>用杜邦线的时候用完表测一下线通不通。</p>
+          <h2 id="在进行一次标定。"><a href="#在进行一次标定。" class="headerlink" title="在进行一次标定。"></a>在进行一次标定。</h2><p>C8051 允许编程修改寄存器的值。<br>把8个通道都进行标定。。。然后观察返回值。。。</p>
+<p>标定前<br>43 14 1 0 0 0 0 15 44<br>    41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
+<p>43 14 8 2 2 1 1 1c 44<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 05 26 05 26 05 26 05 26 05 26 05 26 14 42<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/10/0810调试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/0809调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/0809调试/" itemprop="url">0809调试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T20:02:58+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="0809-调试记录"><a href="#0809-调试记录" class="headerlink" title="0809 调试记录"></a>0809 调试记录</h3><p>现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。</p>
+<h4 id="分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作"><a href="#分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作" class="headerlink" title="分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作"></a>分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作</h4><h5 id="当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All"><a href="#当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All" class="headerlink" title="当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();"></a>当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();</h5>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/09/0809调试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -626,7 +806,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/采集周期出现问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/调试记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -645,7 +825,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/27/采集周期出现问题/" itemprop="url">采集周期出现问题</a></h1>
+                <a class="post-title-link" href="/2019/08/08/调试记录/" itemprop="url">调试记录</a></h1>
         
 
         <div class="post-meta">
@@ -657,8 +837,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T22:28:30+08:00">
-                2019-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T22:51:41+08:00">
+                2019-08-08
               </time>
             
 
@@ -697,131 +877,38 @@
       
         
           
-            <p>在仪器上设置的采集周期无论是多少ms，最后保存的csv文件一分钟都是300个点。<br>检查了一下下位机的代码，发现可能是因为保存数据的数组在case语句里面，每次发送数据的时候没有全部更新。</p>
-<p>采集植物电需要的频率：5HZ 或 10HZ</p>
-<p>需要调试下位机。</p>
-<h3 id="MCGS-存储量有限"><a href="#MCGS-存储量有限" class="headerlink" title="MCGS 存储量有限"></a>MCGS 存储量有限</h3><p>在交接文档里明确说明只能存储30000行数据，因此无法满足4个小时的数据采集。<br>所以需要写PC端的上位机</p>
+            <h3 id="0808-调试记录"><a href="#0808-调试记录" class="headerlink" title="0808 调试记录"></a>0808 调试记录</h3><p>Rece_Buf0</p>
+<p>标定点位第1点，Rece_Buf0[9] =0x43,0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] =0x43,0x02,0x00,0x00,0x00,0x00,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] =0x43,0x03,0x00,0x00,0x00,0x00,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] =0x43,0x04,0x00,0x00,0x00,0x00,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] =0x43,0x05,0x00,0x00,0x00,0x00,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] =0x43,0x06,0x00,0x00,0x00,0x00,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] =0x43,0x07,0x00,0x00,0x00,0x00,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] =0x43,0x08,0x00,0x00,0x00,0x00,0x00,0x08,0x44   </p>
+<p>标定第0通道 输入数据  </p>
+<p>[In] 标定点位第1点，Rece_Buf0[9] =43,01,00,00,00,00,00,01,44</p>
+<p>[out] 41 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 42</p>
+<p>[In] 标定点位第2点，Rece_Buf0[9] =43,02,00,00,00,00,00,02,44</p>
+<p>41 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 42</p>
+<p>[In] 标定点位第3点，Rece_Buf0[9] =43,03,00,00,00,00,00,03,44</p>
+<p>41 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 42</p>
+<p>[In] 标定点位第4点，Rece_Buf0[9] =43,04,00,00,00,00,00,04,44  </p>
+<p>41 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 42</p>
+<p>[In] 标定点位第5点，Rece_Buf0[9] =43,05,00,00,00,00,00,05,44 </p>
+<p>41 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 05 42</p>
+<p>[In] 标定点位第6点，Rece_Buf0[9] =43,06,00,00,00,00,00,06,44 </p>
+<p>41 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 42</p>
+<p>[In] 标定点位第7点，Rece_Buf0[9] =43,07,00,00,00,00,00,07,44 </p>
+<p>41 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 42</p>
+<p>[In] 计算电位的K b，Rece_Buf0[9] =43,08,00,00,00,00,00,08,44</p>
+<p>41 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 42</p>
+<p>标定完成采集第0个通道的信息<br>放大器短接 真是电压0<br>[In] 43,14,1,0,0,0,0,15,44<br>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42</p>
+<p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
+<h4 id="标定第1通道"><a href="#标定第1通道" class="headerlink" title="标定第1通道"></a>标定第1通道</h4><p>标定点位第1点，Rece_Buf0[9] = 0x43,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] = 0x43,0x02,0x00,0x00,0x00,0x01,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] = 0x43,0x03,0x00,0x00,0x00,0x01,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] = 0x43,0x04,0x00,0x00,0x00,0x01,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] = 0x43,0x05,0x00,0x00,0x00,0x01,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] = 0x43,0x06,0x00,0x00,0x00,0x01,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] = 0x43,0x07,0x00,0x00,0x00,0x01,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] = 0x43,0x08,0x00,0x00,0x00,0x01,0x00,0x08,0x44 </p>
+<p>标定点位第1点，Rece_Buf0[9] = 43,01,00,00,00,01,00,01,44<br>标定点位第2点，Rece_Buf0[9] = 43,02,00,00,00,01,00,02,44<br>标定点位第3点，Rece_Buf0[9] = 43,03,00,00,00,01,00,03,44<br>标定点位第4点，Rece_Buf0[9] = 43,04,00,00,00,01,00,04,44<br>标定点位第5点，Rece_Buf0[9] = 43,05,00,00,00,01,00,05,44<br>标定点位第6点，Rece_Buf0[9] = 43,06,00,00,00,01,00,06,44<br>标定点位第7点，Rece_Buf0[9] = 43,07,00,00,00,01,00,07,44<br>计算电位的K b，Rece_Buf0[9] = 43,08,00,00,00,01,00,08,44</p>
+<h4 id="第0通道标定前-修改后的。"><a href="#第0通道标定前-修改后的。" class="headerlink" title="第0通道标定前 修改后的。"></a>第0通道标定前 修改后的。</h4><p>采集信号: 43,14,1,0,0,0,0,15,44<br>41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
+<h4 id="第0通道标定后-修改后的"><a href="#第0通道标定后-修改后的" class="headerlink" title="第0通道标定后 修改后的"></a>第0通道标定后 修改后的</h4><p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void counter_ad_R(uint8 nn)		  //nn 为通道 （0~7）</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i;</span><br><span class="line">	<span class="built_in">float</span> xdata x;</span><br><span class="line">	<span class="built_in">float</span> xdata y;</span><br><span class="line">    <span class="built_in">float</span> xdata EX;  //x的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EY;  //y的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EXY; //xi*yi 乘积和</span><br><span class="line">    <span class="built_in">float</span> xdata EXX; //xi平方和</span><br><span class="line"></span><br><span class="line">	EX=0;</span><br><span class="line">	EY=0;</span><br><span class="line">	EXY=0;</span><br><span class="line">	EXX=0;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;7;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    x=ad_buf[i];</span><br><span class="line">		EX+=x;</span><br><span class="line">		y=para_temp[i];</span><br><span class="line">		EY+=y;</span><br><span class="line">		EXX+=(x*x);</span><br><span class="line">		EXY+=(x*y);</span><br><span class="line">	&#125;</span><br><span class="line">	EX/=7;</span><br><span class="line">	EY/=7;</span><br><span class="line">	kk[nn]=(EXY-EX*EY*7)/(EXX-EX*EX*7);</span><br><span class="line">	bb[nn]=EY-kk[nn]*EX; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/multi-channel-system-Debug/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/25/multi-channel-system-Debug/" itemprop="url">multi-channel system Debug</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T15:56:16+08:00">
-                2019-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1 min —&gt; 60 s<br>2s –&gt; 1一个点<br>1min —&gt; 30个点<br>20min —&gt; 600</p>
-<p>现在采集到的数据一个周期5880个点<br>设置的是2000ms采集一个点。</p>
+<p>下行命令:<br>    43,14,08,02,02,01,01,1c,44</p>
+<p>上行数据：<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 01 C5 01 C5 01 C5 01 C5 01 C5 01 C5 14 42<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 03 7F 03 7F 03 7F 03 7F 03 7F 03 7F 14 42</p>
+<p>上行数据很乱是因为没有标定。</p>
+<h2 id="docer-容器上传数据"><a href="#docer-容器上传数据" class="headerlink" title="docer 容器上传数据"></a>docer 容器上传数据</h2><p>登录容器<br> docker exec -it 2c3bd1d2b1a0 /bin/sh</p>
+<p>上传文件夹<br>docker cp /root/LSTM-Human-Activity-Recognition-master/ 2c3bd1d2b1a0:/tf</p>
 
           
         
@@ -861,7 +948,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -909,7 +996,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -931,7 +1018,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

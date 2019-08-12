@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C8051F020,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0809 调试记录现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。 分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();">
+<meta name="keywords" content="C8051F020">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0809调试">
+<meta property="og:url" content="http://yoursite.com/2019/08/09/0809调试/index.html">
+<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:description" content="0809 调试记录现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。 分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-12T13:13:08.691Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="0809调试">
+<meta name="twitter:description" content="0809 调试记录现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。 分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/09/0809调试/">
+
+
+
+
+
+  <title>0809调试 | 姚杰鹏的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">姚杰鹏的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/0809调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">0809调试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T20:02:58+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/09/0809调试/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/09/0809调试/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="0809-调试记录"><a href="#0809-调试记录" class="headerlink" title="0809 调试记录"></a>0809 调试记录</h3><p>现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。</p>
+<h4 id="分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作"><a href="#分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作" class="headerlink" title="分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作"></a>分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作</h4><h5 id="当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All"><a href="#当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All" class="headerlink" title="当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();"></a>当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();</h5> <a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> 0:         //召唤采集多通道数据，下位机回答        </span><br><span class="line">    Read_All();</span><br><span class="line">    Set_All();</span><br><span class="line">    <span class="keyword">for</span>(i=2; i&lt;30; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Send_Buf0[i]=0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="built_in">break</span>;</span><br><span class="line">//-------------从MCU中读取出标定的k、b值------------------------</span><br><span class="line">void Read_All(void)        </span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j; //value:0-255</span><br><span class="line">    uint8 code *FLASH_READ;   //code定义的数据在flash中</span><br><span class="line">    FLASH_READ=0x0000;</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;112;i++)   // Para[112]</span><br><span class="line">    &#123;</span><br><span class="line">        PSCTL=0x04;           //选择数据FLASH扇区 禁止FLASH 写/擦除</span><br><span class="line">        j=FLASH_READ[i];      //读取数据flash 0x0000区</span><br><span class="line">        PSCTL=0x00;           //选择程序Flash 禁止写/擦除</span><br><span class="line">        Para[i]=j;            //读程序flash</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//-----------------------------------</span><br><span class="line">void Set_All(void)</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i;</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;14;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cons.data_B.byte1=Para[i*8];</span><br><span class="line">        cons.data_B.byte2=Para[i*8+1];</span><br><span class="line">        cons.data_B.byte3=Para[i*8+2];</span><br><span class="line">        cons.data_B.byte4=Para[i*8+3];</span><br><span class="line">        kk[i]=cons.data_F;</span><br><span class="line">        cons.data_B.byte1=Para[i*8+4];</span><br><span class="line">        cons.data_B.byte2=Para[i*8+5];</span><br><span class="line">        cons.data_B.byte3=Para[i*8+6];</span><br><span class="line">        cons.data_B.byte4=Para[i*8+7];</span><br><span class="line">        bb[i]=cons.data_F;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="当-Rece-Buf0-1-0x01-执行下列语句，-在命令表-里面的意思是-标定电位第1点"><a href="#当-Rece-Buf0-1-0x01-执行下列语句，-在命令表-里面的意思是-标定电位第1点" class="headerlink" title="当  Rece_Buf0[1] == 0x01 执行下列语句，  在命令表 里面的意思是 标定电位第1点"></a>当  Rece_Buf0[1] == 0x01 执行下列语句，  在命令表 里面的意思是 标定电位第1点</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">unsigned char bdata CHSWITCH=0x00;</span><br><span class="line">sbit CHA=CHSWITCH^5;</span><br><span class="line">sbit CHB=CHSWITCH^4;</span><br><span class="line">sbit CHC=CHSWITCH^3;</span><br><span class="line">sbit CHD=CHSWITCH^2;</span><br><span class="line">sbit CHX=CHSWITCH^1;</span><br><span class="line">sbit CHZ=CHSWITCH^0;</span><br><span class="line"></span><br><span class="line"><span class="built_in">float</span> xdata para_temp[16];  //临时参数</span><br><span class="line">uint16 xdata ad_buf[16];  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> 1://标定第一点	</span><br><span class="line">    CHSWITCH =CHSWITCH&amp;0xc3;					  </span><br><span class="line">    channel = Rece_Buf0[5]; //Rece_Buf[5] 电位通道选择0~7							</span><br><span class="line">    ad_val(channel);  //返回i一个值 result_temp  取16次数据,排序之后去掉最大的6个数据和最小的6个数据取中间4个数据然后取平均，获得一个无符号整形数据									</span><br><span class="line">    para_temp[0]=Rece_Buf0[3];</span><br><span class="line">    para_temp[0]*=256;</span><br><span class="line">    para_temp[0]+=Rece_Buf0[4];</span><br><span class="line">    para_temp[0]/=10;</span><br><span class="line">    <span class="keyword">if</span>(Rece_Buf0[2]==1)</span><br><span class="line">    &#123;</span><br><span class="line">        para_temp[0]*=-1;</span><br><span class="line">    &#125;</span><br><span class="line">    ad_buf[0]=result_temp;								</span><br><span class="line"><span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+
+<p>case语句 判断的就是Rece_Buf0[1]的值，就是命令表里的操作。<br>执行完对应的case语句，会给para_temp列表赋值<br>uint16 xdata ad_buf[16];<br>每次执行完case语句，会往 ad_buf[16]添加一个数，和往para_temp[16]添加的操作是一样的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C8051F020/" rel="tag"># C8051F020</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/08/调试记录/" rel="next" title="调试记录">
+                <i class="fa fa-chevron-left"></i> 调试记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/0810调试/" rel="prev" title="0810调试">
+                0810调试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+            
+              <p class="site-author-name" itemprop="name">Square Face</p>
+              <p class="site-description motion-element" itemprop="description">坚持是一种品格</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0809-调试记录"><span class="nav-number">1.</span> <span class="nav-text">0809 调试记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作"><span class="nav-number">1.1.</span> <span class="nav-text">分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All"><span class="nav-number">1.1.1.</span> <span class="nav-text">当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-Rece-Buf0-1-0x01-执行下列语句，-在命令表-里面的意思是-标定电位第1点"><span class="nav-number">1.1.2.</span> <span class="nav-text">当  Rece_Buf0[1] == 0x01 执行下列语句，  在命令表 里面的意思是 标定电位第1点</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Square Face</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'squarefaceyao',
+            repo: 'SquarefaceyaoBlogComment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67d773eb8c34c8c51cfae4e93d8eb006b5e4b58d',
+            
+                client_id: 'Iv1.34be5dac3293773f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
