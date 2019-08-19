@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/电池连线/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/调试记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/28/电池连线/" itemprop="url">电池连线</a></h1>
+                <a class="post-title-link" href="/2019/08/08/调试记录/" itemprop="url">调试记录</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:27:49+08:00">
-                2019-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T22:51:41+08:00">
+                2019-08-08
               </time>
             
 
@@ -323,8 +323,38 @@
       
         
           
-            <p>买了两块8.4V 电池。<br>用杜邦线串联起来。<br>电池还需要边冲边用。</p>
-<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>用杜邦线的时候用完表测一下线通不通。</p>
+            <h3 id="0808-调试记录"><a href="#0808-调试记录" class="headerlink" title="0808 调试记录"></a>0808 调试记录</h3><p>Rece_Buf0</p>
+<p>标定点位第1点，Rece_Buf0[9] =0x43,0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] =0x43,0x02,0x00,0x00,0x00,0x00,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] =0x43,0x03,0x00,0x00,0x00,0x00,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] =0x43,0x04,0x00,0x00,0x00,0x00,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] =0x43,0x05,0x00,0x00,0x00,0x00,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] =0x43,0x06,0x00,0x00,0x00,0x00,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] =0x43,0x07,0x00,0x00,0x00,0x00,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] =0x43,0x08,0x00,0x00,0x00,0x00,0x00,0x08,0x44   </p>
+<p>标定第0通道 输入数据  </p>
+<p>[In] 标定点位第1点，Rece_Buf0[9] =43,01,00,00,00,00,00,01,44</p>
+<p>[out] 41 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 42</p>
+<p>[In] 标定点位第2点，Rece_Buf0[9] =43,02,00,00,00,00,00,02,44</p>
+<p>41 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 42</p>
+<p>[In] 标定点位第3点，Rece_Buf0[9] =43,03,00,00,00,00,00,03,44</p>
+<p>41 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 42</p>
+<p>[In] 标定点位第4点，Rece_Buf0[9] =43,04,00,00,00,00,00,04,44  </p>
+<p>41 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 42</p>
+<p>[In] 标定点位第5点，Rece_Buf0[9] =43,05,00,00,00,00,00,05,44 </p>
+<p>41 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 05 42</p>
+<p>[In] 标定点位第6点，Rece_Buf0[9] =43,06,00,00,00,00,00,06,44 </p>
+<p>41 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 42</p>
+<p>[In] 标定点位第7点，Rece_Buf0[9] =43,07,00,00,00,00,00,07,44 </p>
+<p>41 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 42</p>
+<p>[In] 计算电位的K b，Rece_Buf0[9] =43,08,00,00,00,00,00,08,44</p>
+<p>41 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 42</p>
+<p>标定完成采集第0个通道的信息<br>放大器短接 真是电压0<br>[In] 43,14,1,0,0,0,0,15,44<br>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42</p>
+<p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
+<h4 id="标定第1通道"><a href="#标定第1通道" class="headerlink" title="标定第1通道"></a>标定第1通道</h4><p>标定点位第1点，Rece_Buf0[9] = 0x43,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] = 0x43,0x02,0x00,0x00,0x00,0x01,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] = 0x43,0x03,0x00,0x00,0x00,0x01,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] = 0x43,0x04,0x00,0x00,0x00,0x01,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] = 0x43,0x05,0x00,0x00,0x00,0x01,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] = 0x43,0x06,0x00,0x00,0x00,0x01,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] = 0x43,0x07,0x00,0x00,0x00,0x01,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] = 0x43,0x08,0x00,0x00,0x00,0x01,0x00,0x08,0x44 </p>
+<p>标定点位第1点，Rece_Buf0[9] = 43,01,00,00,00,01,00,01,44<br>标定点位第2点，Rece_Buf0[9] = 43,02,00,00,00,01,00,02,44<br>标定点位第3点，Rece_Buf0[9] = 43,03,00,00,00,01,00,03,44<br>标定点位第4点，Rece_Buf0[9] = 43,04,00,00,00,01,00,04,44<br>标定点位第5点，Rece_Buf0[9] = 43,05,00,00,00,01,00,05,44<br>标定点位第6点，Rece_Buf0[9] = 43,06,00,00,00,01,00,06,44<br>标定点位第7点，Rece_Buf0[9] = 43,07,00,00,00,01,00,07,44<br>计算电位的K b，Rece_Buf0[9] = 43,08,00,00,00,01,00,08,44</p>
+<h4 id="第0通道标定前-修改后的。"><a href="#第0通道标定前-修改后的。" class="headerlink" title="第0通道标定前 修改后的。"></a>第0通道标定前 修改后的。</h4><p>采集信号: 43,14,1,0,0,0,0,15,44<br>41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
+<h4 id="第0通道标定后-修改后的"><a href="#第0通道标定后-修改后的" class="headerlink" title="第0通道标定后 修改后的"></a>第0通道标定后 修改后的</h4><p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void counter_ad_R(uint8 nn)		  //nn 为通道 （0~7）</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i;</span><br><span class="line">	<span class="built_in">float</span> xdata x;</span><br><span class="line">	<span class="built_in">float</span> xdata y;</span><br><span class="line">    <span class="built_in">float</span> xdata EX;  //x的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EY;  //y的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EXY; //xi*yi 乘积和</span><br><span class="line">    <span class="built_in">float</span> xdata EXX; //xi平方和</span><br><span class="line"></span><br><span class="line">	EX=0;</span><br><span class="line">	EY=0;</span><br><span class="line">	EXY=0;</span><br><span class="line">	EXX=0;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;7;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    x=ad_buf[i];</span><br><span class="line">		EX+=x;</span><br><span class="line">		y=para_temp[i];</span><br><span class="line">		EY+=y;</span><br><span class="line">		EXX+=(x*x);</span><br><span class="line">		EXY+=(x*y);</span><br><span class="line">	&#125;</span><br><span class="line">	EX/=7;</span><br><span class="line">	EY/=7;</span><br><span class="line">	kk[nn]=(EXY-EX*EY*7)/(EXX-EX*EX*7);</span><br><span class="line">	bb[nn]=EY-kk[nn]*EX; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下行命令:<br>    43,14,08,02,02,01,01,1c,44</p>
+<p>上行数据：<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 01 C5 01 C5 01 C5 01 C5 01 C5 01 C5 14 42<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 03 7F 03 7F 03 7F 03 7F 03 7F 03 7F 14 42</p>
+<p>上行数据很乱是因为没有标定。</p>
+<h2 id="docer-容器上传数据"><a href="#docer-容器上传数据" class="headerlink" title="docer 容器上传数据"></a>docer 容器上传数据</h2><p>登录容器<br> docker exec -it 2c3bd1d2b1a0 /bin/sh</p>
+<p>上传文件夹<br>docker cp /root/LSTM-Human-Activity-Recognition-master/ 2c3bd1d2b1a0:/tf</p>
 
           
         
@@ -373,7 +403,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/采集周期出现问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/调试下位机2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -392,7 +422,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/27/采集周期出现问题/" itemprop="url">采集周期出现问题</a></h1>
+                <a class="post-title-link" href="/2019/08/06/调试下位机2/" itemprop="url">调试下位机2</a></h1>
         
 
         <div class="post-meta">
@@ -404,8 +434,262 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T22:28:30+08:00">
-                2019-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T22:51:32+08:00">
+                2019-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="5芯航空插头"><a href="#5芯航空插头" class="headerlink" title="5芯航空插头"></a>5芯航空插头</h3><p>5芯航空插头 只用了4个接头 2跟接正负16V的电源，2跟接输出信号。电源来自板子的电源插头。</p>
+<h4 id="0806-调试记录"><a href="#0806-调试记录" class="headerlink" title="0806 调试记录"></a>0806 调试记录</h4><pre><code>43,14,08,02,02,01,01,1c,44
+
+41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 01 C5 01 C5 01 C5 01 C5 01 C5 01 C5 14 42 
+41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 03 7F 03 7F 03 7F 03 7F 03 7F 03 7F 14 42</code></pre><p>那28个数据是1-8电位  2光子  2Rt  t  H<br>是按顺序排列的  但是每种数据采几个是由上位机决定的<br>每个数据时16位 两字节 高位在前低位在后 应该都是float型<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/06/调试下位机2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/调试下位机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/05/调试下位机/" itemprop="url">调试下位机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T22:42:57+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="接收缓冲数组"><a href="#接收缓冲数组" class="headerlink" title="接收缓冲数组"></a>接收缓冲数组</h3><p>uint8  idata Rece_Buf0[9];  //接收缓冲数组</p>
+<p>Rece_Buf0[9] = [0,1,2,3,4,5,6,7,8]</p>
+<h4 id="Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43"><a href="#Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43" class="headerlink" title="Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43"></a>Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43</h4><h4 id="Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句："><a href="#Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句：" class="headerlink" title="Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句："></a>Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句：</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  switch(Rece_Buf0[1])    </span><br><span class="line">  <span class="keyword">case</span> 0x14:</span><br><span class="line">Work_Flag=1;  //采集标志位</span><br></pre></td></tr></table></figure></code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/05/调试下位机/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/文献阅读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/03/文献阅读/" itemprop="url">文献阅读</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T19:39:40+08:00">
+                2019-08-03
               </time>
             
 
@@ -444,10 +728,10 @@
       
         
           
-            <p>在仪器上设置的采集周期无论是多少ms，最后保存的csv文件一分钟都是300个点。<br>检查了一下下位机的代码，发现可能是因为保存数据的数组在case语句里面，每次发送数据的时候没有全部更新。</p>
-<p>采集植物电需要的频率：5HZ 或 10HZ</p>
-<p>需要调试下位机。</p>
-<h3 id="MCGS-存储量有限"><a href="#MCGS-存储量有限" class="headerlink" title="MCGS 存储量有限"></a>MCGS 存储量有限</h3><p>在交接文档里明确说明只能存储30000行数据，因此无法满足4个小时的数据采集。<br>所以需要写PC端的上位机</p>
+            <h2 id="表示学习"><a href="#表示学习" class="headerlink" title="表示学习"></a>表示学习</h2><p>对于很多任务，我们很难知道应该提取哪些特征，例如，假如我们想编写一个程序来检测照片中的车，但是我们很难根据像素值来给车轮定义。解决这个问题的途径之一就是使用机器学习来发掘表示本身，而不仅仅把表示映射到输出，这种方法称为表示学习。</p>
+<h3 id="自编码器"><a href="#自编码器" class="headerlink" title="自编码器"></a>自编码器</h3><p>表示学习的典型例子就是自编码器（autoencoder）。自编码器由一个编码器(encoder)函数和一个解码器(decoder)函数组成。编码器函数将输入数据转换为一种不同的表示，而解码器函数则将这个新的表示转换回原来的形式。我们希望当输入数据经过编码器和解码器之后尽可能多地保留原有信息，同时希望新的表示有更好的特征，这也是自编码器的训练目标。</p>
+<p>P 480 </p>
+<p><a href="https://zhuanlan.zhihu.com/p/39140472" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39140472</a></p>
 
           
         
@@ -496,7 +780,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/multi-channel-system-Debug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/tensorflow-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -515,7 +799,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/25/multi-channel-system-Debug/" itemprop="url">multi-channel system Debug</a></h1>
+                <a class="post-title-link" href="/2019/08/01/tensorflow-docker/" itemprop="url">tensorflow_docker</a></h1>
         
 
         <div class="post-meta">
@@ -527,8 +811,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T15:56:16+08:00">
-                2019-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T15:57:35+08:00">
+                2019-08-01
               </time>
             
 
@@ -567,258 +851,14 @@
       
         
           
-            <p>1 min —&gt; 60 s<br>2s –&gt; 1一个点<br>1min —&gt; 30个点<br>20min —&gt; 600</p>
-<p>现在采集到的数据一个周期5880个点<br>设置的是2000ms采集一个点。</p>
+            <p>因为需要要安装tensorflow1.13，但是anaconda的虚拟环境不好用。所以使用Docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
+<p>Docker Pull Command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -rm -v $(realpath ~/notebooks):/tf/notebooks -p 8999:8888 tensorflow/tensrflow:latest-py3-jupyter</span><br></pre></td></tr></table></figure>
 
-    
+<p>Run a jupyter notebook server with your own notebook directory (assumed here to be ~/notebooks).<br>To use it, navigate to localhost:8888 in you browers</p>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/LSTM-params/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/23/LSTM-params/" itemprop="url">LSTM params</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T16:48:11+08:00">
-                2019-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>重新理解LSTM结构</p>
-<p>把lstm里面的四个激活单元，当作是全连接网络。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/california-housing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/california-housing/" itemprop="url">california_housing</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T10:36:20+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="california-dataset"><a href="#california-dataset" class="headerlink" title="california dataset"></a>california dataset</h2><p>x.shape   (20640,8)<br>y.shape   (20640,)</p>
-<p>model.add(keras.layers.Dense(layer_size, activation=’relu’,<br>input_shape=(8,)))</p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><pre><code>-MedInc        median income in block
-- HouseAge      median house age in block
-- AveRooms      average number of rooms
-- AveBedrms     average number of bedrooms
-- Population    block population
-- AveOccup      average house occupancy
-- Latitude      house block latitude
-- Longitude</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|MedInc|HouseAge|AveRooms|AveBedrms|Population|AveOccup|Latitude|Longitude</span><br><span class="line">	0	1	2	3	4	5	6	7</span><br><span class="line">0	7.0671	11	7.64354067	0.980861244	1774	4.244019139	37.34	-121.78</span><br><span class="line">1	2.3267	12	5.016483516	1.267857143	1677	2.303571429	33.14	-117.19</span><br><span class="line">2	1.9893	19	4.083499006	1.0944334	2971	2.953280318	32.79	-116.97</span><br><span class="line">3	4.1026	25	3.549682875	0.993657505	1314	2.778012685	33.65	-117.92</span><br><span class="line">4	3.8333	48	5.234200743	1.096654275	891	3.312267658	37.76	-122.5</span><br></pre></td></tr></table></figure>
           
         
       
@@ -857,7 +897,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -905,7 +945,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -927,7 +967,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
