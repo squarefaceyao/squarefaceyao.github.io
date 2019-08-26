@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="坚持是一种品格">
+<meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="姚杰鹏的博客">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="姚杰鹏的博客">
-<meta property="og:description" content="坚持是一种品格">
+<meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="姚杰鹏的博客">
-<meta name="twitter:description" content="坚持是一种品格">
+<meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/model搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/embedding记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/13/model搭建/" itemprop="url">model搭建</a></h1>
+                <a class="post-title-link" href="/2019/08/19/embedding记录/" itemprop="url">embedding记录</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T22:57:09+08:00">
-                2019-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T14:55:32+08:00">
+                2019-08-19
               </time>
             
 
@@ -323,185 +323,12 @@
       
         
           
-            <h2 id="python-构造函数"><a href="#python-构造函数" class="headerlink" title="python 构造函数"></a>python 构造函数</h2><h2 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h2><p>super()是为了调用父类函数</p>
-<p><a href="https://www.runoob.com/python3/python3-class.html" target="_blank" rel="noopener">https://www.runoob.com/python3/python3-class.html</a></p>
-<h2 id="encoder构建"><a href="#encoder构建" class="headerlink" title="encoder构建"></a>encoder构建</h2><p>定义超参的概念<br>embedding_units = 256   每个word转成embedding是多少<br>units = 1024 循环神经网络的个数 encode 和decode的units数量是一样的<br>encoding_units 在 encode中lstm 的size是多大</p>
-<p>hidden 是初始化的隐藏层状态</p>
-<p>keras.layers.GRU(units, activation=’tanh’, recurrent_activation=’hard_sigmoid’, use_bias=True, kernel_initializer=’glorot_uniform’, recurrent_initializer=’orthogonal’, bias_initializer=’zeros’, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=1, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False, reset_after=False)</p>
-<h4 id="units-正整数，输出空间的维度。"><a href="#units-正整数，输出空间的维度。" class="headerlink" title="units: 正整数，输出空间的维度。"></a>units: 正整数，输出空间的维度。</h4><h4 id="recurrent-initializer-recurrent-kernel-权值矩阵-的初始化器，用于循环层状态的线性转换-详见-initializers-。"><a href="#recurrent-initializer-recurrent-kernel-权值矩阵-的初始化器，用于循环层状态的线性转换-详见-initializers-。" class="headerlink" title="recurrent_initializer: recurrent_kernel 权值矩阵 的初始化器，用于循环层状态的线性转换 (详见 initializers)。"></a>recurrent_initializer: recurrent_kernel 权值矩阵 的初始化器，用于循环层状态的线性转换 (详见 initializers)。</h4><h4 id="return-sequences-布尔值。是返回输出序列中的最后一个输出，还是全部序列。"><a href="#return-sequences-布尔值。是返回输出序列中的最后一个输出，还是全部序列。" class="headerlink" title="return_sequences: 布尔值。是返回输出序列中的最后一个输出，还是全部序列。"></a>return_sequences: 布尔值。是返回输出序列中的最后一个输出，还是全部序列。</h4><h4 id="return-state-布尔值。除了输出之外是否返回最后一个状态。"><a href="#return-state-布尔值。除了输出之外是否返回最后一个状态。" class="headerlink" title="return_state: 布尔值。除了输出之外是否返回最后一个状态。"></a>return_state: 布尔值。除了输出之外是否返回最后一个状态。</h4><p><a href="https://keras.io/zh/layers/recurrent/" target="_blank" rel="noopener">https://keras.io/zh/layers/recurrent/</a></p>
-<h3 id="Writing-your-own-Keras-layers"><a href="#Writing-your-own-Keras-layers" class="headerlink" title="Writing your own Keras layers"></a>Writing your own Keras layers</h3><p><a href="https://keras.io/layers/writing-your-own-keras-layers/" target="_blank" rel="noopener">https://keras.io/layers/writing-your-own-keras-layers/</a></p>
-<h2 id="glorot-uniform"><a href="#glorot-uniform" class="headerlink" title="glorot_uniform"></a>glorot_uniform</h2><p><a href="https://keras.io/zh/initializers/" target="_blank" rel="noopener">https://keras.io/zh/initializers/</a></p>
-<p>keras.initializers.glorot_uniform(seed=None)<br>Glorot 均匀分布初始化器，也称为 Xavier 均匀分布初始化器。</p>
-<p>它从 [-limit，limit] 中的均匀分布中抽取样本， 其中 limit 是 sqrt(6 / (fan_in + fan_out))， fan_in 是权值张量中的输入单位的数量， fan_out 是权值张量中的输出单位的数量。</p>
-<p>参数<br>seed: 一个 Python 整数。作为随机发生器的种子。</p>
-<p>返回<br>一个初始化器。</p>
-<p>参考文献：<a href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf" target="_blank" rel="noopener">http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Encoder (keras.Model):</span><br><span class="line">    def __init__(self, vocab_size, embedding_units, encoding_units, batch_size):</span><br><span class="line">        super(Encoder, self).__init__()</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">        self.encoding_units = encoding_units</span><br><span class="line">        self.embedding = keras.layers.Embedding(vocab_size,embedding_units)</span><br><span class="line">        self.gru = keras.layers.GRU(self.encoding_units,return_sequences=True,return_state=True, </span><br><span class="line">                                recurrent_initializer=<span class="string">'glorot_uniform'</span>)</span><br><span class="line">    def call(self, x, hidden):</span><br><span class="line">        x = self.embedding(x)</span><br><span class="line">        output, state = self.gru(x, initial_state=hidden) <span class="comment">## 这里的self.gru() 传递的两个参数是什么意思呢？在构造函数里面并没有使用这两个参数， 但是在api里 可以找到这个参数。</span></span><br><span class="line">        <span class="built_in">return</span> output, state</span><br><span class="line">    def initialize_hidden_state(self):</span><br><span class="line">        <span class="built_in">return</span> tf.zeros((self.batch_size,self.encoding_units))</span><br><span class="line"></span><br><span class="line">encode = Encoder(input_vocab_size, embedding_units, units, batch_size)</span><br><span class="line"></span><br><span class="line">sample_hidden = encoder.initialize_hidden_state()</span><br><span class="line"></span><br><span class="line">sample_output, sample_hidden = encoder(x, sample_hidden)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入模型的数据特征</span></span><br><span class="line">[<span class="keyword">in</span>]</span><br><span class="line"><span class="keyword">for</span> array <span class="keyword">in</span> (input_train, input_eval, output_train, output_eval):</span><br><span class="line">    <span class="built_in">print</span>( <span class="built_in">type</span>(array), array.shape)</span><br><span class="line">[out]</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (24, 9)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (7, 9)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (24, 14)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (7, 14)</span><br><span class="line"></span><br><span class="line">可以这样理解，对于 input_train 来说，有24个样本，每个样本有9个特征。对于这个9。就是每个句子的单词数，但是有的句子单词不够9个，这在预处理数据的时候进行了padding操作。样本数是24，在train_test_split(test_size=0.2)分配的数据量。</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
+            <h3 id="问题：在embedding层，会报错。报错内容"><a href="#问题：在embedding层，会报错。报错内容" class="headerlink" title="问题：在embedding层，会报错。报错内容"></a>问题：在embedding层，会报错。报错内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indices[0,0] = -13 is not <span class="keyword">in</span> [0, 600) [Op:ResourceGather] name: encoder_3/embedding_2/embedding_lookup</span><br></pre></td></tr></table></figure>
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/python链表推导式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/12/python链表推导式/" itemprop="url">python链表推导式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T21:16:07+08:00">
-                2019-08-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。</p>
-<p>#我感觉链表推导式就是让代码看上去更清爽。。。</p>
-<p>a,b for c, d in </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[In]</span><br><span class="line">a = [(1,2),(3,4),(5,6)]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(len(a))</span><br><span class="line">[out]</span><br><span class="line">&lt;class <span class="string">'list'</span>&gt;</span><br><span class="line">3</span><br><span class="line">[In]</span><br><span class="line">def a(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line">def b(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line"></span><br><span class="line">a(c),b(d) <span class="keyword">for</span> c,d <span class="keyword">in</span> a</span><br></pre></td></tr></table></figure>
-
-<h3 id="Python-中形如-xx-for-xx-in-yy-的链表推导式"><a href="#Python-中形如-xx-for-xx-in-yy-的链表推导式" class="headerlink" title="Python 中形如 xx for xx in yy 的链表推导式"></a>Python 中形如 xx for xx in yy 的链表推导式</h3><h1 id="以-a-0-1-2-3-4-5-为例"><a href="#以-a-0-1-2-3-4-5-为例" class="headerlink" title="以 a = [0,1,2,3,4,5] 为例"></a>以 a = [0,1,2,3,4,5] 为例</h1><h2 id="1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"><a href="#1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候" class="headerlink" title="1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"></a>1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候</h2><p> 比如：求 a 内每个元素的平方，我们直接写</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>b = [ x**2 for x in a]<br>b
-[0, 1, 4, 9, 16, 25]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"><a href="#2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件" class="headerlink" title="2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"></a>2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件</h2><p> 比如：取出 a 内 &gt; 0 的元素</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>c = [ x for x in a if x &gt; 0 ]<br>c
-[1, 2, 3, 4, 5]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"><a href="#3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求" class="headerlink" title="3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"></a>3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求</h2><p> 比如：我们要知道 a 内偶数元素的位置</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>a_even_id = [ i for i,x in enumerate(a) if x%2 == 0 ]<br>a_even_id<br>[0, 2, 4]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"><a href="#4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时" class="headerlink" title="4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"></a>4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时</h2><p>A0 = [ 0,’ ‘,1,2,4,5,’ ‘,’3’,2]<br> A是由整数（int)和空格’ ‘, 以及字符串’3’组成的<br> 我们要将空格替换为 0 ，将’3’ 替换为 整形 3<br> (1).判断是否是整形： type(x) == int<br> (2).不是整形，则判断是否是空格：x == ‘ ‘，是则替换为 0，<br> (3).判断是否是数字构成的字符串：x.isdigit(),(isdigit()是字符串方法），是则转化为整形数<br> (4). 如果是其他，则均替换为 0 ,(这一步必须有，以为要穷尽多有可能，否则会因为条件没有覆盖到而导致无法执行）</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>A = [ x if type(x)==int else 0 if x == ‘ ‘ else int(x) if x.isdigit() else 0 for x in A0 ]<br>A
-[0, 0, 1, 2, 4, 5, 0, 3, 2]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："><a href="#5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：" class="headerlink" title="5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："></a>5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：</h3><blockquote>
-<blockquote>
-<blockquote>
-<p>A_int = [x for x in A0 if type(x)==int ]<br>A_int<br>[0, 1, 2, 4, 5, 2]</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<p>意思就是 -13这个数值不在 这里数组里面</p>
+<p>查看keras.layers.Embedding()的底层代码，发现这一层是专门用在自然语言处理的方向的。。。</p>
+<p>需要把1维的数据—》3 维</p>
+<p>这应该怎么弄呢？？？</p>
 
           
         
@@ -550,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/Generate-x-y-data-v1-函数理解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/08-18/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -569,7 +396,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/11/Generate-x-y-data-v1-函数理解/" itemprop="url">Generate_x_y_data_v1()函数理解</a></h1>
+                <a class="post-title-link" href="/2019/08/18/08-18/" itemprop="url">evaluate(input_sentence)</a></h1>
         
 
         <div class="post-meta">
@@ -581,8 +408,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T21:14:04+08:00">
-                2019-08-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T16:52:04+08:00">
+                2019-08-18
               </time>
             
 
@@ -621,24 +448,141 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">def generate_x_y_data_v1(isTrain, batch_size):</span><br><span class="line"><span class="comment">#     """</span></span><br><span class="line"><span class="comment"># 练习数据1。</span></span><br><span class="line"><span class="comment">#      返回：元组（X，Y）</span></span><br><span class="line"><span class="comment">#          X是从0.0 * pi到1.5 * pi的正弦和余弦</span></span><br><span class="line"><span class="comment">#          Y是从1.5 * pi到3.0 * pi的正弦和余弦</span></span><br><span class="line"><span class="comment">#      因此，Y跟随X.还有一个通常应用于X和Y的随机偏移。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#      返回的数组具有以下形状：（seq_length，batch_size，output_dim）</span></span><br><span class="line"><span class="comment">#         因此：（10，batch_size，2）</span></span><br><span class="line"><span class="comment">#      对于本练习，让我们忽略“isTrain”</span></span><br><span class="line"><span class="comment">#      论证和测试相同的数据。</span></span><br><span class="line"><span class="comment">#     """</span></span><br><span class="line">seq_length = 3</span><br><span class="line">batch_size = 3</span><br><span class="line"></span><br><span class="line">batch_x = []</span><br><span class="line">batch_y = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(batch_size):</span><br><span class="line">    rand = random.random() * 2 * math.pi</span><br><span class="line"></span><br><span class="line">    sig1 = np.sin(np.linspace(0.0 * math.pi + rand,</span><br><span class="line">                              3.0 * math.pi + rand, seq_length * 2))</span><br><span class="line">    <span class="built_in">print</span>(_)</span><br><span class="line">    <span class="built_in">print</span>(sig1)</span><br><span class="line">    sig2 = np.cos(np.linspace(0.0 * math.pi + rand,</span><br><span class="line">                              3.0 * math.pi + rand, seq_length * 2))</span><br><span class="line">    x1 = sig1[:seq_length]</span><br><span class="line">    y1 = sig1[seq_length:]</span><br><span class="line">    x2 = sig2[:seq_length]</span><br><span class="line">    y2 = sig2[seq_length:]</span><br><span class="line"></span><br><span class="line">    x_ = np.array([x1, x2])</span><br><span class="line">    y_ = np.array([y1, y2])</span><br><span class="line">    x_, y_ = x_.T, y_.T</span><br><span class="line"></span><br><span class="line">    batch_x.append(x_)</span><br><span class="line">    batch_y.append(y_)</span><br><span class="line"></span><br><span class="line">batch_x = np.array(batch_x)</span><br><span class="line">batch_y = np.array(batch_y)</span><br><span class="line"><span class="comment"># shape: (batch_size, seq_length, output_dim)</span></span><br><span class="line"></span><br><span class="line">batch_x = np.array(batch_x).transpose((1, 0, 2))</span><br><span class="line">batch_y = np.array(batch_y).transpose((1, 0, 2))</span><br><span class="line"><span class="comment"># shape: (seq_length, batch_size, output_dim)</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> batch_x, batch_y</span><br></pre></td></tr></table></figure>
+            <p>embedding_units = 256 # 每个word转换成embedding是多少。<br>第一次掉用这个参数是在，构建Encoder模型中，keras.layers.Embedding(vocab_size, embedding_units)这个函数中使用。<br>keras.layers.Embedding(input_dim, output_dim,)<br>将正整数（索引值）转换为固定尺寸的稠密向量。 例如： [[4], [20]] -&gt; [[0.25, 0.1], [0.6, -0.2]]<br>该层只能用作模型中的第一层<br>input_dim: int &gt; 0。词汇表大小， 即，最大整数 index + 1。<br>output_dim: int &gt;= 0。词向量的维度。</p>
+<p>-输入尺寸</p>
+<p>尺寸为 (batch_size, sequence_length) 的 2D 张量。</p>
+<p>-输出尺寸</p>
+<p>尺寸为 (batch_size, sequence_length, output_dim) 的 3D 张量。</p>
+<p>max_length_input 这个参数是输入的每个序列长度，即文档里面的sequence_length。</p>
+<h3 id="Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"><a href="#Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。" class="headerlink" title="Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"></a>Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。</h3><pre><code>        # 第二层是GRU层。
+使用encoder函数，会有两个输出，一个是output(就是上面出的输出尺寸) 一个是hidden。hidden.shape=(batch_size, units)</code></pre><h4 id="units-1024-这个代表的是中间使用RNN的个数"><a href="#units-1024-这个代表的是中间使用RNN的个数" class="headerlink" title="units=1024, 这个代表的是中间使用RNN的个数"></a>units=1024, 这个代表的是中间使用RNN的个数</h4><p>这是在构造函数里面的GRU()初始化设置。</p>
+<p>self.gru = keras.layers.GRU(self.encoding_units,return_sequences=True,return_state=True, recurrent_initializer=’glorot_uniform’)</p>
+<p>encoding_units 是GRU的输出尺寸，recurrent_regularizer: 运用到 recurrent_kernel 权值矩阵的正则化函数</p>
+<p>####call方法<br>call方法 可以理解为使用构造函数，在实例化这个方法的时候可以直接调用。<br>output, state = self.gru(x, initial_state=hidden)<br>您可以通过使用关键字参数 initial_state 调用它们来符号化地指定 RNN 层的初始状态。 initial_state 的值应该是表示 RNN 层初始状态的张量或张量列表。</p>
+<h2 id="检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下"><a href="#检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下" class="headerlink" title="检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下"></a>检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下</h2>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>sig1 是ndarray类型，长度为seq_length*2 , 主要np.linspace()函数。</p>
-<p>numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</p>
-<p>sig2 和sig1 一样的思路<br>x1 y1 是对sig1的截取，分别取前半段和后半段<br>x2 y2 是对sig2的截取，分别取前半段和后半段</p>
-<p>batch_x 就是x1 x2 形成的矩阵。<br>batch_y 就是y1 y2 形成的矩阵。</p>
-<p>batch_x.shape = (seq_length, batch_size,2)</p>
-<p>有seq_length个样本，每个样本的维度 (batch_size,2)</p>
-<h3 id="span-english"><a href="#span-english" class="headerlink" title="span-english"></a>span-english</h3><ol>
-<li>preprocessing data</li>
-<li>build model</li>
-<li>1 encoder</li>
-<li>2 Attention</li>
-<li>3 decoder</li>
-<li>evaluation</li>
-<li>1 given sentence, return translated results</li>
-<li>2 visualize results(attention)</li>
-</ol>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/c51_flash修改/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/17/c51_flash修改/" itemprop="url">C51 Flash 读写操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T16:52:04+08:00">
+                2019-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="C51-Flash-读写操作"><a href="#C51-Flash-读写操作" class="headerlink" title="C51 Flash 读写操作"></a>C51 Flash 读写操作</h2><p>###问题：下位机返回的数据，不是传感器的数据，有没有连接传感器，返回的数值也都一样。刚开始认为是标定的问题，把标定的函数搞明白，知道怎么去标定数据。但是标定完成后，数据还是不正确。</p>
+<p>###思路：检查一下读取的Flash的驱动是不是有问题。写一个简单的函数，通过调用原来的读写函数，对flash里面的数值进行操作，每次下位机开断电，都会通过串口发送flash内部的数值，并每次把flash里的数据加一，然后再放到flash。简单的验证一下可以往flash内部进行数据的读写。</p>
+<h3 id="结果：每次返回的数值-不会发生变化。"><a href="#结果：每次返回的数值-不会发生变化。" class="headerlink" title="结果：每次返回的数值 不会发生变化。"></a>结果：每次返回的数值 不会发生变化。</h3><h4 id="最后可以试一试外部的存储芯片模块。。。。24C08"><a href="#最后可以试一试外部的存储芯片模块。。。。24C08" class="headerlink" title="最后可以试一试外部的存储芯片模块。。。。24C08"></a>最后可以试一试外部的存储芯片模块。。。。24C08</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unsigned char xdata hc[3]=&#123;0,0,0&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//-----------------存储标定的k、b值--------------</span><br><span class="line">void Save_flash(void)</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">    EA=0;              //禁止中断</span><br><span class="line">    FLSCL=0x89;        //FLASH 写/擦除定时(Fosc=18.432MHz) 允许FLASH写</span><br><span class="line">    PSCTL=0x07;        //临时FLASH 允许FLASH 写/擦除 </span><br><span class="line">    FLASH_ADDR[0]=0;   //向待擦除扇区内的任何一个地址写入一个数据字节？擦除 临时FLASH</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;2;i++)  //写入数据FLASH</span><br><span class="line">    &#123;</span><br><span class="line">        PSCTL=0x00;    //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">	    j=hc[i];     //读FLASH存储器 与PSWE无关</span><br><span class="line">        PSCTL=0x05;    //临时FLASH 禁止擦除 允许写 </span><br><span class="line">	    FLASH_ADDR[i]=j;</span><br><span class="line">    &#125;                 </span><br><span class="line">    FLSCL=0x4f;        //禁止FLASH 写/擦除</span><br><span class="line">    PSCTL=0x00;        //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">    EA=1;</span><br><span class="line">&#125;</span><br><span class="line">//-------------从MCU中读取出标定的k、b值------------------------</span><br><span class="line">void Read_flash(void)        </span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">	uint8 code *FLASH_READ;   //code定义的数据在flash中</span><br><span class="line">	FLASH_READ=0x0000;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;2;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    PSCTL=0x04;           //选择数据FLASH扇区 禁止FLASH 写/擦除</span><br><span class="line">		j=FLASH_READ[i];      //读取数据flash 0x0000区</span><br><span class="line">	    PSCTL=0x00;           //选择程序Flash 禁止写/擦除</span><br><span class="line">		hc[i]=j;            //读程序flash</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">	WDTCN = 0xde;                       // Disable watchdog timer  关闭看门狗</span><br><span class="line">   	WDTCN = 0xad; </span><br><span class="line"> 	SYSCLK_Init();</span><br><span class="line"> 	PORT_Init();</span><br><span class="line">	ADC0_Init();	</span><br><span class="line">	UART0_Init();</span><br><span class="line">	</span><br><span class="line">	Read_All();</span><br><span class="line">	Para[0]++;</span><br><span class="line">	Save_Para();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	P2 = 0x00;</span><br><span class="line">	EA = 1;                             // Enable global interrupts</span><br><span class="line">	</span><br><span class="line">	Send_Buf0[0] = Para[0];    //发送帧头</span><br><span class="line">	Send_Buf0[1] = 0x00; </span><br><span class="line">	Send_Max = 2;</span><br><span class="line">	Send_p = 0;</span><br><span class="line">	SCON0 &amp;= 0xef; //REN0 = 0 禁止开始接收</span><br><span class="line">	SBUF0  = 0x41; //启动回答数据事件</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(1)											 </span><br><span class="line">	&#123;		</span><br><span class="line"> 	WDTCN = 0xa5;	  //使能并复位看门狗定时器</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原始对flash保存的代码，这里的Para变量是这么define的 uint8   xdata Para[112];</p>
 
           
         
@@ -687,7 +631,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/0810调试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/plot-attention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -706,7 +650,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/10/0810调试/" itemprop="url">0810调试</a></h1>
+                <a class="post-title-link" href="/2019/08/16/plot-attention/" itemprop="url">plot_attention</a></h1>
         
 
         <div class="post-meta">
@@ -718,8 +662,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T22:05:49+08:00">
-                2019-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T15:32:09+08:00">
+                2019-08-16
               </time>
             
 
@@ -757,19 +701,19 @@
 
       
         
-          <h2 id="在进行一次标定。"><a href="#在进行一次标定。" class="headerlink" title="在进行一次标定。"></a>在进行一次标定。</h2><p>C8051 允许编程修改寄存器的值。<br>把8个通道都进行标定。。。然后观察返回值。。。</p>
-<p>标定前<br>43 14 1 0 0 0 0 15 44<br>    41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
-<p>43 14 8 2 2 1 1 1c 44<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 05 26 05 26 05 26 05 26 05 26 05 26 14 42<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/10/0810调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>def plot_attention(attention_matrix, input_sentence, predicted_sentence):<br>    fig = plt.figure(figsize=(10,10))<br>    ax = fig.add_subplot(1, 1, 1)</p>
+<pre><code>ax.matshow(attention_matrix, cmap=&apos;viridis&apos;) # cmap 定义的是配色
+
+font_dict = {&apos;fontsize&apos;: 14}
+
+ax.set_xticklabels([&apos;&apos;] + input_sentence, fontdict = font_dict, rotation = 90) # roation 让字体反转90度
+ax.set_yticklabels([&apos;&apos;] + predicted_sentence,fontdict = font_dict)
+plt.show()</code></pre>
+          
         
       
-    </p></div>
+    </div>
     
     
     
@@ -813,7 +757,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/0809调试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/evaluate-input-sentence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -832,7 +776,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/09/0809调试/" itemprop="url">0809调试</a></h1>
+                <a class="post-title-link" href="/2019/08/15/evaluate-input-sentence/" itemprop="url">evaluate(input_sentence)</a></h1>
         
 
         <div class="post-meta">
@@ -844,8 +788,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T20:02:58+08:00">
-                2019-08-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T16:52:04+08:00">
+                2019-08-15
               </time>
             
 
@@ -883,15 +827,15 @@
 
       
         
-          <h3 id="0809-调试记录"><a href="#0809-调试记录" class="headerlink" title="0809 调试记录"></a>0809 调试记录</h3><p>现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。</p>
-<h4 id="分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作"><a href="#分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作" class="headerlink" title="分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作"></a>分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作</h4><h5 id="当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All"><a href="#当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All" class="headerlink" title="当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();"></a>当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();</h5>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/09/0809调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>详细的记录 evaluate函数的实现。<br>解决报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ValueError                                Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-44-2ec1176683f0&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 translate(u<span class="string">'Estoy trabajando.'</span>)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> translate(input_sentence)</span><br><span class="line">     49 </span><br><span class="line">     50 def translate(input_sentence):</span><br><span class="line">---&gt; 51     results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line">     52 </span><br><span class="line">     53     <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> evaluate(input_sentence)</span><br><span class="line">     20     decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0)</span><br><span class="line">     21     <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">---&gt; 22         predictions. decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">     23         attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">     24         attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">ValueError: too many values to unpack (expected 2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意看predictions-后面的标点符号"><a href="#注意看predictions-后面的标点符号" class="headerlink" title="注意看predictions 后面的标点符号"></a>注意看predictions 后面的标点符号</h3><p>接收的是一个文本的输入，首先就要转换成适合模型的数据类型。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">def evaluate(input_sentence):</span><br><span class="line">    attention_matrix = np.zeros((max_length_output, max_length_input)) <span class="comment"># 定义attention_matrix 保存权重。shape:()</span></span><br><span class="line">    input_sentence = preprocess_sentence(input_sentence) <span class="comment"># 输入的句子进行预处理。就是分割标点符号/</span></span><br><span class="line"></span><br><span class="line">    inputs = [input_tokenizer.word_index[token] <span class="keyword">for</span> token <span class="keyword">in</span> input_sentence.split(<span class="string">' '</span>)] <span class="comment"># text---&gt;id 把句子转换成id</span></span><br><span class="line">    inputs = keras.preprocessing.sequence.pad_sequences([inputs], maxlen = max_length_input, padding= <span class="string">'post'</span>) <span class="comment"># 把转换成id的向量，进行padding</span></span><br><span class="line">    inputs = tf.convert_to_tensor(inputs) <span class="comment">#把向量转换为tensor</span></span><br><span class="line"></span><br><span class="line">    results = <span class="string">''</span> <span class="comment"># 定义str, 保存translate的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     encoding_hidden = encoder.initialize_hidden_state()</span></span><br><span class="line"></span><br><span class="line">    encoding_hidden = tf.zeros((1, units)) <span class="comment">#初始化encoding_hidden层</span></span><br><span class="line"></span><br><span class="line">    encoding_outputs, encoding_hidden = encoder(inputs, encoding_hidden) <span class="comment"># 这一步得到的encoding_hidden就是decoding_hidden 的第一个值</span></span><br><span class="line">    decoding_hidden = encoding_hidden</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0) <span class="comment"># 找到开始的第一个输入的id</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">        predictions, decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">        attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">        attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">        predicted_id = tf.argmax(predictions[0]).numpy()</span><br><span class="line"></span><br><span class="line">        results += out_tokenizer.index_word[predicted_id] + <span class="string">' '</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> out_tokenizer.index_word[predicted_id] == <span class="string">'&lt;end&gt;'</span>:</span><br><span class="line">            <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">        decoding_input = tf.expand_dims([predicted_id], 0)</span><br><span class="line">    <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">def plot_attention(attention_matrix, input_sentence, predicted_sentence):</span><br><span class="line">    fig = plt.figure(figsize=(10,10))</span><br><span class="line">    ax = fig.add_subplot(1, 1, 1)</span><br><span class="line"></span><br><span class="line">    ax.matshow(attention_matrix, cmap=<span class="string">'viridis'</span>)</span><br><span class="line"></span><br><span class="line">    font_dict = &#123;<span class="string">'fontsize'</span>: 14&#125;</span><br><span class="line"></span><br><span class="line">    ax.set_xticklabels([<span class="string">''</span>] + input_sentence,</span><br><span class="line">                              fontdict = font_dict, rotation = 90)</span><br><span class="line">    ax.sey_yticklables([<span class="string">''</span>] + predicted_sentence,</span><br><span class="line">                              fontdict = font_dict,)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def translate(input_sentence):</span><br><span class="line">    results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Predicted translation: %s"</span> % (results))</span><br><span class="line"></span><br><span class="line">    attention_matrix = attention_matrix[:len(results.split(<span class="string">' '</span>)),</span><br><span class="line">                                                       :len(input_sentence.split(<span class="string">' '</span>))]</span><br><span class="line">    plot_attention(attention_matrix, input_sentence.split(<span class="string">' '</span>), results.split(<span class="string">' '</span>))</span><br></pre></td></tr></table></figure>
+
+
+          
         
       
     </div>
@@ -929,7 +873,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -967,7 +911,7 @@
               <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
-              <p class="site-description motion-element" itemprop="description">坚持是一种品格</p>
+              <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -977,7 +921,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -999,7 +943,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

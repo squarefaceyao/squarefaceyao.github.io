@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="坚持是一种品格">
+<meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="姚杰鹏的博客">
 <meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="姚杰鹏的博客">
-<meta property="og:description" content="坚持是一种品格">
+<meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="姚杰鹏的博客">
-<meta name="twitter:description" content="坚持是一种品格">
+<meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/8通道数据采集/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/LSTM-params/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/06/8通道数据采集/" itemprop="url">8通道数据采集</a></h1>
+                <a class="post-title-link" href="/2019/07/23/LSTM-params/" itemprop="url">LSTM params</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-06T22:48:44+08:00">
-                2019-07-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T16:48:11+08:00">
+                2019-07-23
               </time>
             
 
@@ -293,28 +293,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PCB/" itemprop="url" rel="index">
-                    <span itemprop="name">PCB</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,15 +322,11 @@
 
       
         
-          <h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>现在一次实验可以采集4株小麦，一天最多测12株小麦。一个月360株。数据量有点小，训练的模型容易过拟合。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/06/8通道数据采集/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>重新理解LSTM结构</p>
+<p>把lstm里面的四个激活单元，当作是全连接网络。</p>
+
+          
         
       
     </div>
@@ -399,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/04/安装tensorflow-gpu/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/california-housing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -418,7 +392,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/04/安装tensorflow-gpu/" itemprop="url">安装tensorflow-gpu</a></h1>
+                <a class="post-title-link" href="/2019/07/21/california-housing/" itemprop="url">california_housing</a></h1>
         
 
         <div class="post-meta">
@@ -430,8 +404,384 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T23:11:18+08:00">
-                2019-07-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T10:36:20+08:00">
+                2019-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="california-dataset"><a href="#california-dataset" class="headerlink" title="california dataset"></a>california dataset</h2><p>x.shape   (20640,8)<br>y.shape   (20640,)</p>
+<p>model.add(keras.layers.Dense(layer_size, activation=’relu’,<br>input_shape=(8,)))</p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><pre><code>-MedInc        median income in block
+- HouseAge      median house age in block
+- AveRooms      average number of rooms
+- AveBedrms     average number of bedrooms
+- Population    block population
+- AveOccup      average house occupancy
+- Latitude      house block latitude
+- Longitude</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|MedInc|HouseAge|AveRooms|AveBedrms|Population|AveOccup|Latitude|Longitude</span><br><span class="line">	0	1	2	3	4	5	6	7</span><br><span class="line">0	7.0671	11	7.64354067	0.980861244	1774	4.244019139	37.34	-121.78</span><br><span class="line">1	2.3267	12	5.016483516	1.267857143	1677	2.303571429	33.14	-117.19</span><br><span class="line">2	1.9893	19	4.083499006	1.0944334	2971	2.953280318	32.79	-116.97</span><br><span class="line">3	4.1026	25	3.549682875	0.993657505	1314	2.778012685	33.65	-117.92</span><br><span class="line">4	3.8333	48	5.234200743	1.096654275	891	3.312267658	37.76	-122.5</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/ReadMulCsvToOneDataFrame/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/17/ReadMulCsvToOneDataFrame/" itemprop="url">ReadMulCsvToOneDataFrame</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T20:11:37+08:00">
+                2019-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>读取一个csv文件的数据，放在列表里面。<br>并把这个列表的数据放到一个DataFrame里，这是一个多列的矩阵。可以参考</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#creating and plotting the data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#creating some data - we will create a sinus and a sinus * sinus function</span></span><br><span class="line"><span class="built_in">shift</span> = 7</span><br><span class="line">trainLength = 800</span><br><span class="line">totalLength = 1200</span><br><span class="line"></span><br><span class="line">data = np.empty((1,totalLength,2)) <span class="comment">#0 to 1199</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#x for the first sinus</span></span><br><span class="line">base1 = np.array(range(totalLength))*(30*math.pi/totalLength) <span class="comment">#30*pi means 15 complete oscilations</span></span><br><span class="line"><span class="comment">#the first sinus</span></span><br><span class="line">data[0,:,0] = np.sin(base1)</span><br><span class="line"></span><br><span class="line"><span class="comment">#x for the second sinus - this reflects in a sinus with a different frequency</span></span><br><span class="line">base2 = 0.8*base1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#the first * the second sinus </span></span><br><span class="line">data[0,:,1] = (np.sin(base1)+np.sin(base2))/2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'data: '</span>, data.shape)</span><br></pre></td></tr></table></figure>
+
+<p>这样做的目的可以把原始的csv数据，放到一个csv里面，这样方便观察数据。</p>
+<p>其实手动放置现有的数据是很方便的，可以不用浪费时间研究这个函数。。。</p>
+<h3 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h3><p>“TypeError: unhashable type: ‘numpy.ndarray’”</p>
+<p>再利用for循环读取一个文件夹里的csv的时候，报的错误。</p>
+<p>原因：csv文件名有中文。。。。。。<br>注：报的错误真的好坑啊。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/LSTM文献阅读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/09/LSTM文献阅读/" itemprop="url">LSTM文献阅读</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T22:35:39+08:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="LSTM分析EEG"><a href="#LSTM分析EEG" class="headerlink" title="LSTM分析EEG"></a>LSTM分析EEG</h2><p>然而，脑电序列通常较长，直接用来训练LSTM模型所需的计算资源非常大且学习到的信息类型单一，而且忽略了许多对情绪识别非常重要的信息，如频域信息和非线性动力学信息。为此提出一种新的基于LSTM的情绪识别模型。脑电信号被分成多个非重叠的信号段，并从每段信号中提取多种时域，频域和非线性动力学特征，这些特征沿时间连接成特征序列并用来训练LSTM分类模型。在DEAP数据集上验证了该模型在愉悦度，唤醒度和喜欢度上的二分类准确率，其中每个情绪维度分为低和高两类。实验结果表明，该模型在愉悦度和喜欢度上的分类准确率均优于已有方法，在唤醒度上的分类准确率仅次于最先进的成果。</p>
+<h2 id="一些大数据比赛"><a href="#一些大数据比赛" class="headerlink" title="一些大数据比赛"></a>一些大数据比赛</h2><p><img src="http://i1.fuimg.com/692414/5c04347e49ae9a86.png" alt="Markdown"><br>看论文：<br><a href="https://doi.org/10.1007/978-3-030-20521-8_12" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-030-20521-8_12</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/08/windows配置tensorflow完结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/08/windows配置tensorflow完结/" itemprop="url">windows配置tensorflow完结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T17:12:55+08:00">
+                2019-07-08
               </time>
             
 
@@ -492,400 +842,11 @@
       
         
           
-            <h2 id="vs2015-cuda-tensorflow-编译的方法安装cuda"><a href="#vs2015-cuda-tensorflow-编译的方法安装cuda" class="headerlink" title="vs2015+cuda+tensorflow 编译的方法安装cuda"></a>vs2015+cuda+tensorflow 编译的方法安装cuda</h2><p>windows查找对应的cuda版本<br>今天在网上查到：</p>
-<p>在NVIDAI显卡驱动里可以找到相对应的cuda版本为：10.1.131。但是官方没有这个版本的cuda，先测试高版本的<a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal" target="_blank" rel="noopener">cuda_cuda_10.1.168</a>。</p>
-<p>并下载对应的vs版本,尝试使用编译的方法安装，安装过程出现意外的BUG，解决BUG后继续安装。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/03/install-tensorflow-2-0-gpu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/03/install-tensorflow-2-0-gpu/" itemprop="url">install tensorflow-2.0-gpu</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T22:13:51+08:00">
-                2019-07-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>How to install tensoflow-gpu on windows10</p>
-<p>Use conda to create a TF2 virtual environment, python version is 3.6, use pip to install tensorflow, and in the import tensorflow according to the error prompt, install the corresponding cuda version.</p>
-<p>The following are the instructions used.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/03/install-tensorflow-2-0-gpu/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/刺激后的信号比较像/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/02/刺激后的信号比较像/" itemprop="url">刺激后的信号比较像</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T23:54:24+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>今天突然想到可以把整理的刺激前和刺激后的数据画出来，看一下。发现DK小麦在刺激后的电位都在一个范围内，感觉波形比较固定。但是刺激前的波形变化很大，每一株DK小麦的电信号都不太像<br>&lt;!more&gt;</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读薛琳师姐和王老师的大论文。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/02/刺激后的信号比较像/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/Long-short-term-memory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/01/Long-short-term-memory/" itemprop="url">Long short-term memory</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T22:53:50+08:00">
-                2019-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天阅读了1997年提出的lstm，重新理解了网络结构，但是没有什么新的发现。</p>
+            <h2 id="cuda1-10"><a href="#cuda1-10" class="headerlink" title="cuda1.10"></a>cuda1.10</h2><p>今天尝试安装cuda1.10版本。为什么会安装这个版本的cuda，是因为在执行下列语句后会提示缺少cuda ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br><span class="line">import tensorflow</span><br></pre></td></tr></table></figure>
+
+<p>提示安装cuda1.10<br>于是按照tf2和tf1最新版都是同一时刻发布的，于是尝试下cuda10可否支持tf2。经过验证是可行的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>cuda的版本很重要</p>
 
           
         
@@ -925,7 +886,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -963,7 +924,7 @@
               <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
-              <p class="site-description motion-element" itemprop="description">坚持是一种品格</p>
+              <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -973,7 +934,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -995,7 +956,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
