@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/embedding记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/02/tf-layers-dense-参数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/19/embedding记录/" itemprop="url">embedding记录</a></h1>
+                <a class="post-title-link" href="/2019/10/02/tf-layers-dense-参数/" itemprop="url">tf.layers.dense()参数</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T14:55:32+08:00">
-                2019-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-02T10:45:54+08:00">
+                2019-10-02
               </time>
             
 
@@ -323,12 +323,16 @@
       
         
           
-            <h3 id="问题：在embedding层，会报错。报错内容"><a href="#问题：在embedding层，会报错。报错内容" class="headerlink" title="问题：在embedding层，会报错。报错内容"></a>问题：在embedding层，会报错。报错内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indices[0,0] = -13 is not <span class="keyword">in</span> [0, 600) [Op:ResourceGather] name: encoder_3/embedding_2/embedding_lookup</span><br></pre></td></tr></table></figure>
+            <h3 id="units-是输出的shape"><a href="#units-是输出的shape" class="headerlink" title="units 是输出的shape"></a>units 是输出的shape</h3><p>之前一直对units的理解有出入，认为units是什么这一层神经元的个数，而且tf官方文档给的也是这个含义。但是在使用的时候并不是这个含义，但是按照单元数这个含义，也可以解释通。</p>
+<p>今天在复习tf的时候发现自己写的add_layer()函数就是tf.layers.dense()</p>
+<h4 id="add-layer"><a href="#add-layer" class="headerlink" title="add_layer()"></a>add_layer()</h4><p>这个其实就是一个函数，它的功能就是 outputs = activation(inputs * kernel + bias)。说的直白点就是完成矩阵运算。</p>
+<p>kernel 就是常说的权重，是matrix 格式，<br>bias是偏置，是vector格式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def add_layer(input_data, input_size, output_size, activation_function=None):</span><br><span class="line">	<span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">	input_data, 输入的数据</span></span><br><span class="line"><span class="string">	input_size, 输入数据的shape</span></span><br><span class="line"><span class="string">	output_size, 输出数据的shape</span></span><br><span class="line"><span class="string">	activation_function=None 激活函数</span></span><br><span class="line"><span class="string">	"</span><span class="string">""</span></span><br><span class="line">    <span class="comment"># 产生input_size行output_size列的随机数</span></span><br><span class="line">    Weights = tf.Variable(tf.random_normal([input_size, output_size]))</span><br><span class="line">    <span class="comment"># 产生一行output_size列全为0.1的数</span></span><br><span class="line">    biases = tf.Variable(tf.zeros([1, output_size]) + 0.1)</span><br><span class="line">    <span class="comment"># input_data * weights + biases</span></span><br><span class="line">    Wx_plus_b = tf.matmul(input_data, Weights) + biases</span><br><span class="line">    <span class="keyword">if</span> activation_function is None:</span><br><span class="line">        output = Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        output = activation_function(Wx_plus_b)</span><br><span class="line">    <span class="built_in">return</span> output</span><br></pre></td></tr></table></figure>
 
-<p>意思就是 -13这个数值不在 这里数组里面</p>
-<p>查看keras.layers.Embedding()的底层代码，发现这一层是专门用在自然语言处理的方向的。。。</p>
-<p>需要把1维的数据—》3 维</p>
-<p>这应该怎么弄呢？？？</p>
+<h4 id="tf-layers-dense"><a href="#tf-layers-dense" class="headerlink" title="tf.layers.dense()"></a>tf.layers.dense()</h4><p>这是tf.layers.dense()所需要的参数，tf忽忽略了input_size这个参数，因为和input_data.shape的数值是一样的。</p>
+<p>inputs—-&gt;input_data<br>units —–&gt; output_size</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def dense(</span><br><span class="line">    inputs, units,</span><br><span class="line">    activation=None,</span><br><span class="line">    use_bias=True,</span><br><span class="line">    kernel_initializer=None,</span><br><span class="line">    bias_initializer=init_ops.zeros_initializer(),</span><br><span class="line">    kernel_regularizer=None,</span><br><span class="line">    bias_regularizer=None,</span><br><span class="line">    activity_regularizer=None,</span><br><span class="line">    kernel_constraint=None,</span><br><span class="line">    bias_constraint=None,</span><br><span class="line">    trainable=True,</span><br><span class="line">    name=None,</span><br><span class="line">    reuse=None):</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -377,7 +381,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/08-18/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/论文选择/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -396,7 +400,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/18/08-18/" itemprop="url">evaluate(input_sentence)</a></h1>
+                <a class="post-title-link" href="/2019/09/30/论文选择/" itemprop="url">论文选择</a></h1>
         
 
         <div class="post-meta">
@@ -408,8 +412,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T16:52:04+08:00">
-                2019-08-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T15:48:45+08:00">
+                2019-09-30
               </time>
             
 
@@ -448,18 +452,13 @@
       
         
           
-            <p>embedding_units = 256 # 每个word转换成embedding是多少。<br>第一次掉用这个参数是在，构建Encoder模型中，keras.layers.Embedding(vocab_size, embedding_units)这个函数中使用。<br>keras.layers.Embedding(input_dim, output_dim,)<br>将正整数（索引值）转换为固定尺寸的稠密向量。 例如： [[4], [20]] -&gt; [[0.25, 0.1], [0.6, -0.2]]<br>该层只能用作模型中的第一层<br>input_dim: int &gt; 0。词汇表大小， 即，最大整数 index + 1。<br>output_dim: int &gt;= 0。词向量的维度。</p>
-<p>-输入尺寸</p>
-<p>尺寸为 (batch_size, sequence_length) 的 2D 张量。</p>
-<p>-输出尺寸</p>
-<p>尺寸为 (batch_size, sequence_length, output_dim) 的 3D 张量。</p>
-<p>max_length_input 这个参数是输入的每个序列长度，即文档里面的sequence_length。</p>
-<h3 id="Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"><a href="#Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。" class="headerlink" title="Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"></a>Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。</h3><pre><code>        # 第二层是GRU层。
-使用encoder函数，会有两个输出，一个是output(就是上面出的输出尺寸) 一个是hidden。hidden.shape=(batch_size, units)</code></pre><h4 id="units-1024-这个代表的是中间使用RNN的个数"><a href="#units-1024-这个代表的是中间使用RNN的个数" class="headerlink" title="units=1024, 这个代表的是中间使用RNN的个数"></a>units=1024, 这个代表的是中间使用RNN的个数</h4><p>这是在构造函数里面的GRU()初始化设置。</p>
-<p>self.gru = keras.layers.GRU(self.encoding_units,return_sequences=True,return_state=True, recurrent_initializer=’glorot_uniform’)</p>
-<p>encoding_units 是GRU的输出尺寸，recurrent_regularizer: 运用到 recurrent_kernel 权值矩阵的正则化函数</p>
-<p>####call方法<br>call方法 可以理解为使用构造函数，在实例化这个方法的时候可以直接调用。<br>output, state = self.gru(x, initial_state=hidden)<br>您可以通过使用关键字参数 initial_state 调用它们来符号化地指定 RNN 层的初始状态。 initial_state 的值应该是表示 RNN 层初始状态的张量或张量列表。</p>
-<h2 id="检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下"><a href="#检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下" class="headerlink" title="检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下"></a>检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下</h2>
+            <h3 id="GuardCell"><a href="#GuardCell" class="headerlink" title="GuardCell"></a>GuardCell</h3><p>保卫细胞膜上的快速阴离子通道具有钙依赖性、时间依赖性、电压依赖性，能够穿过该通道的阴离子主要是CI-。保卫细胞感应到外界刺激后，胞内Ca2+浓度的提高可以激活快速阴离子通道，引起CI-外流。</p>
+<p>搜索关键词</p>
+<p>“Anion channel” wheat “patch clamp”</p>
+<p>还是需要读懂小飞姐找的文献</p>
+<p>GCAC: guard cell anion channel </p>
+<p>电压刺激下的电流数据 </p>
+<h3 id="shabala的researchgate-上搜索关键词”patch-clamp”-“wheat”"><a href="#shabala的researchgate-上搜索关键词”patch-clamp”-“wheat”" class="headerlink" title="shabala的researchgate 上搜索关键词”patch clamp” “wheat”"></a>shabala的researchgate 上搜索关键词”patch clamp” “wheat”</h3>
           
         
       
@@ -507,7 +506,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/c51_flash修改/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/tf-matmul-函数用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -526,7 +525,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/17/c51_flash修改/" itemprop="url">C51 Flash 读写操作</a></h1>
+                <a class="post-title-link" href="/2019/09/28/tf-matmul-函数用法/" itemprop="url">tf.matmul()函数用法</a></h1>
         
 
         <div class="post-meta">
@@ -538,8 +537,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T16:52:04+08:00">
-                2019-08-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:20:34+08:00">
+                2019-09-28
               </time>
             
 
@@ -578,12 +577,89 @@
       
         
           
-            <h2 id="C51-Flash-读写操作"><a href="#C51-Flash-读写操作" class="headerlink" title="C51 Flash 读写操作"></a>C51 Flash 读写操作</h2><p>###问题：下位机返回的数据，不是传感器的数据，有没有连接传感器，返回的数值也都一样。刚开始认为是标定的问题，把标定的函数搞明白，知道怎么去标定数据。但是标定完成后，数据还是不正确。</p>
-<p>###思路：检查一下读取的Flash的驱动是不是有问题。写一个简单的函数，通过调用原来的读写函数，对flash里面的数值进行操作，每次下位机开断电，都会通过串口发送flash内部的数值，并每次把flash里的数据加一，然后再放到flash。简单的验证一下可以往flash内部进行数据的读写。</p>
-<h3 id="结果：每次返回的数值-不会发生变化。"><a href="#结果：每次返回的数值-不会发生变化。" class="headerlink" title="结果：每次返回的数值 不会发生变化。"></a>结果：每次返回的数值 不会发生变化。</h3><h4 id="最后可以试一试外部的存储芯片模块。。。。24C08"><a href="#最后可以试一试外部的存储芯片模块。。。。24C08" class="headerlink" title="最后可以试一试外部的存储芯片模块。。。。24C08"></a>最后可以试一试外部的存储芯片模块。。。。24C08</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unsigned char xdata hc[3]=&#123;0,0,0&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//-----------------存储标定的k、b值--------------</span><br><span class="line">void Save_flash(void)</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">    EA=0;              //禁止中断</span><br><span class="line">    FLSCL=0x89;        //FLASH 写/擦除定时(Fosc=18.432MHz) 允许FLASH写</span><br><span class="line">    PSCTL=0x07;        //临时FLASH 允许FLASH 写/擦除 </span><br><span class="line">    FLASH_ADDR[0]=0;   //向待擦除扇区内的任何一个地址写入一个数据字节？擦除 临时FLASH</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;2;i++)  //写入数据FLASH</span><br><span class="line">    &#123;</span><br><span class="line">        PSCTL=0x00;    //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">	    j=hc[i];     //读FLASH存储器 与PSWE无关</span><br><span class="line">        PSCTL=0x05;    //临时FLASH 禁止擦除 允许写 </span><br><span class="line">	    FLASH_ADDR[i]=j;</span><br><span class="line">    &#125;                 </span><br><span class="line">    FLSCL=0x4f;        //禁止FLASH 写/擦除</span><br><span class="line">    PSCTL=0x00;        //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">    EA=1;</span><br><span class="line">&#125;</span><br><span class="line">//-------------从MCU中读取出标定的k、b值------------------------</span><br><span class="line">void Read_flash(void)        </span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">	uint8 code *FLASH_READ;   //code定义的数据在flash中</span><br><span class="line">	FLASH_READ=0x0000;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;2;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    PSCTL=0x04;           //选择数据FLASH扇区 禁止FLASH 写/擦除</span><br><span class="line">		j=FLASH_READ[i];      //读取数据flash 0x0000区</span><br><span class="line">	    PSCTL=0x00;           //选择程序Flash 禁止写/擦除</span><br><span class="line">		hc[i]=j;            //读程序flash</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">	WDTCN = 0xde;                       // Disable watchdog timer  关闭看门狗</span><br><span class="line">   	WDTCN = 0xad; </span><br><span class="line"> 	SYSCLK_Init();</span><br><span class="line"> 	PORT_Init();</span><br><span class="line">	ADC0_Init();	</span><br><span class="line">	UART0_Init();</span><br><span class="line">	</span><br><span class="line">	Read_All();</span><br><span class="line">	Para[0]++;</span><br><span class="line">	Save_Para();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	P2 = 0x00;</span><br><span class="line">	EA = 1;                             // Enable global interrupts</span><br><span class="line">	</span><br><span class="line">	Send_Buf0[0] = Para[0];    //发送帧头</span><br><span class="line">	Send_Buf0[1] = 0x00; </span><br><span class="line">	Send_Max = 2;</span><br><span class="line">	Send_p = 0;</span><br><span class="line">	SCON0 &amp;= 0xef; //REN0 = 0 禁止开始接收</span><br><span class="line">	SBUF0  = 0x41; //启动回答数据事件</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(1)											 </span><br><span class="line">	&#123;		</span><br><span class="line"> 	WDTCN = 0xa5;	  //使能并复位看门狗定时器</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">@tf_export(<span class="string">"linalg.matmul"</span>, <span class="string">"matmul"</span>)</span><br><span class="line">@dispatch.add_dispatch_support</span><br><span class="line">def matmul(a,</span><br><span class="line">           b,</span><br><span class="line">           transpose_a=False,</span><br><span class="line">           transpose_b=False,</span><br><span class="line">           adjoint_a=False,</span><br><span class="line">           adjoint_b=False,</span><br><span class="line">           a_is_sparse=False,</span><br><span class="line">           b_is_sparse=False,</span><br><span class="line">           name=None):</span><br><span class="line">  <span class="string">""</span><span class="string">"Multiplies matrix `a` by matrix `b`, producing `a` * `b`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  The inputs must, following any transpositions, be tensors of rank &gt;= 2</span></span><br><span class="line"><span class="string">  where the inner 2 dimensions specify valid matrix multiplication arguments,</span></span><br><span class="line"><span class="string">  and any further outer dimensions match.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Both matrices must be of the same type. The supported types are:</span></span><br><span class="line"><span class="string">  `float16`, `float32`, `float64`, `int32`, `complex64`, `complex128`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Either matrix can be transposed or adjointed (conjugated and transposed) on</span></span><br><span class="line"><span class="string">  the fly by setting one of the corresponding flag to `True`. These are `False`</span></span><br><span class="line"><span class="string">  by default.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  If one or both of the matrices contain a lot of zeros, a more efficient</span></span><br><span class="line"><span class="string">  multiplication algorithm can be used by setting the corresponding</span></span><br><span class="line"><span class="string">  `a_is_sparse` or `b_is_sparse` flag to `True`. These are `False` by default.</span></span><br><span class="line"><span class="string">  This optimization is only available for plain matrices (rank-2 tensors) with</span></span><br><span class="line"><span class="string">  datatypes `bfloat16` or `float32`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  For example:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  ```python</span></span><br><span class="line"><span class="string">  # 2-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[1, 2, 3],</span></span><br><span class="line"><span class="string">  #  [4, 5, 6]]</span></span><br><span class="line"><span class="string">  a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 2-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[ 7,  8],</span></span><br><span class="line"><span class="string">  #  [ 9, 10],</span></span><br><span class="line"><span class="string">  #  [11, 12]]</span></span><br><span class="line"><span class="string">  b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[ 58,  64],</span></span><br><span class="line"><span class="string">  #  [139, 154]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[[ 1,  2,  3],</span></span><br><span class="line"><span class="string">  #   [ 4,  5,  6]],</span></span><br><span class="line"><span class="string">  #  [[ 7,  8,  9],</span></span><br><span class="line"><span class="string">  #   [10, 11, 12]]]</span></span><br><span class="line"><span class="string">  a = tf.constant(np.arange(1, 13, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[[13, 14],</span></span><br><span class="line"><span class="string">  #   [15, 16],</span></span><br><span class="line"><span class="string">  #   [17, 18]],</span></span><br><span class="line"><span class="string">  #  [[19, 20],</span></span><br><span class="line"><span class="string">  #   [21, 22],</span></span><br><span class="line"><span class="string">  #   [23, 24]]]</span></span><br><span class="line"><span class="string">  b = tf.constant(np.arange(13, 25, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[[ 94, 100],</span></span><br><span class="line"><span class="string">  #   [229, 244]],</span></span><br><span class="line"><span class="string">  #  [[508, 532],</span></span><br><span class="line"><span class="string">  #   [697, 730]]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # Since python &gt;= 3.5 the @ operator is supported (see PEP 465).</span></span><br><span class="line"><span class="string">  # In TensorFlow, it simply calls the `tf.matmul()` function, so the</span></span><br><span class="line"><span class="string">  # following lines are equivalent:</span></span><br><span class="line"><span class="string">  d = a @ b @ [[10.], [11.]]</span></span><br><span class="line"><span class="string">  d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])</span></span><br></pre></td></tr></table></figure>
 
-<p>原始对flash保存的代码，这里的Para变量是这么define的 uint8   xdata Para[112];</p>
+<p>  Args:<br>    a: <code>Tensor</code> of type <code>float16</code>, <code>float32</code>, <code>float64</code>, <code>int32</code>, <code>complex64</code>,
+      <code>complex128</code> and rank &gt; 1.<br>    b: <code>Tensor</code> with same type and rank as <code>a</code>.
+    transpose_a: If <code>True</code>, <code>a</code> is transposed before multiplication.<br>    transpose_b: If <code>True</code>, <code>b</code> is transposed before multiplication.<br>    adjoint_a: If <code>True</code>, <code>a</code> is conjugated and transposed before<br>      multiplication.<br>    adjoint_b: If <code>True</code>, <code>b</code> is conjugated and transposed before<br>      multiplication.<br>    a_is_sparse: If <code>True</code>, <code>a</code> is treated as a sparse matrix.<br>    b_is_sparse: If <code>True</code>, <code>b</code> is treated as a sparse matrix.<br>    name: Name for the operation (optional).</p>
+<p>  Returns:<br>    A <code>Tensor</code> of the same type as <code>a</code> and <code>b</code> where each inner-most matrix is<br>    the product of the corresponding matrices in <code>a</code> and <code>b</code>, e.g. if all<br>    transpose or adjoint attributes are <code>False</code>:</p>
+<pre><code>`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
+Note: This is matrix product, not element-wise product.</code></pre><p>  Raises:<br>    ValueError: If transpose_a and adjoint_a, or transpose_b and adjoint_b<br>      are both set to True.<br>  “””<br>  with ops.name_scope(name, “MatMul”, [a, b]) as name:<br>    if transpose_a and adjoint_a:<br>      raise ValueError(“Only one of transpose_a and adjoint_a can be True.”)<br>    if transpose_b and adjoint_b:<br>      raise ValueError(“Only one of transpose_b and adjoint_b can be True.”)</p>
+<pre><code>if context.executing_eagerly():
+  if not isinstance(a, (ops.EagerTensor, _resource_variable_type)):
+    a = ops.convert_to_tensor(a, name=&quot;a&quot;)
+  if not isinstance(b, (ops.EagerTensor, _resource_variable_type)):
+    b = ops.convert_to_tensor(b, name=&quot;b&quot;)
+else:
+  a = ops.convert_to_tensor(a, name=&quot;a&quot;)
+  b = ops.convert_to_tensor(b, name=&quot;b&quot;)
+
+# TODO(apassos) remove _shape_tuple here when it is not needed.
+a_shape = a._shape_tuple()  # pylint: disable=protected-access
+b_shape = b._shape_tuple()  # pylint: disable=protected-access
+
+if fwd_compat.forward_compatible(2019, 4, 25):
+  output_may_have_non_empty_batch_shape = (
+      (a_shape is None or len(a_shape) &gt; 2) or
+      (b_shape is None or len(b_shape) &gt; 2))
+  batch_mat_mul_fn = gen_math_ops.batch_mat_mul_v2
+else:
+  output_may_have_non_empty_batch_shape = (
+      (a_shape is None or len(a_shape) &gt; 2) and
+      (b_shape is None or len(b_shape) &gt; 2))
+  batch_mat_mul_fn = gen_math_ops.batch_mat_mul
+
+if (not a_is_sparse and
+    not b_is_sparse) and output_may_have_non_empty_batch_shape:
+  # BatchMatmul does not support transpose, so we conjugate the matrix and
+  # use adjoint instead. Conj() is a noop for real matrices.
+  if transpose_a:
+    a = conj(a)
+    adjoint_a = True
+  if transpose_b:
+    b = conj(b)
+    adjoint_b = True
+  return batch_mat_mul_fn(a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+
+# Neither matmul nor sparse_matmul support adjoint, so we conjugate
+# the matrix and use transpose instead. Conj() is a noop for real
+# matrices.
+if adjoint_a:
+  a = conj(a)
+  transpose_a = True
+if adjoint_b:
+  b = conj(b)
+  transpose_b = True
+
+use_sparse_matmul = False
+if a_is_sparse or b_is_sparse:
+  sparse_matmul_types = [dtypes.bfloat16, dtypes.float32]
+  use_sparse_matmul = (
+      a.dtype in sparse_matmul_types and b.dtype in sparse_matmul_types)
+if ((a.dtype == dtypes.bfloat16 or b.dtype == dtypes.bfloat16) and
+    a.dtype != b.dtype):
+  # matmul currently doesn&apos;t handle mixed-precision inputs.
+  use_sparse_matmul = True
+if use_sparse_matmul:
+  ret = sparse_matmul(
+      a,
+      b,
+      transpose_a=transpose_a,
+      transpose_b=transpose_b,
+      a_is_sparse=a_is_sparse,
+      b_is_sparse=b_is_sparse,
+      name=name)
+  # sparse_matmul always returns float32, even with
+  # bfloat16 inputs. This prevents us from configuring bfloat16 training.
+  # casting to bfloat16 also matches non-sparse matmul behavior better.
+  if a.dtype == dtypes.bfloat16 and b.dtype == dtypes.bfloat16:
+    ret = cast(ret, dtypes.bfloat16)
+  return ret
+else:
+  return gen_math_ops.mat_mul(
+      a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)</code></pre><pre><code></code></pre>
           
         
       
@@ -631,7 +707,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/plot-attention/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/拟合门控概率/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -650,7 +726,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/16/plot-attention/" itemprop="url">plot_attention</a></h1>
+                <a class="post-title-link" href="/2019/09/28/拟合门控概率/" itemprop="url">拟合门控概率</a></h1>
         
 
         <div class="post-meta">
@@ -662,8 +738,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T15:32:09+08:00">
-                2019-08-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:19:11+08:00">
+                2019-09-28
               </time>
             
 
@@ -702,14 +778,7 @@
       
         
           
-            <p>def plot_attention(attention_matrix, input_sentence, predicted_sentence):<br>    fig = plt.figure(figsize=(10,10))<br>    ax = fig.add_subplot(1, 1, 1)</p>
-<pre><code>ax.matshow(attention_matrix, cmap=&apos;viridis&apos;) # cmap 定义的是配色
-
-font_dict = {&apos;fontsize&apos;: 14}
-
-ax.set_xticklabels([&apos;&apos;] + input_sentence, fontdict = font_dict, rotation = 90) # roation 让字体反转90度
-ax.set_yticklabels([&apos;&apos;] + predicted_sentence,fontdict = font_dict)
-plt.show()</code></pre>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">from scipy.optimize import curve_fit</span><br><span class="line"></span><br><span class="line">path = <span class="string">'/Users/squareface/PycharmProjects/testVenv/'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num = 2</span><br><span class="line"><span class="comment"># 读取数据</span></span><br><span class="line">data = pd.read_csv(path+<span class="string">'data'</span>+str(num)+<span class="string">'.csv'</span>)</span><br><span class="line"><span class="comment"># x赋值</span></span><br><span class="line">x = np.array(data.iloc[:,0])</span><br><span class="line"></span><br><span class="line">G = 36</span><br><span class="line"><span class="comment"># 定义方程</span></span><br><span class="line">def func1(x,m,tm,h,th):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2*(h-(h-1)*np.exp(-x/th))</span><br><span class="line">def func2(x,m,tm):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合不同电位</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(data.columns)):</span><br><span class="line">    y = np.array(data.iloc[:,i])</span><br><span class="line">    <span class="comment">#非线性最小二乘法拟</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        popt, pcov = curve_fit(func1, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        popt, pcov = curve_fit(func2, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="comment">#获取popt里面是拟合系数</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = popt[2]</span><br><span class="line">        d = popt[3]</span><br><span class="line">        yvals = func1(x,a,b,c,d)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = np.nan</span><br><span class="line">        d = np.nan</span><br><span class="line">        yvals = func2(x,a,b)</span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    plt.cla()</span><br><span class="line">    plot1 = plt.plot(x, y, <span class="string">'s'</span>,label=<span class="string">'original values'</span>) <span class="comment"># 原始点</span></span><br><span class="line">    plot2 = plt.plot(x, yvals, <span class="string">'r'</span>,label=<span class="string">'polyfit values'</span>) <span class="comment"># 拟合线</span></span><br><span class="line">    plt.xlabel(<span class="string">'t'</span>) <span class="comment"># x轴标签</span></span><br><span class="line">    plt.ylabel(<span class="string">'gCIR'</span>) <span class="comment"># y轴标签</span></span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>) <span class="comment"># 图例</span></span><br><span class="line">    plt.title(<span class="string">'V='</span>+list(data.columns)[i]+<span class="string">'mV'</span>) <span class="comment"># 标题</span></span><br><span class="line">    plt.savefig(path+str(num)+<span class="string">'_'</span>+str(list(data.columns)[i])+<span class="string">'mV.png'</span>) <span class="comment"># 保存图</span></span><br><span class="line">    result.append([list(data.columns)[i],b,d,G*a*a,a,c])</span><br><span class="line"><span class="comment"># 保存数据</span></span><br><span class="line">result = pd.DataFrame(result,columns=[<span class="string">'V'</span>,<span class="string">'tm'</span>,<span class="string">'th'</span>,<span class="string">'GCIRm2'</span>,<span class="string">'m'</span>,<span class="string">'h'</span>])</span><br><span class="line">result.to_csv(path+str(num)+<span class="string">'_'</span>+<span class="string">'result.csv'</span>,index=False)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -757,7 +826,7 @@ plt.show()</code></pre>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/evaluate-input-sentence/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/仿真HH方程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -776,7 +845,7 @@ plt.show()</code></pre>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/15/evaluate-input-sentence/" itemprop="url">evaluate(input_sentence)</a></h1>
+                <a class="post-title-link" href="/2019/09/28/仿真HH方程/" itemprop="url">仿真HH方程</a></h1>
         
 
         <div class="post-meta">
@@ -788,8 +857,8 @@ plt.show()</code></pre>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T16:52:04+08:00">
-                2019-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:18:49+08:00">
+                2019-09-28
               </time>
             
 
@@ -828,13 +897,8 @@ plt.show()</code></pre>
       
         
           
-            <p>详细的记录 evaluate函数的实现。<br>解决报错</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ValueError                                Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-44-2ec1176683f0&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 translate(u<span class="string">'Estoy trabajando.'</span>)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> translate(input_sentence)</span><br><span class="line">     49 </span><br><span class="line">     50 def translate(input_sentence):</span><br><span class="line">---&gt; 51     results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line">     52 </span><br><span class="line">     53     <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> evaluate(input_sentence)</span><br><span class="line">     20     decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0)</span><br><span class="line">     21     <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">---&gt; 22         predictions. decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">     23         attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">     24         attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">ValueError: too many values to unpack (expected 2)</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意看predictions-后面的标点符号"><a href="#注意看predictions-后面的标点符号" class="headerlink" title="注意看predictions 后面的标点符号"></a>注意看predictions 后面的标点符号</h3><p>接收的是一个文本的输入，首先就要转换成适合模型的数据类型。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">def evaluate(input_sentence):</span><br><span class="line">    attention_matrix = np.zeros((max_length_output, max_length_input)) <span class="comment"># 定义attention_matrix 保存权重。shape:()</span></span><br><span class="line">    input_sentence = preprocess_sentence(input_sentence) <span class="comment"># 输入的句子进行预处理。就是分割标点符号/</span></span><br><span class="line"></span><br><span class="line">    inputs = [input_tokenizer.word_index[token] <span class="keyword">for</span> token <span class="keyword">in</span> input_sentence.split(<span class="string">' '</span>)] <span class="comment"># text---&gt;id 把句子转换成id</span></span><br><span class="line">    inputs = keras.preprocessing.sequence.pad_sequences([inputs], maxlen = max_length_input, padding= <span class="string">'post'</span>) <span class="comment"># 把转换成id的向量，进行padding</span></span><br><span class="line">    inputs = tf.convert_to_tensor(inputs) <span class="comment">#把向量转换为tensor</span></span><br><span class="line"></span><br><span class="line">    results = <span class="string">''</span> <span class="comment"># 定义str, 保存translate的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     encoding_hidden = encoder.initialize_hidden_state()</span></span><br><span class="line"></span><br><span class="line">    encoding_hidden = tf.zeros((1, units)) <span class="comment">#初始化encoding_hidden层</span></span><br><span class="line"></span><br><span class="line">    encoding_outputs, encoding_hidden = encoder(inputs, encoding_hidden) <span class="comment"># 这一步得到的encoding_hidden就是decoding_hidden 的第一个值</span></span><br><span class="line">    decoding_hidden = encoding_hidden</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0) <span class="comment"># 找到开始的第一个输入的id</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">        predictions, decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">        attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">        attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">        predicted_id = tf.argmax(predictions[0]).numpy()</span><br><span class="line"></span><br><span class="line">        results += out_tokenizer.index_word[predicted_id] + <span class="string">' '</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> out_tokenizer.index_word[predicted_id] == <span class="string">'&lt;end&gt;'</span>:</span><br><span class="line">            <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">        decoding_input = tf.expand_dims([predicted_id], 0)</span><br><span class="line">    <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">def plot_attention(attention_matrix, input_sentence, predicted_sentence):</span><br><span class="line">    fig = plt.figure(figsize=(10,10))</span><br><span class="line">    ax = fig.add_subplot(1, 1, 1)</span><br><span class="line"></span><br><span class="line">    ax.matshow(attention_matrix, cmap=<span class="string">'viridis'</span>)</span><br><span class="line"></span><br><span class="line">    font_dict = &#123;<span class="string">'fontsize'</span>: 14&#125;</span><br><span class="line"></span><br><span class="line">    ax.set_xticklabels([<span class="string">''</span>] + input_sentence,</span><br><span class="line">                              fontdict = font_dict, rotation = 90)</span><br><span class="line">    ax.sey_yticklables([<span class="string">''</span>] + predicted_sentence,</span><br><span class="line">                              fontdict = font_dict,)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def translate(input_sentence):</span><br><span class="line">    results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Predicted translation: %s"</span> % (results))</span><br><span class="line"></span><br><span class="line">    attention_matrix = attention_matrix[:len(results.split(<span class="string">' '</span>)),</span><br><span class="line">                                                       :len(input_sentence.split(<span class="string">' '</span>))]</span><br><span class="line">    plot_attention(attention_matrix, input_sentence.split(<span class="string">' '</span>), results.split(<span class="string">' '</span>))</span><br></pre></td></tr></table></figure>
-
-
+            <p>仿真恒流刺激</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">plt.figure(figsize=(10,10))</span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line">DT = 0.001</span><br><span class="line">t = np.linspace(0,50,int(50/DT)+1)   <span class="comment"># 仿真时间   光 1200</span></span><br><span class="line">Cm = 1   <span class="comment"># 膜电容</span></span><br><span class="line">I = 90   <span class="comment"># 刺激电流 ?????电流不能太大</span></span><br><span class="line">v = -112 <span class="comment"># 静息电位</span></span><br><span class="line">GK = 24 <span class="comment"># GK=3.5;</span></span><br><span class="line">GCl = 36 <span class="comment"># GCl=16;</span></span><br><span class="line">GCl_slow = 1</span><br><span class="line">GKin = 20</span><br><span class="line">GH = 0.28</span><br><span class="line">n2 = 0</span><br><span class="line">m2 = 0</span><br><span class="line">nn2 = 0</span><br><span class="line">s2 = 0</span><br><span class="line">h2 = 1</span><br><span class="line">k2 = 0</span><br><span class="line">v2 = v</span><br><span class="line"></span><br><span class="line">T0 = 25</span><br><span class="line">Tinitial = 18</span><br><span class="line">Tend = 4</span><br><span class="line">Iin0 = 0.005 <span class="comment"># Iin0=0.0193;</span></span><br><span class="line">Iinmax = 3 <span class="comment"># Iinmax=2.5;</span></span><br><span class="line">K1 = 1</span><br><span class="line">n_t1 = 3</span><br><span class="line">Iexmax = 1</span><br><span class="line">Km = 0.5</span><br><span class="line">n_t2 = 2</span><br><span class="line">Q = 10</span><br><span class="line">P0 = 0.005</span><br><span class="line">Kp = 0.5</span><br><span class="line">Ca0 = 0.1   <span class="comment"># 细胞质Ca离子浓度,uM</span></span><br><span class="line">Ca2 = Ca0</span><br><span class="line">KQ = math.log(Q)/10 </span><br><span class="line">T1 = Tinitial</span><br><span class="line">Rate = -0.8 <span class="comment"># 摄氏度/秒</span></span><br><span class="line">tc = 45 <span class="comment"># 秒</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(t)):</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    Ca1 = Ca2;</span><br><span class="line">    T2 = T1+Rate*DT*math.exp(-t[i]/tc)</span><br><span class="line">    temp = (-(Rate*math.exp(-t[i]/tc)-abs(Rate*math.exp(-t[i]/tc)))/2)**n_t1</span><br><span class="line">    dCadt = Iin0+Iinmax*temp/(K1**n_t1+temp) - Iexmax*math.exp(KQ*(T1-T0))*(Ca1**n_t2)/(Km**n2+Ca1**n_t2)</span><br><span class="line">    Ca2 = Ca1+DT*dCadt</span><br><span class="line">    dIexmax = DT*P0*np.sign(Ca1-Ca0)*Ca1/(Kp+Ca1)</span><br><span class="line">    Iexmax = Iexmax+dIexmax</span><br><span class="line">    Itemperature = -0.6823*dCadt*450  <span class="comment"># 单位没有转换 Itemperature=-0.0154*dCadt/0.00005;</span></span><br><span class="line">    T1 = T2</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    n1 = n2</span><br><span class="line">    m1 = m2</span><br><span class="line">    h1 = h2 </span><br><span class="line">    s1 = s2</span><br><span class="line">    k1 = k2</span><br><span class="line">    nn1 = nn2</span><br><span class="line">    v1 = v2</span><br><span class="line">    V = v1</span><br><span class="line">    Ib = 2*(V+127.5) <span class="comment">#   Ib=2*(V+130.5);</span></span><br><span class="line">    am = 10.55*(V+60)/(1-math.exp(-(V+60)/7.029))</span><br><span class="line">    bm = 44.32*math.exp(-V/98.2)</span><br><span class="line">    ah = 38.35*math.exp(-V/41.39)</span><br><span class="line">    bh = 7.249/(1+0.6061*math.exp(-V/26.58))</span><br><span class="line">    an = (0.01812*V+2.598)/(1+0.5954*math.exp(-V/10.8))</span><br><span class="line">    bn = 1.56*math.exp(-V/23.4) </span><br><span class="line">    AS = 0.02985*math.exp(V/144.6)   <span class="comment">#慢Cl</span></span><br><span class="line">    bs = 0.03542*math.exp(-V/91.67)</span><br><span class="line">    ak = 0.01414*math.exp(-0.03175*V)/(1+math.exp(0.2434*V))<span class="comment">#  内向K</span></span><br><span class="line">    bk = 974.1*math.exp(0.04129*V)/(1+math.exp(0.7851*V))</span><br><span class="line">    ann = 0.01*(V+60)/(1-math.exp(-(V+60)/2.8))</span><br><span class="line">    bnn = 0.05*math.exp(-V/80.4)</span><br><span class="line">    <span class="keyword">if</span> i==1:</span><br><span class="line">        n1 = an/(an+bn)</span><br><span class="line">        m1 = 0 </span><br><span class="line">        h1 = 1</span><br><span class="line">        s1 = AS/(AS+bs)</span><br><span class="line">        k1 = ak/(ak+bk) </span><br><span class="line">        nn1 = ann/(ann+bnn)</span><br><span class="line">  </span><br><span class="line">    N = n1</span><br><span class="line">    M = m1</span><br><span class="line">    H = h1</span><br><span class="line">    S = s1  </span><br><span class="line">    NN = nn1</span><br><span class="line">    gK = GK*N*N</span><br><span class="line">    gCl = GCl*M*M*H</span><br><span class="line">    gCl_slow = GCl_slow*S; </span><br><span class="line">    <span class="comment"># gKN=GK*NN*NN;% 复极化电导</span></span><br><span class="line">    gKN=40*NN*NN <span class="comment"># 最大电导40可调整，调大后，在较大的刺激下也可出现正常的波形</span></span><br><span class="line">    gH = GH/(1+math.exp((65.53+V)/112.2))</span><br><span class="line">    IH = gH*(V+231.8)</span><br><span class="line"></span><br><span class="line">    Ik = gK*(V+53)</span><br><span class="line">    ICl = gCl*(V-13.6)  <span class="comment"># ICl=gCl*(V+23.6);</span></span><br><span class="line">    ICl_slow = gCl_slow*(V-37.8)</span><br><span class="line">    IKN = gKN*(V+115) <span class="comment">#  IKN=gKN*(V+118);</span></span><br><span class="line">    K = k1  <span class="comment"># 内向K电流</span></span><br><span class="line">    gKin =GKin*K </span><br><span class="line">    Ikin = gKin*(V+75) </span><br><span class="line">    kdot = (ak*(1-K)-bk*K)*DT</span><br><span class="line">    k2=k1+kdot</span><br><span class="line">    </span><br><span class="line">    ndot = (an*(1-N)-bn*N)*DT</span><br><span class="line">    nndot = (ann*(1-NN)-bnn*NN)*DT</span><br><span class="line">    <span class="comment"># IT=Ik+ICl+ICl_slow+Ikin+Ib+IH;</span></span><br><span class="line">    IT=Ik+ICl+ICl_slow+IKN+Ikin+Ib+IH</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#     if t[i]&lt;800          %光刺激</span></span><br><span class="line"><span class="comment">#         Ilight=71*(1-math.exp(-t[i]/82))^3;</span></span><br><span class="line"><span class="comment">#     else</span></span><br><span class="line"><span class="comment">#         Ilight=71*math.exp(-(t[i]-800)/56);</span></span><br><span class="line"><span class="comment">#         #if rem(t[i],20)==0</span></span><br><span class="line"><span class="comment">#             #v1</span></span><br><span class="line"><span class="comment">#         #end</span></span><br><span class="line"><span class="comment">#     end</span></span><br><span class="line"><span class="comment">#     vdot=((Ilight-IT)/Cm)*DT;</span></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> t[i]&lt;100:    <span class="comment">#温度、恒流电刺激</span></span><br><span class="line">        vdot = ((I-IT)/Cm)*DT</span><br><span class="line">    <span class="comment">#    vdot=(-(Itemperature+IT)/Cm)*DT;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        vdot = (-IT/Cm)*DT</span><br><span class="line">    </span><br><span class="line">       </span><br><span class="line">    v2 = v1+vdot</span><br><span class="line">    mdot = (am*(1-M)-bm*M)*DT</span><br><span class="line">    n2 = n1+ndot</span><br><span class="line">    m2 = m1+mdot</span><br><span class="line">    sdot =(AS*(1-S)-bs*S)*DT</span><br><span class="line">    s2 = s1+sdot</span><br><span class="line">    nn2 = nn1+nndot</span><br><span class="line">    <span class="keyword">if</span> V&lt;-20:</span><br><span class="line">        h2=1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hdot = (ah*(1-H)-bh*H)*DT</span><br><span class="line">        h2=h1+hdot </span><br><span class="line">    </span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    if t[i]%0.01==0:</span></span><br><span class="line"><span class="string">        result.append([t[i],v1])</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span>    </span><br><span class="line">    </span><br><span class="line">    result.append([t[i],v1])    </span><br><span class="line">result = np.array(result)</span><br><span class="line">plt.plot(result[:,0],result[:,1],c=<span class="string">'b'</span>)</span><br><span class="line"><span class="comment">#plt.plot(result[:,0],result[:,2],'r-');  #仿真Ca离子浓度随时间的变化关系</span></span><br><span class="line">plt.xlabel(<span class="string">'时间(s)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'膜电位(mV)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br></pre></td></tr></table></figure>
           
         
       
@@ -873,7 +937,7 @@ plt.show()</code></pre>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -921,7 +985,7 @@ plt.show()</code></pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -943,7 +1007,7 @@ plt.show()</code></pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
