@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/刺激后的信号比较像/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/调试下位机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/02/刺激后的信号比较像/" itemprop="url">刺激后的信号比较像</a></h1>
+                <a class="post-title-link" href="/2019/08/05/调试下位机/" itemprop="url">调试下位机</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T23:54:24+08:00">
-                2019-07-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T22:42:57+08:00">
+                2019-08-05
               </time>
             
 
@@ -295,6 +295,8 @@
 
           
 
+          
+            
           
 
           
@@ -320,11 +322,12 @@
 
       
         
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>今天突然想到可以把整理的刺激前和刺激后的数据画出来，看一下。发现DK小麦在刺激后的电位都在一个范围内，感觉波形比较固定。但是刺激前的波形变化很大，每一株DK小麦的电信号都不太像<br>&lt;!more&gt;</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>阅读薛琳师姐和王老师的大论文。</p>
+          <h3 id="接收缓冲数组"><a href="#接收缓冲数组" class="headerlink" title="接收缓冲数组"></a>接收缓冲数组</h3><p>uint8  idata Rece_Buf0[9];  //接收缓冲数组</p>
+<p>Rece_Buf0[9] = [0,1,2,3,4,5,6,7,8]</p>
+<h4 id="Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43"><a href="#Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43" class="headerlink" title="Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43"></a>Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43</h4><h4 id="Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句："><a href="#Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句：" class="headerlink" title="Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句："></a>Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句：</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  switch(Rece_Buf0[1])    </span><br><span class="line">  <span class="keyword">case</span> 0x14:</span><br><span class="line">Work_Flag=1;  //采集标志位</span><br></pre></td></tr></table></figure></code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/02/刺激后的信号比较像/#more" rel="contents">
+            <a class="btn" href="/2019/08/05/调试下位机/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -375,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/Long-short-term-memory/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/文献阅读/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -394,7 +397,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/Long-short-term-memory/" itemprop="url">Long short-term memory</a></h1>
+                <a class="post-title-link" href="/2019/08/03/文献阅读/" itemprop="url">文献阅读</a></h1>
         
 
         <div class="post-meta">
@@ -406,8 +409,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T22:53:50+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T19:39:40+08:00">
+                2019-08-03
               </time>
             
 
@@ -416,28 +419,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -468,7 +449,10 @@
       
         
           
-            <p>今天阅读了1997年提出的lstm，重新理解了网络结构，但是没有什么新的发现。</p>
+            <h2 id="表示学习"><a href="#表示学习" class="headerlink" title="表示学习"></a>表示学习</h2><p>对于很多任务，我们很难知道应该提取哪些特征，例如，假如我们想编写一个程序来检测照片中的车，但是我们很难根据像素值来给车轮定义。解决这个问题的途径之一就是使用机器学习来发掘表示本身，而不仅仅把表示映射到输出，这种方法称为表示学习。</p>
+<h3 id="自编码器"><a href="#自编码器" class="headerlink" title="自编码器"></a>自编码器</h3><p>表示学习的典型例子就是自编码器（autoencoder）。自编码器由一个编码器(encoder)函数和一个解码器(decoder)函数组成。编码器函数将输入数据转换为一种不同的表示，而解码器函数则将这个新的表示转换回原来的形式。我们希望当输入数据经过编码器和解码器之后尽可能多地保留原有信息，同时希望新的表示有更好的特征，这也是自编码器的训练目标。</p>
+<p>P 480 </p>
+<p><a href="https://zhuanlan.zhihu.com/p/39140472" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39140472</a></p>
 
           
         
@@ -517,7 +501,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/制作数据集-7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/tensorflow-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -536,7 +520,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/30/制作数据集-7/" itemprop="url">是否使用LSTM</a></h1>
+                <a class="post-title-link" href="/2019/08/01/tensorflow-docker/" itemprop="url">tensorflow_docker</a></h1>
         
 
         <div class="post-meta">
@@ -548,8 +532,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T22:15:32+08:00">
-                2019-06-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T15:57:35+08:00">
+                2019-08-01
               </time>
             
 
@@ -558,28 +542,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -609,17 +571,19 @@
 
       
         
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我要做的是用红框里的一个周期数据（刺激前）预测绿框里的一个周期数据（刺激后），一个周期是588个点。<br>参考LSTM预测股票、污染，发现一个结论：<br>刺激前的数据和刺激后的数据不在同一个时刻上，如果单纯的在数据上做一一对应，我认为没有可解释性。因为这两个数据本身是有一个先后顺序的。<br><img src="http://i2.tiimg.com/692414/c864ab7be8ba9931.jpg" alt="Markdown"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/30/制作数据集-7/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>因为需要要安装tensorflow1.13，但是anaconda的虚拟环境不好用。所以使用Docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+
+<p>Docker Pull Command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -rm -v $(realpath ~/notebooks):/tf/notebooks -p 8999:8888 tensorflow/tensrflow:latest-py3-jupyter</span><br></pre></td></tr></table></figure>
+
+<p>Run a jupyter notebook server with your own notebook directory (assumed here to be ~/notebooks).<br>To use it, navigate to localhost:8888 in you browers</p>
+
+          
         
       
-    </p></div>
+    </div>
     
     
     
@@ -663,7 +627,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/29/制作数据集-6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/seq-2-seq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -682,7 +646,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/29/制作数据集-6/" itemprop="url">制作数据集(6)</a></h1>
+                <a class="post-title-link" href="/2019/07/29/seq-2-seq/" itemprop="url">seq_2_seq</a></h1>
         
 
         <div class="post-meta">
@@ -694,8 +658,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T23:21:01+08:00">
-                2019-06-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T22:20:52+08:00">
+                2019-07-29
               </time>
             
 
@@ -704,28 +668,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -755,20 +697,20 @@
 
       
         
-          <p>今天复习了LSTM预测北京机场的污染预测，有新的收获。<br>预测PM2.5 是一个多因素的问题，就是有8个x —&gt; y<br>很长的代码是在处理数据，即把原始的数据变成<br>x1(t-1),x2(t-1),x3(t-1)…x8(t-1) y(t)<br>k
-其中x1(t-1) = y(t-1)</p>
-<p>trainx = x1(t-1),x2(t-1),x3(t-1)…x8(t-1)<br>trainy = y</p>
-<p>在model.add(LSTM)，inputshape=(8,1)<br>只有一层LSTM<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/29/制作数据集-6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>学习seq to seq 的模型，先学会使用模型，把电信号数据修改成相匹配的格式，喂进模型去。</p>
+<p>这是一个汉译英的demo。原始数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> inputs    targets</span><br><span class="line">0     Hi.     \t嗨。\n</span><br><span class="line">1     Hi.    \t你好。\n</span><br><span class="line">2    Run.  \t你用跑的。\n</span><br><span class="line">3   Wait!    \t等等！\n</span><br><span class="line">4  Hello!    \t你好。\n</span><br></pre></td></tr></table></figure>
+
+<h2 id="demo-定义的变量所代表的含义。"><a href="#demo-定义的变量所代表的含义。" class="headerlink" title="demo 定义的变量所代表的含义。"></a>demo 定义的变量所代表的含义。</h2><p>input_text len: 1000 type: list  print(input_texts[1:5])<br>            [‘Hi.’, ‘Run.’, ‘Wait!’, ‘Hello!’]</p>
+<p>output_text len: 1000 type: list print(target_texts[1:5])<br>        [‘\t你好。\n’, ‘\t你用跑的。\n’, ‘\t等等！\n’, ‘\t你好。\n’]</p>
+<p>NUM_SAMPLES = 1000 样本的数量</p>
+<p>input_characters 英文的总字符, list类型<br>target_characters 汉语的总字符, list类型<br>INUPT_LENGTH 30，最长的英语句子，1000个样本中，int类型<br>OUTPUT_LENGTH 22，最长的中文句子，1000个样本中，int类型<br>INPUT_FEATURE_LENGTH  73，英文的总字符数，int类型<br>OUTPUT_FEATURE_LENGTH 2623， 中文的总字符数，int类型</p>
+
+          
         
       
-    </p></div>
+    </div>
     
     
     
@@ -812,7 +754,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/制作数据集-5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/电池连线/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -831,7 +773,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/28/制作数据集-5/" itemprop="url">制作数据集(5)</a></h1>
+                <a class="post-title-link" href="/2019/07/28/电池连线/" itemprop="url">电池连线</a></h1>
         
 
         <div class="post-meta">
@@ -843,8 +785,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T19:20:49+08:00">
-                2019-06-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:27:49+08:00">
+                2019-07-28
               </time>
             
 
@@ -853,28 +795,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learing/" itemprop="url" rel="index">
-                    <span itemprop="name">machine learing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -905,10 +825,8 @@
       
         
           
-            <p>今天把之前写的代码组合成为一个函数，可以直接调用，代码更清爽。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">def read_csv(inputdir):</span><br><span class="line">    df = pd.read_csv(inputdir, header=None, usecols=[1])</span><br><span class="line">    df = df.drop(index=[0, 1])</span><br><span class="line">    df = df.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> df</span><br><span class="line"></span><br><span class="line">def x_split_one_csv(df, befor_start, cycle):</span><br><span class="line">    befor_end = befor_start + (cycle * 588)</span><br><span class="line">    x = df[befor_start:befor_end]</span><br><span class="line">    x = x.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> x</span><br><span class="line"></span><br><span class="line">def y_split_one_csv(df, after_start, cycle):</span><br><span class="line">    after_end = after_start + (cycle * 588)</span><br><span class="line">    y = df[after_start:after_end]</span><br><span class="line">    y = y.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> df_after</span><br><span class="line"></span><br><span class="line">def plt_wave(df):</span><br><span class="line">    pd.DataFrame(df).plot(figsize=(8,5))</span><br><span class="line">    plt.grid(True)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def merge(stress_befor, stress_after):</span><br><span class="line">    outfile = stress_befor.append(stress_after)</span><br><span class="line">    outfile = outfile.astype(<span class="built_in">float</span>)</span><br><span class="line">    <span class="built_in">return</span> outfile</span><br></pre></td></tr></table></figure>
-
-<p>x代表a波，是一个(588,1)的时间序列<br>y代表c波，是一个(588,1)的时间序列</p>
+            <p>买了两块8.4V 电池。<br>用杜邦线串联起来。<br>电池还需要边冲边用。</p>
+<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>用杜邦线的时候用完表测一下线通不通。</p>
 
           
         
@@ -948,7 +866,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -996,7 +914,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1018,7 +936,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1055,7 +973,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

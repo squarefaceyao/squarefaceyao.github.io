@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/0810调试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/docker搭建Hbase/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/10/0810调试/" itemprop="url">0810调试</a></h1>
+                <a class="post-title-link" href="/2019/08/28/docker搭建Hbase/" itemprop="url">docker搭建Hbase</a></h1>
         
 
         <div class="post-meta">
@@ -283,259 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T22:05:49+08:00">
-                2019-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="在进行一次标定。"><a href="#在进行一次标定。" class="headerlink" title="在进行一次标定。"></a>在进行一次标定。</h2><p>C8051 允许编程修改寄存器的值。<br>把8个通道都进行标定。。。然后观察返回值。。。</p>
-<p>标定前<br>43 14 1 0 0 0 0 15 44<br>    41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
-<p>43 14 8 2 2 1 1 1c 44<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 05 26 05 26 05 26 05 26 05 26 05 26 14 42<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/10/0810调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/0809调试/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/0809调试/" itemprop="url">0809调试</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-09T20:02:58+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="0809-调试记录"><a href="#0809-调试记录" class="headerlink" title="0809 调试记录"></a>0809 调试记录</h3><p>现在返回的32个字节是乱码的，可能是因为没有标定。现在需要看一下标定是怎么操作的。</p>
-<h4 id="分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作"><a href="#分析Rece-Buf0-1-0x00-0xFF-分别执行什么操作" class="headerlink" title="分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作"></a>分析Rece_Buf0[1] == 0x00 - 0xFF 分别执行什么操作</h4><h5 id="当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All"><a href="#当-Rece-Buf0-1-0x00-执行下列语句，-Read-All-Set-All" class="headerlink" title="当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();"></a>当  Rece_Buf0[1] == 0x00 执行下列语句，   Read_All();        Set_All();</h5>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/09/0809调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/调试记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/08/调试记录/" itemprop="url">调试记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T22:51:41+08:00">
-                2019-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T09:31:25+08:00">
+                2019-08-28
               </time>
             
 
@@ -574,38 +323,62 @@
       
         
           
-            <h3 id="0808-调试记录"><a href="#0808-调试记录" class="headerlink" title="0808 调试记录"></a>0808 调试记录</h3><p>Rece_Buf0</p>
-<p>标定点位第1点，Rece_Buf0[9] =0x43,0x01,0x00,0x00,0x00,0x00,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] =0x43,0x02,0x00,0x00,0x00,0x00,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] =0x43,0x03,0x00,0x00,0x00,0x00,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] =0x43,0x04,0x00,0x00,0x00,0x00,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] =0x43,0x05,0x00,0x00,0x00,0x00,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] =0x43,0x06,0x00,0x00,0x00,0x00,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] =0x43,0x07,0x00,0x00,0x00,0x00,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] =0x43,0x08,0x00,0x00,0x00,0x00,0x00,0x08,0x44   </p>
-<p>标定第0通道 输入数据  </p>
-<p>[In] 标定点位第1点，Rece_Buf0[9] =43,01,00,00,00,00,00,01,44</p>
-<p>[out] 41 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 42</p>
-<p>[In] 标定点位第2点，Rece_Buf0[9] =43,02,00,00,00,00,00,02,44</p>
-<p>41 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 42</p>
-<p>[In] 标定点位第3点，Rece_Buf0[9] =43,03,00,00,00,00,00,03,44</p>
-<p>41 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 42</p>
-<p>[In] 标定点位第4点，Rece_Buf0[9] =43,04,00,00,00,00,00,04,44  </p>
-<p>41 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 04 42</p>
-<p>[In] 标定点位第5点，Rece_Buf0[9] =43,05,00,00,00,00,00,05,44 </p>
-<p>41 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 05 42</p>
-<p>[In] 标定点位第6点，Rece_Buf0[9] =43,06,00,00,00,00,00,06,44 </p>
-<p>41 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 42</p>
-<p>[In] 标定点位第7点，Rece_Buf0[9] =43,07,00,00,00,00,00,07,44 </p>
-<p>41 07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 07 42</p>
-<p>[In] 计算电位的K b，Rece_Buf0[9] =43,08,00,00,00,00,00,08,44</p>
-<p>41 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 42</p>
-<p>标定完成采集第0个通道的信息<br>放大器短接 真是电压0<br>[In] 43,14,1,0,0,0,0,15,44<br>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42</p>
-<p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
-<h4 id="标定第1通道"><a href="#标定第1通道" class="headerlink" title="标定第1通道"></a>标定第1通道</h4><p>标定点位第1点，Rece_Buf0[9] = 0x43,0x01,0x00,0x00,0x00,0x01,0x00,0x01,0x44<br>标定点位第2点，Rece_Buf0[9] = 0x43,0x02,0x00,0x00,0x00,0x01,0x00,0x02,0x44<br>标定点位第3点，Rece_Buf0[9] = 0x43,0x03,0x00,0x00,0x00,0x01,0x00,0x03,0x44<br>标定点位第4点，Rece_Buf0[9] = 0x43,0x04,0x00,0x00,0x00,0x01,0x00,0x04,0x44<br>标定点位第5点，Rece_Buf0[9] = 0x43,0x05,0x00,0x00,0x00,0x01,0x00,0x05,0x44<br>标定点位第6点，Rece_Buf0[9] = 0x43,0x06,0x00,0x00,0x00,0x01,0x00,0x06,0x44<br>标定点位第7点，Rece_Buf0[9] = 0x43,0x07,0x00,0x00,0x00,0x01,0x00,0x07,0x44<br>计算电位的K b，Rece_Buf0[9] = 0x43,0x08,0x00,0x00,0x00,0x01,0x00,0x08,0x44 </p>
-<p>标定点位第1点，Rece_Buf0[9] = 43,01,00,00,00,01,00,01,44<br>标定点位第2点，Rece_Buf0[9] = 43,02,00,00,00,01,00,02,44<br>标定点位第3点，Rece_Buf0[9] = 43,03,00,00,00,01,00,03,44<br>标定点位第4点，Rece_Buf0[9] = 43,04,00,00,00,01,00,04,44<br>标定点位第5点，Rece_Buf0[9] = 43,05,00,00,00,01,00,05,44<br>标定点位第6点，Rece_Buf0[9] = 43,06,00,00,00,01,00,06,44<br>标定点位第7点，Rece_Buf0[9] = 43,07,00,00,00,01,00,07,44<br>计算电位的K b，Rece_Buf0[9] = 43,08,00,00,00,01,00,08,44</p>
-<h4 id="第0通道标定前-修改后的。"><a href="#第0通道标定前-修改后的。" class="headerlink" title="第0通道标定前 修改后的。"></a>第0通道标定前 修改后的。</h4><p>采集信号: 43,14,1,0,0,0,0,15,44<br>41 14 80 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6B 42 </p>
-<h4 id="第0通道标定后-修改后的"><a href="#第0通道标定后-修改后的" class="headerlink" title="第0通道标定后 修改后的"></a>第0通道标定后 修改后的</h4><p>41 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 14 42 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void counter_ad_R(uint8 nn)		  //nn 为通道 （0~7）</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i;</span><br><span class="line">	<span class="built_in">float</span> xdata x;</span><br><span class="line">	<span class="built_in">float</span> xdata y;</span><br><span class="line">    <span class="built_in">float</span> xdata EX;  //x的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EY;  //y的平均值</span><br><span class="line">    <span class="built_in">float</span> xdata EXY; //xi*yi 乘积和</span><br><span class="line">    <span class="built_in">float</span> xdata EXX; //xi平方和</span><br><span class="line"></span><br><span class="line">	EX=0;</span><br><span class="line">	EY=0;</span><br><span class="line">	EXY=0;</span><br><span class="line">	EXX=0;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;7;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    x=ad_buf[i];</span><br><span class="line">		EX+=x;</span><br><span class="line">		y=para_temp[i];</span><br><span class="line">		EY+=y;</span><br><span class="line">		EXX+=(x*x);</span><br><span class="line">		EXY+=(x*y);</span><br><span class="line">	&#125;</span><br><span class="line">	EX/=7;</span><br><span class="line">	EY/=7;</span><br><span class="line">	kk[nn]=(EXY-EX*EY*7)/(EXX-EX*EX*7);</span><br><span class="line">	bb[nn]=EY-kk[nn]*EX; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="单机配置Hbase"><a href="#单机配置Hbase" class="headerlink" title="单机配置Hbase"></a>单机配置Hbase</h2><p>###下载并运行镜像###<br>我已经备好集成了HBase单机版的镜像，可以执行以下命令下载到本地：</p>
+<p>docker pull bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
+<p>###运行容器###</p>
+<p>执行以下命令可以用刚刚下载的镜像创建一个容器，容器名称hbase001，60010端口映射到本机：</p>
+<p>docker run –name=hbase001 -p 60010:60010 -idt bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
+<p>###进入容器###<br>执行以下命令，可以进入hbase001容器：</p>
+<p>docker exec -it hbase001 /bin/bash</p>
+<p>###启动HBase服务###<br>进入hbase001容器后，输入以下命令就能启动hbase服务：</p>
+<p>/usr/local/work/hbase/bin/start-hbase.sh</p>
+<p>###进入HBase命令行###<br>执行以下命令，可以进入HBase的命令行模式：</p>
+<p>hbase shell</p>
+<h1 id="记录今天的操作"><a href="#记录今天的操作" class="headerlink" title="记录今天的操作"></a>记录今天的操作</h1><h2 id="docker启动springboot-Docker-NGINX-MySQL"><a href="#docker启动springboot-Docker-NGINX-MySQL" class="headerlink" title="docker启动springboot+Docker+NGINX+MySQL"></a>docker启动springboot+Docker+NGINX+MySQL</h2><p>启动的目录<br>/Users/squareface/IdeaProjects/dockercompose-springboot-mysql-nginx</p>
+<p>docker-compose.yaml 文件内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  hk-nginx:</span><br><span class="line">   container_name: hk-nginx</span><br><span class="line">   image: nginx:1.13</span><br><span class="line">   restart: always</span><br><span class="line">   ports:</span><br><span class="line">   - 80:80</span><br><span class="line">   - 443:443</span><br><span class="line">   volumes:</span><br><span class="line">   - ./nginx/conf.d:/etc/nginx/conf.d</span><br><span class="line">   depends_on:</span><br><span class="line">   - app</span><br><span class="line"> </span><br><span class="line">  hk-mysql:</span><br><span class="line">   container_name: hk-mysql</span><br><span class="line">   image: mysql/mysql-server:5.7</span><br><span class="line">   environment:</span><br><span class="line">    MYSQL_DATABASE: <span class="built_in">test</span></span><br><span class="line">    MYSQL_ROOT_PASSWORD: hellokoding</span><br><span class="line">    MYSQL_ROOT_HOST: <span class="string">'%'</span></span><br><span class="line">   ports:</span><br><span class="line">   - <span class="string">"3306:3306"</span></span><br><span class="line">   restart: always</span><br><span class="line">  </span><br><span class="line">  app:</span><br><span class="line">    restart: always</span><br><span class="line">    build: ./app</span><br><span class="line">    working_dir: /app</span><br><span class="line">    volumes:</span><br><span class="line">      - ./app:/app</span><br><span class="line">      - ~/.m2:/root/.m2</span><br><span class="line">    expose:</span><br><span class="line">      - <span class="string">"8080"</span></span><br><span class="line">    <span class="built_in">command</span>: mvn clean spring-boot:run</span><br><span class="line">    depends_on:</span><br><span class="line">      - hk-mysql</span><br></pre></td></tr></table></figure>
 
-<p>下行命令:<br>    43,14,08,02,02,01,01,1c,44</p>
-<p>上行数据：<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 01 C5 01 C5 01 C5 01 C5 01 C5 01 C5 14 42<br>    41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 03 7F 03 7F 03 7F 03 7F 03 7F 03 7F 14 42</p>
-<p>上行数据很乱是因为没有标定。</p>
-<h2 id="docer-容器上传数据"><a href="#docer-容器上传数据" class="headerlink" title="docer 容器上传数据"></a>docer 容器上传数据</h2><p>登录容器<br> docker exec -it 2c3bd1d2b1a0 /bin/sh</p>
-<p>上传文件夹<br>docker cp /root/LSTM-Human-Activity-Recognition-master/ 2c3bd1d2b1a0:/tf</p>
+<p>执行docker-compose up 指令，自动启动项目。就多出4个images<br>mysql<br>maven<br>nginx<br>dockercompose-springboot-mysql-nginx_app</p>
+<h3 id="SpringBoot和NGINX的配置在项目的哪里有写？"><a href="#SpringBoot和NGINX的配置在项目的哪里有写？" class="headerlink" title="SpringBoot和NGINX的配置在项目的哪里有写？"></a>SpringBoot和NGINX的配置在项目的哪里有写？</h3><p>NGINX 反向代理 监听一个端口，进行转发。</p>
+<h2 id="docker-搭建Hbase完全分布式"><a href="#docker-搭建Hbase完全分布式" class="headerlink" title="docker 搭建Hbase完全分布式"></a>docker 搭建Hbase完全分布式</h2><p>使用的images： bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</p>
+<p>1、 运行下列docker-compose.yaml文件，会创建三个容器。名字分别为master、slave1、slave2、</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'2'</span></span><br><span class="line">services:</span><br><span class="line">  master: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19010:22"</span></span><br><span class="line">      - <span class="string">"50070:50070"</span></span><br><span class="line">      - <span class="string">"8088:8088"</span></span><br><span class="line">      - <span class="string">"16010:16010"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave1: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave1</span><br><span class="line">    depends_on:</span><br><span class="line">      - master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19011:22"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave2: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave2</span><br><span class="line">    depends_on:</span><br><span class="line">      - slave1</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19012:22"</span></span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure>
+
+<p>查询容器的ip地址：<br>master 172.19.0.2<br>slave1 172.19.0.3<br>slave2 172.19.0.4</p>
+<p>CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                                                                                               NAMES<br>32481e89f8f8        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19012-&gt;22/tcp                                               slave2<br>2c3c9dd989ad        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19011-&gt;22/tcp                                               slave1<br>bcd27e44e3d6        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       0.0.0.0:8088-&gt;8088/tcp, 0.0.0.0:16010-&gt;16010/tcp, 0.0.0.0:50070-&gt;50070/tcp, 0.0.0.0:19010-&gt;22/tcp   master</p>
+<p>2、###配置hostname和hosts###</p>
+<p>修改master的/etc/sysconfig/network文件，将原有的HOSTNAME=localhost.localdomain改成HOSTNAME=master，对slave1和slave2也做修改，将HOSTNAME分别改成slave1和slave2；<br>分别修改master、slave1、slave2的/etc/hosts文件，都添加相同的内容如下：<br>172.19.0.2 master<br>172.19.0.3 slave1<br>172.19.0.4 slave2</p>
+<p>3 ###master、slave1、slave2之间配置相互免密码登录###</p>
+<p>– 分别修改master、slave1、slave2的/etc/ssh/sshd_config文件，找到下列内容，删除每行的注释符号”#”：<br>RSAAuthentication yes<br>PubkeyAuthentication yes</p>
+<p>– 分别在master、slave1、slave2上执行命令ssh-keygen -t rsa，一路回车下去，最终会在/root/.ssh目录下生成rsa文件</p>
+<p>– 在master上执行如下三行命令，执行完毕后，三个容器的rsa公钥都存在/root/.ssh/authorized_keys文件中了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave1 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave2 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>第一行命令将master的公钥写入authorized_keys，第二、第三行分别ssh登录slave1、slave2，将他们的公钥写入到master的authorized_keys文件中，由于是ssh登录，需要输入密码，这里是”password”</p>
+<p>– 分别在slave1、slave2上执行以下命令，将master上的authorized_keys文件复制过来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@master cat ~/.ssh/authorized_keys&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>由于master的authorized_keys中包含了slave1、slave2的rsa公钥，所以在slave1和slave2上执行以上命令的时候是不需要登录的；</p>
+<p>现在三个容器的公钥都已经放在每一个容器上了，它们相互之间可以免密码登录了，例如在slave1上执行ssh root@slave2即可登录到slave2而不用输入密码</p>
+<p>4 ######在容器上创建所需目录###<br>分别在master、slave1、slave2上创建以下目录：</p>
+<p>/usr/local/work<br>/opt/hbase</p>
+<p>###安装zookeeper-3.4.6集群###</p>
+<p>去zookeeper官网下载zookeeper-3.4.6.tar.gz，然后解压到当前电脑；<br>在zookeeper-3.4.6/conf/目录下创建zoo.cfg文件，内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="comment"># The number of ticks that the initial </span></span><br><span class="line"><span class="comment"># synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="comment"># The number of ticks that can pass between </span></span><br><span class="line"><span class="comment"># sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="comment"># the directory where the snapshot is stored.</span></span><br><span class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just </span></span><br><span class="line"><span class="comment"># example sakes.</span></span><br><span class="line">dataDir=/usr/<span class="built_in">local</span>/work/zkdata</span><br><span class="line"><span class="comment"># the port at which the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="comment"># the maximum number of client connections.</span></span><br><span class="line"><span class="comment"># increase this if you need to handle more clients</span></span><br><span class="line"><span class="comment">#maxClientCnxns=60</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to read the maintenance section of the </span></span><br><span class="line"><span class="comment"># administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The number of snapshots to retain in dataDir</span></span><br><span class="line"><span class="comment">#autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="comment"># Purge task interval in hours</span></span><br><span class="line"><span class="comment"># Set to "0" to disable auto purge feature</span></span><br><span class="line"><span class="comment">#autopurge.purgeInterval=1</span></span><br><span class="line"></span><br><span class="line">server.1=master:2887:3887  </span><br><span class="line">server.2=slave1:2888:3888 </span><br><span class="line">server.3=slave2:2889:3889</span><br></pre></td></tr></table></figure>
+
+<p>其实也就是修改了dataDir的值，还有最后三行是新增的，其他内容都是从zoo_sample.cfg复制过来的；</p>
+<ol start="3">
+<li>在当前电脑上，用ssh工具执行以下三行命令，将前面解压的并且已经修改了zoo.cfg文件的zookeeper-3.4.6目录复制到master、slave1、slave2上去：</li>
+</ol>
+<p>scp -P 19010 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19011 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19012 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work</p>
+<p>执行每行命令都要输入密码”password”</p>
+<ol start="4">
+<li>在master、slave1、slave2上创建目录/usr/local/work/zkdata，在该目录下创建文件myid，文件内容分别是是”1”、“2”、“3”；</li>
+<li>在master、slave1、slave2上依次执行启动zookeeper的命令/usr/local/work/zookeeper-3.4.6/bin/zkServer.sh start；</li>
+<li>在每个容器上分别执行以下命令可以检查zookeeper的集群状态：</li>
+</ol>
+<p>###启动zookeeper。error<br>出现好多奇奇怪怪的问题！！！</p>
+<p>删掉 /usr/local/work   /opt/hbase  重新来一遍</p>
 
           
         
@@ -654,7 +427,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/调试下位机2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/SpringBoot-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -673,7 +446,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/06/调试下位机2/" itemprop="url">调试下位机2</a></h1>
+                <a class="post-title-link" href="/2019/08/27/SpringBoot-3/" itemprop="url">SpringBoot(3)</a></h1>
         
 
         <div class="post-meta">
@@ -685,8 +458,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-06T22:51:32+08:00">
-                2019-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:09:51+08:00">
+                2019-08-27
               </time>
             
 
@@ -724,21 +497,32 @@
 
       
         
-          <h3 id="5芯航空插头"><a href="#5芯航空插头" class="headerlink" title="5芯航空插头"></a>5芯航空插头</h3><p>5芯航空插头 只用了4个接头 2跟接正负16V的电源，2跟接输出信号。电源来自板子的电源插头。</p>
-<h4 id="0806-调试记录"><a href="#0806-调试记录" class="headerlink" title="0806 调试记录"></a>0806 调试记录</h4><pre><code>43,14,08,02,02,01,01,1c,44
+          
+            <p>application.yml 配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8081  <span class="comment"># 修改SpringBoot启动的端口</span></span><br><span class="line">  context-path: /girl <span class="comment">#修改启动路径</span></span><br></pre></td></tr></table></figure>
 
-41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 01 C5 01 C5 01 C5 01 C5 01 C5 01 C5 14 42 
-41 14 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 80 FF 03 7F 03 7F 03 7F 03 7F 03 7F 03 7F 14 42</code></pre><p>那28个数据是1-8电位  2光子  2Rt  t  H<br>是按顺序排列的  但是每种数据采几个是由上位机决定的<br>每个数据时16位 两字节 高位在前低位在后 应该都是float型<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/06/调试下位机2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>2、 把配置文件注入到controller里面变量。</p>
+<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p>控制器的使用，主要是用来接收客户端的请求<br>@Controller 处理http请求，不添加这个注解，浏览器无法访问到<br>@Restcontroller  原来返回json需要@ResponseBody配合@Controller<br>@RequsetMapping 配置url映射<br>@PathVariable 获取url中的数据<br>@RequestParam 获取请求参数的值<br>@GetMapping 组合注解</p>
+<p>后端提供result接口和返回json格式给前端。</p>
+<h3 id="Spring-Data-Jpa"><a href="#Spring-Data-Jpa" class="headerlink" title="Spring-Data-Jpa"></a>Spring-Data-Jpa</h3><p>JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate, TopLink</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: create  <span class="comment"># 运行时候自动创建表,create会清空表内之前的内容，update会保留表内原有的数据</span></span><br><span class="line">    show-sql: <span class="literal">true</span> <span class="comment"># 控制台看到sql语句</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>首先定义一个interface 继承 JpaRepository。<br>在创建一个controller类，在controller里面 实现api</p>
+<h4 id="更新数据库："><a href="#更新数据库：" class="headerlink" title="更新数据库："></a>更新数据库：</h4><p>有两种方法<br>    1、 new一个对象出来，重新赋值<br>    2、 通过id find这个条目，在重新赋值。</p>
+<h3 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h3><p>数据库操作<br>作为单个逻辑工作单元执行的一系列操作，要么完全执行，要么完全不执行</p>
+<p>只有在查询的时候不需要添加事务管理，添加一个注解 ：@Transactional</p>
+<h3 id="Spring-Boot-Web-进阶"><a href="#Spring-Boot-Web-进阶" class="headerlink" title="Spring Boot Web 进阶"></a>Spring Boot Web 进阶</h3><p>@Valid 表单验证</p>
+<p>AOP<br>记录每次请求</p>
+<p>统一异常处理</p>
+<p>test</p>
+<h3 id="添加一条数据的时候进行筛选"><a href="#添加一条数据的时候进行筛选" class="headerlink" title="添加一条数据的时候进行筛选"></a>添加一条数据的时候进行筛选</h3><p>1 需要在girl 类 里 添加条件。<br>2 controller</p>
+<p>AOP 处理统一处理请求日志<br>编程范式 设计思想 和语言无关</p>
+<p>使用日志可以记录程序的具体参数，</p>
+
+          
         
       
-    </p></div>
+    </div>
     
     
     
@@ -782,7 +566,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/调试下位机/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/springboot笔记(2)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -801,7 +585,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/05/调试下位机/" itemprop="url">调试下位机</a></h1>
+                <a class="post-title-link" href="/2019/08/25/springboot笔记(2)/" itemprop="url">SpringBoot笔记(2)</a></h1>
         
 
         <div class="post-meta">
@@ -813,8 +597,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T22:42:57+08:00">
-                2019-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-25T17:11:18+08:00">
+                2019-08-25
               </time>
             
 
@@ -852,16 +636,262 @@
 
       
         
-          <h3 id="接收缓冲数组"><a href="#接收缓冲数组" class="headerlink" title="接收缓冲数组"></a>接收缓冲数组</h3><p>uint8  idata Rece_Buf0[9];  //接收缓冲数组</p>
-<p>Rece_Buf0[9] = [0,1,2,3,4,5,6,7,8]</p>
-<h4 id="Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43"><a href="#Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43" class="headerlink" title="Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43"></a>Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43</h4><h4 id="Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句："><a href="#Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句：" class="headerlink" title="Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句："></a>Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句：</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  switch(Rece_Buf0[1])    </span><br><span class="line">  <span class="keyword">case</span> 0x14:</span><br><span class="line">Work_Flag=1;  //采集标志位</span><br></pre></td></tr></table></figure></code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/05/调试下位机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>1 在DAO层<br> 创建数据表映射过来的class的时候，可以添加一个构造方法，这样在做测试的时候可以不需要new一个实例再去进行赋值。</p>
+<p>2 在 pol.xml中引入jpa和mysql依赖，可以实现对数据库的操作<br>注：把maven的下载源，替换成阿里云。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">	 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	 &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">3 PlantES的数据存储在Hbase和MySQL里，MySQL里存放 用户的信息和展示的数据的。原始的数据放在Hbase里，最后聚合在一起会放在mysql里。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>v-on：绑定一个事件 @ 缩写<br>    通过buttun，设定一个click事件，这个事件会触发一个方法。</p>
+<p>计算属性</p>
+<p>侦听属性</p>
+<p>条件渲染<br>    V-if<br>    V-for</p>
+<p>列表渲染</p>
+<p>Class与Style绑定</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/web部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/24/web部署/" itemprop="url">网站部署</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T17:11:18+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="人人网开源的网站"><a href="#人人网开源的网站" class="headerlink" title="人人网开源的网站"></a>人人网开源的网站</h2><p>项目部署到集群，可以实现三高：<br>高性能<br>高负载<br>高可用</p>
+<p>这的就需要Docker虚拟机来部署，同一服务会同时运行在多个容器里。</p>
+<p>这是一个企业级部署的实战，可以学习一下。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/SpringBoot笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/23/SpringBoot笔记/" itemprop="url">SpringBoot笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T17:11:18+08:00">
+                2019-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Java 1.8.0<br>mvn 3.3.9</p>
+<p>通过一个项目对SpringBoot和VUE进行复习。。。</p>
+
+          
         
       
     </div>
@@ -899,7 +929,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -947,7 +977,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -969,7 +999,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1006,7 +1036,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

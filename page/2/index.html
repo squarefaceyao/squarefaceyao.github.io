@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/02/tf-layers-dense-参数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/预测出来-的电信号有啥用？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/02/tf-layers-dense-参数/" itemprop="url">tf.layers.dense()参数</a></h1>
+                <a class="post-title-link" href="/2019/11/07/预测出来-的电信号有啥用？/" itemprop="url">预测出来 的电信号有啥用？</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-02T10:45:54+08:00">
-                2019-10-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-07T10:47:41+08:00">
+                2019-11-07
               </time>
             
 
@@ -323,16 +323,18 @@
       
         
           
-            <h3 id="units-是输出的shape"><a href="#units-是输出的shape" class="headerlink" title="units 是输出的shape"></a>units 是输出的shape</h3><p>之前一直对units的理解有出入，认为units是什么这一层神经元的个数，而且tf官方文档给的也是这个含义。但是在使用的时候并不是这个含义，但是按照单元数这个含义，也可以解释通。</p>
-<p>今天在复习tf的时候发现自己写的add_layer()函数就是tf.layers.dense()</p>
-<h4 id="add-layer"><a href="#add-layer" class="headerlink" title="add_layer()"></a>add_layer()</h4><p>这个其实就是一个函数，它的功能就是 outputs = activation(inputs * kernel + bias)。说的直白点就是完成矩阵运算。</p>
-<p>kernel 就是常说的权重，是matrix 格式，<br>bias是偏置，是vector格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def add_layer(input_data, input_size, output_size, activation_function=None):</span><br><span class="line">	<span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">	input_data, 输入的数据</span></span><br><span class="line"><span class="string">	input_size, 输入数据的shape</span></span><br><span class="line"><span class="string">	output_size, 输出数据的shape</span></span><br><span class="line"><span class="string">	activation_function=None 激活函数</span></span><br><span class="line"><span class="string">	"</span><span class="string">""</span></span><br><span class="line">    <span class="comment"># 产生input_size行output_size列的随机数</span></span><br><span class="line">    Weights = tf.Variable(tf.random_normal([input_size, output_size]))</span><br><span class="line">    <span class="comment"># 产生一行output_size列全为0.1的数</span></span><br><span class="line">    biases = tf.Variable(tf.zeros([1, output_size]) + 0.1)</span><br><span class="line">    <span class="comment"># input_data * weights + biases</span></span><br><span class="line">    Wx_plus_b = tf.matmul(input_data, Weights) + biases</span><br><span class="line">    <span class="keyword">if</span> activation_function is None:</span><br><span class="line">        output = Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        output = activation_function(Wx_plus_b)</span><br><span class="line">    <span class="built_in">return</span> output</span><br></pre></td></tr></table></figure>
-
-<h4 id="tf-layers-dense"><a href="#tf-layers-dense" class="headerlink" title="tf.layers.dense()"></a>tf.layers.dense()</h4><p>这是tf.layers.dense()所需要的参数，tf忽忽略了input_size这个参数，因为和input_data.shape的数值是一样的。</p>
-<p>inputs—-&gt;input_data<br>units —–&gt; output_size</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def dense(</span><br><span class="line">    inputs, units,</span><br><span class="line">    activation=None,</span><br><span class="line">    use_bias=True,</span><br><span class="line">    kernel_initializer=None,</span><br><span class="line">    bias_initializer=init_ops.zeros_initializer(),</span><br><span class="line">    kernel_regularizer=None,</span><br><span class="line">    bias_regularizer=None,</span><br><span class="line">    activity_regularizer=None,</span><br><span class="line">    kernel_constraint=None,</span><br><span class="line">    bias_constraint=None,</span><br><span class="line">    trainable=True,</span><br><span class="line">    name=None,</span><br><span class="line">    reuse=None):</span><br></pre></td></tr></table></figure>
-
+            <p>我的技术难点在多对多的预测？</p>
+<p>这里面也是我为什么很长时间做不出来的原因，单条数据588个点。我觉得应该重点写这个！这样写的话难点在哪里？</p>
+<p>我要解决的问题也是可以写！</p>
+<ol>
+<li>胁迫的信号肯定携带盐浓度： 这个观点太空，不适合神经网络模型，适合机理模型。</li>
+</ol>
+<ol start="2">
+<li><p>具体的盐胁迫数值我可以知道，也就是在使用模型的时候，输入光诱导前的数据，我就可以知道这个植物适合在什么环境中生长，不同盐分下它的涨势评价指标。（这里也是老师重点描述的含义）</p>
+</li>
+<li><p>我对盐胁迫下的数据进行聚类分析，可以得出什么结论？？？</p>
+</li>
+</ol>
 
           
         
@@ -381,7 +383,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/论文选择/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/文献查找-真核细胞/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -400,7 +402,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/30/论文选择/" itemprop="url">论文选择</a></h1>
+                <a class="post-title-link" href="/2019/11/01/文献查找-真核细胞/" itemprop="url">文献查找-真核细胞</a></h1>
         
 
         <div class="post-meta">
@@ -412,8 +414,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T15:48:45+08:00">
-                2019-09-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-01T13:58:36+08:00">
+                2019-11-01
               </time>
             
 
@@ -452,13 +454,10 @@
       
         
           
-            <h3 id="GuardCell"><a href="#GuardCell" class="headerlink" title="GuardCell"></a>GuardCell</h3><p>保卫细胞膜上的快速阴离子通道具有钙依赖性、时间依赖性、电压依赖性，能够穿过该通道的阴离子主要是CI-。保卫细胞感应到外界刺激后，胞内Ca2+浓度的提高可以激活快速阴离子通道，引起CI-外流。</p>
-<p>搜索关键词</p>
-<p>“Anion channel” wheat “patch clamp”</p>
-<p>还是需要读懂小飞姐找的文献</p>
-<p>GCAC: guard cell anion channel </p>
-<p>电压刺激下的电流数据 </p>
-<h3 id="shabala的researchgate-上搜索关键词”patch-clamp”-“wheat”"><a href="#shabala的researchgate-上搜索关键词”patch-clamp”-“wheat”" class="headerlink" title="shabala的researchgate 上搜索关键词”patch clamp” “wheat”"></a>shabala的researchgate 上搜索关键词”patch clamp” “wheat”</h3>
+            <p>在生物学的范畴内，高等植物属于真核细胞。</p>
+<p>每个离子通道是有好多种家族的，每个家族他们的功能是一定的。</p>
+<p>只要找到相关的真核细胞的数据，就能放到植物上来用吧？</p>
+
           
         
       
@@ -506,7 +505,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/tf-matmul-函数用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/实验室模型发展/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -525,7 +524,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/28/tf-matmul-函数用法/" itemprop="url">tf.matmul()函数用法</a></h1>
+                <a class="post-title-link" href="/2019/10/24/实验室模型发展/" itemprop="url">实验室模型发展</a></h1>
         
 
         <div class="post-meta">
@@ -537,8 +536,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:20:34+08:00">
-                2019-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T11:05:21+08:00">
+                2019-10-24
               </time>
             
 
@@ -577,89 +576,33 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">@tf_export(<span class="string">"linalg.matmul"</span>, <span class="string">"matmul"</span>)</span><br><span class="line">@dispatch.add_dispatch_support</span><br><span class="line">def matmul(a,</span><br><span class="line">           b,</span><br><span class="line">           transpose_a=False,</span><br><span class="line">           transpose_b=False,</span><br><span class="line">           adjoint_a=False,</span><br><span class="line">           adjoint_b=False,</span><br><span class="line">           a_is_sparse=False,</span><br><span class="line">           b_is_sparse=False,</span><br><span class="line">           name=None):</span><br><span class="line">  <span class="string">""</span><span class="string">"Multiplies matrix `a` by matrix `b`, producing `a` * `b`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  The inputs must, following any transpositions, be tensors of rank &gt;= 2</span></span><br><span class="line"><span class="string">  where the inner 2 dimensions specify valid matrix multiplication arguments,</span></span><br><span class="line"><span class="string">  and any further outer dimensions match.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Both matrices must be of the same type. The supported types are:</span></span><br><span class="line"><span class="string">  `float16`, `float32`, `float64`, `int32`, `complex64`, `complex128`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Either matrix can be transposed or adjointed (conjugated and transposed) on</span></span><br><span class="line"><span class="string">  the fly by setting one of the corresponding flag to `True`. These are `False`</span></span><br><span class="line"><span class="string">  by default.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  If one or both of the matrices contain a lot of zeros, a more efficient</span></span><br><span class="line"><span class="string">  multiplication algorithm can be used by setting the corresponding</span></span><br><span class="line"><span class="string">  `a_is_sparse` or `b_is_sparse` flag to `True`. These are `False` by default.</span></span><br><span class="line"><span class="string">  This optimization is only available for plain matrices (rank-2 tensors) with</span></span><br><span class="line"><span class="string">  datatypes `bfloat16` or `float32`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  For example:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  ```python</span></span><br><span class="line"><span class="string">  # 2-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[1, 2, 3],</span></span><br><span class="line"><span class="string">  #  [4, 5, 6]]</span></span><br><span class="line"><span class="string">  a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 2-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[ 7,  8],</span></span><br><span class="line"><span class="string">  #  [ 9, 10],</span></span><br><span class="line"><span class="string">  #  [11, 12]]</span></span><br><span class="line"><span class="string">  b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[ 58,  64],</span></span><br><span class="line"><span class="string">  #  [139, 154]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[[ 1,  2,  3],</span></span><br><span class="line"><span class="string">  #   [ 4,  5,  6]],</span></span><br><span class="line"><span class="string">  #  [[ 7,  8,  9],</span></span><br><span class="line"><span class="string">  #   [10, 11, 12]]]</span></span><br><span class="line"><span class="string">  a = tf.constant(np.arange(1, 13, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[[13, 14],</span></span><br><span class="line"><span class="string">  #   [15, 16],</span></span><br><span class="line"><span class="string">  #   [17, 18]],</span></span><br><span class="line"><span class="string">  #  [[19, 20],</span></span><br><span class="line"><span class="string">  #   [21, 22],</span></span><br><span class="line"><span class="string">  #   [23, 24]]]</span></span><br><span class="line"><span class="string">  b = tf.constant(np.arange(13, 25, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[[ 94, 100],</span></span><br><span class="line"><span class="string">  #   [229, 244]],</span></span><br><span class="line"><span class="string">  #  [[508, 532],</span></span><br><span class="line"><span class="string">  #   [697, 730]]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # Since python &gt;= 3.5 the @ operator is supported (see PEP 465).</span></span><br><span class="line"><span class="string">  # In TensorFlow, it simply calls the `tf.matmul()` function, so the</span></span><br><span class="line"><span class="string">  # following lines are equivalent:</span></span><br><span class="line"><span class="string">  d = a @ b @ [[10.], [11.]]</span></span><br><span class="line"><span class="string">  d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])</span></span><br></pre></td></tr></table></figure>
-
-<p>  Args:<br>    a: <code>Tensor</code> of type <code>float16</code>, <code>float32</code>, <code>float64</code>, <code>int32</code>, <code>complex64</code>,
-      <code>complex128</code> and rank &gt; 1.<br>    b: <code>Tensor</code> with same type and rank as <code>a</code>.
-    transpose_a: If <code>True</code>, <code>a</code> is transposed before multiplication.<br>    transpose_b: If <code>True</code>, <code>b</code> is transposed before multiplication.<br>    adjoint_a: If <code>True</code>, <code>a</code> is conjugated and transposed before<br>      multiplication.<br>    adjoint_b: If <code>True</code>, <code>b</code> is conjugated and transposed before<br>      multiplication.<br>    a_is_sparse: If <code>True</code>, <code>a</code> is treated as a sparse matrix.<br>    b_is_sparse: If <code>True</code>, <code>b</code> is treated as a sparse matrix.<br>    name: Name for the operation (optional).</p>
-<p>  Returns:<br>    A <code>Tensor</code> of the same type as <code>a</code> and <code>b</code> where each inner-most matrix is<br>    the product of the corresponding matrices in <code>a</code> and <code>b</code>, e.g. if all<br>    transpose or adjoint attributes are <code>False</code>:</p>
-<pre><code>`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
-for all indices i, j.
-
-Note: This is matrix product, not element-wise product.</code></pre><p>  Raises:<br>    ValueError: If transpose_a and adjoint_a, or transpose_b and adjoint_b<br>      are both set to True.<br>  “””<br>  with ops.name_scope(name, “MatMul”, [a, b]) as name:<br>    if transpose_a and adjoint_a:<br>      raise ValueError(“Only one of transpose_a and adjoint_a can be True.”)<br>    if transpose_b and adjoint_b:<br>      raise ValueError(“Only one of transpose_b and adjoint_b can be True.”)</p>
-<pre><code>if context.executing_eagerly():
-  if not isinstance(a, (ops.EagerTensor, _resource_variable_type)):
-    a = ops.convert_to_tensor(a, name=&quot;a&quot;)
-  if not isinstance(b, (ops.EagerTensor, _resource_variable_type)):
-    b = ops.convert_to_tensor(b, name=&quot;b&quot;)
-else:
-  a = ops.convert_to_tensor(a, name=&quot;a&quot;)
-  b = ops.convert_to_tensor(b, name=&quot;b&quot;)
-
-# TODO(apassos) remove _shape_tuple here when it is not needed.
-a_shape = a._shape_tuple()  # pylint: disable=protected-access
-b_shape = b._shape_tuple()  # pylint: disable=protected-access
-
-if fwd_compat.forward_compatible(2019, 4, 25):
-  output_may_have_non_empty_batch_shape = (
-      (a_shape is None or len(a_shape) &gt; 2) or
-      (b_shape is None or len(b_shape) &gt; 2))
-  batch_mat_mul_fn = gen_math_ops.batch_mat_mul_v2
-else:
-  output_may_have_non_empty_batch_shape = (
-      (a_shape is None or len(a_shape) &gt; 2) and
-      (b_shape is None or len(b_shape) &gt; 2))
-  batch_mat_mul_fn = gen_math_ops.batch_mat_mul
-
-if (not a_is_sparse and
-    not b_is_sparse) and output_may_have_non_empty_batch_shape:
-  # BatchMatmul does not support transpose, so we conjugate the matrix and
-  # use adjoint instead. Conj() is a noop for real matrices.
-  if transpose_a:
-    a = conj(a)
-    adjoint_a = True
-  if transpose_b:
-    b = conj(b)
-    adjoint_b = True
-  return batch_mat_mul_fn(a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
-
-# Neither matmul nor sparse_matmul support adjoint, so we conjugate
-# the matrix and use transpose instead. Conj() is a noop for real
-# matrices.
-if adjoint_a:
-  a = conj(a)
-  transpose_a = True
-if adjoint_b:
-  b = conj(b)
-  transpose_b = True
-
-use_sparse_matmul = False
-if a_is_sparse or b_is_sparse:
-  sparse_matmul_types = [dtypes.bfloat16, dtypes.float32]
-  use_sparse_matmul = (
-      a.dtype in sparse_matmul_types and b.dtype in sparse_matmul_types)
-if ((a.dtype == dtypes.bfloat16 or b.dtype == dtypes.bfloat16) and
-    a.dtype != b.dtype):
-  # matmul currently doesn&apos;t handle mixed-precision inputs.
-  use_sparse_matmul = True
-if use_sparse_matmul:
-  ret = sparse_matmul(
-      a,
-      b,
-      transpose_a=transpose_a,
-      transpose_b=transpose_b,
-      a_is_sparse=a_is_sparse,
-      b_is_sparse=b_is_sparse,
-      name=name)
-  # sparse_matmul always returns float32, even with
-  # bfloat16 inputs. This prevents us from configuring bfloat16 training.
-  # casting to bfloat16 also matches non-sparse matmul behavior better.
-  if a.dtype == dtypes.bfloat16 and b.dtype == dtypes.bfloat16:
-    ret = cast(ret, dtypes.bfloat16)
-  return ret
-else:
-  return gen_math_ops.mat_mul(
-      a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)</code></pre><pre><code></code></pre>
+            <h1 id="2006年，多道植物电信号监测系统，"><a href="#2006年，多道植物电信号监测系统，" class="headerlink" title="2006年，多道植物电信号监测系统，"></a>2006年，多道植物电信号监测系统，</h1><h1 id="2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞"><a href="#2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞" class="headerlink" title="2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞"></a>2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞</h1><h2 id="建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。"><a href="#建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。" class="headerlink" title="建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。"></a>建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。</h2><ul>
+<li>换句话说，我可以测到保卫细胞的电位，测到以后我怎么研究？有啥用？</li>
+<li>用HH模型建模，可以反推出来保卫细胞的电位。</li>
+</ul>
+<h2 id="那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号"><a href="#那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号" class="headerlink" title="那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号"></a>那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号</h2><hr>
+<ul>
+<li><p>文中说的是用2006年的文章中的方法：微电极插入细胞内，</p>
+</li>
+<li><p>微电极（玻璃管、金属丝）可在细胞水平上对生物电现象进行观测与研究，其尖端直径小于 1微米，它可插入细胞附近及细胞体内，</p>
+</li>
+<li><p>引出的是少数几个甚至单个细胞的电活动。</p>
+</li>
+</ul>
+<h3 id="是如何找到保卫细胞和叶肉细胞？"><a href="#是如何找到保卫细胞和叶肉细胞？" class="headerlink" title="是如何找到保卫细胞和叶肉细胞？"></a>是如何找到保卫细胞和叶肉细胞？</h3><ul>
+<li>赵东杰 2010年硕士论文有详细提到。</li>
+</ul>
+<h1 id="2011年。-基于光标测技术的植物细胞电信号监测方法"><a href="#2011年。-基于光标测技术的植物细胞电信号监测方法" class="headerlink" title="2011年。 基于光标测技术的植物细胞电信号监测方法"></a>2011年。 基于光标测技术的植物细胞电信号监测方法</h1><h1 id="2013年。-基于光标测技术和MEA技术的植物电研究概述"><a href="#2013年。-基于光标测技术和MEA技术的植物电研究概述" class="headerlink" title="2013年。 基于光标测技术和MEA技术的植物电研究概述"></a>2013年。 基于光标测技术和MEA技术的植物电研究概述</h1><ul>
+<li>同时测量两个细胞以上的电位</li>
+</ul>
+<h1 id="2013年。-在植物中记录细胞外信号：建模和实验研究"><a href="#2013年。-在植物中记录细胞外信号：建模和实验研究" class="headerlink" title="2013年。 在植物中记录细胞外信号：建模和实验研究"></a>2013年。 在植物中记录细胞外信号：建模和实验研究</h1><ul>
+<li></li>
+<li>建立胞内和胞外的数量关系</li>
+</ul>
+<h1 id="2015年。-使用光学记录对植物的电活动进行高分辨率的非接触式测量"><a href="#2015年。-使用光学记录对植物的电活动进行高分辨率的非接触式测量" class="headerlink" title="2015年。 使用光学记录对植物的电活动进行高分辨率的非接触式测量"></a>2015年。 使用光学记录对植物的电活动进行高分辨率的非接触式测量</h1><ul>
+<li>光标测 传递熵 信号传递方向 向日葵 </li>
+</ul>
+<h1 id="2018年。无损表面电位测量，光诱导"><a href="#2018年。无损表面电位测量，光诱导" class="headerlink" title="2018年。无损表面电位测量，光诱导"></a>2018年。无损表面电位测量，光诱导</h1>
           
         
       
@@ -707,7 +650,7 @@ else:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/拟合门控概率/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/wheat-whole-cell-recoding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -726,7 +669,7 @@ else:
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/28/拟合门控概率/" itemprop="url">拟合门控概率</a></h1>
+                <a class="post-title-link" href="/2019/10/23/wheat-whole-cell-recoding/" itemprop="url">wheat whole-cell recording</a></h1>
         
 
         <div class="post-meta">
@@ -738,8 +681,8 @@ else:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:19:11+08:00">
-                2019-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T09:39:47+08:00">
+                2019-10-23
               </time>
             
 
@@ -778,7 +721,12 @@ else:
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">from scipy.optimize import curve_fit</span><br><span class="line"></span><br><span class="line">path = <span class="string">'/Users/squareface/PycharmProjects/testVenv/'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num = 2</span><br><span class="line"><span class="comment"># 读取数据</span></span><br><span class="line">data = pd.read_csv(path+<span class="string">'data'</span>+str(num)+<span class="string">'.csv'</span>)</span><br><span class="line"><span class="comment"># x赋值</span></span><br><span class="line">x = np.array(data.iloc[:,0])</span><br><span class="line"></span><br><span class="line">G = 36</span><br><span class="line"><span class="comment"># 定义方程</span></span><br><span class="line">def func1(x,m,tm,h,th):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2*(h-(h-1)*np.exp(-x/th))</span><br><span class="line">def func2(x,m,tm):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合不同电位</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(data.columns)):</span><br><span class="line">    y = np.array(data.iloc[:,i])</span><br><span class="line">    <span class="comment">#非线性最小二乘法拟</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        popt, pcov = curve_fit(func1, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        popt, pcov = curve_fit(func2, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="comment">#获取popt里面是拟合系数</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = popt[2]</span><br><span class="line">        d = popt[3]</span><br><span class="line">        yvals = func1(x,a,b,c,d)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = np.nan</span><br><span class="line">        d = np.nan</span><br><span class="line">        yvals = func2(x,a,b)</span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    plt.cla()</span><br><span class="line">    plot1 = plt.plot(x, y, <span class="string">'s'</span>,label=<span class="string">'original values'</span>) <span class="comment"># 原始点</span></span><br><span class="line">    plot2 = plt.plot(x, yvals, <span class="string">'r'</span>,label=<span class="string">'polyfit values'</span>) <span class="comment"># 拟合线</span></span><br><span class="line">    plt.xlabel(<span class="string">'t'</span>) <span class="comment"># x轴标签</span></span><br><span class="line">    plt.ylabel(<span class="string">'gCIR'</span>) <span class="comment"># y轴标签</span></span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>) <span class="comment"># 图例</span></span><br><span class="line">    plt.title(<span class="string">'V='</span>+list(data.columns)[i]+<span class="string">'mV'</span>) <span class="comment"># 标题</span></span><br><span class="line">    plt.savefig(path+str(num)+<span class="string">'_'</span>+str(list(data.columns)[i])+<span class="string">'mV.png'</span>) <span class="comment"># 保存图</span></span><br><span class="line">    result.append([list(data.columns)[i],b,d,G*a*a,a,c])</span><br><span class="line"><span class="comment"># 保存数据</span></span><br><span class="line">result = pd.DataFrame(result,columns=[<span class="string">'V'</span>,<span class="string">'tm'</span>,<span class="string">'th'</span>,<span class="string">'GCIRm2'</span>,<span class="string">'m'</span>,<span class="string">'h'</span>])</span><br><span class="line">result.to_csv(path+str(num)+<span class="string">'_'</span>+<span class="string">'result.csv'</span>,index=False)</span><br></pre></td></tr></table></figure>
+            <h1 id="Google-搜索结果"><a href="#Google-搜索结果" class="headerlink" title="Google 搜索结果"></a>Google 搜索结果</h1><p>没有匹配的</p>
+<h1 id="web-of-science-结果"><a href="#web-of-science-结果" class="headerlink" title="web of science 结果"></a>web of science 结果</h1><p>没有匹配的</p>
+<h1 id="google-scholar-结果"><a href="#google-scholar-结果" class="headerlink" title="google scholar 结果"></a>google scholar 结果</h1><p>没有匹配的</p>
+<h1 id="阅读记录"><a href="#阅读记录" class="headerlink" title="阅读记录"></a>阅读记录</h1><h2 id="动物神经运动系统的大多数化学物质已在植物中发现"><a href="#动物神经运动系统的大多数化学物质已在植物中发现" class="headerlink" title="动物神经运动系统的大多数化学物质已在植物中发现"></a>动物神经运动系统的大多数化学物质已在植物中发现</h2><p>例如，<br>神经递质（例如乙酰胆碱）和细胞信使以及细胞运动（例如钙调蛋白和肌动蛋白）（Baluska 等人 2006；Murch 2006））。尽管这种类似于神经的细胞设备从未像动物神经那样发展出复杂的程度，但是形成了一个简单的神经网络，尤其是在韧皮部细胞内部，负责长距离的通信。植物之所以开发出电信号传输途径的原因，很可能是对外界刺激（例如环境胁迫因素）迅速做出反应的必要条件。</p>
+<p>最近显示，不同的环境刺激会在活细胞中引起特定的反应，从而能够将电信号传输到响应区域（Lautner 等人，2005年））。与激素等化学信号相反，电信号能够在远距离快速传输信息。由于在过去的二十年中已经发现了电信号的多种生理效应（Fromm 2006；Fromm＆Lautner 2006；Trebacz，Dziubinska＆Krol 2006），因此活细胞之间的这种快速传播也可能对植物至关重要。</p>
+
           
         
       
@@ -826,7 +774,7 @@ else:
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/仿真HH方程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/平台架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -845,7 +793,7 @@ else:
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/28/仿真HH方程/" itemprop="url">仿真HH方程</a></h1>
+                <a class="post-title-link" href="/2019/10/21/平台架构/" itemprop="url">平台架构</a></h1>
         
 
         <div class="post-meta">
@@ -857,8 +805,8 @@ else:
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:18:49+08:00">
-                2019-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T14:28:01+08:00">
+                2019-10-21
               </time>
             
 
@@ -897,8 +845,13 @@ else:
       
         
           
-            <p>仿真恒流刺激</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">plt.figure(figsize=(10,10))</span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line">DT = 0.001</span><br><span class="line">t = np.linspace(0,50,int(50/DT)+1)   <span class="comment"># 仿真时间   光 1200</span></span><br><span class="line">Cm = 1   <span class="comment"># 膜电容</span></span><br><span class="line">I = 90   <span class="comment"># 刺激电流 ?????电流不能太大</span></span><br><span class="line">v = -112 <span class="comment"># 静息电位</span></span><br><span class="line">GK = 24 <span class="comment"># GK=3.5;</span></span><br><span class="line">GCl = 36 <span class="comment"># GCl=16;</span></span><br><span class="line">GCl_slow = 1</span><br><span class="line">GKin = 20</span><br><span class="line">GH = 0.28</span><br><span class="line">n2 = 0</span><br><span class="line">m2 = 0</span><br><span class="line">nn2 = 0</span><br><span class="line">s2 = 0</span><br><span class="line">h2 = 1</span><br><span class="line">k2 = 0</span><br><span class="line">v2 = v</span><br><span class="line"></span><br><span class="line">T0 = 25</span><br><span class="line">Tinitial = 18</span><br><span class="line">Tend = 4</span><br><span class="line">Iin0 = 0.005 <span class="comment"># Iin0=0.0193;</span></span><br><span class="line">Iinmax = 3 <span class="comment"># Iinmax=2.5;</span></span><br><span class="line">K1 = 1</span><br><span class="line">n_t1 = 3</span><br><span class="line">Iexmax = 1</span><br><span class="line">Km = 0.5</span><br><span class="line">n_t2 = 2</span><br><span class="line">Q = 10</span><br><span class="line">P0 = 0.005</span><br><span class="line">Kp = 0.5</span><br><span class="line">Ca0 = 0.1   <span class="comment"># 细胞质Ca离子浓度,uM</span></span><br><span class="line">Ca2 = Ca0</span><br><span class="line">KQ = math.log(Q)/10 </span><br><span class="line">T1 = Tinitial</span><br><span class="line">Rate = -0.8 <span class="comment"># 摄氏度/秒</span></span><br><span class="line">tc = 45 <span class="comment"># 秒</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(t)):</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    Ca1 = Ca2;</span><br><span class="line">    T2 = T1+Rate*DT*math.exp(-t[i]/tc)</span><br><span class="line">    temp = (-(Rate*math.exp(-t[i]/tc)-abs(Rate*math.exp(-t[i]/tc)))/2)**n_t1</span><br><span class="line">    dCadt = Iin0+Iinmax*temp/(K1**n_t1+temp) - Iexmax*math.exp(KQ*(T1-T0))*(Ca1**n_t2)/(Km**n2+Ca1**n_t2)</span><br><span class="line">    Ca2 = Ca1+DT*dCadt</span><br><span class="line">    dIexmax = DT*P0*np.sign(Ca1-Ca0)*Ca1/(Kp+Ca1)</span><br><span class="line">    Iexmax = Iexmax+dIexmax</span><br><span class="line">    Itemperature = -0.6823*dCadt*450  <span class="comment"># 单位没有转换 Itemperature=-0.0154*dCadt/0.00005;</span></span><br><span class="line">    T1 = T2</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    n1 = n2</span><br><span class="line">    m1 = m2</span><br><span class="line">    h1 = h2 </span><br><span class="line">    s1 = s2</span><br><span class="line">    k1 = k2</span><br><span class="line">    nn1 = nn2</span><br><span class="line">    v1 = v2</span><br><span class="line">    V = v1</span><br><span class="line">    Ib = 2*(V+127.5) <span class="comment">#   Ib=2*(V+130.5);</span></span><br><span class="line">    am = 10.55*(V+60)/(1-math.exp(-(V+60)/7.029))</span><br><span class="line">    bm = 44.32*math.exp(-V/98.2)</span><br><span class="line">    ah = 38.35*math.exp(-V/41.39)</span><br><span class="line">    bh = 7.249/(1+0.6061*math.exp(-V/26.58))</span><br><span class="line">    an = (0.01812*V+2.598)/(1+0.5954*math.exp(-V/10.8))</span><br><span class="line">    bn = 1.56*math.exp(-V/23.4) </span><br><span class="line">    AS = 0.02985*math.exp(V/144.6)   <span class="comment">#慢Cl</span></span><br><span class="line">    bs = 0.03542*math.exp(-V/91.67)</span><br><span class="line">    ak = 0.01414*math.exp(-0.03175*V)/(1+math.exp(0.2434*V))<span class="comment">#  内向K</span></span><br><span class="line">    bk = 974.1*math.exp(0.04129*V)/(1+math.exp(0.7851*V))</span><br><span class="line">    ann = 0.01*(V+60)/(1-math.exp(-(V+60)/2.8))</span><br><span class="line">    bnn = 0.05*math.exp(-V/80.4)</span><br><span class="line">    <span class="keyword">if</span> i==1:</span><br><span class="line">        n1 = an/(an+bn)</span><br><span class="line">        m1 = 0 </span><br><span class="line">        h1 = 1</span><br><span class="line">        s1 = AS/(AS+bs)</span><br><span class="line">        k1 = ak/(ak+bk) </span><br><span class="line">        nn1 = ann/(ann+bnn)</span><br><span class="line">  </span><br><span class="line">    N = n1</span><br><span class="line">    M = m1</span><br><span class="line">    H = h1</span><br><span class="line">    S = s1  </span><br><span class="line">    NN = nn1</span><br><span class="line">    gK = GK*N*N</span><br><span class="line">    gCl = GCl*M*M*H</span><br><span class="line">    gCl_slow = GCl_slow*S; </span><br><span class="line">    <span class="comment"># gKN=GK*NN*NN;% 复极化电导</span></span><br><span class="line">    gKN=40*NN*NN <span class="comment"># 最大电导40可调整，调大后，在较大的刺激下也可出现正常的波形</span></span><br><span class="line">    gH = GH/(1+math.exp((65.53+V)/112.2))</span><br><span class="line">    IH = gH*(V+231.8)</span><br><span class="line"></span><br><span class="line">    Ik = gK*(V+53)</span><br><span class="line">    ICl = gCl*(V-13.6)  <span class="comment"># ICl=gCl*(V+23.6);</span></span><br><span class="line">    ICl_slow = gCl_slow*(V-37.8)</span><br><span class="line">    IKN = gKN*(V+115) <span class="comment">#  IKN=gKN*(V+118);</span></span><br><span class="line">    K = k1  <span class="comment"># 内向K电流</span></span><br><span class="line">    gKin =GKin*K </span><br><span class="line">    Ikin = gKin*(V+75) </span><br><span class="line">    kdot = (ak*(1-K)-bk*K)*DT</span><br><span class="line">    k2=k1+kdot</span><br><span class="line">    </span><br><span class="line">    ndot = (an*(1-N)-bn*N)*DT</span><br><span class="line">    nndot = (ann*(1-NN)-bnn*NN)*DT</span><br><span class="line">    <span class="comment"># IT=Ik+ICl+ICl_slow+Ikin+Ib+IH;</span></span><br><span class="line">    IT=Ik+ICl+ICl_slow+IKN+Ikin+Ib+IH</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#     if t[i]&lt;800          %光刺激</span></span><br><span class="line"><span class="comment">#         Ilight=71*(1-math.exp(-t[i]/82))^3;</span></span><br><span class="line"><span class="comment">#     else</span></span><br><span class="line"><span class="comment">#         Ilight=71*math.exp(-(t[i]-800)/56);</span></span><br><span class="line"><span class="comment">#         #if rem(t[i],20)==0</span></span><br><span class="line"><span class="comment">#             #v1</span></span><br><span class="line"><span class="comment">#         #end</span></span><br><span class="line"><span class="comment">#     end</span></span><br><span class="line"><span class="comment">#     vdot=((Ilight-IT)/Cm)*DT;</span></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> t[i]&lt;100:    <span class="comment">#温度、恒流电刺激</span></span><br><span class="line">        vdot = ((I-IT)/Cm)*DT</span><br><span class="line">    <span class="comment">#    vdot=(-(Itemperature+IT)/Cm)*DT;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        vdot = (-IT/Cm)*DT</span><br><span class="line">    </span><br><span class="line">       </span><br><span class="line">    v2 = v1+vdot</span><br><span class="line">    mdot = (am*(1-M)-bm*M)*DT</span><br><span class="line">    n2 = n1+ndot</span><br><span class="line">    m2 = m1+mdot</span><br><span class="line">    sdot =(AS*(1-S)-bs*S)*DT</span><br><span class="line">    s2 = s1+sdot</span><br><span class="line">    nn2 = nn1+nndot</span><br><span class="line">    <span class="keyword">if</span> V&lt;-20:</span><br><span class="line">        h2=1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hdot = (ah*(1-H)-bh*H)*DT</span><br><span class="line">        h2=h1+hdot </span><br><span class="line">    </span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    if t[i]%0.01==0:</span></span><br><span class="line"><span class="string">        result.append([t[i],v1])</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span>    </span><br><span class="line">    </span><br><span class="line">    result.append([t[i],v1])    </span><br><span class="line">result = np.array(result)</span><br><span class="line">plt.plot(result[:,0],result[:,1],c=<span class="string">'b'</span>)</span><br><span class="line"><span class="comment">#plt.plot(result[:,0],result[:,2],'r-');  #仿真Ca离子浓度随时间的变化关系</span></span><br><span class="line">plt.xlabel(<span class="string">'时间(s)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'膜电位(mV)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br></pre></td></tr></table></figure>
+            <h1 id="Flask-Vue-Happyhbase-Mysql-用到的框架"><a href="#Flask-Vue-Happyhbase-Mysql-用到的框架" class="headerlink" title="Flask + Vue + Happyhbase + Mysql(用到的框架)"></a>Flask + Vue + Happyhbase + Mysql(用到的框架)</h1><h1 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h1><ul>
+<li>Flask 留出对应的接口</li>
+<li>我希望用户的数据放到Mysql里面</li>
+</ul>
+<h2 id="上传数据"><a href="#上传数据" class="headerlink" title="上传数据"></a>上传数据</h2><p>上传的数据放到Hbase里面</p>
+<h2 id="下载数据"><a href="#下载数据" class="headerlink" title="下载数据"></a>下载数据</h2><h1 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h1><h2 id="把上传的csv文件展示出来，可以参考这个链接："><a href="#把上传的csv文件展示出来，可以参考这个链接：" class="headerlink" title="把上传的csv文件展示出来，可以参考这个链接："></a>把上传的csv文件展示出来，可以参考这个链接：</h2><p><a href="https://www.jianshu.com/p/ad1a49375da4" target="_blank" rel="noopener">https://www.jianshu.com/p/ad1a49375da4</a></p>
+
           
         
       
@@ -937,7 +890,7 @@ else:
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -985,7 +938,7 @@ else:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1007,7 +960,7 @@ else:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1044,7 +997,7 @@ else:
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

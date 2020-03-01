@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/multi-channel-system-Debug/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/plot-attention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/25/multi-channel-system-Debug/" itemprop="url">multi-channel system Debug</a></h1>
+                <a class="post-title-link" href="/2019/08/16/plot-attention/" itemprop="url">plot_attention</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-25T15:56:16+08:00">
-                2019-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T15:32:09+08:00">
+                2019-08-16
               </time>
             
 
@@ -323,8 +323,138 @@
       
         
           
-            <p>1 min —&gt; 60 s<br>2s –&gt; 1一个点<br>1min —&gt; 30个点<br>20min —&gt; 600</p>
-<p>现在采集到的数据一个周期5880个点<br>设置的是2000ms采集一个点。</p>
+            <p>def plot_attention(attention_matrix, input_sentence, predicted_sentence):<br>    fig = plt.figure(figsize=(10,10))<br>    ax = fig.add_subplot(1, 1, 1)</p>
+<pre><code>ax.matshow(attention_matrix, cmap=&apos;viridis&apos;) # cmap 定义的是配色
+
+font_dict = {&apos;fontsize&apos;: 14}
+
+ax.set_xticklabels([&apos;&apos;] + input_sentence, fontdict = font_dict, rotation = 90) # roation 让字体反转90度
+ax.set_yticklabels([&apos;&apos;] + predicted_sentence,fontdict = font_dict)
+plt.show()</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/evaluate-input-sentence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/15/evaluate-input-sentence/" itemprop="url">evaluate(input_sentence)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T16:52:04+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>详细的记录 evaluate函数的实现。<br>解决报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ValueError                                Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-44-2ec1176683f0&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 translate(u<span class="string">'Estoy trabajando.'</span>)</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> translate(input_sentence)</span><br><span class="line">     49 </span><br><span class="line">     50 def translate(input_sentence):</span><br><span class="line">---&gt; 51     results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line">     52 </span><br><span class="line">     53     <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line"></span><br><span class="line">&lt;ipython-input-43-4364cc5c7981&gt; <span class="keyword">in</span> evaluate(input_sentence)</span><br><span class="line">     20     decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0)</span><br><span class="line">     21     <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">---&gt; 22         predictions. decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">     23         attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">     24         attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">ValueError: too many values to unpack (expected 2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意看predictions-后面的标点符号"><a href="#注意看predictions-后面的标点符号" class="headerlink" title="注意看predictions 后面的标点符号"></a>注意看predictions 后面的标点符号</h3><p>接收的是一个文本的输入，首先就要转换成适合模型的数据类型。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">def evaluate(input_sentence):</span><br><span class="line">    attention_matrix = np.zeros((max_length_output, max_length_input)) <span class="comment"># 定义attention_matrix 保存权重。shape:()</span></span><br><span class="line">    input_sentence = preprocess_sentence(input_sentence) <span class="comment"># 输入的句子进行预处理。就是分割标点符号/</span></span><br><span class="line"></span><br><span class="line">    inputs = [input_tokenizer.word_index[token] <span class="keyword">for</span> token <span class="keyword">in</span> input_sentence.split(<span class="string">' '</span>)] <span class="comment"># text---&gt;id 把句子转换成id</span></span><br><span class="line">    inputs = keras.preprocessing.sequence.pad_sequences([inputs], maxlen = max_length_input, padding= <span class="string">'post'</span>) <span class="comment"># 把转换成id的向量，进行padding</span></span><br><span class="line">    inputs = tf.convert_to_tensor(inputs) <span class="comment">#把向量转换为tensor</span></span><br><span class="line"></span><br><span class="line">    results = <span class="string">''</span> <span class="comment"># 定义str, 保存translate的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#     encoding_hidden = encoder.initialize_hidden_state()</span></span><br><span class="line"></span><br><span class="line">    encoding_hidden = tf.zeros((1, units)) <span class="comment">#初始化encoding_hidden层</span></span><br><span class="line"></span><br><span class="line">    encoding_outputs, encoding_hidden = encoder(inputs, encoding_hidden) <span class="comment"># 这一步得到的encoding_hidden就是decoding_hidden 的第一个值</span></span><br><span class="line">    decoding_hidden = encoding_hidden</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    decoding_input = tf.expand_dims([out_tokenizer.word_index[<span class="string">'&lt;start&gt;'</span>]], 0) <span class="comment"># 找到开始的第一个输入的id</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> range(max_length_output):</span><br><span class="line">        predictions, decoding_hidden, attention_weights = decoder(decoding_input, decoding_hidden, encoding_outputs)</span><br><span class="line">        attention_weights = tf.reshape(attention_weights, (-1,))</span><br><span class="line">        attention_matrix[t] = attention_weights.numpy()</span><br><span class="line"></span><br><span class="line">        predicted_id = tf.argmax(predictions[0]).numpy()</span><br><span class="line"></span><br><span class="line">        results += out_tokenizer.index_word[predicted_id] + <span class="string">' '</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> out_tokenizer.index_word[predicted_id] == <span class="string">'&lt;end&gt;'</span>:</span><br><span class="line">            <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">        decoding_input = tf.expand_dims([predicted_id], 0)</span><br><span class="line">    <span class="built_in">return</span> results, input_sentence, attention_matrix</span><br><span class="line"></span><br><span class="line">def plot_attention(attention_matrix, input_sentence, predicted_sentence):</span><br><span class="line">    fig = plt.figure(figsize=(10,10))</span><br><span class="line">    ax = fig.add_subplot(1, 1, 1)</span><br><span class="line"></span><br><span class="line">    ax.matshow(attention_matrix, cmap=<span class="string">'viridis'</span>)</span><br><span class="line"></span><br><span class="line">    font_dict = &#123;<span class="string">'fontsize'</span>: 14&#125;</span><br><span class="line"></span><br><span class="line">    ax.set_xticklabels([<span class="string">''</span>] + input_sentence,</span><br><span class="line">                              fontdict = font_dict, rotation = 90)</span><br><span class="line">    ax.sey_yticklables([<span class="string">''</span>] + predicted_sentence,</span><br><span class="line">                              fontdict = font_dict,)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line">def translate(input_sentence):</span><br><span class="line">    results, input_sentence, attention_matrix = evaluate(input_sentence)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Input: %s"</span> % (input_sentence))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Predicted translation: %s"</span> % (results))</span><br><span class="line"></span><br><span class="line">    attention_matrix = attention_matrix[:len(results.split(<span class="string">' '</span>)),</span><br><span class="line">                                                       :len(input_sentence.split(<span class="string">' '</span>))]</span><br><span class="line">    plot_attention(attention_matrix, input_sentence.split(<span class="string">' '</span>), results.split(<span class="string">' '</span>))</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -373,7 +503,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/LSTM-params/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/BahdanauAttention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -392,7 +522,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/23/LSTM-params/" itemprop="url">LSTM params</a></h1>
+                <a class="post-title-link" href="/2019/08/14/BahdanauAttention/" itemprop="url">BahdanauAttention</a></h1>
         
 
         <div class="post-meta">
@@ -404,8 +534,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T16:48:11+08:00">
-                2019-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T21:59:33+08:00">
+                2019-08-14
               </time>
             
 
@@ -444,8 +574,10 @@
       
         
           
-            <p>重新理解LSTM结构</p>
-<p>把lstm里面的四个激活单元，当作是全连接网络。</p>
+            <p>2015年提出的BahdanauAttention原文：<br><a href="https://arxiv.org/pdf/1409.0473.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1409.0473.pdf</a></p>
+<h3 id="0814-记录"><a href="#0814-记录" class="headerlink" title="0814 记录"></a>0814 记录</h3><h3 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h3><p>Encoder会通过RNN将最后一个step的隐藏状态向量c作为输出，Deocder利用向量c进行翻译。这样做有一个缺点，翻译时过分依赖于这个将整个sentence压缩成固定输入的向量。输入的sentence有可能包含上百个单词，这么做不可避免会造成信息的丢失，翻译结果也无法准确了</p>
+<p>注意力机制的引入就是为了解决此问题，注意力机制使得机器翻译中利用原始的sentence信息，减少信息损失。</p>
+<p>损失函数<br>预测哪个单词是正确的，是一个分类问题。</p>
 
           
         
@@ -494,7 +626,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/california-housing/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/model搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -513,7 +645,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/21/california-housing/" itemprop="url">california_housing</a></h1>
+                <a class="post-title-link" href="/2019/08/13/model搭建/" itemprop="url">model搭建</a></h1>
         
 
         <div class="post-meta">
@@ -525,8 +657,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T10:36:20+08:00">
-                2019-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T22:57:09+08:00">
+                2019-08-13
               </time>
             
 
@@ -565,16 +697,20 @@
       
         
           
-            <h2 id="california-dataset"><a href="#california-dataset" class="headerlink" title="california dataset"></a>california dataset</h2><p>x.shape   (20640,8)<br>y.shape   (20640,)</p>
-<p>model.add(keras.layers.Dense(layer_size, activation=’relu’,<br>input_shape=(8,)))</p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><pre><code>-MedInc        median income in block
-- HouseAge      median house age in block
-- AveRooms      average number of rooms
-- AveBedrms     average number of bedrooms
-- Population    block population
-- AveOccup      average house occupancy
-- Latitude      house block latitude
-- Longitude</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|MedInc|HouseAge|AveRooms|AveBedrms|Population|AveOccup|Latitude|Longitude</span><br><span class="line">	0	1	2	3	4	5	6	7</span><br><span class="line">0	7.0671	11	7.64354067	0.980861244	1774	4.244019139	37.34	-121.78</span><br><span class="line">1	2.3267	12	5.016483516	1.267857143	1677	2.303571429	33.14	-117.19</span><br><span class="line">2	1.9893	19	4.083499006	1.0944334	2971	2.953280318	32.79	-116.97</span><br><span class="line">3	4.1026	25	3.549682875	0.993657505	1314	2.778012685	33.65	-117.92</span><br><span class="line">4	3.8333	48	5.234200743	1.096654275	891	3.312267658	37.76	-122.5</span><br></pre></td></tr></table></figure>
+            <h2 id="python-构造函数"><a href="#python-构造函数" class="headerlink" title="python 构造函数"></a>python 构造函数</h2><h2 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h2><p>super()是为了调用父类函数</p>
+<p><a href="https://www.runoob.com/python3/python3-class.html" target="_blank" rel="noopener">https://www.runoob.com/python3/python3-class.html</a></p>
+<h2 id="encoder构建"><a href="#encoder构建" class="headerlink" title="encoder构建"></a>encoder构建</h2><p>定义超参的概念<br>embedding_units = 256   每个word转成embedding是多少<br>units = 1024 循环神经网络的个数 encode 和decode的units数量是一样的<br>encoding_units 在 encode中lstm 的size是多大</p>
+<p>hidden 是初始化的隐藏层状态</p>
+<p>keras.layers.GRU(units, activation=’tanh’, recurrent_activation=’hard_sigmoid’, use_bias=True, kernel_initializer=’glorot_uniform’, recurrent_initializer=’orthogonal’, bias_initializer=’zeros’, kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None, bias_constraint=None, dropout=0.0, recurrent_dropout=0.0, implementation=1, return_sequences=False, return_state=False, go_backwards=False, stateful=False, unroll=False, reset_after=False)</p>
+<h4 id="units-正整数，输出空间的维度。"><a href="#units-正整数，输出空间的维度。" class="headerlink" title="units: 正整数，输出空间的维度。"></a>units: 正整数，输出空间的维度。</h4><h4 id="recurrent-initializer-recurrent-kernel-权值矩阵-的初始化器，用于循环层状态的线性转换-详见-initializers-。"><a href="#recurrent-initializer-recurrent-kernel-权值矩阵-的初始化器，用于循环层状态的线性转换-详见-initializers-。" class="headerlink" title="recurrent_initializer: recurrent_kernel 权值矩阵 的初始化器，用于循环层状态的线性转换 (详见 initializers)。"></a>recurrent_initializer: recurrent_kernel 权值矩阵 的初始化器，用于循环层状态的线性转换 (详见 initializers)。</h4><h4 id="return-sequences-布尔值。是返回输出序列中的最后一个输出，还是全部序列。"><a href="#return-sequences-布尔值。是返回输出序列中的最后一个输出，还是全部序列。" class="headerlink" title="return_sequences: 布尔值。是返回输出序列中的最后一个输出，还是全部序列。"></a>return_sequences: 布尔值。是返回输出序列中的最后一个输出，还是全部序列。</h4><h4 id="return-state-布尔值。除了输出之外是否返回最后一个状态。"><a href="#return-state-布尔值。除了输出之外是否返回最后一个状态。" class="headerlink" title="return_state: 布尔值。除了输出之外是否返回最后一个状态。"></a>return_state: 布尔值。除了输出之外是否返回最后一个状态。</h4><p><a href="https://keras.io/zh/layers/recurrent/" target="_blank" rel="noopener">https://keras.io/zh/layers/recurrent/</a></p>
+<h3 id="Writing-your-own-Keras-layers"><a href="#Writing-your-own-Keras-layers" class="headerlink" title="Writing your own Keras layers"></a>Writing your own Keras layers</h3><p><a href="https://keras.io/layers/writing-your-own-keras-layers/" target="_blank" rel="noopener">https://keras.io/layers/writing-your-own-keras-layers/</a></p>
+<h2 id="glorot-uniform"><a href="#glorot-uniform" class="headerlink" title="glorot_uniform"></a>glorot_uniform</h2><p><a href="https://keras.io/zh/initializers/" target="_blank" rel="noopener">https://keras.io/zh/initializers/</a></p>
+<p>keras.initializers.glorot_uniform(seed=None)<br>Glorot 均匀分布初始化器，也称为 Xavier 均匀分布初始化器。</p>
+<p>它从 [-limit，limit] 中的均匀分布中抽取样本， 其中 limit 是 sqrt(6 / (fan_in + fan_out))， fan_in 是权值张量中的输入单位的数量， fan_out 是权值张量中的输出单位的数量。</p>
+<p>参数<br>seed: 一个 Python 整数。作为随机发生器的种子。</p>
+<p>返回<br>一个初始化器。</p>
+<p>参考文献：<a href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf" target="_blank" rel="noopener">http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Encoder (keras.Model):</span><br><span class="line">    def __init__(self, vocab_size, embedding_units, encoding_units, batch_size):</span><br><span class="line">        super(Encoder, self).__init__()</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">        self.encoding_units = encoding_units</span><br><span class="line">        self.embedding = keras.layers.Embedding(vocab_size,embedding_units)</span><br><span class="line">        self.gru = keras.layers.GRU(self.encoding_units,return_sequences=True,return_state=True, </span><br><span class="line">                                recurrent_initializer=<span class="string">'glorot_uniform'</span>)</span><br><span class="line">    def call(self, x, hidden):</span><br><span class="line">        x = self.embedding(x)</span><br><span class="line">        output, state = self.gru(x, initial_state=hidden) <span class="comment">## 这里的self.gru() 传递的两个参数是什么意思呢？在构造函数里面并没有使用这两个参数， 但是在api里 可以找到这个参数。</span></span><br><span class="line">        <span class="built_in">return</span> output, state</span><br><span class="line">    def initialize_hidden_state(self):</span><br><span class="line">        <span class="built_in">return</span> tf.zeros((self.batch_size,self.encoding_units))</span><br><span class="line"></span><br><span class="line">encode = Encoder(input_vocab_size, embedding_units, units, batch_size)</span><br><span class="line"></span><br><span class="line">sample_hidden = encoder.initialize_hidden_state()</span><br><span class="line"></span><br><span class="line">sample_output, sample_hidden = encoder(x, sample_hidden)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入模型的数据特征</span></span><br><span class="line">[<span class="keyword">in</span>]</span><br><span class="line"><span class="keyword">for</span> array <span class="keyword">in</span> (input_train, input_eval, output_train, output_eval):</span><br><span class="line">    <span class="built_in">print</span>( <span class="built_in">type</span>(array), array.shape)</span><br><span class="line">[out]</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (24, 9)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (7, 9)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (24, 14)</span><br><span class="line">    &lt;class <span class="string">'numpy.ndarray'</span>&gt; (7, 14)</span><br><span class="line"></span><br><span class="line">可以这样理解，对于 input_train 来说，有24个样本，每个样本有9个特征。对于这个9。就是每个句子的单词数，但是有的句子单词不够9个，这在预处理数据的时候进行了padding操作。样本数是24，在train_test_split(test_size=0.2)分配的数据量。</span><br></pre></td></tr></table></figure>
           
         
       
@@ -622,7 +758,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/ReadMulCsvToOneDataFrame/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/python链表推导式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -641,7 +777,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/17/ReadMulCsvToOneDataFrame/" itemprop="url">ReadMulCsvToOneDataFrame</a></h1>
+                <a class="post-title-link" href="/2019/08/12/python链表推导式/" itemprop="url">python链表推导式</a></h1>
         
 
         <div class="post-meta">
@@ -653,8 +789,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T20:11:37+08:00">
-                2019-07-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-12T21:16:07+08:00">
+                2019-08-12
               </time>
             
 
@@ -693,135 +829,53 @@
       
         
           
-            <p>读取一个csv文件的数据，放在列表里面。<br>并把这个列表的数据放到一个DataFrame里，这是一个多列的矩阵。可以参考</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#creating and plotting the data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#creating some data - we will create a sinus and a sinus * sinus function</span></span><br><span class="line"><span class="built_in">shift</span> = 7</span><br><span class="line">trainLength = 800</span><br><span class="line">totalLength = 1200</span><br><span class="line"></span><br><span class="line">data = np.empty((1,totalLength,2)) <span class="comment">#0 to 1199</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#x for the first sinus</span></span><br><span class="line">base1 = np.array(range(totalLength))*(30*math.pi/totalLength) <span class="comment">#30*pi means 15 complete oscilations</span></span><br><span class="line"><span class="comment">#the first sinus</span></span><br><span class="line">data[0,:,0] = np.sin(base1)</span><br><span class="line"></span><br><span class="line"><span class="comment">#x for the second sinus - this reflects in a sinus with a different frequency</span></span><br><span class="line">base2 = 0.8*base1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#the first * the second sinus </span></span><br><span class="line">data[0,:,1] = (np.sin(base1)+np.sin(base2))/2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'data: '</span>, data.shape)</span><br></pre></td></tr></table></figure>
+            <p>链表推导式在很多代码里都出现过，但是语法规则不太了解，今天做个记录。</p>
+<p>#我感觉链表推导式就是让代码看上去更清爽。。。</p>
+<p>a,b for c, d in </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[In]</span><br><span class="line">a = [(1,2),(3,4),(5,6)]</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(len(a))</span><br><span class="line">[out]</span><br><span class="line">&lt;class <span class="string">'list'</span>&gt;</span><br><span class="line">3</span><br><span class="line">[In]</span><br><span class="line">def a(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line">def b(a):</span><br><span class="line">    <span class="built_in">return</span>(<span class="built_in">print</span>(a))</span><br><span class="line"></span><br><span class="line">a(c),b(d) <span class="keyword">for</span> c,d <span class="keyword">in</span> a</span><br></pre></td></tr></table></figure>
 
-<p>这样做的目的可以把原始的csv数据，放到一个csv里面，这样方便观察数据。</p>
-<p>其实手动放置现有的数据是很方便的，可以不用浪费时间研究这个函数。。。</p>
-<h3 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h3><p>“TypeError: unhashable type: ‘numpy.ndarray’”</p>
-<p>再利用for循环读取一个文件夹里的csv的时候，报的错误。</p>
-<p>原因：csv文件名有中文。。。。。。<br>注：报的错误真的好坑啊。。。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/LSTM文献阅读/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/09/LSTM文献阅读/" itemprop="url">LSTM文献阅读</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T22:35:39+08:00">
-                2019-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="LSTM分析EEG"><a href="#LSTM分析EEG" class="headerlink" title="LSTM分析EEG"></a>LSTM分析EEG</h2><p>然而，脑电序列通常较长，直接用来训练LSTM模型所需的计算资源非常大且学习到的信息类型单一，而且忽略了许多对情绪识别非常重要的信息，如频域信息和非线性动力学信息。为此提出一种新的基于LSTM的情绪识别模型。脑电信号被分成多个非重叠的信号段，并从每段信号中提取多种时域，频域和非线性动力学特征，这些特征沿时间连接成特征序列并用来训练LSTM分类模型。在DEAP数据集上验证了该模型在愉悦度，唤醒度和喜欢度上的二分类准确率，其中每个情绪维度分为低和高两类。实验结果表明，该模型在愉悦度和喜欢度上的分类准确率均优于已有方法，在唤醒度上的分类准确率仅次于最先进的成果。</p>
-<h2 id="一些大数据比赛"><a href="#一些大数据比赛" class="headerlink" title="一些大数据比赛"></a>一些大数据比赛</h2><p><img src="http://i1.fuimg.com/692414/5c04347e49ae9a86.png" alt="Markdown"><br>看论文：<br><a href="https://doi.org/10.1007/978-3-030-20521-8_12" target="_blank" rel="noopener">https://doi.org/10.1007/978-3-030-20521-8_12</a></p>
+<h3 id="Python-中形如-xx-for-xx-in-yy-的链表推导式"><a href="#Python-中形如-xx-for-xx-in-yy-的链表推导式" class="headerlink" title="Python 中形如 xx for xx in yy 的链表推导式"></a>Python 中形如 xx for xx in yy 的链表推导式</h3><h1 id="以-a-0-1-2-3-4-5-为例"><a href="#以-a-0-1-2-3-4-5-为例" class="headerlink" title="以 a = [0,1,2,3,4,5] 为例"></a>以 a = [0,1,2,3,4,5] 为例</h1><h2 id="1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"><a href="#1-最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候" class="headerlink" title="1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候"></a>1. 最简单的情况，使用链表推导式时不需要任何判断，即处理的对象内没有任何特殊值需要特别处理的时候</h2><p> 比如：求 a 内每个元素的平方，我们直接写</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b = [ x**2 for x in a]<br>b
+[0, 1, 4, 9, 16, 25]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"><a href="#2-当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件" class="headerlink" title="2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件"></a>2. 当增加限制条件时，就需要进行判断，然后处理，就需要在链表推导式内添加判断条件</h2><p> 比如：取出 a 内 &gt; 0 的元素</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c = [ x for x in a if x &gt; 0 ]<br>c
+[1, 2, 3, 4, 5]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"><a href="#3-链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求" class="headerlink" title="3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求"></a>3. 链表推导式处理处理内容，还有一个作用是定位，这样可以满足我们先定位再处理的需求</h2><p> 比如：我们要知道 a 内偶数元素的位置</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a_even_id = [ i for i,x in enumerate(a) if x%2 == 0 ]<br>a_even_id<br>[0, 2, 4]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"><a href="#4-下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时" class="headerlink" title="4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时"></a>4. 下面进行难度提升，当处理的对象不是纯数字，即不是我们所需要的数据格式或对象时</h2><p>A0 = [ 0,’ ‘,1,2,4,5,’ ‘,’3’,2]<br> A是由整数（int)和空格’ ‘, 以及字符串’3’组成的<br> 我们要将空格替换为 0 ，将’3’ 替换为 整形 3<br> (1).判断是否是整形： type(x) == int<br> (2).不是整形，则判断是否是空格：x == ‘ ‘，是则替换为 0，<br> (3).判断是否是数字构成的字符串：x.isdigit(),(isdigit()是字符串方法），是则转化为整形数<br> (4). 如果是其他，则均替换为 0 ,(这一步必须有，以为要穷尽多有可能，否则会因为条件没有覆盖到而导致无法执行）</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>A = [ x if type(x)==int else 0 if x == ‘ ‘ else int(x) if x.isdigit() else 0 for x in A0 ]<br>A
+[0, 0, 1, 2, 4, 5, 0, 3, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："><a href="#5-如果只需要处理-A0-内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：" class="headerlink" title="5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要："></a>5. 如果只需要处理 A0 内的整形数据，而舍弃其他的数据，那么我们不必像4中描述的那么复杂，只需要：</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>A_int = [x for x in A0 if type(x)==int ]<br>A_int<br>[0, 1, 2, 4, 5, 2]</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
           
         
@@ -861,7 +915,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -909,7 +963,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -931,7 +985,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -968,7 +1022,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

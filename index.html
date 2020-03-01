@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/网络结构思考/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/DJango接受前端数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/08/网络结构思考/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/12/29/DJango接受前端数据/" itemprop="url">DJango接受前端数据</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T16:43:46+08:00">
-                2019-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T16:25:44+08:00">
+                2019-12-29
               </time>
             
 
@@ -323,144 +323,10 @@
       
         
           
-            <hr>
-<p>title: 网络结构思考<br>date: 2019-10-02 11:42:34</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">def add_layer(inputs, in_shape, out_shape, activation_function=None):</span><br><span class="line">    Weights = tf.Variable(tf.random_normal([in_shape, out_shape]))</span><br><span class="line">    bais = tf.Variable(tf.zeros([1, out_shape])+0.1)</span><br><span class="line">    y_pred = tf.matmul(inputs, Weights) + bais</span><br><span class="line">    <span class="keyword">if</span> activation_function is None:</span><br><span class="line">        outputs = y_pred</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        outputs = activation_function(y_pred)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> outputs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">##### 创建数据，x y 的 shape[300,1]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x_data = np.linspace(-1,1,300, dtype=np.float32)[:, np.newaxis]</span><br><span class="line"></span><br><span class="line">noise = np.random.normal(0, 0.05, x_data.shape).astype(np.float32)</span><br><span class="line">y_data = np.square(x_data) - 0.5 + noise</span><br><span class="line"></span><br><span class="line">xs = tf.placeholder(tf.float32, [None, 1])</span><br><span class="line">ys = tf.placeholder(tf.float32, [None, 1])</span><br><span class="line"></span><br><span class="line">l1 = add_layer(xs,1,10,activation_function=tf.nn.relu)</span><br><span class="line">predict = add_layer(l1, 10, 1, activation_function=None)</span><br><span class="line">loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys-predict),</span><br><span class="line">                                    reduction_indices=[1]</span><br><span class="line">                    ))</span><br><span class="line"></span><br><span class="line">train = tf.train.GradientDescentOptimizer(0.1).minimize(loss)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(1000):</span><br><span class="line">        <span class="comment"># training</span></span><br><span class="line">        sess.run(train, feed_dict=&#123;xs: x_data, ys: y_data&#125;)</span><br><span class="line">        <span class="keyword">if</span> i % 50 == 0:</span><br><span class="line">            <span class="comment"># to see the step improvement</span></span><br><span class="line">            <span class="built_in">print</span>(sess.run(loss, feed_dict=&#123;xs: x_data, ys: y_data&#125;))</span><br></pre></td></tr></table></figure>
-
-<h3 id="我的数据shape"><a href="#我的数据shape" class="headerlink" title="我的数据shape"></a>我的数据shape</h3><p>x.shape = (None, 588) # 有N条样本，每条588个特征，也对有588个y。<br>y.shape = (None, 588)</p>
-<h4 id="588个x对应588个y可以计算吗？"><a href="#588个x对应588个y可以计算吗？" class="headerlink" title="588个x对应588个y可以计算吗？"></a>588个x对应588个y可以计算吗？</h4><p>这样我的数据对应的不是一个Y值，换个思路说，1个x对应一个y可以计算。588个x对应一个y可以计算。588个x对应588个y可以计算吗？</p>
-<h3 id="维度扩展，在第三个维度，数据都是1。这样可以计算。"><a href="#维度扩展，在第三个维度，数据都是1。这样可以计算。" class="headerlink" title="维度扩展，在第三个维度，数据都是1。这样可以计算。"></a>维度扩展，在第三个维度，数据都是1。这样可以计算。</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/08/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T16:43:46+08:00">
-                2019-10-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <ol>
+<li>vue 会给后端发送一个API链接（应该是保存在list里面），Django根据获取的url进行get请求。会获取到两种格式的数据，csv和image</li>
+<li>根据获取到的数据，在使用我提供的函数进行分析，</li>
+</ol>
 
           
         
@@ -509,7 +375,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/06/斯皮尔曼spearman/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/小麦膜片钳/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -528,7 +394,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/06/斯皮尔曼spearman/" itemprop="url">斯皮尔曼spearman</a></h1>
+                <a class="post-title-link" href="/2019/11/26/小麦膜片钳/" itemprop="url">小麦膜片钳</a></h1>
         
 
         <div class="post-meta">
@@ -540,8 +406,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-06T11:35:37+08:00">
-                2019-10-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T16:30:12+08:00">
+                2019-11-26
               </time>
             
 
@@ -580,8 +446,7 @@
       
         
           
-            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line"> </span><br><span class="line"><span class="comment">#原始数据</span></span><br><span class="line">X1=pd.Series([1, 2, 3, 4, 5, 6])</span><br><span class="line">Y1=pd.Series([0.3, 0.9, 2.7, 2, 3.5, 5])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def spearman(x1, y1):</span><br><span class="line">    <span class="built_in">return</span>(x1.corr(y1,method=<span class="string">'spearman'</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(spearman(X1,Y1))</span><br><span class="line"> </span><br><span class="line"><span class="comment">#处理数据删除Nan</span></span><br><span class="line"><span class="comment"># x1=X1.dropna()</span></span><br><span class="line"><span class="comment"># y1=Y1.dropna()</span></span><br><span class="line"><span class="comment"># n=x1.count()</span></span><br><span class="line"><span class="comment"># x1.index=np.arange(n)</span></span><br><span class="line"><span class="comment"># y1.index=np.arange(n)</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># #分部计算</span></span><br><span class="line"><span class="comment"># d=(x1.sort_values().index-y1.sort_values().index)**2</span></span><br><span class="line"><span class="comment"># dd=d.to_series().sum()</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># p=1-n*dd/(n*(n**2-1))</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># #s.corr()函数计算</span></span><br><span class="line">r=x1.corr(y1,method=<span class="string">'spearman'</span>)</span><br><span class="line"><span class="built_in">print</span>(r) <span class="comment">#0.942857142857143 0.9428571428571428</span></span><br></pre></td></tr></table></figure>
-
+            <h1 id="小麦里面是没有发现动作电位"><a href="#小麦里面是没有发现动作电位" class="headerlink" title="小麦里面是没有发现动作电位"></a>小麦里面是没有发现动作电位</h1><p>(小麦胚芽)[<a href="https://www.biorxiv.org/content/10.1101/781799v1.full]" target="_blank" rel="noopener">https://www.biorxiv.org/content/10.1101/781799v1.full]</a></p>
 
           
         
@@ -630,7 +495,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/seq2seq优化/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Django-401/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -649,7 +514,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/04/seq2seq优化/" itemprop="url">seq2seq优化</a></h1>
+                <a class="post-title-link" href="/2019/11/23/Django-401/" itemprop="url">Django 401</a></h1>
         
 
         <div class="post-meta">
@@ -661,8 +526,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-04T15:44:10+08:00">
-                2019-10-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T14:59:07+08:00">
+                2019-11-23
               </time>
             
 
@@ -701,8 +566,8 @@
       
         
           
-            <p>67条测试集</p>
-<p>平均rmse = 0.185417<br>最大rmse = 0.6110<br>最小rmse = 0.0588</p>
+            <p>vue发送的是json格式的数据</p>
+<p>所以Django接受Json格式的数据</p>
 
           
         
@@ -751,7 +616,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/03/AutoEncoder自编码器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/拟南芥离子通道/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -770,7 +635,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/03/AutoEncoder自编码器/" itemprop="url">AutoEncoder自编码器</a></h1>
+                <a class="post-title-link" href="/2019/11/18/拟南芥离子通道/" itemprop="url">拟南芥离子通道</a></h1>
         
 
         <div class="post-meta">
@@ -782,8 +647,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-03T11:06:15+08:00">
-                2019-10-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-18T10:13:35+08:00">
+                2019-11-18
               </time>
             
 
@@ -822,12 +687,148 @@
       
         
           
-            <p>自编码器是一种压缩特征的方法，和PCA降维类似。</p>
-<p>自编码器主要用在降维和去噪。</p>
-<p>def add(x, y, name=None):<br>  “””Returns x + y element-wise.<br>“””</p>
-<p>def sigmoid(x, name=None):<br>  “””Computes sigmoid of <code>x</code> element-wise.</p>
-<p>  Specifically, <code>y = 1 / (1 + exp(-x))</code>.
-“””</p>
+            <p>beilby用的应该是浓度建立的模型</p>
+<p>我用膜片钳建立的模型，应该更精确。</p>
+<p>我可以看看拟南芥，因为基因组数据比较多，也可能做膜片钳的比较多。。</p>
+<p>小麦的膜片钳数据我估计是没有了。</p>
+<h1 id="Arabidopsis-thaliana"><a href="#Arabidopsis-thaliana" class="headerlink" title="Arabidopsis thaliana"></a>Arabidopsis thaliana</h1><h2 id="保卫细胞"><a href="#保卫细胞" class="headerlink" title="保卫细胞"></a>保卫细胞</h2><p><a href="https://plantmethods.biomedcentral.com/articles/10.1186/1746-4811-8-15" target="_blank" rel="noopener">https://plantmethods.biomedcentral.com/articles/10.1186/1746-4811-8-15</a>  保卫细胞内外钾通道和阴离子通道</p>
+<h2 id="表皮细胞"><a href="#表皮细胞" class="headerlink" title="表皮细胞"></a>表皮细胞</h2><h1 id="老师还是建议先做小麦膜片钳的数据。"><a href="#老师还是建议先做小麦膜片钳的数据。" class="headerlink" title="老师还是建议先做小麦膜片钳的数据。"></a>老师还是建议先做小麦膜片钳的数据。</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/Myplant-MySQl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/10/Myplant-MySQl/" itemprop="url">Myplant_MySQl</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-10T12:55:23+08:00">
+                2019-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="create-MySQL-语句"><a href="#create-MySQL-语句" class="headerlink" title="create MySQL 语句"></a>create MySQL 语句</h1><p>CREATE TABLE <code>dataset</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>author</code> varchar(255) NOT NULL,<br>  <code>created_at</code> datetime NOT NULL,<br>  <code>dataset_meta_id</code> bigint(20) DEFAULT NULL,<br>  <code>description</code> varchar(500) DEFAULT NULL,<br>  <code>equipment_id</code> bigint(20) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>state</code> varchar(255) NOT NULL,<br>  <code>type</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime NOT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>dataset_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>detail</code> varchar(255) DEFAULT NULL,<br>  <code>goal</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>operators</code> varchar(255) DEFAULT NULL,<br>  <code>paper</code> varchar(255) DEFAULT NULL,<br>  <code>position</code> varchar(255) DEFAULT NULL,<br>  <code>sample</code> varchar(255) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>stimulus</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>environment</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>humidity</code> double DEFAULT NULL,<br>  <code>light</code> double DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>pressure</code> double DEFAULT NULL,<br>  <code>temperature</code> double DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>equipment</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>description</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>provider</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>iec_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>channel_num</code> smallint(6) DEFAULT NULL,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>duration</code> double DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>rate</code> int(11) DEFAULT NULL,<br>  <code>record_position</code> varchar(255) DEFAULT NULL,<br>  <code>sampling_rate</code> bigint(20) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>start_at</code> datetime DEFAULT NULL,<br>  <code>stimulate_detail</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_material</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_type</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>image_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>duration</code> double DEFAULT NULL,<br>  <code>format</code> varchar(255) DEFAULT NULL,<br>  <code>frame_rate</code> int(11) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>record_area</code> varchar(255) DEFAULT NULL,<br>  <code>record_position</code> varchar(255) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>start_at</code> datetime DEFAULT NULL,<br>  <code>stimulate_detail</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_material</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_type</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>sample</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>growth</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>period</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>software</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  <code>version</code> varchar(255) DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>user</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>address</code> varchar(255) NOT NULL,<br>  <code>created_at</code> datetime NOT NULL,<br>  <code>email</code> varchar(255) NOT NULL,<br>  <code>password</code> varchar(255) NOT NULL,<br>  <code>sex</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime NOT NULL,<br>  <code>username</code> varchar(255) NOT NULL,<br>  PRIMARY KEY (<code>id</code>),<br>  UNIQUE KEY <code>UK_ob8kqyqqgmefl0aco34akdtpe</code> (<code>email</code>),<br>  UNIQUE KEY <code>UK_sb8bbouer5wak8vyiiy4pf2bx</code> (<code>username</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;</p>
 
           
         
@@ -867,7 +868,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -915,7 +916,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -937,7 +938,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -974,7 +975,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/seq2seq优化思路/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/python操作hbase/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/25/seq2seq优化思路/" itemprop="url">seq2seq优化思路</a></h1>
+                <a class="post-title-link" href="/2019/10/17/python操作hbase/" itemprop="url">python操作hbase</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T09:42:18+08:00">
-                2019-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T14:34:51+08:00">
+                2019-10-17
               </time>
             
 
@@ -323,13 +323,134 @@
       
         
           
-            <p>问题：<br>    1. 程序添加测试集对模型进行离线验证，加上评价指标rmse<br>        上次写的测试部分，数据来自训练集。<br>    2. 添加网格搜索和交叉验证</p>
-<h3 id="RMSE函数"><a href="#RMSE函数" class="headerlink" title="RMSE函数"></a>RMSE函数</h3><p>‘’’<br>from sklearn.metrics import mean_squared_error<br>import numpy as np<br>import sklearn.metrics as sm</p>
-<p>def rmse(y_true, y_pred):<br>    return np.sqrt(mean_squared_error(y_true, y_pred))</p>
-<p>‘’’</p>
-<h3 id="需要搜索的参数："><a href="#需要搜索的参数：" class="headerlink" title="需要搜索的参数："></a>需要搜索的参数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">batch_size = 5  # Low value used for live demo purposes - 100 and 1000 would be possible too, crank that up!</span><br><span class="line">hidden_dim = 12  # Count of hidden neurons in the recurrent units.</span><br><span class="line">layers_stacked_count = 2  # Number of stacked recurrent cells, on the neural depth axis.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">learning_rate = 0.007  # Small lr helps not to diverge during training.</span><br><span class="line">nb_iters = 300  # How many times we perform a training step (therefore how many times we show a batch).</span><br><span class="line">lr_decay = 0.92  # default: 0.9 . Simulated annealing.</span><br><span class="line">momentum = 0.5  # default: 0.0 . Momentum technique in weights update</span><br><span class="line">lambda_l2_reg = 0.003  # L2 regularization of weights - avoids overfitting</span><br></pre></td></tr></table></figure>
+            
+          
+        
+      
+    </div>
+    
+    
+    
 
-<h3 id="交叉验证资料"><a href="#交叉验证资料" class="headerlink" title="交叉验证资料"></a>交叉验证资料</h3><h4 id="k可不可以放到网格搜索里面呢？"><a href="#k可不可以放到网格搜索里面呢？" class="headerlink" title="k可不可以放到网格搜索里面呢？"></a>k可不可以放到网格搜索里面呢？</h4><p><a href="https://zhuanlan.zhihu.com/p/24825503" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24825503</a></p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/小麦-膜片钳文献/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚杰鹏的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/15/小麦-膜片钳文献/" itemprop="url">小麦_膜片钳文献</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-15T08:48:52+08:00">
+                2019-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搜索组合：“-wheat-“patch-clamp”-”"><a href="#搜索组合：“-wheat-“patch-clamp”-”" class="headerlink" title="搜索组合：“ wheat “patch    clamp” ”"></a>搜索组合：“ wheat “patch    clamp” ”</h1><h2 id="大概满意的："><a href="#大概满意的：" class="headerlink" title="大概满意的："></a>大概满意的：</h2><p><a href="https://link.springer.com/chapter/10.1007/978-3-662-10933-5_35" target="_blank" rel="noopener">https://link.springer.com/chapter/10.1007/978-3-662-10933-5_35</a></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC159473/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC159473/</a></p>
+<p><a href="http://www.plantphysiol.org/content/97/2/598.long?utm_source=TrendMD&amp;utm_medium=cpc&amp;utm_campaign=Plant_Physiol_TrendMD_0" target="_blank" rel="noopener">http://www.plantphysiol.org/content/97/2/598.long?utm_source=TrendMD&amp;utm_medium=cpc&amp;utm_campaign=Plant_Physiol_TrendMD_0</a> </p>
+<h3 id="耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K-Na-选择性不同"><a href="#耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K-Na-选择性不同" class="headerlink" title="耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K + / Na +选择性不同"></a>耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K + / Na +选择性不同</h3><h4 id="阳离子外向整流通道"><a href="#阳离子外向整流通道" class="headerlink" title="阳离子外向整流通道"></a>阳离子外向整流通道</h4><p>研究小麦跟根细胞原生质体中阳离子外向通道的特性。<br>好像有细胞的膜片钳数据</p>
+<h1 id="通过综述找对应的文献"><a href="#通过综述找对应的文献" class="headerlink" title="通过综述找对应的文献"></a>通过综述找对应的文献</h1><p><a href="https://link.springer.com/article/10.1007/s00232-017-9969-7" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s00232-017-9969-7</a></p>
+<p><a href="https://link.springer.com/article/10.1134%2FS1990747817010068" target="_blank" rel="noopener">https://link.springer.com/article/10.1134%2FS1990747817010068</a> 考虑液泡</p>
+<p>包括动作电位（AP）在内的电信号在植物适应不断变化的环境条件方面发挥着重要作用。需要进行AP生成机理的实验和理论研究，以了解环境因素与植物电活动之间的关系。在这项工作中，我们详细阐述了AP生成的数学模型，该模型考虑了液泡参与电响应的生成。该模型描述了质膜的转运蛋白（Ca 2 +，Cl –和K +通道，H +和Ca 2+ -ATPase，H + / K +反向转运蛋白和2H + / Cl–同向转运蛋白和液泡膜（Ca 2 +，Cl –和K +通道； H + -和Ca 2+ -ATPases； H + / K +，2H + / Cl –和3H + / Ca 2+反转运蛋白） ，并适当考虑第二信使（Ca 2+和IP3）的调节。还描述了质外性，细胞质和液泡缓冲液。模拟AP的特性与实验数据非常吻合。AP模型描述了液泡面积和体积增加时电信号的衰减。这种作用与钙的减少有关2+尖峰幅度。该电信号被弱由K个的影响+和Cl -中的液泡的内容。还显示，在模型的给定参数下，液泡IP 3依赖性Ca 2+通道对AP期间钙峰值产生的贡献微不足道。结果为液泡面积和体积在植物细胞兴奋性中的意义提供了理论证据。</p>
+<h1 id="关键词-“guard-cells-wheat-channel"><a href="#关键词-“guard-cells-wheat-channel" class="headerlink" title="关键词 “guard cells wheat channel"></a>关键词 “guard cells wheat channel</h1><h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><p>效果：<br>    1 搜索“<strong>***</strong>”
+    2 返回包含“&amp;&amp;&amp;&amp;&amp;”关键词的页面</p>
 
           
         
@@ -378,7 +499,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/m-tm-h-th计算/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/部署Myplant/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -397,7 +518,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/22/m-tm-h-th计算/" itemprop="url">m_tm_h_th计算</a></h1>
+                <a class="post-title-link" href="/2019/10/13/部署Myplant/" itemprop="url">部署Myplant</a></h1>
         
 
         <div class="post-meta">
@@ -409,8 +530,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T21:33:18+08:00">
-                2019-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T22:02:51+08:00">
+                2019-10-13
               </time>
             
 
@@ -449,8 +570,8 @@
       
         
           
-            <p>需要数据</p>
-<p>电压(mv)   -56            -36            -16            4            24            44            64<br>时间(ms) 电导（nS）         电导（nS）       电导（nS）    电导（nS）    电导（nS）    电导（nS）    电导（nS）<br>0.92  0.641966251    0.90082361    1.509488212    4.654255319    16.16202946    15.537514    22.62749071<br>2.5   2.29273661    6.391557996    15.09488212    24.60106383    26.59574468    27.4356103    28.70651807<br>5     4.524333578    12.05387783    22.21104083    26.59574468    26.39116203    28.62541993    28.49544073<br>7.5   6.572511617    15.87165408    23.00172513    25.48758865    24.75450082    27.4356103    27.86220871<br>10    8.192712155    18.44543583    22.28292122    23.93617021    24.34533552    26.59574468    27.44005404<br>15    10.60772805    20.63315031    20.91719379    21.05496454    22.50409165    25.05599104    26.63796015<br>20    12.71704573    21.01921757    19.91086832    17.95212766    20.45826514    23.65621501    26.17359<br>30    14.67351431    21.01921757    18.68890167    15.95744681    18.20785597    21.90649496    25.32928065<br>40    16.20200538    21.44818119    17.53881541    15.29255319    16.16202946    20.99664054    24.8649105<br>50    17.02739056    21.44818119    18.25761932    15.29255319    15.54828151    20.64669653    24.48497129<br>60    17.11910002    21.44818119    18.25761932    15.29255319    15.34369885    20.29675252    24.10503208</p>
+            <p>– 安装hbase<br>– 安装mysql<br>– 安装vnc viewer<br>– 配置nginx </p>
+<h2 id="后台运行jar包"><a href="#后台运行jar包" class="headerlink" title="后台运行jar包"></a>后台运行jar包</h2><p>nohup java -jar demo-1.0.0-SNAPSHOT.jar &gt; ./log1017.log 2&gt;&amp;1 &amp;</p>
 
           
         
@@ -499,7 +620,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/Hodgkin-Huxley-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/保存图片画质/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -518,7 +639,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/18/Hodgkin-Huxley-2/" itemprop="url">Hodgkin-Huxley-2</a></h1>
+                <a class="post-title-link" href="/2019/10/11/保存图片画质/" itemprop="url">保存图片画质</a></h1>
         
 
         <div class="post-meta">
@@ -530,8 +651,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-18T22:47:51+08:00">
-                2019-09-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-11T14:51:50+08:00">
+                2019-10-11
               </time>
             
 
@@ -570,142 +691,7 @@
       
         
           
-            <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><pre><code>该技术是由电压钳（voltageclamp）发展而来的，电压钳技术由Cole和Marment设计，后经Hodgkin和Huxley改进并成功地应用于神经纤维动作电位的研究 
- 。其设计原理是根据离子作跨膜移动时形成了跨膜离子电流（I），而通透性即离子通过膜的难易程度，其膜电阻（R）的倒数，也就是膜电导（G）。因此，膜对某种离子通透性增大时，实际上时膜电阻变小，即膜对该离子的电导加大。根据欧姆定律U=IR，即I=U/R=UG，
-
-问题：膜电导是膜电阻的倒数？</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/nginx配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/07/nginx配置/" itemprop="url">Flask</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
-                2019-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我要对输入的序列进行</p>
-<pre><code>--- 维度扩展 
-    x_test_1 = np.expand_dims(x_test[12], axis=0)
-
-
---- PCA降维
-    pca = PCA(n_components=5,copy=True) 
-    newX = pca.fit_transform(x)</code></pre><p>报错提示：在post给的内容没有在excle中找到</p>
-<p>是程序逻辑的问题，需要在看下flask</p>
-<p>src文件夹内的文件结构如下：</p>
-<p>├── App.vue<br>├── assets<br>│   └── logo.png<br>├── components<br>│   └── HelloWorld.vue<br>├── main.js<br>├── router.js<br>└── views<br>    ├── About.vue<br>    └── Home.vue<br>详解：</p>
-<p>main.js app入口点，它与根组件一起加载和初始化Vue。<br>app.vue 根组件，它是开始渲染所有其他组件时的起点。<br>‘components’ 存储UI组件<br>router.js 定义URL并将URL映射到对应的组件<br>‘views’ 存储绑定到路由器的UI组件<br>‘asset’ 存储静态资源，如图像和字体</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, jsonify</span><br><span class="line">from flask_cors import CORS</span><br><span class="line">import pandas as pd</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.naive_bayes import GaussianNB</span><br><span class="line">from sklearn.decomposition import PCA</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment"># configuration</span></span><br><span class="line">DEBUG = True</span><br><span class="line"></span><br><span class="line"><span class="comment"># instantiate the app</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable CORS</span></span><br><span class="line">CORS(app, resources=&#123;r<span class="string">'/*'</span>: &#123;<span class="string">'origins'</span>: <span class="string">'*'</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sanity check route</span></span><br><span class="line">@app.route(<span class="string">'/ping'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def ping_pong():</span><br><span class="line">    <span class="built_in">return</span> jsonify(<span class="string">'pong!,hhh'</span>)</span><br><span class="line"></span><br><span class="line">def Bayes():</span><br><span class="line">    df = pd.read_excel(<span class="string">'./Data.xls'</span>)</span><br><span class="line">    df_T=df.T</span><br><span class="line">    x=df_T.iloc[:,0:1764]</span><br><span class="line">    y1 = df_T.iloc[0:26,1764:1765]     <span class="comment">#1 类的类别</span></span><br><span class="line">    y2 = df_T.iloc[26:59,1764:1765]   <span class="comment">#2 类的类别</span></span><br><span class="line">    pca = PCA(n_components=5,copy=True)</span><br><span class="line">    newX = pca.fit_transform(x)</span><br><span class="line">    <span class="comment">#  拆分</span></span><br><span class="line">    newX1 = newX[0:26,:]</span><br><span class="line">    newX2 = newX[26:59,:]</span><br><span class="line">    x_train1,x_test1,y_train1,y_test1 = train_test_split(newX1,y1,test_size=0.2,random_state=5)</span><br><span class="line">    x_train2,x_test2,y_train2,y_test2 = train_test_split(newX2,y2,test_size=0.2,random_state=5)</span><br><span class="line">    x_train = np.vstack((x_train1 , x_train2))</span><br><span class="line">    x_test = np.vstack((x_test1 , x_test2))</span><br><span class="line">    y_train = np.vstack((y_train1 , y_train2))</span><br><span class="line">    y_test = np.vstack((y_test1 , y_test2))</span><br><span class="line">    <span class="built_in">print</span>(x_test[1])</span><br><span class="line">    gnb = GaussianNB()</span><br><span class="line">    gnb = gnb.fit(x_train,y_train)</span><br><span class="line">    <span class="built_in">return</span> gnb</span><br><span class="line"></span><br><span class="line">def pretreatment(list1):</span><br><span class="line">    array = np.array(list1)</span><br><span class="line">    <span class="built_in">return</span> np.expand_dims(array, axis=0)</span><br><span class="line"></span><br><span class="line">@app.route(<span class="string">'/predict'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def main():</span><br><span class="line">    gnb = Bayes()</span><br><span class="line">    predict = gnb.predict(pretreatment([2187.82169246, 153.58047602, -124.83874381, -339.65293843, -5.28906774]))</span><br><span class="line">    value = int(predict[0])</span><br><span class="line">    <span class="built_in">return</span> jsonify(value)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
+            <h3 id="问题保存的图片不清晰，quality设置图片质量"><a href="#问题保存的图片不清晰，quality设置图片质量" class="headerlink" title="问题保存的图片不清晰，quality设置图片质量"></a>问题保存的图片不清晰，quality设置图片质量</h3><p>plt.savefig(‘V=’+list(data.columns)[i]+’mV’, dpi=300,bbox_inches=’tight’, pad_inches=0.0,puality=95)</p>
 
           
         
@@ -754,7 +740,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/flask/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/CAE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -773,7 +759,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/07/flask/" itemprop="url">Flask</a></h1>
+                <a class="post-title-link" href="/2019/10/10/CAE/" itemprop="url">CAE</a></h1>
         
 
         <div class="post-meta">
@@ -785,8 +771,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
-                2019-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-10T14:26:03+08:00">
+                2019-10-10
               </time>
             
 
@@ -825,10 +811,8 @@
       
         
           
-            <p>现在是对固定的文件完成分类，可以返回分类结果。</p>
-<p>但是无法自定义输入进行分类，</p>
-<p>前端读取数据<br>发送到flask接口</p>
-<p>现在问题是对flask框架不熟悉</p>
+            <p>encoder_op.shape(?, 20),<br>decoder.shape:(10, 28, 28, 1),<br>y_pred.shape:(10, 28, 28, 1),<br>y_true.shape:(?, 28, 28, 1),<br> x_image.shape:(?, 28, 28, 1)</p>
+<p>对电信号padding</p>
 
           
         
@@ -868,7 +852,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -916,7 +900,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -938,7 +922,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -975,7 +959,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
