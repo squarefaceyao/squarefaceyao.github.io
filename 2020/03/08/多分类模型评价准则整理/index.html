@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MC,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Kappa系数Kappa系数是基于混淆矩阵的计算得到的模型评价参数。计算公式如下： 系数的值在-1到1之间，系数小于0的话实际上就相当于随机了。python实现为: 12from sklearn.metrics import cohen_kappa_scorekappa = cohen_kappa_score(y_true,y_pred，label=None) #(label除非是你想计算其中的分">
+<meta name="keywords" content="MC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多分类模型评价准则整理">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/多分类模型评价准则整理/index.html">
+<meta property="og:site_name" content="SquareFace Blog">
+<meta property="og:description" content="Kappa系数Kappa系数是基于混淆矩阵的计算得到的模型评价参数。计算公式如下： 系数的值在-1到1之间，系数小于0的话实际上就相当于随机了。python实现为: 12from sklearn.metrics import cohen_kappa_scorekappa = cohen_kappa_score(y_true,y_pred，label=None) #(label除非是你想计算其中的分">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200308205715.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/08/多分类模型评价准则整理/output_8_0.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/08/多分类模型评价准则整理/output_17_0.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/08/多分类模型评价准则整理/output_20_0.png">
+<meta property="og:updated_time" content="2020-03-08T14:07:21.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多分类模型评价准则整理">
+<meta name="twitter:description" content="Kappa系数Kappa系数是基于混淆矩阵的计算得到的模型评价参数。计算公式如下： 系数的值在-1到1之间，系数小于0的话实际上就相当于随机了。python实现为: 12from sklearn.metrics import cohen_kappa_scorekappa = cohen_kappa_score(y_true,y_pred，label=None) #(label除非是你想计算其中的分">
+<meta name="twitter:image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200308205715.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/多分类模型评价准则整理/">
+
+
+
+
+
+  <title>多分类模型评价准则整理 | SquareFace Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SquareFace Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/多分类模型评价准则整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多分类模型评价准则整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T20:53:23+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/08/多分类模型评价准则整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/03/08/多分类模型评价准则整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Kappa系数"><a href="#Kappa系数" class="headerlink" title="Kappa系数"></a>Kappa系数</h2><p>Kappa系数是基于混淆矩阵的计算得到的模型评价参数。计算公式如下：<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200308205715.png" alt></p>
+<p>系数的值在-1到1之间，系数小于0的话实际上就相当于随机了。<br>python实现为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> cohen_kappa_score</span><br><span class="line">kappa = cohen_kappa_score(y_true,y_pred，label=<span class="literal">None</span>) <span class="comment">#(label除非是你想计算其中的分类子集的kappa系数，否则不需要设置)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="海明距离"><a href="#海明距离" class="headerlink" title="海明距离"></a>海明距离</h2><p>海明距离也适用于多分类的问题，简单来说就是衡量预测标签与真实标签之间的距离，取值在0~1之间。距离为0说明预测结果与真实结果完全相同，距离为1就说明模型与我们想要的结果完全就是背道而驰。公式就不贴了（0*0 原谅我太懒），直接来python实例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> hamming_loss</span><br><span class="line">ham_distance = hamming_loss(y_true,y_pred)</span><br></pre></td></tr></table></figure>
+
+<h2 id="杰卡德相似系数"><a href="#杰卡德相似系数" class="headerlink" title="杰卡德相似系数"></a>杰卡德相似系数</h2><p>它与海明距离的不同之处在于分母。当预测结果与实际情况完全相符时，系数为1；当预测结果与实际情况完全不符时，系数为0；当预测结果是实际情况的真子集或真超集时，距离介于0到1之间。<br>我们可以通过对所有样本的预测情况求平均得到算法在测试集上的总体表现情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> jaccard_similarity_score</span><br><span class="line">jaccrd_score = jaccrd_similarity_score(y_true,y_pred,normalize = default)</span><br><span class="line"><span class="comment">#normalize默认为true，这是计算的是多个类别的相似系数的平均值，normalize = false时分别计算各个类别的相似系数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="铰链损失"><a href="#铰链损失" class="headerlink" title="铰链损失"></a>铰链损失</h2><p>铰链损失（Hinge loss）一般用来使“边缘最大化”（maximal margin）。损失取值在0~1之间，当取值为0，表示多分类模型分类完全准确，取值为1表明完全不起作用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> hinge_loss</span><br><span class="line">hinger = hinger_loss(y_true,y_pred)</span><br></pre></td></tr></table></figure>
+
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_csv(<span class="string">'Consumer_Complaints.csv'</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = df[pd.notnull(df[<span class="string">'Consumer complaint narrative'</span>])]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Int64Index: 4569 entries, 1 to 21662
+Data columns (total 18 columns):
+Date received                   4569 non-null object
+Product                         4569 non-null object
+Sub-product                     3106 non-null object
+Issue                           4569 non-null object
+Sub-issue                       2294 non-null object
+Consumer complaint narrative    4569 non-null object
+Company public response         2220 non-null object
+Company                         4569 non-null object
+State                           4556 non-null object
+ZIP code                        4556 non-null object
+Tags                            770 non-null object
+Consumer consent provided?      4569 non-null object
+Submitted via                   4569 non-null object
+Date sent to company            4569 non-null object
+Company response to consumer    4569 non-null object
+Timely response?                4569 non-null object
+Consumer disputed?              4568 non-null object
+Complaint ID                    4569 non-null float64
+dtypes: float64(1), object(17)
+memory usage: 678.2+ KB</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">col = [<span class="string">'Product'</span>, <span class="string">'Consumer complaint narrative'</span>]</span><br><span class="line">df = df[col]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.columns</span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&apos;Product&apos;, &apos;Consumer complaint narrative&apos;], dtype=&apos;object&apos;)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.columns = [<span class="string">'Product'</span>, <span class="string">'Consumer_complaint_narrative'</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'category_id'</span>] = df[<span class="string">'Product'</span>].factorize()[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> StringIO</span><br><span class="line">category_id_df = df[[<span class="string">'Product'</span>, <span class="string">'category_id'</span>]].drop_duplicates().sort_values(<span class="string">'category_id'</span>)</span><br><span class="line">category_to_id = dict(category_id_df.values)</span><br><span class="line">id_to_category = dict(category_id_df[[<span class="string">'category_id'</span>, <span class="string">'Product'</span>]].values)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+      <th>category_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Credit reporting</td>
+      <td>I have outdated information on my credit repor...</td>
+      <td>0</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">df.groupby(<span class="string">'Product'</span>).Consumer_complaint_narrative.count().plot.bar(ylim=<span class="number">0</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="output_8_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</span><br><span class="line"></span><br><span class="line">tfidf = TfidfVectorizer(sublinear_tf=<span class="literal">True</span>, min_df=<span class="number">5</span>, norm=<span class="string">'l2'</span>, encoding=<span class="string">'latin-1'</span>, ngram_range=(<span class="number">1</span>, <span class="number">2</span>), stop_words=<span class="string">'english'</span>)</span><br><span class="line"></span><br><span class="line">features = tfidf.fit_transform(df.Consumer_complaint_narrative).toarray()</span><br><span class="line">labels = df.category_id</span><br><span class="line">features.shape</span><br></pre></td></tr></table></figure>
+
+<pre><code>(4569, 12633)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">N = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> Product, category_id <span class="keyword">in</span> sorted(category_to_id.items()):</span><br><span class="line">  features_chi2 = chi2(features, labels == category_id)</span><br><span class="line">  indices = np.argsort(features_chi2[<span class="number">0</span>])</span><br><span class="line">  feature_names = np.array(tfidf.get_feature_names())[indices]</span><br><span class="line">  unigrams = [v <span class="keyword">for</span> v <span class="keyword">in</span> feature_names <span class="keyword">if</span> len(v.split(<span class="string">' '</span>)) == <span class="number">1</span>]</span><br><span class="line">  bigrams = [v <span class="keyword">for</span> v <span class="keyword">in</span> feature_names <span class="keyword">if</span> len(v.split(<span class="string">' '</span>)) == <span class="number">2</span>]</span><br><span class="line">  print(<span class="string">"# '&#123;&#125;':"</span>.format(Product))</span><br><span class="line">  print(<span class="string">"  . Most correlated unigrams:\n       . &#123;&#125;"</span>.format(<span class="string">'\n       . '</span>.join(unigrams[-N:])))</span><br><span class="line">  print(<span class="string">"  . Most correlated bigrams:\n       . &#123;&#125;"</span>.format(<span class="string">'\n       . '</span>.join(bigrams[-N:])))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> CountVectorizer</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfTransformer</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(df[<span class="string">'Consumer_complaint_narrative'</span>], df[<span class="string">'Product'</span>], random_state = <span class="number">0</span>)</span><br><span class="line">count_vect = CountVectorizer()</span><br><span class="line">X_train_counts = count_vect.fit_transform(X_train)</span><br><span class="line">tfidf_transformer = TfidfTransformer()</span><br><span class="line">X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)</span><br><span class="line"></span><br><span class="line">clf = MultinomialNB().fit(X_train_tfidf, y_train)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(clf.predict(count_vect.transform([<span class="string">"This company refuses to provide me verification and validation of debt per my right under the FDCPA. I do not believe this debt is mine."</span>])))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&apos;Debt collection&apos;]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(clf.predict(count_vect.transform([<span class="string">"I am disputing the inaccurate information the Chex-Systems has on my credit report. I initially submitted a police report on XXXX/XXXX/16 and Chex Systems only deleted the items that I mentioned in the letter and not all the items that were actually listed on the police report. In other words they wanted me to say word for word to them what items were fraudulent. The total disregard of the police report and what accounts that it states that are fraudulent. If they just had paid a little closer attention to the police report I would not been in this position now and they would n't have to research once again. I would like the reported information to be removed : XXXX XXXX XXXX"</span>])))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&apos;Credit reporting&apos;]</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'Consumer_complaint_narrative'</span>] == <span class="string">"This company refuses to provide me verification and validation of debt per my right under the FDCPA. I do not believe this debt is mine."</span>]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+      <th>category_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>Debt collection</td>
+      <td>This company refuses to provide me verificatio...</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'Consumer_complaint_narrative'</span>] == <span class="string">"I am disputing the inaccurate information the Chex-Systems has on my credit report. I initially submitted a police report on XXXX/XXXX/16 and Chex Systems only deleted the items that I mentioned in the letter and not all the items that were actually listed on the police report. In other words they wanted me to say word for word to them what items were fraudulent. The total disregard of the police report and what accounts that it states that are fraudulent. If they just had paid a little closer attention to the police report I would not been in this position now and they would n't have to research once again. I would like the reported information to be removed : XXXX XXXX XXXX"</span>]</span><br></pre></td></tr></table></figure>
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+      <th>category_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>61</th>
+      <td>Credit reporting</td>
+      <td>I am disputing the inaccurate information the ...</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> LinearSVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">models = [</span><br><span class="line">    RandomForestClassifier(n_estimators=<span class="number">200</span>, max_depth=<span class="number">3</span>, random_state=<span class="number">0</span>),</span><br><span class="line">    LinearSVC(),</span><br><span class="line">    MultinomialNB(),</span><br><span class="line">    LogisticRegression(random_state=<span class="number">0</span>),</span><br><span class="line">]</span><br><span class="line">CV = <span class="number">5</span></span><br><span class="line">cv_df = pd.DataFrame(index=range(CV * len(models)))</span><br><span class="line">entries = []</span><br><span class="line"><span class="keyword">for</span> model <span class="keyword">in</span> models:</span><br><span class="line">  model_name = model.__class__.__name__</span><br><span class="line">  accuracies = cross_val_score(model, features, labels, scoring=<span class="string">'accuracy'</span>, cv=CV)</span><br><span class="line">  <span class="keyword">for</span> fold_idx, accuracy <span class="keyword">in</span> enumerate(accuracies):</span><br><span class="line">    entries.append((model_name, fold_idx, accuracy))</span><br><span class="line">cv_df = pd.DataFrame(entries, columns=[<span class="string">'model_name'</span>, <span class="string">'fold_idx'</span>, <span class="string">'accuracy'</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">sns.boxplot(x=<span class="string">'model_name'</span>, y=<span class="string">'accuracy'</span>, data=cv_df)</span><br><span class="line">sns.stripplot(x=<span class="string">'model_name'</span>, y=<span class="string">'accuracy'</span>, data=cv_df, </span><br><span class="line">              size=<span class="number">8</span>, jitter=<span class="literal">True</span>, edgecolor=<span class="string">"gray"</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="output_17_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv_df.groupby(<span class="string">'model_name'</span>).accuracy.mean()</span><br></pre></td></tr></table></figure>
+
+<pre><code>model_name
+LinearSVC                 0.822890
+LogisticRegression        0.792927
+MultinomialNB             0.688519
+RandomForestClassifier    0.443826
+Name: accuracy, dtype: float64</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line">model = LinearSVC()</span><br><span class="line"></span><br><span class="line">X_train, X_test, y_train, y_test, indices_train, indices_test = train_test_split(features, labels, df.index, test_size=<span class="number">0.33</span>, random_state=<span class="number">0</span>)</span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line">y_pred = model.predict(X_test)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> confusion_matrix</span><br><span class="line"></span><br><span class="line">conf_mat = confusion_matrix(y_test, y_pred)</span><br><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">sns.heatmap(conf_mat, annot=<span class="literal">True</span>, fmt=<span class="string">'d'</span>,</span><br><span class="line">            xticklabels=category_id_df.Product.values, yticklabels=category_id_df.Product.values)</span><br><span class="line">plt.ylabel(<span class="string">'Actual'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Predicted'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="output_20_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> display</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> predicted <span class="keyword">in</span> category_id_df.category_id:</span><br><span class="line">  <span class="keyword">for</span> actual <span class="keyword">in</span> category_id_df.category_id:</span><br><span class="line">    <span class="keyword">if</span> predicted != actual <span class="keyword">and</span> conf_mat[actual, predicted] &gt;= <span class="number">6</span>:</span><br><span class="line">      print(<span class="string">"'&#123;&#125;' predicted as '&#123;&#125;' : &#123;&#125; examples."</span>.format(id_to_category[actual], id_to_category[predicted], conf_mat[actual, predicted]))</span><br><span class="line">      display(df.loc[indices_test[(y_test == actual) &amp; (y_pred == predicted)]][[<span class="string">'Product'</span>, <span class="string">'Consumer_complaint_narrative'</span>]])</span><br><span class="line">      print(<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&apos;Consumer Loan&apos; predicted as &apos;Credit reporting&apos; : 10 examples.</code></pre><div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2720</th>
+      <td>Consumer Loan</td>
+      <td>Quoting them, your first loan application, the...</td>
+    </tr>
+    <tr>
+      <th>7091</th>
+      <td>Consumer Loan</td>
+      <td>While reviewing my XXXX credit report, I notic...</td>
+    </tr>
+    <tr>
+      <th>5439</th>
+      <td>Consumer Loan</td>
+      <td>I have been recently checking my credit report...</td>
+    </tr>
+    <tr>
+      <th>12763</th>
+      <td>Consumer Loan</td>
+      <td>We went to buy XXXX cars, and the dealership s...</td>
+    </tr>
+    <tr>
+      <th>13158</th>
+      <td>Consumer Loan</td>
+      <td>I got a 30 day late XX/XX/2017 and it 's repor...</td>
+    </tr>
+    <tr>
+      <th>4134</th>
+      <td>Consumer Loan</td>
+      <td>I took out an instalment loan in the amount XX...</td>
+    </tr>
+    <tr>
+      <th>13848</th>
+      <td>Consumer Loan</td>
+      <td>I was turned down for a loan by Honda Finacial...</td>
+    </tr>
+    <tr>
+      <th>19227</th>
+      <td>Consumer Loan</td>
+      <td>ONEMAIN # XXXX XXXX , IN XXXX ( XXXX ) XXXX Da...</td>
+    </tr>
+    <tr>
+      <th>11258</th>
+      <td>Consumer Loan</td>
+      <td>I have not been given credit for the payments ...</td>
+    </tr>
+    <tr>
+      <th>11242</th>
+      <td>Consumer Loan</td>
+      <td>Reliable Credit falsely submitted an applicati...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<pre><code>&apos;Debt collection&apos; predicted as &apos;Credit reporting&apos; : 18 examples.</code></pre><div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18410</th>
+      <td>Debt collection</td>
+      <td>Dear CFPB, I am asking you for assistance to i...</td>
+    </tr>
+    <tr>
+      <th>5262</th>
+      <td>Debt collection</td>
+      <td>XXXX XXXX, XXXX ( This letter describes in det...</td>
+    </tr>
+    <tr>
+      <th>11834</th>
+      <td>Debt collection</td>
+      <td>XXXX XXXX XXXX is reporting negatively on my c...</td>
+    </tr>
+    <tr>
+      <th>19652</th>
+      <td>Debt collection</td>
+      <td>I recently paid of both debts on my credit acc...</td>
+    </tr>
+    <tr>
+      <th>15557</th>
+      <td>Debt collection</td>
+      <td>Never have been a XXXX XXXX customer. I was at...</td>
+    </tr>
+    <tr>
+      <th>4431</th>
+      <td>Debt collection</td>
+      <td>someone tried getting credit information and i...</td>
+    </tr>
+    <tr>
+      <th>15949</th>
+      <td>Debt collection</td>
+      <td>This debt is from account from $ XX/XX/2008 an...</td>
+    </tr>
+    <tr>
+      <th>12475</th>
+      <td>Debt collection</td>
+      <td>In XXXX XXXX, there was an account opened thro...</td>
+    </tr>
+    <tr>
+      <th>13548</th>
+      <td>Debt collection</td>
+      <td>DIVERSIFIELD CONSULTANTS INC HAVE VIOLATED FCR...</td>
+    </tr>
+    <tr>
+      <th>6988</th>
+      <td>Debt collection</td>
+      <td>Also collections refuses to stop reporting to ...</td>
+    </tr>
+    <tr>
+      <th>16498</th>
+      <td>Debt collection</td>
+      <td>They called my son and told him that they are ...</td>
+    </tr>
+    <tr>
+      <th>12028</th>
+      <td>Debt collection</td>
+      <td>Rubin &amp; Rothman LLC ( R &amp; R ) received default...</td>
+    </tr>
+    <tr>
+      <th>7131</th>
+      <td>Debt collection</td>
+      <td>THIS IS FRAUD. I HAVE REQUESTED VERIFICATION A...</td>
+    </tr>
+    <tr>
+      <th>15630</th>
+      <td>Debt collection</td>
+      <td>Barclays Bank Delaware obtained a judgment aga...</td>
+    </tr>
+    <tr>
+      <th>11112</th>
+      <td>Debt collection</td>
+      <td>This account was a joint account with XXXX and...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Debt collection</td>
+      <td>This complaint is in regards to Square Two Fin...</td>
+    </tr>
+    <tr>
+      <th>311</th>
+      <td>Debt collection</td>
+      <td>Hunter Warfield has be unable to provide prope...</td>
+    </tr>
+    <tr>
+      <th>15988</th>
+      <td>Debt collection</td>
+      <td>Unknown account, never have been notified and ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<pre><code>&apos;Mortgage&apos; predicted as &apos;Credit reporting&apos; : 6 examples.</code></pre><div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4637</th>
+      <td>Mortgage</td>
+      <td>This complaint is in follow-up to Complaint # ...</td>
+    </tr>
+    <tr>
+      <th>5269</th>
+      <td>Mortgage</td>
+      <td>The attached complaint was initially written t...</td>
+    </tr>
+    <tr>
+      <th>7343</th>
+      <td>Mortgage</td>
+      <td>In 2014, I went to XXXX in order to buy a mobi...</td>
+    </tr>
+    <tr>
+      <th>15048</th>
+      <td>Mortgage</td>
+      <td>Company repeatedly corrects my credit report a...</td>
+    </tr>
+    <tr>
+      <th>861</th>
+      <td>Mortgage</td>
+      <td>Mortgage broker did Credit inquiry on my credi...</td>
+    </tr>
+    <tr>
+      <th>19781</th>
+      <td>Mortgage</td>
+      <td>I am a card carrying XXXX and wanted to see if...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<pre><code>&apos;Credit card&apos; predicted as &apos;Credit reporting&apos; : 9 examples.</code></pre><div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
+
+.dataframe tbody tr th {
+    vertical-align: top;
+}</code></pre><p></style><p></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Product</th>
+      <th>Consumer_complaint_narrative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18643</th>
+      <td>Credit card</td>
+      <td>I was told this account wiuld be deleted from ...</td>
+    </tr>
+    <tr>
+      <th>18574</th>
+      <td>Credit card</td>
+      <td>This inquiry was n't me</td>
+    </tr>
+    <tr>
+      <th>19868</th>
+      <td>Credit card</td>
+      <td>Capital One/Kohls has been reporting a past du...</td>
+    </tr>
+    <tr>
+      <th>19963</th>
+      <td>Credit card</td>
+      <td>on XX/XX/XXXX my wallet was stolen with all my...</td>
+    </tr>
+    <tr>
+      <th>4706</th>
+      <td>Credit card</td>
+      <td>American Express is reporting an account on my...</td>
+    </tr>
+    <tr>
+      <th>21566</th>
+      <td>Credit card</td>
+      <td>Have disputed the reporting of the status of a...</td>
+    </tr>
+    <tr>
+      <th>13906</th>
+      <td>Credit card</td>
+      <td>I have been the victim of identity theft fraud...</td>
+    </tr>
+    <tr>
+      <th>16853</th>
+      <td>Credit card</td>
+      <td>I have requested XXXX XXXX to run a credit rep...</td>
+    </tr>
+    <tr>
+      <th>10505</th>
+      <td>Credit card</td>
+      <td>I have been working since XXXX 2016 to get a i...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+<pre><code>---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-22-9932ab8bdc5b&gt; in &lt;module&gt;()
+      3 for predicted in category_id_df.category_id:
+      4   for actual in category_id_df.category_id:
+----&gt; 5     if predicted != actual and conf_mat[actual, predicted] &gt;= 6:
+      6       print(&quot;&apos;{}&apos; predicted as &apos;{}&apos; : {} examples.&quot;.format(id_to_category[actual], id_to_category[predicted], conf_mat[actual, predicted]))
+      7       display(df.loc[indices_test[(y_test == actual) &amp; (y_pred == predicted)]][[&apos;Product&apos;, &apos;Consumer_complaint_narrative&apos;]])
+
+
+IndexError: index 11 is out of bounds for axis 0 with size 11</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.fit(features, labels)</span><br></pre></td></tr></table></figure>
+
+<pre><code>LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss=&apos;squared_hinge&apos;, max_iter=1000,
+     multi_class=&apos;ovr&apos;, penalty=&apos;l2&apos;, random_state=None, tol=0.0001,
+     verbose=0)</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</span><br><span class="line"></span><br><span class="line">N = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> Product, category_id <span class="keyword">in</span> sorted(category_to_id.items()):</span><br><span class="line">  indices = np.argsort(model.coef_[category_id])</span><br><span class="line">  feature_names = np.array(tfidf.get_feature_names())[indices]</span><br><span class="line">  unigrams = [v <span class="keyword">for</span> v <span class="keyword">in</span> reversed(feature_names) <span class="keyword">if</span> len(v.split(<span class="string">' '</span>)) == <span class="number">1</span>][:N]</span><br><span class="line">  bigrams = [v <span class="keyword">for</span> v <span class="keyword">in</span> reversed(feature_names) <span class="keyword">if</span> len(v.split(<span class="string">' '</span>)) == <span class="number">2</span>][:N]</span><br><span class="line">  print(<span class="string">"# '&#123;&#125;':"</span>.format(Product))</span><br><span class="line">  print(<span class="string">"  . Top unigrams:\n       . &#123;&#125;"</span>.format(<span class="string">'\n       . '</span>.join(unigrams)))</span><br><span class="line">  print(<span class="string">"  . Top bigrams:\n       . &#123;&#125;"</span>.format(<span class="string">'\n       . '</span>.join(bigrams)))</span><br></pre></td></tr></table></figure>
+
+<pre><code># &apos;Bank account or service&apos;:
+  . Top unigrams:
+       . bank
+       . account
+  . Top bigrams:
+       . debit card
+       . overdraft fees
+# &apos;Consumer Loan&apos;:
+  . Top unigrams:
+       . vehicle
+       . car
+  . Top bigrams:
+       . personal loan
+       . history xxxx
+# &apos;Credit card&apos;:
+  . Top unigrams:
+       . card
+       . discover
+  . Top bigrams:
+       . credit card
+       . discover card
+# &apos;Credit reporting&apos;:
+  . Top unigrams:
+       . equifax
+       . transunion
+  . Top bigrams:
+       . xxxx account
+       . trans union
+# &apos;Debt collection&apos;:
+  . Top unigrams:
+       . debt
+       . collection
+  . Top bigrams:
+       . account credit
+       . time provided
+# &apos;Money transfers&apos;:
+  . Top unigrams:
+       . paypal
+       . transfer
+  . Top bigrams:
+       . money transfer
+       . send money
+# &apos;Mortgage&apos;:
+  . Top unigrams:
+       . mortgage
+       . escrow
+  . Top bigrams:
+       . loan modification
+       . mortgage company
+# &apos;Other financial service&apos;:
+  . Top unigrams:
+       . passport
+       . dental
+  . Top bigrams:
+       . stated pay
+       . help pay
+# &apos;Payday loan&apos;:
+  . Top unigrams:
+       . payday
+       . loan
+  . Top bigrams:
+       . payday loan
+       . pay day
+# &apos;Prepaid card&apos;:
+  . Top unigrams:
+       . prepaid
+       . serve
+  . Top bigrams:
+       . prepaid card
+       . use card
+# &apos;Student loan&apos;:
+  . Top unigrams:
+       . navient
+       . loans
+  . Top bigrams:
+       . student loan
+       . sallie mae
+# &apos;Virtual currency&apos;:
+  . Top unigrams:
+       . https
+       . tx
+  . Top bigrams:
+       . money want
+       . xxxx provider</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">texts = [<span class="string">"I requested a home loan modification through Bank of America. Bank of America never got back to me."</span>,</span><br><span class="line">         <span class="string">"It has been difficult for me to find my past due balance. I missed a regular monthly payment"</span>,</span><br><span class="line">         <span class="string">"I can't get the money out of the country."</span>,</span><br><span class="line">         <span class="string">"I have no money to pay my tuition"</span>,</span><br><span class="line">         <span class="string">"Coinbase closed my account for no reason and furthermore refused to give me a reason despite dozens of request"</span>]</span><br><span class="line">text_features = tfidf.transform(texts)</span><br><span class="line">predictions = model.predict(text_features)</span><br><span class="line"><span class="keyword">for</span> text, predicted <span class="keyword">in</span> zip(texts, predictions):</span><br><span class="line">  print(<span class="string">'"&#123;&#125;"'</span>.format(text))</span><br><span class="line">  print(<span class="string">"  - Predicted as: '&#123;&#125;'"</span>.format(id_to_category[predicted]))</span><br><span class="line">  print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&quot;I requested a home loan modification through Bank of America. Bank of America never got back to me.&quot;
+  - Predicted as: &apos;Mortgage&apos;
+
+&quot;It has been difficult for me to find my past due balance. I missed a regular monthly payment&quot;
+  - Predicted as: &apos;Credit reporting&apos;
+
+&quot;I can&apos;t get the money out of the country.&quot;
+  - Predicted as: &apos;Bank account or service&apos;
+
+&quot;I have no money to pay my tuition&quot;
+  - Predicted as: &apos;Debt collection&apos;
+
+&quot;Coinbase closed my account for no reason and furthermore refused to give me a reason despite dozens of request&quot;
+  - Predicted as: &apos;Bank account or service&apos;</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">print(metrics.classification_report(y_test, y_pred, </span><br><span class="line">                                    target_names=df[<span class="string">'Product'</span>].unique()))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                         precision    recall  f1-score   support
+
+       Credit reporting       0.82      0.82      0.82       288
+          Consumer Loan       0.83      0.60      0.70       100
+        Debt collection       0.80      0.91      0.85       359
+               Mortgage       0.90      0.93      0.92       317
+            Credit card       0.73      0.77      0.75       165
+Other financial service       0.00      0.00      0.00         1
+Bank account or service       0.74      0.74      0.74       121
+           Student loan       0.92      0.83      0.87       111
+        Money transfers       0.50      0.23      0.32        13
+            Payday loan       0.75      0.38      0.50        16
+           Prepaid card       0.67      0.12      0.20        17
+
+            avg / total       0.82      0.82      0.81      1508
+
+
+
+/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1428: UserWarning: labels size, 11, does not match size of target_names, 12
+  .format(len(labels), len(target_names))
+/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  &apos;precision&apos;, &apos;predicted&apos;, average, warn_for)</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MC/" rel="tag"># MC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/07/pandas的factorize-理解/" rel="next" title="pandas的factorize()理解">
+                <i class="fa fa-chevron-left"></i> pandas的factorize()理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/09/python实现BP/" rel="prev" title="python实现BP">
+                python实现BP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
+            
+              <p class="site-author-name" itemprop="name">Square Face</p>
+              <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kappa系数"><span class="nav-number">1.</span> <span class="nav-text">Kappa系数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#海明距离"><span class="nav-number">2.</span> <span class="nav-text">海明距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#杰卡德相似系数"><span class="nav-number">3.</span> <span class="nav-text">杰卡德相似系数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#铰链损失"><span class="nav-number">4.</span> <span class="nav-text">铰链损失</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#案例"><span class="nav-number"></span> <span class="nav-text">案例</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Square Face</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'squarefaceyao',
+            repo: 'SquarefaceyaoBlogComment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67d773eb8c34c8c51cfae4e93d8eb006b5e4b58d',
+            
+                client_id: 'Iv1.34be5dac3293773f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -81,13 +81,13 @@
 
 <meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚杰鹏的博客">
+<meta property="og:title" content="SquareFace Blog">
 <meta property="og:url" content="http://yoursite.com/page/9/index.html">
-<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:site_name" content="SquareFace Blog">
 <meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚杰鹏的博客">
+<meta name="twitter:title" content="SquareFace Blog">
 <meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>姚杰鹏的博客</title>
+  <title>SquareFace Blog</title>
   
 
 
@@ -149,13 +149,13 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">姚杰鹏的博客</span>
+        <span class="site-title">SquareFace Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,16 +284,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/tf-compat-v2-expand-dims/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/wheat-whole-cell-recoding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -271,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/21/tf-compat-v2-expand-dims/" itemprop="url">train_step()</a></h1>
+                <a class="post-title-link" href="/2019/10/23/wheat-whole-cell-recoding/" itemprop="url">wheat whole-cell recording</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-21T09:55:21+08:00">
-                2019-08-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T09:39:47+08:00">
+                2019-10-23
               </time>
             
 
@@ -305,6 +337,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  333
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -323,11 +386,11 @@
       
         
           
-            <p>理论好理解，实践起来，里面有很多的知识点需要理解。</p>
-<p>train_step()方法的理解</p>
-<p>训练的方法其实就是使用定义好的方法，和之前做测试的时候方法类似。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@tf.function</span><br><span class="line">def train_step(inp, targ, encoding_hidden):</span><br><span class="line">    loss = 0</span><br><span class="line">    with tf.GradientTape() as tape:</span><br><span class="line">        encoding_outputs, encoding_hidden = encoder(inp, encoding_hidden)</span><br><span class="line">        decoding_hidden = encoding_hidden</span><br><span class="line"><span class="comment">#         print("-----------------------计算Encoder-------------------------------------------------")</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> range(0, targ.shape[1] - 1):</span><br><span class="line">            decoding_input = tf.expand_dims(targ[:, t], 1)</span><br><span class="line">            predictions, decoding_hidden, _ = decoder(decoding_input, decoder_hidden, encoding_outputs)</span><br><span class="line">            </span><br><span class="line">            loss += loss_function(targ[:, t+1], predictions) <span class="comment"># targ[:, t+1], 是每一步的预测值。</span></span><br><span class="line"><span class="comment">#             print("-----------------------计算loss-------------------------------------------------")</span></span><br><span class="line">    batch_loss = loss / int(targ.shape[0])</span><br><span class="line">    variables = encoder.trainable_variables + decoder.trainable_variables</span><br><span class="line">    gradients = tape.gradient(loss, variables)</span><br><span class="line">    optimizer.apply_gradients(zip(gradients, variables))</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">return</span> batch_loss</span><br></pre></td></tr></table></figure>
-
+            <h1 id="Google-搜索结果"><a href="#Google-搜索结果" class="headerlink" title="Google 搜索结果"></a>Google 搜索结果</h1><p>没有匹配的</p>
+<h1 id="web-of-science-结果"><a href="#web-of-science-结果" class="headerlink" title="web of science 结果"></a>web of science 结果</h1><p>没有匹配的</p>
+<h1 id="google-scholar-结果"><a href="#google-scholar-结果" class="headerlink" title="google scholar 结果"></a>google scholar 结果</h1><p>没有匹配的</p>
+<h1 id="阅读记录"><a href="#阅读记录" class="headerlink" title="阅读记录"></a>阅读记录</h1><h2 id="动物神经运动系统的大多数化学物质已在植物中发现"><a href="#动物神经运动系统的大多数化学物质已在植物中发现" class="headerlink" title="动物神经运动系统的大多数化学物质已在植物中发现"></a>动物神经运动系统的大多数化学物质已在植物中发现</h2><p>例如，<br>神经递质（例如乙酰胆碱）和细胞信使以及细胞运动（例如钙调蛋白和肌动蛋白）（Baluska 等人 2006；Murch 2006））。尽管这种类似于神经的细胞设备从未像动物神经那样发展出复杂的程度，但是形成了一个简单的神经网络，尤其是在韧皮部细胞内部，负责长距离的通信。植物之所以开发出电信号传输途径的原因，很可能是对外界刺激（例如环境胁迫因素）迅速做出反应的必要条件。</p>
+<p>最近显示，不同的环境刺激会在活细胞中引起特定的反应，从而能够将电信号传输到响应区域（Lautner 等人，2005年））。与激素等化学信号相反，电信号能够在远距离快速传输信息。由于在过去的二十年中已经发现了电信号的多种生理效应（Fromm 2006；Fromm＆Lautner 2006；Trebacz，Dziubinska＆Krol 2006），因此活细胞之间的这种快速传播也可能对植物至关重要。</p>
 
           
         
@@ -376,16 +439,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/train_step/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/平台架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -395,7 +458,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/20/train_step/" itemprop="url">tf.compat.v2.expand_dims</a></h1>
+                <a class="post-title-link" href="/2019/10/21/平台架构/" itemprop="url">平台架构</a></h1>
         
 
         <div class="post-meta">
@@ -407,8 +470,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T09:55:21+08:00">
-                2019-08-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T14:28:01+08:00">
+                2019-10-21
               </time>
             
 
@@ -429,6 +492,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  81
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -447,13 +541,12 @@
       
         
           
-            <p>tf.compat.v2.expand_dims()<br>可以对tensor进行维度扩展。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.expand_dims(</span><br><span class="line">    input,</span><br><span class="line">    axis,</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>我应该在第一个维度进行扩展。<br>原来的维度 (2,588). —-&gt;(1,2,588)</p>
-<h3 id="tf-框架需要的数据类型是float32"><a href="#tf-框架需要的数据类型是float32" class="headerlink" title="tf 框架需要的数据类型是float32"></a>tf 框架需要的数据类型是float32</h3><p>调试以后。搭建的模型在测试的时候，可以正常的通过。之前主要是输入的shape不一样。</p>
-<h3 id="现在没有办法训练。经过调试以后程序在训练时一直处于decoder。肯定是这的问题。重新理解一下Decoder函数"><a href="#现在没有办法训练。经过调试以后程序在训练时一直处于decoder。肯定是这的问题。重新理解一下Decoder函数" class="headerlink" title="现在没有办法训练。经过调试以后程序在训练时一直处于decoder。肯定是这的问题。重新理解一下Decoder函数"></a>现在没有办法训练。经过调试以后程序在训练时一直处于decoder。肯定是这的问题。重新理解一下Decoder函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">class Decoder(keras.Model):<span class="comment">#使用子类API实现</span></span><br><span class="line">    def __init__(self, vocab_size, embedding_units, decoding_units, batch_size):</span><br><span class="line">        super(Decoder, self).__init__()</span><br><span class="line">        self.batch_size = batch_size</span><br><span class="line">        self.decoding_units = decoding_units</span><br><span class="line">        self.embedding = keras.layers.Embedding(vocab_size, embedding_units) <span class="comment"># 每一个单词转换成固定的向量，输出是三维的。</span></span><br><span class="line">        self.gru = keras.layers.GRU(self.decoding_units, return_sequences=True, return_state=True, recurrent_initializer=<span class="string">'glorot_uniform'</span>)</span><br><span class="line">        self.fc = keras.layers.Dense(vocab_size)</span><br><span class="line">        self.attention = BahdanauAttention(self.decoding_units)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    def call(self, x, hidden, encoding_outputs): <span class="comment">#x是decoder中当前步的输入，hidden decoder中当前步的上一步的输出，encoding_outputs encoder中当前步的输出</span></span><br><span class="line">	    <span class="comment"># call 函数可以理解为对构造函数进行初始化。</span></span><br><span class="line">		<span class="comment"># 先计算hidden encoding_outputs 的attention</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># contex_vector.shape=(batch_size, units)</span></span><br><span class="line">        </span><br><span class="line">        context_vector, attention_weights = self.attention(hidden, encoding_outputs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"正在计算Decoder-------------------------------------------------"</span>)</span><br><span class="line">        <span class="built_in">print</span>(tf.shape(x))</span><br><span class="line">        x = self.embedding(x) <span class="comment"># x 需要先进入embedding层， 目的是为了编码。会增加维度。在电信号上是不需要的。我使用的是expand_dim()进行维度的扩展。</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 把context_vector和x 相加，这样就会携带每一步的输入，</span></span><br><span class="line">        combined_x = tf.concat([tf.expand_dims(context_vector,1),x], axis=-1)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 这一步就是decoder的返回值，和encode类似，就是outout和hidden</span></span><br><span class="line"><span class="comment">#         output.shape = [batcha_size, 1 , decode_units]</span></span><br><span class="line"><span class="comment">#         state.shape = [batch_size, decode_units ]</span></span><br><span class="line">        output, state = self.gru(combined_x)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 这里对output进行reshape       </span></span><br><span class="line">        <span class="comment"># reshape后 output.shape=[batch_size, decoder_units]</span></span><br><span class="line">        output = tf.reshape(output, (-1, output.shape[2]))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输入到全链接层，输出为[batch_size,vocab_sie]</span></span><br><span class="line">        output = self.fc(output)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">return</span> output, state, attention_weights</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">decoder = Decoder(output_vocab_size, embedding_units, units, batch_size)</span><br><span class="line"></span><br><span class="line">outputs = decoder(tf.random.uniform((batch_size,1)), sample_hidden, sample_output)</span><br><span class="line"></span><br><span class="line">decoder_output, decoder_hidden, decoder_aw = outputs</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(decoder_output.shape, decoder_hidden.shape, decoder_aw.shape)</span><br></pre></td></tr></table></figure>
-
+            <h1 id="Flask-Vue-Happyhbase-Mysql-用到的框架"><a href="#Flask-Vue-Happyhbase-Mysql-用到的框架" class="headerlink" title="Flask + Vue + Happyhbase + Mysql(用到的框架)"></a>Flask + Vue + Happyhbase + Mysql(用到的框架)</h1><h1 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h1><ul>
+<li>Flask 留出对应的接口</li>
+<li>我希望用户的数据放到Mysql里面</li>
+</ul>
+<h2 id="上传数据"><a href="#上传数据" class="headerlink" title="上传数据"></a>上传数据</h2><p>上传的数据放到Hbase里面</p>
+<h2 id="下载数据"><a href="#下载数据" class="headerlink" title="下载数据"></a>下载数据</h2><h1 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h1><h2 id="把上传的csv文件展示出来，可以参考这个链接："><a href="#把上传的csv文件展示出来，可以参考这个链接：" class="headerlink" title="把上传的csv文件展示出来，可以参考这个链接："></a>把上传的csv文件展示出来，可以参考这个链接：</h2><p><a href="https://www.jianshu.com/p/ad1a49375da4" target="_blank" rel="noopener">https://www.jianshu.com/p/ad1a49375da4</a></p>
 
           
         
@@ -502,16 +595,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/embedding记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/python操作hbase/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -521,7 +614,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/19/embedding记录/" itemprop="url">embedding记录</a></h1>
+                <a class="post-title-link" href="/2019/10/17/python操作hbase/" itemprop="url">python操作hbase</a></h1>
         
 
         <div class="post-meta">
@@ -533,8 +626,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T14:55:32+08:00">
-                2019-08-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T14:34:51+08:00">
+                2019-10-17
               </time>
             
 
@@ -555,6 +648,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -573,12 +697,165 @@
       
         
           
-            <h3 id="问题：在embedding层，会报错。报错内容"><a href="#问题：在embedding层，会报错。报错内容" class="headerlink" title="问题：在embedding层，会报错。报错内容"></a>问题：在embedding层，会报错。报错内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">indices[0,0] = -13 is not <span class="keyword">in</span> [0, 600) [Op:ResourceGather] name: encoder_3/embedding_2/embedding_lookup</span><br></pre></td></tr></table></figure>
+            
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>意思就是 -13这个数值不在 这里数组里面</p>
-<p>查看keras.layers.Embedding()的底层代码，发现这一层是专门用在自然语言处理的方向的。。。</p>
-<p>需要把1维的数据—》3 维</p>
-<p>这应该怎么弄呢？？？</p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/15/小麦-膜片钳文献/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/15/小麦-膜片钳文献/" itemprop="url">小麦_膜片钳文献</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-15T08:48:52+08:00">
+                2019-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  536
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="搜索组合：“-wheat-“patch-clamp”-”"><a href="#搜索组合：“-wheat-“patch-clamp”-”" class="headerlink" title="搜索组合：“ wheat “patch    clamp” ”"></a>搜索组合：“ wheat “patch    clamp” ”</h1><h2 id="大概满意的："><a href="#大概满意的：" class="headerlink" title="大概满意的："></a>大概满意的：</h2><p><a href="https://link.springer.com/chapter/10.1007/978-3-662-10933-5_35" target="_blank" rel="noopener">https://link.springer.com/chapter/10.1007/978-3-662-10933-5_35</a></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC159473/" target="_blank" rel="noopener">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC159473/</a></p>
+<p><a href="http://www.plantphysiol.org/content/97/2/598.long?utm_source=TrendMD&amp;utm_medium=cpc&amp;utm_campaign=Plant_Physiol_TrendMD_0" target="_blank" rel="noopener">http://www.plantphysiol.org/content/97/2/598.long?utm_source=TrendMD&amp;utm_medium=cpc&amp;utm_campaign=Plant_Physiol_TrendMD_0</a> </p>
+<h3 id="耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K-Na-选择性不同"><a href="#耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K-Na-选择性不同" class="headerlink" title="耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K + / Na +选择性不同"></a>耐盐和耐盐小麦品种根细胞质膜上阳离子通道的K + / Na +选择性不同</h3><h4 id="阳离子外向整流通道"><a href="#阳离子外向整流通道" class="headerlink" title="阳离子外向整流通道"></a>阳离子外向整流通道</h4><p>研究小麦跟根细胞原生质体中阳离子外向通道的特性。<br>好像有细胞的膜片钳数据</p>
+<h1 id="通过综述找对应的文献"><a href="#通过综述找对应的文献" class="headerlink" title="通过综述找对应的文献"></a>通过综述找对应的文献</h1><p><a href="https://link.springer.com/article/10.1007/s00232-017-9969-7" target="_blank" rel="noopener">https://link.springer.com/article/10.1007/s00232-017-9969-7</a></p>
+<p><a href="https://link.springer.com/article/10.1134%2FS1990747817010068" target="_blank" rel="noopener">https://link.springer.com/article/10.1134%2FS1990747817010068</a> 考虑液泡</p>
+<p>包括动作电位（AP）在内的电信号在植物适应不断变化的环境条件方面发挥着重要作用。需要进行AP生成机理的实验和理论研究，以了解环境因素与植物电活动之间的关系。在这项工作中，我们详细阐述了AP生成的数学模型，该模型考虑了液泡参与电响应的生成。该模型描述了质膜的转运蛋白（Ca 2 +，Cl –和K +通道，H +和Ca 2+ -ATPase，H + / K +反向转运蛋白和2H + / Cl–同向转运蛋白和液泡膜（Ca 2 +，Cl –和K +通道； H + -和Ca 2+ -ATPases； H + / K +，2H + / Cl –和3H + / Ca 2+反转运蛋白） ，并适当考虑第二信使（Ca 2+和IP3）的调节。还描述了质外性，细胞质和液泡缓冲液。模拟AP的特性与实验数据非常吻合。AP模型描述了液泡面积和体积增加时电信号的衰减。这种作用与钙的减少有关2+尖峰幅度。该电信号被弱由K个的影响+和Cl -中的液泡的内容。还显示，在模型的给定参数下，液泡IP 3依赖性Ca 2+通道对AP期间钙峰值产生的贡献微不足道。结果为液泡面积和体积在植物细胞兴奋性中的意义提供了理论证据。</p>
+<h1 id="关键词-“guard-cells-wheat-channel"><a href="#关键词-“guard-cells-wheat-channel" class="headerlink" title="关键词 “guard cells wheat channel"></a>关键词 “guard cells wheat channel</h1><h1 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h1><p>效果：<br>    1 搜索“<strong>***</strong>”
+    2 返回包含“&amp;&amp;&amp;&amp;&amp;”关键词的页面</p>
 
           
         
@@ -627,16 +904,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/08-18/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/部署Myplant/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -646,7 +923,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/18/08-18/" itemprop="url">evaluate(input_sentence)</a></h1>
+                <a class="post-title-link" href="/2019/10/13/部署Myplant/" itemprop="url">部署Myplant</a></h1>
         
 
         <div class="post-meta">
@@ -658,8 +935,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T16:52:04+08:00">
-                2019-08-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T22:02:51+08:00">
+                2019-10-13
               </time>
             
 
@@ -680,135 +957,36 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>embedding_units = 256 # 每个word转换成embedding是多少。<br>第一次掉用这个参数是在，构建Encoder模型中，keras.layers.Embedding(vocab_size, embedding_units)这个函数中使用。<br>keras.layers.Embedding(input_dim, output_dim,)<br>将正整数（索引值）转换为固定尺寸的稠密向量。 例如： [[4], [20]] -&gt; [[0.25, 0.1], [0.6, -0.2]]<br>该层只能用作模型中的第一层<br>input_dim: int &gt; 0。词汇表大小， 即，最大整数 index + 1。<br>output_dim: int &gt;= 0。词向量的维度。</p>
-<p>-输入尺寸</p>
-<p>尺寸为 (batch_size, sequence_length) 的 2D 张量。</p>
-<p>-输出尺寸</p>
-<p>尺寸为 (batch_size, sequence_length, output_dim) 的 3D 张量。</p>
-<p>max_length_input 这个参数是输入的每个序列长度，即文档里面的sequence_length。</p>
-<h3 id="Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"><a href="#Encoder-模型有两层，第一层是embedding-是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。" class="headerlink" title="Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。"></a>Encoder 模型有两层，第一层是embedding 是用来预处理的，有点像归一化。进入embedding后数据的shape会发生变化，如上所说的输出尺寸。</h3><pre><code>        # 第二层是GRU层。
-使用encoder函数，会有两个输出，一个是output(就是上面出的输出尺寸) 一个是hidden。hidden.shape=(batch_size, units)</code></pre><h4 id="units-1024-这个代表的是中间使用RNN的个数"><a href="#units-1024-这个代表的是中间使用RNN的个数" class="headerlink" title="units=1024, 这个代表的是中间使用RNN的个数"></a>units=1024, 这个代表的是中间使用RNN的个数</h4><p>这是在构造函数里面的GRU()初始化设置。</p>
-<p>self.gru = keras.layers.GRU(self.encoding_units,return_sequences=True,return_state=True, recurrent_initializer=’glorot_uniform’)</p>
-<p>encoding_units 是GRU的输出尺寸，recurrent_regularizer: 运用到 recurrent_kernel 权值矩阵的正则化函数</p>
-<p>####call方法<br>call方法 可以理解为使用构造函数，在实例化这个方法的时候可以直接调用。<br>output, state = self.gru(x, initial_state=hidden)<br>您可以通过使用关键字参数 initial_state 调用它们来符号化地指定 RNN 层的初始状态。 initial_state 的值应该是表示 RNN 层初始状态的张量或张量列表。</p>
-<h2 id="检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下"><a href="#检查了一下-input-tokenizer-index-word里面的数值，存在问题。再检查一下" class="headerlink" title="检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下"></a>检查了一下 input_tokenizer.index_word里面的数值，存在问题。再检查一下</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/c51_flash修改/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+            <div class="post-wordcount">
+              
                 
-                <a class="post-title-link" href="/2019/08/17/c51_flash修改/" itemprop="url">C51 Flash 读写操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  35
+                </span>
               
-                <span class="post-meta-item-text">发表于</span>
+
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T16:52:04+08:00">
-                2019-08-17
-              </time>
-            
+                <span class="post-meta-divider">|</span>
+              
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -828,11 +1006,8 @@
       
         
           
-            <h2 id="C51-Flash-读写操作"><a href="#C51-Flash-读写操作" class="headerlink" title="C51 Flash 读写操作"></a>C51 Flash 读写操作</h2><p>###问题：下位机返回的数据，不是传感器的数据，有没有连接传感器，返回的数值也都一样。刚开始认为是标定的问题，把标定的函数搞明白，知道怎么去标定数据。但是标定完成后，数据还是不正确。</p>
-<p>###思路：检查一下读取的Flash的驱动是不是有问题。写一个简单的函数，通过调用原来的读写函数，对flash里面的数值进行操作，每次下位机开断电，都会通过串口发送flash内部的数值，并每次把flash里的数据加一，然后再放到flash。简单的验证一下可以往flash内部进行数据的读写。</p>
-<h3 id="结果：每次返回的数值-不会发生变化。"><a href="#结果：每次返回的数值-不会发生变化。" class="headerlink" title="结果：每次返回的数值 不会发生变化。"></a>结果：每次返回的数值 不会发生变化。</h3><h4 id="最后可以试一试外部的存储芯片模块。。。。24C08"><a href="#最后可以试一试外部的存储芯片模块。。。。24C08" class="headerlink" title="最后可以试一试外部的存储芯片模块。。。。24C08"></a>最后可以试一试外部的存储芯片模块。。。。24C08</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">unsigned char xdata hc[3]=&#123;0,0,0&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//-----------------存储标定的k、b值--------------</span><br><span class="line">void Save_flash(void)</span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">    EA=0;              //禁止中断</span><br><span class="line">    FLSCL=0x89;        //FLASH 写/擦除定时(Fosc=18.432MHz) 允许FLASH写</span><br><span class="line">    PSCTL=0x07;        //临时FLASH 允许FLASH 写/擦除 </span><br><span class="line">    FLASH_ADDR[0]=0;   //向待擦除扇区内的任何一个地址写入一个数据字节？擦除 临时FLASH</span><br><span class="line">    <span class="keyword">for</span>(i=0;i&lt;2;i++)  //写入数据FLASH</span><br><span class="line">    &#123;</span><br><span class="line">        PSCTL=0x00;    //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">	    j=hc[i];     //读FLASH存储器 与PSWE无关</span><br><span class="line">        PSCTL=0x05;    //临时FLASH 禁止擦除 允许写 </span><br><span class="line">	    FLASH_ADDR[i]=j;</span><br><span class="line">    &#125;                 </span><br><span class="line">    FLSCL=0x4f;        //禁止FLASH 写/擦除</span><br><span class="line">    PSCTL=0x00;        //程序数据FLASH 禁止FLASH 写/擦除 </span><br><span class="line">    EA=1;</span><br><span class="line">&#125;</span><br><span class="line">//-------------从MCU中读取出标定的k、b值------------------------</span><br><span class="line">void Read_flash(void)        </span><br><span class="line">&#123;</span><br><span class="line">    uint8 i,j;</span><br><span class="line">	uint8 code *FLASH_READ;   //code定义的数据在flash中</span><br><span class="line">	FLASH_READ=0x0000;</span><br><span class="line">	<span class="keyword">for</span>(i=0;i&lt;2;i++)</span><br><span class="line">	&#123;</span><br><span class="line">	    PSCTL=0x04;           //选择数据FLASH扇区 禁止FLASH 写/擦除</span><br><span class="line">		j=FLASH_READ[i];      //读取数据flash 0x0000区</span><br><span class="line">	    PSCTL=0x00;           //选择程序Flash 禁止写/擦除</span><br><span class="line">		hc[i]=j;            //读程序flash</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">	WDTCN = 0xde;                       // Disable watchdog timer  关闭看门狗</span><br><span class="line">   	WDTCN = 0xad; </span><br><span class="line"> 	SYSCLK_Init();</span><br><span class="line"> 	PORT_Init();</span><br><span class="line">	ADC0_Init();	</span><br><span class="line">	UART0_Init();</span><br><span class="line">	</span><br><span class="line">	Read_All();</span><br><span class="line">	Para[0]++;</span><br><span class="line">	Save_Para();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	P2 = 0x00;</span><br><span class="line">	EA = 1;                             // Enable global interrupts</span><br><span class="line">	</span><br><span class="line">	Send_Buf0[0] = Para[0];    //发送帧头</span><br><span class="line">	Send_Buf0[1] = 0x00; </span><br><span class="line">	Send_Max = 2;</span><br><span class="line">	Send_p = 0;</span><br><span class="line">	SCON0 &amp;= 0xef; //REN0 = 0 禁止开始接收</span><br><span class="line">	SBUF0  = 0x41; //启动回答数据事件</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(1)											 </span><br><span class="line">	&#123;		</span><br><span class="line"> 	WDTCN = 0xa5;	  //使能并复位看门狗定时器</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>原始对flash保存的代码，这里的Para变量是这么define的 uint8   xdata Para[112];</p>
+            <p>– 安装hbase<br>– 安装mysql<br>– 安装vnc viewer<br>– 配置nginx </p>
+<h2 id="后台运行jar包"><a href="#后台运行jar包" class="headerlink" title="后台运行jar包"></a>后台运行jar包</h2><p>nohup java -jar demo-1.0.0-SNAPSHOT.jar &gt; ./log1017.log 2&gt;&amp;1 &amp;</p>
 
           
         
@@ -872,7 +1047,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -907,7 +1082,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
               <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
@@ -920,7 +1095,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -942,7 +1117,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -952,6 +1127,34 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -985,6 +1188,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
   
 </div>
 
@@ -1161,6 +1373,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1175,6 +1704,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

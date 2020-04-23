@@ -81,13 +81,13 @@
 
 <meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚杰鹏的博客">
+<meta property="og:title" content="SquareFace Blog">
 <meta property="og:url" content="http://yoursite.com/page/12/index.html">
-<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:site_name" content="SquareFace Blog">
 <meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚杰鹏的博客">
+<meta name="twitter:title" content="SquareFace Blog">
 <meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>姚杰鹏的博客</title>
+  <title>SquareFace Blog</title>
   
 
 
@@ -149,13 +149,13 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">姚杰鹏的博客</span>
+        <span class="site-title">SquareFace Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,16 +284,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/调试下位机/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/tf-matmul-函数用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -271,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/05/调试下位机/" itemprop="url">调试下位机</a></h1>
+                <a class="post-title-link" href="/2019/09/28/tf-matmul-函数用法/" itemprop="url">tf.matmul()函数用法</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T22:42:57+08:00">
-                2019-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:20:34+08:00">
+                2019-09-28
               </time>
             
 
@@ -305,254 +337,36 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="接收缓冲数组"><a href="#接收缓冲数组" class="headerlink" title="接收缓冲数组"></a>接收缓冲数组</h3><p>uint8  idata Rece_Buf0[9];  //接收缓冲数组</p>
-<p>Rece_Buf0[9] = [0,1,2,3,4,5,6,7,8]</p>
-<h4 id="Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43"><a href="#Rece-Buf0-0-0x43-是帧头的信息，必须等于0x43" class="headerlink" title="Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43"></a>Rece_Buf0[0] = 0x43 是帧头的信息，必须等于0x43</h4><h4 id="Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句："><a href="#Rece-Buf0-1-0x14-是下位机执行的命令，通过switch，case语句来判断Rece-Buf0-1-的值，对应值在命令表里面。关键语句：" class="headerlink" title="Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句："></a>Rece_Buf0[1] = 0x14 是下位机执行的命令，通过switch，case语句来判断Rece_Buf0[1]的值，对应值在命令表里面。关键语句：</h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  switch(Rece_Buf0[1])    </span><br><span class="line">  <span class="keyword">case</span> 0x14:</span><br><span class="line">Work_Flag=1;  //采集标志位</span><br></pre></td></tr></table></figure></code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/05/调试下位机/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/文献阅读/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+            <div class="post-wordcount">
+              
                 
-                <a class="post-title-link" href="/2019/08/03/文献阅读/" itemprop="url">文献阅读</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T19:39:40+08:00">
-                2019-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="表示学习"><a href="#表示学习" class="headerlink" title="表示学习"></a>表示学习</h2><p>对于很多任务，我们很难知道应该提取哪些特征，例如，假如我们想编写一个程序来检测照片中的车，但是我们很难根据像素值来给车轮定义。解决这个问题的途径之一就是使用机器学习来发掘表示本身，而不仅仅把表示映射到输出，这种方法称为表示学习。</p>
-<h3 id="自编码器"><a href="#自编码器" class="headerlink" title="自编码器"></a>自编码器</h3><p>表示学习的典型例子就是自编码器（autoencoder）。自编码器由一个编码器(encoder)函数和一个解码器(decoder)函数组成。编码器函数将输入数据转换为一种不同的表示，而解码器函数则将这个新的表示转换回原来的形式。我们希望当输入数据经过编码器和解码器之后尽可能多地保留原有信息，同时希望新的表示有更好的特征，这也是自编码器的训练目标。</p>
-<p>P 480 </p>
-<p><a href="https://zhuanlan.zhihu.com/p/39140472" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39140472</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/tensorflow-docker/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
                 
-                <a class="post-title-link" href="/2019/08/01/tensorflow-docker/" itemprop="url">tensorflow_docker</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  861
+                </span>
               
-                <span class="post-meta-item-text">发表于</span>
+
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T15:57:35+08:00">
-                2019-08-01
-              </time>
-            
+                <span class="post-meta-divider">|</span>
+              
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
           
 
           
@@ -572,14 +386,89 @@
       
         
           
-            <p>因为需要要安装tensorflow1.13，但是anaconda的虚拟环境不好用。所以使用Docker</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull tensorflow/tensorflow</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">@tf_export(<span class="string">"linalg.matmul"</span>, <span class="string">"matmul"</span>)</span><br><span class="line">@dispatch.add_dispatch_support</span><br><span class="line">def matmul(a,</span><br><span class="line">           b,</span><br><span class="line">           transpose_a=False,</span><br><span class="line">           transpose_b=False,</span><br><span class="line">           adjoint_a=False,</span><br><span class="line">           adjoint_b=False,</span><br><span class="line">           a_is_sparse=False,</span><br><span class="line">           b_is_sparse=False,</span><br><span class="line">           name=None):</span><br><span class="line">  <span class="string">""</span><span class="string">"Multiplies matrix `a` by matrix `b`, producing `a` * `b`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  The inputs must, following any transpositions, be tensors of rank &gt;= 2</span></span><br><span class="line"><span class="string">  where the inner 2 dimensions specify valid matrix multiplication arguments,</span></span><br><span class="line"><span class="string">  and any further outer dimensions match.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Both matrices must be of the same type. The supported types are:</span></span><br><span class="line"><span class="string">  `float16`, `float32`, `float64`, `int32`, `complex64`, `complex128`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Either matrix can be transposed or adjointed (conjugated and transposed) on</span></span><br><span class="line"><span class="string">  the fly by setting one of the corresponding flag to `True`. These are `False`</span></span><br><span class="line"><span class="string">  by default.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  If one or both of the matrices contain a lot of zeros, a more efficient</span></span><br><span class="line"><span class="string">  multiplication algorithm can be used by setting the corresponding</span></span><br><span class="line"><span class="string">  `a_is_sparse` or `b_is_sparse` flag to `True`. These are `False` by default.</span></span><br><span class="line"><span class="string">  This optimization is only available for plain matrices (rank-2 tensors) with</span></span><br><span class="line"><span class="string">  datatypes `bfloat16` or `float32`.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  For example:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  ```python</span></span><br><span class="line"><span class="string">  # 2-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[1, 2, 3],</span></span><br><span class="line"><span class="string">  #  [4, 5, 6]]</span></span><br><span class="line"><span class="string">  a = tf.constant([1, 2, 3, 4, 5, 6], shape=[2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 2-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[ 7,  8],</span></span><br><span class="line"><span class="string">  #  [ 9, 10],</span></span><br><span class="line"><span class="string">  #  [11, 12]]</span></span><br><span class="line"><span class="string">  b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[ 58,  64],</span></span><br><span class="line"><span class="string">  #  [139, 154]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `a`</span></span><br><span class="line"><span class="string">  # [[[ 1,  2,  3],</span></span><br><span class="line"><span class="string">  #   [ 4,  5,  6]],</span></span><br><span class="line"><span class="string">  #  [[ 7,  8,  9],</span></span><br><span class="line"><span class="string">  #   [10, 11, 12]]]</span></span><br><span class="line"><span class="string">  a = tf.constant(np.arange(1, 13, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 2, 3])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # 3-D tensor `b`</span></span><br><span class="line"><span class="string">  # [[[13, 14],</span></span><br><span class="line"><span class="string">  #   [15, 16],</span></span><br><span class="line"><span class="string">  #   [17, 18]],</span></span><br><span class="line"><span class="string">  #  [[19, 20],</span></span><br><span class="line"><span class="string">  #   [21, 22],</span></span><br><span class="line"><span class="string">  #   [23, 24]]]</span></span><br><span class="line"><span class="string">  b = tf.constant(np.arange(13, 25, dtype=np.int32),</span></span><br><span class="line"><span class="string">                  shape=[2, 3, 2])</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # `a` * `b`</span></span><br><span class="line"><span class="string">  # [[[ 94, 100],</span></span><br><span class="line"><span class="string">  #   [229, 244]],</span></span><br><span class="line"><span class="string">  #  [[508, 532],</span></span><br><span class="line"><span class="string">  #   [697, 730]]]</span></span><br><span class="line"><span class="string">  c = tf.matmul(a, b)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  # Since python &gt;= 3.5 the @ operator is supported (see PEP 465).</span></span><br><span class="line"><span class="string">  # In TensorFlow, it simply calls the `tf.matmul()` function, so the</span></span><br><span class="line"><span class="string">  # following lines are equivalent:</span></span><br><span class="line"><span class="string">  d = a @ b @ [[10.], [11.]]</span></span><br><span class="line"><span class="string">  d = tf.matmul(tf.matmul(a, b), [[10.], [11.]])</span></span><br></pre></td></tr></table></figure>
 
-<p>Docker Pull Command</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -rm -v $(realpath ~/notebooks):/tf/notebooks -p 8999:8888 tensorflow/tensrflow:latest-py3-jupyter</span><br></pre></td></tr></table></figure>
+<p>  Args:<br>    a: <code>Tensor</code> of type <code>float16</code>, <code>float32</code>, <code>float64</code>, <code>int32</code>, <code>complex64</code>,
+      <code>complex128</code> and rank &gt; 1.<br>    b: <code>Tensor</code> with same type and rank as <code>a</code>.
+    transpose_a: If <code>True</code>, <code>a</code> is transposed before multiplication.<br>    transpose_b: If <code>True</code>, <code>b</code> is transposed before multiplication.<br>    adjoint_a: If <code>True</code>, <code>a</code> is conjugated and transposed before<br>      multiplication.<br>    adjoint_b: If <code>True</code>, <code>b</code> is conjugated and transposed before<br>      multiplication.<br>    a_is_sparse: If <code>True</code>, <code>a</code> is treated as a sparse matrix.<br>    b_is_sparse: If <code>True</code>, <code>b</code> is treated as a sparse matrix.<br>    name: Name for the operation (optional).</p>
+<p>  Returns:<br>    A <code>Tensor</code> of the same type as <code>a</code> and <code>b</code> where each inner-most matrix is<br>    the product of the corresponding matrices in <code>a</code> and <code>b</code>, e.g. if all<br>    transpose or adjoint attributes are <code>False</code>:</p>
+<pre><code>`output`[..., i, j] = sum_k (`a`[..., i, k] * `b`[..., k, j]),
+for all indices i, j.
 
-<p>Run a jupyter notebook server with your own notebook directory (assumed here to be ~/notebooks).<br>To use it, navigate to localhost:8888 in you browers</p>
+Note: This is matrix product, not element-wise product.</code></pre><p>  Raises:<br>    ValueError: If transpose_a and adjoint_a, or transpose_b and adjoint_b<br>      are both set to True.<br>  “””<br>  with ops.name_scope(name, “MatMul”, [a, b]) as name:<br>    if transpose_a and adjoint_a:<br>      raise ValueError(“Only one of transpose_a and adjoint_a can be True.”)<br>    if transpose_b and adjoint_b:<br>      raise ValueError(“Only one of transpose_b and adjoint_b can be True.”)</p>
+<pre><code>if context.executing_eagerly():
+  if not isinstance(a, (ops.EagerTensor, _resource_variable_type)):
+    a = ops.convert_to_tensor(a, name=&quot;a&quot;)
+  if not isinstance(b, (ops.EagerTensor, _resource_variable_type)):
+    b = ops.convert_to_tensor(b, name=&quot;b&quot;)
+else:
+  a = ops.convert_to_tensor(a, name=&quot;a&quot;)
+  b = ops.convert_to_tensor(b, name=&quot;b&quot;)
 
+# TODO(apassos) remove _shape_tuple here when it is not needed.
+a_shape = a._shape_tuple()  # pylint: disable=protected-access
+b_shape = b._shape_tuple()  # pylint: disable=protected-access
+
+if fwd_compat.forward_compatible(2019, 4, 25):
+  output_may_have_non_empty_batch_shape = (
+      (a_shape is None or len(a_shape) &gt; 2) or
+      (b_shape is None or len(b_shape) &gt; 2))
+  batch_mat_mul_fn = gen_math_ops.batch_mat_mul_v2
+else:
+  output_may_have_non_empty_batch_shape = (
+      (a_shape is None or len(a_shape) &gt; 2) and
+      (b_shape is None or len(b_shape) &gt; 2))
+  batch_mat_mul_fn = gen_math_ops.batch_mat_mul
+
+if (not a_is_sparse and
+    not b_is_sparse) and output_may_have_non_empty_batch_shape:
+  # BatchMatmul does not support transpose, so we conjugate the matrix and
+  # use adjoint instead. Conj() is a noop for real matrices.
+  if transpose_a:
+    a = conj(a)
+    adjoint_a = True
+  if transpose_b:
+    b = conj(b)
+    adjoint_b = True
+  return batch_mat_mul_fn(a, b, adj_x=adjoint_a, adj_y=adjoint_b, name=name)
+
+# Neither matmul nor sparse_matmul support adjoint, so we conjugate
+# the matrix and use transpose instead. Conj() is a noop for real
+# matrices.
+if adjoint_a:
+  a = conj(a)
+  transpose_a = True
+if adjoint_b:
+  b = conj(b)
+  transpose_b = True
+
+use_sparse_matmul = False
+if a_is_sparse or b_is_sparse:
+  sparse_matmul_types = [dtypes.bfloat16, dtypes.float32]
+  use_sparse_matmul = (
+      a.dtype in sparse_matmul_types and b.dtype in sparse_matmul_types)
+if ((a.dtype == dtypes.bfloat16 or b.dtype == dtypes.bfloat16) and
+    a.dtype != b.dtype):
+  # matmul currently doesn&apos;t handle mixed-precision inputs.
+  use_sparse_matmul = True
+if use_sparse_matmul:
+  ret = sparse_matmul(
+      a,
+      b,
+      transpose_a=transpose_a,
+      transpose_b=transpose_b,
+      a_is_sparse=a_is_sparse,
+      b_is_sparse=b_is_sparse,
+      name=name)
+  # sparse_matmul always returns float32, even with
+  # bfloat16 inputs. This prevents us from configuring bfloat16 training.
+  # casting to bfloat16 also matches non-sparse matmul behavior better.
+  if a.dtype == dtypes.bfloat16 and b.dtype == dtypes.bfloat16:
+    ret = cast(ret, dtypes.bfloat16)
+  return ret
+else:
+  return gen_math_ops.mat_mul(
+      a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)</code></pre><pre><code></code></pre>
           
         
       
@@ -627,16 +516,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/seq-2-seq/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/拟合门控概率/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -646,7 +535,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/29/seq-2-seq/" itemprop="url">seq_2_seq</a></h1>
+                <a class="post-title-link" href="/2019/09/28/拟合门控概率/" itemprop="url">拟合门控概率</a></h1>
         
 
         <div class="post-meta">
@@ -658,8 +547,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T22:20:52+08:00">
-                2019-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:19:11+08:00">
+                2019-09-28
               </time>
             
 
@@ -680,6 +569,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  313
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -698,14 +618,314 @@
       
         
           
-            <p>学习seq to seq 的模型，先学会使用模型，把电信号数据修改成相匹配的格式，喂进模型去。</p>
-<p>这是一个汉译英的demo。原始数据：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> inputs    targets</span><br><span class="line">0     Hi.     \t嗨。\n</span><br><span class="line">1     Hi.    \t你好。\n</span><br><span class="line">2    Run.  \t你用跑的。\n</span><br><span class="line">3   Wait!    \t等等！\n</span><br><span class="line">4  Hello!    \t你好。\n</span><br></pre></td></tr></table></figure>
+            <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import pandas as pd</span><br><span class="line">from scipy.optimize import curve_fit</span><br><span class="line"></span><br><span class="line">path = <span class="string">'/Users/squareface/PycharmProjects/testVenv/'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num = 2</span><br><span class="line"><span class="comment"># 读取数据</span></span><br><span class="line">data = pd.read_csv(path+<span class="string">'data'</span>+str(num)+<span class="string">'.csv'</span>)</span><br><span class="line"><span class="comment"># x赋值</span></span><br><span class="line">x = np.array(data.iloc[:,0])</span><br><span class="line"></span><br><span class="line">G = 36</span><br><span class="line"><span class="comment"># 定义方程</span></span><br><span class="line">def func1(x,m,tm,h,th):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2*(h-(h-1)*np.exp(-x/th))</span><br><span class="line">def func2(x,m,tm):</span><br><span class="line">    <span class="built_in">return</span> G*m*m*(1-np.exp(-x/tm))**2</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合不同电位</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(data.columns)):</span><br><span class="line">    y = np.array(data.iloc[:,i])</span><br><span class="line">    <span class="comment">#非线性最小二乘法拟</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        popt, pcov = curve_fit(func1, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        popt, pcov = curve_fit(func2, x, y,maxfev = 9999999,bounds=(0,60),method=<span class="string">'trf'</span>)</span><br><span class="line">    <span class="comment">#获取popt里面是拟合系数</span></span><br><span class="line">    <span class="keyword">if</span> i&gt;2:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = popt[2]</span><br><span class="line">        d = popt[3]</span><br><span class="line">        yvals = func1(x,a,b,c,d)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a = popt[0]</span><br><span class="line">        b = popt[1]</span><br><span class="line">        c = np.nan</span><br><span class="line">        d = np.nan</span><br><span class="line">        yvals = func2(x,a,b)</span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    plt.cla()</span><br><span class="line">    plot1 = plt.plot(x, y, <span class="string">'s'</span>,label=<span class="string">'original values'</span>) <span class="comment"># 原始点</span></span><br><span class="line">    plot2 = plt.plot(x, yvals, <span class="string">'r'</span>,label=<span class="string">'polyfit values'</span>) <span class="comment"># 拟合线</span></span><br><span class="line">    plt.xlabel(<span class="string">'t'</span>) <span class="comment"># x轴标签</span></span><br><span class="line">    plt.ylabel(<span class="string">'gCIR'</span>) <span class="comment"># y轴标签</span></span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>) <span class="comment"># 图例</span></span><br><span class="line">    plt.title(<span class="string">'V='</span>+list(data.columns)[i]+<span class="string">'mV'</span>) <span class="comment"># 标题</span></span><br><span class="line">    plt.savefig(path+str(num)+<span class="string">'_'</span>+str(list(data.columns)[i])+<span class="string">'mV.png'</span>) <span class="comment"># 保存图</span></span><br><span class="line">    result.append([list(data.columns)[i],b,d,G*a*a,a,c])</span><br><span class="line"><span class="comment"># 保存数据</span></span><br><span class="line">result = pd.DataFrame(result,columns=[<span class="string">'V'</span>,<span class="string">'tm'</span>,<span class="string">'th'</span>,<span class="string">'GCIRm2'</span>,<span class="string">'m'</span>,<span class="string">'h'</span>])</span><br><span class="line">result.to_csv(path+str(num)+<span class="string">'_'</span>+<span class="string">'result.csv'</span>,index=False)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<h2 id="demo-定义的变量所代表的含义。"><a href="#demo-定义的变量所代表的含义。" class="headerlink" title="demo 定义的变量所代表的含义。"></a>demo 定义的变量所代表的含义。</h2><p>input_text len: 1000 type: list  print(input_texts[1:5])<br>            [‘Hi.’, ‘Run.’, ‘Wait!’, ‘Hello!’]</p>
-<p>output_text len: 1000 type: list print(target_texts[1:5])<br>        [‘\t你好。\n’, ‘\t你用跑的。\n’, ‘\t等等！\n’, ‘\t你好。\n’]</p>
-<p>NUM_SAMPLES = 1000 样本的数量</p>
-<p>input_characters 英文的总字符, list类型<br>target_characters 汉语的总字符, list类型<br>INUPT_LENGTH 30，最长的英语句子，1000个样本中，int类型<br>OUTPUT_LENGTH 22，最长的中文句子，1000个样本中，int类型<br>INPUT_FEATURE_LENGTH  73，英文的总字符数，int类型<br>OUTPUT_FEATURE_LENGTH 2623， 中文的总字符数，int类型</p>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/28/仿真HH方程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/28/仿真HH方程/" itemprop="url">仿真HH方程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-28T18:18:49+08:00">
+                2019-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  734
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>仿真恒流刺激</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">plt.figure(figsize=(10,10))</span><br><span class="line">result = []</span><br><span class="line"></span><br><span class="line">DT = 0.001</span><br><span class="line">t = np.linspace(0,50,int(50/DT)+1)   <span class="comment"># 仿真时间   光 1200</span></span><br><span class="line">Cm = 1   <span class="comment"># 膜电容</span></span><br><span class="line">I = 90   <span class="comment"># 刺激电流 ?????电流不能太大</span></span><br><span class="line">v = -112 <span class="comment"># 静息电位</span></span><br><span class="line">GK = 24 <span class="comment"># GK=3.5;</span></span><br><span class="line">GCl = 36 <span class="comment"># GCl=16;</span></span><br><span class="line">GCl_slow = 1</span><br><span class="line">GKin = 20</span><br><span class="line">GH = 0.28</span><br><span class="line">n2 = 0</span><br><span class="line">m2 = 0</span><br><span class="line">nn2 = 0</span><br><span class="line">s2 = 0</span><br><span class="line">h2 = 1</span><br><span class="line">k2 = 0</span><br><span class="line">v2 = v</span><br><span class="line"></span><br><span class="line">T0 = 25</span><br><span class="line">Tinitial = 18</span><br><span class="line">Tend = 4</span><br><span class="line">Iin0 = 0.005 <span class="comment"># Iin0=0.0193;</span></span><br><span class="line">Iinmax = 3 <span class="comment"># Iinmax=2.5;</span></span><br><span class="line">K1 = 1</span><br><span class="line">n_t1 = 3</span><br><span class="line">Iexmax = 1</span><br><span class="line">Km = 0.5</span><br><span class="line">n_t2 = 2</span><br><span class="line">Q = 10</span><br><span class="line">P0 = 0.005</span><br><span class="line">Kp = 0.5</span><br><span class="line">Ca0 = 0.1   <span class="comment"># 细胞质Ca离子浓度,uM</span></span><br><span class="line">Ca2 = Ca0</span><br><span class="line">KQ = math.log(Q)/10 </span><br><span class="line">T1 = Tinitial</span><br><span class="line">Rate = -0.8 <span class="comment"># 摄氏度/秒</span></span><br><span class="line">tc = 45 <span class="comment"># 秒</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(1,len(t)):</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    Ca1 = Ca2;</span><br><span class="line">    T2 = T1+Rate*DT*math.exp(-t[i]/tc)</span><br><span class="line">    temp = (-(Rate*math.exp(-t[i]/tc)-abs(Rate*math.exp(-t[i]/tc)))/2)**n_t1</span><br><span class="line">    dCadt = Iin0+Iinmax*temp/(K1**n_t1+temp) - Iexmax*math.exp(KQ*(T1-T0))*(Ca1**n_t2)/(Km**n2+Ca1**n_t2)</span><br><span class="line">    Ca2 = Ca1+DT*dCadt</span><br><span class="line">    dIexmax = DT*P0*np.sign(Ca1-Ca0)*Ca1/(Kp+Ca1)</span><br><span class="line">    Iexmax = Iexmax+dIexmax</span><br><span class="line">    Itemperature = -0.6823*dCadt*450  <span class="comment"># 单位没有转换 Itemperature=-0.0154*dCadt/0.00005;</span></span><br><span class="line">    T1 = T2</span><br><span class="line">    <span class="comment">#---------------------------------------------------------------------</span></span><br><span class="line">    n1 = n2</span><br><span class="line">    m1 = m2</span><br><span class="line">    h1 = h2 </span><br><span class="line">    s1 = s2</span><br><span class="line">    k1 = k2</span><br><span class="line">    nn1 = nn2</span><br><span class="line">    v1 = v2</span><br><span class="line">    V = v1</span><br><span class="line">    Ib = 2*(V+127.5) <span class="comment">#   Ib=2*(V+130.5);</span></span><br><span class="line">    am = 10.55*(V+60)/(1-math.exp(-(V+60)/7.029))</span><br><span class="line">    bm = 44.32*math.exp(-V/98.2)</span><br><span class="line">    ah = 38.35*math.exp(-V/41.39)</span><br><span class="line">    bh = 7.249/(1+0.6061*math.exp(-V/26.58))</span><br><span class="line">    an = (0.01812*V+2.598)/(1+0.5954*math.exp(-V/10.8))</span><br><span class="line">    bn = 1.56*math.exp(-V/23.4) </span><br><span class="line">    AS = 0.02985*math.exp(V/144.6)   <span class="comment">#慢Cl</span></span><br><span class="line">    bs = 0.03542*math.exp(-V/91.67)</span><br><span class="line">    ak = 0.01414*math.exp(-0.03175*V)/(1+math.exp(0.2434*V))<span class="comment">#  内向K</span></span><br><span class="line">    bk = 974.1*math.exp(0.04129*V)/(1+math.exp(0.7851*V))</span><br><span class="line">    ann = 0.01*(V+60)/(1-math.exp(-(V+60)/2.8))</span><br><span class="line">    bnn = 0.05*math.exp(-V/80.4)</span><br><span class="line">    <span class="keyword">if</span> i==1:</span><br><span class="line">        n1 = an/(an+bn)</span><br><span class="line">        m1 = 0 </span><br><span class="line">        h1 = 1</span><br><span class="line">        s1 = AS/(AS+bs)</span><br><span class="line">        k1 = ak/(ak+bk) </span><br><span class="line">        nn1 = ann/(ann+bnn)</span><br><span class="line">  </span><br><span class="line">    N = n1</span><br><span class="line">    M = m1</span><br><span class="line">    H = h1</span><br><span class="line">    S = s1  </span><br><span class="line">    NN = nn1</span><br><span class="line">    gK = GK*N*N</span><br><span class="line">    gCl = GCl*M*M*H</span><br><span class="line">    gCl_slow = GCl_slow*S; </span><br><span class="line">    <span class="comment"># gKN=GK*NN*NN;% 复极化电导</span></span><br><span class="line">    gKN=40*NN*NN <span class="comment"># 最大电导40可调整，调大后，在较大的刺激下也可出现正常的波形</span></span><br><span class="line">    gH = GH/(1+math.exp((65.53+V)/112.2))</span><br><span class="line">    IH = gH*(V+231.8)</span><br><span class="line"></span><br><span class="line">    Ik = gK*(V+53)</span><br><span class="line">    ICl = gCl*(V-13.6)  <span class="comment"># ICl=gCl*(V+23.6);</span></span><br><span class="line">    ICl_slow = gCl_slow*(V-37.8)</span><br><span class="line">    IKN = gKN*(V+115) <span class="comment">#  IKN=gKN*(V+118);</span></span><br><span class="line">    K = k1  <span class="comment"># 内向K电流</span></span><br><span class="line">    gKin =GKin*K </span><br><span class="line">    Ikin = gKin*(V+75) </span><br><span class="line">    kdot = (ak*(1-K)-bk*K)*DT</span><br><span class="line">    k2=k1+kdot</span><br><span class="line">    </span><br><span class="line">    ndot = (an*(1-N)-bn*N)*DT</span><br><span class="line">    nndot = (ann*(1-NN)-bnn*NN)*DT</span><br><span class="line">    <span class="comment"># IT=Ik+ICl+ICl_slow+Ikin+Ib+IH;</span></span><br><span class="line">    IT=Ik+ICl+ICl_slow+IKN+Ikin+Ib+IH</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#     if t[i]&lt;800          %光刺激</span></span><br><span class="line"><span class="comment">#         Ilight=71*(1-math.exp(-t[i]/82))^3;</span></span><br><span class="line"><span class="comment">#     else</span></span><br><span class="line"><span class="comment">#         Ilight=71*math.exp(-(t[i]-800)/56);</span></span><br><span class="line"><span class="comment">#         #if rem(t[i],20)==0</span></span><br><span class="line"><span class="comment">#             #v1</span></span><br><span class="line"><span class="comment">#         #end</span></span><br><span class="line"><span class="comment">#     end</span></span><br><span class="line"><span class="comment">#     vdot=((Ilight-IT)/Cm)*DT;</span></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> t[i]&lt;100:    <span class="comment">#温度、恒流电刺激</span></span><br><span class="line">        vdot = ((I-IT)/Cm)*DT</span><br><span class="line">    <span class="comment">#    vdot=(-(Itemperature+IT)/Cm)*DT;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        vdot = (-IT/Cm)*DT</span><br><span class="line">    </span><br><span class="line">       </span><br><span class="line">    v2 = v1+vdot</span><br><span class="line">    mdot = (am*(1-M)-bm*M)*DT</span><br><span class="line">    n2 = n1+ndot</span><br><span class="line">    m2 = m1+mdot</span><br><span class="line">    sdot =(AS*(1-S)-bs*S)*DT</span><br><span class="line">    s2 = s1+sdot</span><br><span class="line">    nn2 = nn1+nndot</span><br><span class="line">    <span class="keyword">if</span> V&lt;-20:</span><br><span class="line">        h2=1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        hdot = (ah*(1-H)-bh*H)*DT</span><br><span class="line">        h2=h1+hdot </span><br><span class="line">    </span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    if t[i]%0.01==0:</span></span><br><span class="line"><span class="string">        result.append([t[i],v1])</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span>    </span><br><span class="line">    </span><br><span class="line">    result.append([t[i],v1])    </span><br><span class="line">result = np.array(result)</span><br><span class="line">plt.plot(result[:,0],result[:,1],c=<span class="string">'b'</span>)</span><br><span class="line"><span class="comment">#plt.plot(result[:,0],result[:,2],'r-');  #仿真Ca离子浓度随时间的变化关系</span></span><br><span class="line">plt.xlabel(<span class="string">'时间(s)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'膜电位(mV)'</span>,fontproperties=<span class="string">'SimHei'</span>)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/seq2seq优化思路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/25/seq2seq优化思路/" itemprop="url">seq2seq优化思路</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T09:42:18+08:00">
+                2019-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  208
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问题：<br>    1. 程序添加测试集对模型进行离线验证，加上评价指标rmse<br>        上次写的测试部分，数据来自训练集。<br>    2. 添加网格搜索和交叉验证</p>
+<h3 id="RMSE函数"><a href="#RMSE函数" class="headerlink" title="RMSE函数"></a>RMSE函数</h3><p>‘’’<br>from sklearn.metrics import mean_squared_error<br>import numpy as np<br>import sklearn.metrics as sm</p>
+<p>def rmse(y_true, y_pred):<br>    return np.sqrt(mean_squared_error(y_true, y_pred))</p>
+<p>‘’’</p>
+<h3 id="需要搜索的参数："><a href="#需要搜索的参数：" class="headerlink" title="需要搜索的参数："></a>需要搜索的参数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">batch_size = 5  # Low value used for live demo purposes - 100 and 1000 would be possible too, crank that up!</span><br><span class="line">hidden_dim = 12  # Count of hidden neurons in the recurrent units.</span><br><span class="line">layers_stacked_count = 2  # Number of stacked recurrent cells, on the neural depth axis.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">learning_rate = 0.007  # Small lr helps not to diverge during training.</span><br><span class="line">nb_iters = 300  # How many times we perform a training step (therefore how many times we show a batch).</span><br><span class="line">lr_decay = 0.92  # default: 0.9 . Simulated annealing.</span><br><span class="line">momentum = 0.5  # default: 0.0 . Momentum technique in weights update</span><br><span class="line">lambda_l2_reg = 0.003  # L2 regularization of weights - avoids overfitting</span><br></pre></td></tr></table></figure>
+
+<h3 id="交叉验证资料"><a href="#交叉验证资料" class="headerlink" title="交叉验证资料"></a>交叉验证资料</h3><h4 id="k可不可以放到网格搜索里面呢？"><a href="#k可不可以放到网格搜索里面呢？" class="headerlink" title="k可不可以放到网格搜索里面呢？"></a>k可不可以放到网格搜索里面呢？</h4><p><a href="https://zhuanlan.zhihu.com/p/24825503" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24825503</a></p>
 
           
         
@@ -754,16 +974,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/电池连线/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/m-tm-h-th计算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -773,7 +993,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/28/电池连线/" itemprop="url">电池连线</a></h1>
+                <a class="post-title-link" href="/2019/09/22/m-tm-h-th计算/" itemprop="url">m_tm_h_th计算</a></h1>
         
 
         <div class="post-meta">
@@ -785,8 +1005,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T22:27:49+08:00">
-                2019-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T21:33:18+08:00">
+                2019-09-22
               </time>
             
 
@@ -807,6 +1027,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  196
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -825,8 +1076,8 @@
       
         
           
-            <p>买了两块8.4V 电池。<br>用杜邦线串联起来。<br>电池还需要边冲边用。</p>
-<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>用杜邦线的时候用完表测一下线通不通。</p>
+            <p>需要数据</p>
+<p>电压(mv)   -56            -36            -16            4            24            44            64<br>时间(ms) 电导（nS）         电导（nS）       电导（nS）    电导（nS）    电导（nS）    电导（nS）    电导（nS）<br>0.92  0.641966251    0.90082361    1.509488212    4.654255319    16.16202946    15.537514    22.62749071<br>2.5   2.29273661    6.391557996    15.09488212    24.60106383    26.59574468    27.4356103    28.70651807<br>5     4.524333578    12.05387783    22.21104083    26.59574468    26.39116203    28.62541993    28.49544073<br>7.5   6.572511617    15.87165408    23.00172513    25.48758865    24.75450082    27.4356103    27.86220871<br>10    8.192712155    18.44543583    22.28292122    23.93617021    24.34533552    26.59574468    27.44005404<br>15    10.60772805    20.63315031    20.91719379    21.05496454    22.50409165    25.05599104    26.63796015<br>20    12.71704573    21.01921757    19.91086832    17.95212766    20.45826514    23.65621501    26.17359<br>30    14.67351431    21.01921757    18.68890167    15.95744681    18.20785597    21.90649496    25.32928065<br>40    16.20200538    21.44818119    17.53881541    15.29255319    16.16202946    20.99664054    24.8649105<br>50    17.02739056    21.44818119    18.25761932    15.29255319    15.54828151    20.64669653    24.48497129<br>60    17.11910002    21.44818119    18.25761932    15.29255319    15.34369885    20.29675252    24.10503208</p>
 
           
         
@@ -866,7 +1117,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -901,7 +1152,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
               <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
@@ -914,7 +1165,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -936,7 +1187,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -946,6 +1197,34 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -979,6 +1258,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
   
 </div>
 
@@ -1155,6 +1443,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1169,6 +1774,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

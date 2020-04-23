@@ -81,13 +81,13 @@
 
 <meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚杰鹏的博客">
+<meta property="og:title" content="SquareFace Blog">
 <meta property="og:url" content="http://yoursite.com/page/7/index.html">
-<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:site_name" content="SquareFace Blog">
 <meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚杰鹏的博客">
+<meta name="twitter:title" content="SquareFace Blog">
 <meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>姚杰鹏的博客</title>
+  <title>SquareFace Blog</title>
   
 
 
@@ -149,13 +149,13 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">姚杰鹏的博客</span>
+        <span class="site-title">SquareFace Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,16 +284,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/nginx配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/youtube-dl使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -271,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/07/nginx配置/" itemprop="url">Flask</a></h1>
+                <a class="post-title-link" href="/2020/03/02/youtube-dl使用/" itemprop="url">youtube-dl使用</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
-                2019-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T23:10:28+08:00">
+                2020-03-02
               </time>
             
 
@@ -305,6 +337,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  434
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -323,20 +386,19 @@
       
         
           
-            <p>我要对输入的序列进行</p>
-<pre><code>--- 维度扩展 
-    x_test_1 = np.expand_dims(x_test[12], axis=0)
-
-
---- PCA降维
-    pca = PCA(n_components=5,copy=True) 
-    newX = pca.fit_transform(x)</code></pre><p>报错提示：在post给的内容没有在excle中找到</p>
-<p>是程序逻辑的问题，需要在看下flask</p>
-<p>src文件夹内的文件结构如下：</p>
-<p>├── App.vue<br>├── assets<br>│   └── logo.png<br>├── components<br>│   └── HelloWorld.vue<br>├── main.js<br>├── router.js<br>└── views<br>    ├── About.vue<br>    └── Home.vue<br>详解：</p>
-<p>main.js app入口点，它与根组件一起加载和初始化Vue。<br>app.vue 根组件，它是开始渲染所有其他组件时的起点。<br>‘components’ 存储UI组件<br>router.js 定义URL并将URL映射到对应的组件<br>‘views’ 存储绑定到路由器的UI组件<br>‘asset’ 存储静态资源，如图像和字体</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, jsonify</span><br><span class="line">from flask_cors import CORS</span><br><span class="line">import pandas as pd</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.naive_bayes import GaussianNB</span><br><span class="line">from sklearn.decomposition import PCA</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment"># configuration</span></span><br><span class="line">DEBUG = True</span><br><span class="line"></span><br><span class="line"><span class="comment"># instantiate the app</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable CORS</span></span><br><span class="line">CORS(app, resources=&#123;r<span class="string">'/*'</span>: &#123;<span class="string">'origins'</span>: <span class="string">'*'</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sanity check route</span></span><br><span class="line">@app.route(<span class="string">'/ping'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def ping_pong():</span><br><span class="line">    <span class="built_in">return</span> jsonify(<span class="string">'pong!,hhh'</span>)</span><br><span class="line"></span><br><span class="line">def Bayes():</span><br><span class="line">    df = pd.read_excel(<span class="string">'./Data.xls'</span>)</span><br><span class="line">    df_T=df.T</span><br><span class="line">    x=df_T.iloc[:,0:1764]</span><br><span class="line">    y1 = df_T.iloc[0:26,1764:1765]     <span class="comment">#1 类的类别</span></span><br><span class="line">    y2 = df_T.iloc[26:59,1764:1765]   <span class="comment">#2 类的类别</span></span><br><span class="line">    pca = PCA(n_components=5,copy=True)</span><br><span class="line">    newX = pca.fit_transform(x)</span><br><span class="line">    <span class="comment">#  拆分</span></span><br><span class="line">    newX1 = newX[0:26,:]</span><br><span class="line">    newX2 = newX[26:59,:]</span><br><span class="line">    x_train1,x_test1,y_train1,y_test1 = train_test_split(newX1,y1,test_size=0.2,random_state=5)</span><br><span class="line">    x_train2,x_test2,y_train2,y_test2 = train_test_split(newX2,y2,test_size=0.2,random_state=5)</span><br><span class="line">    x_train = np.vstack((x_train1 , x_train2))</span><br><span class="line">    x_test = np.vstack((x_test1 , x_test2))</span><br><span class="line">    y_train = np.vstack((y_train1 , y_train2))</span><br><span class="line">    y_test = np.vstack((y_test1 , y_test2))</span><br><span class="line">    <span class="built_in">print</span>(x_test[1])</span><br><span class="line">    gnb = GaussianNB()</span><br><span class="line">    gnb = gnb.fit(x_train,y_train)</span><br><span class="line">    <span class="built_in">return</span> gnb</span><br><span class="line"></span><br><span class="line">def pretreatment(list1):</span><br><span class="line">    array = np.array(list1)</span><br><span class="line">    <span class="built_in">return</span> np.expand_dims(array, axis=0)</span><br><span class="line"></span><br><span class="line">@app.route(<span class="string">'/predict'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def main():</span><br><span class="line">    gnb = Bayes()</span><br><span class="line">    predict = gnb.predict(pretreatment([2187.82169246, 153.58047602, -124.83874381, -339.65293843, -5.28906774]))</span><br><span class="line">    value = int(predict[0])</span><br><span class="line">    <span class="built_in">return</span> jsonify(value)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
-
+            <h1 id="下载视频"><a href="#下载视频" class="headerlink" title="下载视频"></a>下载视频</h1><ul>
+<li>youtube-dl –proxy “127.0.0.1:1087” “<a href="https://www.youtube.com/watch?v=hZ1OgQL9_Cw&quot;" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hZ1OgQL9_Cw&quot;</a></li>
+</ul>
+<h1 id="下载全部格式"><a href="#下载全部格式" class="headerlink" title="下载全部格式"></a>下载全部格式</h1><p> youtube-dl  –all-formats <a href="https://www.youtube.com/watch?v=hLQl3WQQoQ0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hLQl3WQQoQ0</a><br> –all-formats ： 添加这个参数之后，所有存在的格式一扫而尽，统统下载；</p>
+<h1 id="查看该视频所有格式类型，只看不下载-F或者–list-formats"><a href="#查看该视频所有格式类型，只看不下载-F或者–list-formats" class="headerlink" title="查看该视频所有格式类型，只看不下载 -F或者–list-formats"></a>查看该视频所有格式类型，只看不下载 -F或者–list-formats</h1><p> –list-formats ： 这是一个列清单参数，执行后并不会下载视频，但能知道这个目标视频都有哪些格式存在，这样就可以有选择的下载啦！</p>
+<p> youtube-dl –list-formats <a href="https://www.youtube.com/watch?v=hLQl3WQQoQ0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hLQl3WQQoQ0</a></p>
+<h1 id="下载指定格式视频"><a href="#下载指定格式视频" class="headerlink" title="下载指定格式视频"></a>下载指定格式视频</h1><p> -f + 编号：通过上一步获取到了所有视频格式的清单，最左边一列就是编号对应着不同的格式，例如我想下载22号那个mp4格式分辨率为1280*720的视频，则按下面的命令就可以轻松指定下载视频哦；</p>
+<p> youtube-dl -f 22 <a href="http://www.youtube.com/watch?v=BlXaGWbFVKY" target="_blank" rel="noopener">http://www.youtube.com/watch?v=BlXaGWbFVKY</a></p>
+<h1 id="下载youtube字幕及视频"><a href="#下载youtube字幕及视频" class="headerlink" title="下载youtube字幕及视频"></a>下载youtube字幕及视频</h1><p> 有的youtube视频是有字幕的可供下载的，但不是全部；如果过你想要下载字幕用这个脚本来操作也是很容易的；先来说说两个参数–write-sub：加入字幕文件 –all-subs：如果有字幕存在则全部下载</p>
+<p> youtube-dl –write-sub –all-subs <a href="https://www.youtube.com/watch?v=0TjgZbVdOLA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0TjgZbVdOLA</a></p>
+<h1 id="读取下载链接列表文件"><a href="#读取下载链接列表文件" class="headerlink" title="读取下载链接列表文件"></a>读取下载链接列表文件</h1><p> youtube-dl -a video_url.txt<br> 这里的 -a 参数表示读取外部链接文件,video_url.txt为包含视频地址的txt文件，一个地址 。</p>
+<h1 id="直接下载最高清版本"><a href="#直接下载最高清版本" class="headerlink" title="直接下载最高清版本"></a>直接下载最高清版本</h1><p>  如果你不想查看版本，直接下载最高清的版本，也可以直接用下面的命令</p>
+<p> youtube-dl -f bestvideo+bestaudio <a href="https://www.youtube.com/watch?v=0TjgZbVdOLA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0TjgZbVdOLA</a></p>
 
           
         
@@ -385,16 +447,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/flask的副本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/KEGG富集分析原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -404,7 +466,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/07/flask的副本/" itemprop="url">数学模型构建</a></h1>
+                <a class="post-title-link" href="/2020/03/02/KEGG富集分析原理/" itemprop="url">KEGG富集分析原理</a></h1>
         
 
         <div class="post-meta">
@@ -416,8 +478,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
-                2019-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T09:58:09+08:00">
+                2020-03-02
               </time>
             
 
@@ -438,251 +500,36 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="保卫细胞电信号数学模型的构建"><a href="#保卫细胞电信号数学模型的构建" class="headerlink" title="保卫细胞电信号数学模型的构建"></a>保卫细胞电信号数学模型的构建</h3><p>根据保卫细胞膜电路模型</p>
-<p>Hodgkin-Huxley 和Goldman-Hodgkin-Katz 两个方程，都是Nernst方程的推广</p>
-<h2 id="电流是电荷对时间的导数"><a href="#电流是电荷对时间的导数" class="headerlink" title="电流是电荷对时间的导数"></a>电流是电荷对时间的导数</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/Docker+MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+            <div class="post-wordcount">
+              
                 
-                <a class="post-title-link" href="/2019/08/29/Docker+MySQL/" itemprop="url">docker创建MySQl容器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T09:31:25+08:00">
-                2019-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、使用Docker 创建Mysql。用idea在运行 Springboot+VUE的项目</p>
-<p>MySql使用的配置文件：</p>
-<pre><code class="bash"></code></pre>
-<p>简单的使用Docker-compose.yaml 文件配置容器。</p>
-<p>2、后端的Get Post方法 </p>
-<p>Vue是如何发送请求的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/MyPlant启动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
                 
-                <a class="post-title-link" href="/2019/08/29/MyPlant启动/" itemprop="url">docker创建MySQl容器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  322
+                </span>
               
-                <span class="post-meta-item-text">发表于</span>
+
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T09:31:25+08:00">
-                2019-08-29
-              </time>
-            
+                <span class="post-meta-divider">|</span>
+              
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -702,40 +549,30 @@
       
         
           
-            <p>启动mysql的dockerfile</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  hk-mysql:</span><br><span class="line">   container_name: hk-mysql</span><br><span class="line">   image: mysql/mysql-server:5.7</span><br><span class="line">   environment:</span><br><span class="line">    MYSQL_DATABASE: testdb</span><br><span class="line">    MYSQL_ROOT_PASSWORD: hellokoding</span><br><span class="line">    MYSQL_ROOT_HOST: <span class="string">'%'</span></span><br><span class="line">   ports:</span><br><span class="line">   - <span class="string">"3306:3306"</span></span><br><span class="line">   restart: always</span><br></pre></td></tr></table></figure>
+            <h2 id="富集分析概念"><a href="#富集分析概念" class="headerlink" title="富集分析概念"></a>富集分析概念</h2><ul>
+<li>基因功能注释： 通过基因的CDS或氨基酸序列与数据库（Nr）做系列比对，找出在数据库中与其最相似的，提取其功能注释信息作为该基因的功能注释</li>
+<li>常 </li>
+</ul>
+<p>用户登录名称 <a href="mailto:yjp@1858447101409070.onaliyun.com" target="_blank" rel="noopener">yjp@1858447101409070.onaliyun.com</a><br>AccessKey ID LTAI4Fra4zyQQSnn4geVNG4v<br>AccessKeySecret 1aJXo4atnDXPEYfNX1p6lrZJLK1a4y</p>
+<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image%E6%88%AA%E5%B1%8F2020-02-27%E4%B8%8B%E5%8D%889.19.10.png" alt></p>
+<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302160819.png" alt></p>
+<ol>
+<li>933个差异基因可以在KEGG里面注释到，ko_ID是map的id</li>
+<li>gene 这一栏说明的是拟南芥3W个基因里面注释到pathway里面的基因数目。</li>
+<li>7085是背景基因集。<font color="#FF7F50">背景基因集</font>就是拟南芥全部的3w个基因，可以在KEGG数据库注释到的基因。</li>
+</ol>
+<h3 id="我主要想只要：差异基因里面最主要参与哪个功能。"><a href="#我主要想只要：差异基因里面最主要参与哪个功能。" class="headerlink" title="我主要想只要：差异基因里面最主要参与哪个功能。"></a>我主要想只要：差异基因里面最主要参与哪个功能。</h3><ul>
+<li>看参与pathway的DEG，缺点是不准确，差异基因最多的通路不是我关心的通路。</li>
+<li>因此需要富集<br><font color="#FF7F50">通路富集的富集因子，表示差异基因中注释到的某通路的基因比例与所有基因中注释到该通路的基因比例的比值。</font>
 
-<p>启动hbase</p>
-<p>docker run -d -h myhbase -p 2181:2181 -p 8080:8080 -p 8085:8085 -p 9090:9090 -p 9095:9095 -p 16000:16000 -p 16010:16010 -p 16201:16201 -p 16301:16301 –name hbase1.3 harisekhon/hbase –net=host</p>
-<p>参考 <a href="https://github.com/tanwenliang/spring-boot-hbase-example" target="_blank" rel="noopener">https://github.com/tanwenliang/spring-boot-hbase-example</a></p>
-<p>这样启动的话没有nginx，每个单独的容器是相互分离的。</p>
-<h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><h4 id="这一块的问题属于运维的，无需太关心这个问题。"><a href="#这一块的问题属于运维的，无需太关心这个问题。" class="headerlink" title="这一块的问题属于运维的，无需太关心这个问题。"></a>这一块的问题属于运维的，无需太关心这个问题。</h4><p>hbase容器启动后，ip地址无法ping通<br>导致springboot无法连接 hbase，控制台提示错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">: Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)</span><br><span class="line">2019-09-04 13:32:37.240  INFO 57045 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session</span><br><span class="line">2019-09-04 13:32:37.254  INFO 57045 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x16cfab6764d0007, negotiated timeout = 90000</span><br><span class="line">2019-09-04 13:32:38.099  INFO 57045 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Ma</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2019-09-04 13:42:32.376  INFO 57045 --- [ared--pool2-t10] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38320 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:42:42.388  INFO 57045 --- [ared--pool2-t10] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48332 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:43:30.859  INFO 57045 --- [ared--pool2-t11] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38399 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:43:40.930  INFO 57045 --- [ared--pool2-t11] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48470 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:44:29.359  INFO 57045 --- [ared--pool2-t12] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38405 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:44:39.461  INFO 57045 --- [ared--pool2-t12] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48507 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:45:38.022  INFO 57045 --- [ared--pool2-t13] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38380 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br></pre></td></tr></table></figure>
 
-<p>正确的hbase配置</p>
-<p>package com.example.config;</p>
-<p>import org.apache.hadoop.conf.Configuration;<br>import org.apache.hadoop.hbase.<em>;
-import org.apache.hadoop.hbase.client.</em>;
-import org.apache.hadoop.hbase.filter.*;<br>import org.apache.hadoop.hbase.util.Bytes;<br>import org.springframework.context.annotation.Bean;</p>
-<p>import java.io.IOException;</p>
-<p>/**</p>
-<ul>
-<li><p>@author allen</p>
-</li>
-<li><p>/
-@org.springframework.context.annotation.Configuration<br>public class Hbase {<br>  @Bean<br>  public Connection getHbaseConnect() throws IOException {</p>
-<pre><code>Configuration conf = HBaseConfiguration.create();
-conf.set(&quot;hbase.zookeeper.quorum&quot;, &quot;myhbase&quot;);
-conf.set(&quot;hbase.zookeeper.property.clientPort&quot;, &quot;2181&quot;);
-conf.set(&quot;log4j.logger.org.apache.hadoop.hbase&quot;, &quot;WARN&quot;);
-Connection connection = ConnectionFactory.createConnection(conf);
-return connection;</code></pre><p>  }</p>
-<p>  @Bean<br>  public Admin getHbaseAdmin(Connection connection) throws IOException{</p>
-<pre><code>Admin admin = connection.getAdmin();
-return admin;</code></pre><p>  }</p>
 </li>
 </ul>
-<p>}</p>
+<h2 id="什么是显著性"><a href="#什么是显著性" class="headerlink" title="什么是显著性"></a>什么是显著性</h2><p>理解为评价指标，用超几何分布检验计算出来。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302171645.png" alt></p>
+<h3 id="文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。"><a href="#文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。" class="headerlink" title="文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。"></a><font color="#FF7F50">文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。</font></h3><p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302224207.png" alt></p>
+<h2 id="在线富集平台"><a href="#在线富集平台" class="headerlink" title="在线富集平台"></a>在线富集平台</h2><ul>
+<li>KOBAS<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200303095119.png" alt></li>
+</ul>
 
           
         
@@ -784,16 +621,16 @@ return admin;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/Vue笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/DJango接受前端数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -803,7 +640,7 @@ return admin;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/Vue笔记/" itemprop="url">Vue笔记</a></h1>
+                <a class="post-title-link" href="/2019/12/29/DJango接受前端数据/" itemprop="url">DJango接受前端数据</a></h1>
         
 
         <div class="post-meta">
@@ -815,8 +652,8 @@ return admin;</code></pre><p>  }</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T09:31:25+08:00">
-                2019-08-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T16:25:44+08:00">
+                2019-12-29
               </time>
             
 
@@ -837,6 +674,37 @@ return admin;</code></pre><p>  }</p>
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  65
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -855,23 +723,314 @@ return admin;</code></pre><p>  }</p>
       
         
           
-            <h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>.js ES6 webpack Npm</p>
-<p>v-for=”item in list” # 遍历list里面的数据，放到item</p>
-<p>绑定事件 v-on:click=””</p>
-<p>v-model 数据的双向绑定<br>v-on 监听事件<br>v-bind的简写是 ：</p>
-<p>通过input框里的内容，放到页面里面显示。</p>
-<p>MVVM格式。</p>
-<p>mpv模式</p>
-<p>model 数据<br>presenter 呈现层<br>view 视图层</p>
-<p>Vue.component(“”) 创建一个全局组件</p>
-<p>子组件 向副组件 传值</p>
-<h3 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h3><p>Vue 生命周期<br>生命周期函数就是vue实例在某一个时间点会自动执行的函数</p>
-<p>####模版语法<br>   v-text  v-html</p>
-<p>js表达式</p>
-<p>####计算属性，方法和监听</p>
-<p>计算属性：<br>    computed:{<br>        fullname:function(){</p>
-<pre><code>        }
-}</code></pre>
+            <ol>
+<li>vue 会给后端发送一个API链接（应该是保存在list里面），Django根据获取的url进行get请求。会获取到两种格式的数据，csv和image</li>
+<li>根据获取到的数据，在使用我提供的函数进行分析，</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/小麦膜片钳/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/26/小麦膜片钳/" itemprop="url">小麦膜片钳</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T16:30:12+08:00">
+                2019-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  26
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小麦里面是没有发现动作电位"><a href="#小麦里面是没有发现动作电位" class="headerlink" title="小麦里面是没有发现动作电位"></a>小麦里面是没有发现动作电位</h1><p>(小麦胚芽)[<a href="https://www.biorxiv.org/content/10.1101/781799v1.full]" target="_blank" rel="noopener">https://www.biorxiv.org/content/10.1101/781799v1.full]</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Django-401/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/23/Django-401/" itemprop="url">Django 401</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T14:59:07+08:00">
+                2019-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  20
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>vue发送的是json格式的数据</p>
+<p>所以Django接受Json格式的数据</p>
+
           
         
       
@@ -910,7 +1069,7 @@ return admin;</code></pre><p>  }</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -945,7 +1104,7 @@ return admin;</code></pre><p>  }</p>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
               <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
@@ -958,7 +1117,7 @@ return admin;</code></pre><p>  }</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -980,7 +1139,7 @@ return admin;</code></pre><p>  }</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -990,6 +1149,34 @@ return admin;</code></pre><p>  }</p>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1023,6 +1210,15 @@ return admin;</code></pre><p>  }</p>
   </span>
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
   
 </div>
 
@@ -1199,6 +1395,323 @@ return admin;</code></pre><p>  }</p>
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1213,6 +1726,28 @@ return admin;</code></pre><p>  }</p>
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

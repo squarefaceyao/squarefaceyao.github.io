@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="文献阅读,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1 介绍 1.11.2 1.3 1.41 分子生物学基础知识/ 11.1.1 基因组，基因和DNA复制过程/ 51.1.2 RNA合成的转录过程/ 61.1.3 蛋白质合成的翻译过程/ 7细胞中的生物分子网络/ 8 网络系统生物学/ 13 关于本书/ 18I 基因网络 23 2 转录法规:网络和模型 252.1 转录调控和基因表达/ 252.1.1 转录和基因调控/ 252.1.2 微阵列实验和">
+<meta name="keywords" content="文献阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Biomolecular Networks Methods and Applications in Systems Biology">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/index.html">
+<meta property="og:site_name" content="SquareFace Blog">
+<meta property="og:description" content="1 介绍 1.11.2 1.3 1.41 分子生物学基础知识/ 11.1.1 基因组，基因和DNA复制过程/ 51.1.2 RNA合成的转录过程/ 61.1.3 蛋白质合成的翻译过程/ 7细胞中的生物分子网络/ 8 网络系统生物学/ 13 关于本书/ 18I 基因网络 23 2 转录法规:网络和模型 252.1 转录调控和基因表达/ 252.1.1 转录和基因调控/ 252.1.2 微阵列实验和">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200406160731.png">
+<meta property="og:updated_time" content="2020-04-06T08:38:50.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Biomolecular Networks Methods and Applications in Systems Biology">
+<meta name="twitter:description" content="1 介绍 1.11.2 1.3 1.41 分子生物学基础知识/ 11.1.1 基因组，基因和DNA复制过程/ 51.1.2 RNA合成的转录过程/ 61.1.3 蛋白质合成的翻译过程/ 7细胞中的生物分子网络/ 8 网络系统生物学/ 13 关于本书/ 18I 基因网络 23 2 转录法规:网络和模型 252.1 转录调控和基因表达/ 252.1.1 转录和基因调控/ 252.1.2 微阵列实验和">
+<meta name="twitter:image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200406160731.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/">
+
+
+
+
+
+  <title>Biomolecular Networks Methods and Applications in Systems Biology | SquareFace Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SquareFace Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Biomolecular Networks Methods and Applications in Systems Biology</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T15:52:54+08:00">
+                2020-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 1 介绍 1.1<br>1.2 1.3 1.4<br>1
+分子生物学基础知识/ 1<br>1.1.1 基因组，基因和DNA复制过程/ 5<br>1.1.2 RNA合成的转录过程/ 6<br>1.1.3 蛋白质合成的翻译过程/ 7<br>细胞中的生物分子网络/ 8 网络系统生物学/ 13 关于本书/ 18<br>I 基因网络 23 2 转录法规:网络和模型 25<br>2.1 转录调控和基因表达/ 25<br>2.1.1 转录和基因调控/ 25<br>2.1.2 微阵列实验和数据库/ 28<br>2.1.3 芯片技术和转录因子数据库/ 30<br>2.2 转录监管网络/ 32<br>2.3 基于生化反应的非线性模型/ 36<br>2.4 监管网络的集成模型/ 43<br>2.5 摘要/ 44<br>vii</p>
+<p> ii 内容<br>3 基因调控网络的重建 47<br>3.1 基因调控网络的数学模型/ 47<br>3.1.1 布尔网络/ 48<br>3.1.2 贝叶斯网络/ 49<br>3.1.3 马尔可夫网络/ 52<br>3.1.4 微分方程/ 53<br>3.2 重建基因调控网络/ 55<br>3.2.1 奇异值分解/ 56<br>3.2.2 基于模型的优化/ 58<br>3.3 从多个数据集推断基因网络/ 61<br>3.3.1 多种数据集网络结构的一般解决方案和特殊解决方 案/ 63<br>3.3.2 分解算法/ 65<br>3.3.3 数值验证/ 67<br>3.4 基于基因网络的药物靶标识别/ 72<br>3.4.1 网络识别方法/ 73<br>3.4.2 线性编程框架/ 77<br>3.5 摘要/ 87<br>4 转录调控网络的推论 89<br>4.1 预测TF结合位点和启动子/ 89<br>4.2 转录相互作用的推论/ 92<br>4.2.1 微分方程方法/ 93<br>4.2.2 贝叶斯方法/ 96<br>4.2.3 数据挖掘和其他方法/ 98<br>4.3 确定TF的组合规定/ 99<br>4.4 推断合作监管网络/ 105<br>4.4.1 数学模型/ 105<br>4.4.2 估计TF活动/ 106<br>4.4.3 线性规划模型/ 108<br>4.4.4 数值验证/ 109<br>4.5 转录因子活性预测/ 114<br>4.5.1 矩阵分解/ 114<br>4.5.2 非线性模型/ 117<br>4.6 摘要/ 118</p>
+<p> II 蛋白质相互作用网络<br>5 蛋白质与蛋白质相互作用的预测<br>5.1 实验性蛋白质–蛋白质相互作用/ 121<br>5.2 蛋白质与蛋白质相互作用的预测/ 126<br>5.2.1 关联方法/ 127<br>5.2.2 最大可能性估算/ 134<br>5.2.3 确定性优化方法/ 139<br>5.3 基于多域对/ 150的蛋白质相互作用预测<br>5.3.1 合作域，强合作域，超域/ 152<br>5.3.2 多域交互的推论/ 154<br>5.3.3 数值验证/ 157<br>5.3.4 通过多域交互重构复杂对象/ 160<br>内容 iii 119 121<br>5.4 域交互预测方法/ 163<br>5.4.1 统计方法/ 163<br>5.4.2 域对排除分析/<br>5.4.3 简约解释方法/<br>5.4.4 整合方法/ 165<br>163 164<br>5.5 摘要/<br>6 生物分子网络的拓扑结构<br>167<br>6.1 生物分子网络的统计特性/ 169<br>6.2 蛋白质相互作用网络的进化/ 173<br>6.3 生物分子网络中的集线器，基序和模块化/<br>174<br>6.3.1 网络中心和集线器/ 174<br>6.3.2 网络模块化和图案/ 177<br>6.4 集线器和网络主题的探索性作用/ 179<br>6.4.1 集线器和网络主题组织的动态模块化 / 180<br>6.4.2 网络主题充当路径之间的连接器/ 186<br>6.5 生物分子网络的模块性评估/ 194<br>6.5.1 模块化密度D / 195<br>6.5.2 通过D / 196提高模块分辨率极限<br>169</p>
+<p> iv 内容<br>6.5.3 D和内核之间的等价k Means / 198<br>6.5.4 D扩展到一般标准:Dl 和Dw/<br>6.5.5 数值验证/ 200<br>6.6 摘要/ 204<br>7 生物分子网络的比对<br>7.1 多种生物分子网络/ 205<br>7.2 生物分子网络的成对比对/ 207<br>7.2.1 基于得分的算法/ 208<br>7.2.2 进化指导方法/ 211<br>7.2.3 图匹配算法/ 212<br>7.3 通过数学编程进行网络对齐/ 213<br>7.3.1 整数编程公式/ 214<br>199<br>7.3.2 整数二次编程方法/ 216的组成部分<br>7.3.3 数值验证/ 217<br>7.4 生物分子网络的多重比对/ 223<br>7.5 子网和路径查询/ 225<br>7.6 摘要/ 228<br>8 基于网络的蛋白质功能预测 231<br>8.1 蛋白质功能和注释/ 231<br>8.2 蛋白质功能模块检测/ 234<br>8.2.1 基于距离的聚类方法/ 235<br>8.2.2 图聚类方法/ 236<br>8.2.3 验证模块检测/ 238<br>8.3 蛋白质功能注释的功能链接/ 239<br>8.3.1 贝叶斯方法/ 239<br>8.3.2 Hopfield网络方法/ 241<br>8.3.3 p值法/ 242<br>8.3.4 统计框架/ 243<br>8.4 高通量数据对蛋白质功能的预测/ 249<br>8.4.1 邻里方法/ 250<br>8.4.2 优化方法/ 251<br>8.4.3 概率方法/ 254<br>8.4.4 机器学习技术/ 256<br>205</p>
+<p> 8.5 域的功能注释方法/ 265<br>8.5.1 域名来源/ 267<br>8.5.2 异构数据集成/ 268<br>8.5.3 域功能预测/ 270<br>8.5.4 数值验证/ 271<br>8.6 摘要/</p>
+<h2 id="III-代谢网络和信号传导网路-279"><a href="#III-代谢网络和信号传导网路-279" class="headerlink" title="III 代谢网络和信号传导网路 279"></a>III 代谢网络和信号传导网路 279</h2><h3 id="9-代谢网络-分析，重构，与应用-281"><a href="#9-代谢网络-分析，重构，与应用-281" class="headerlink" title="9 代谢网络:分析，重构，与应用 281"></a>9 代谢网络:分析，重构，与应用 281</h3><p>9.1细胞新陈代谢和代谢途径<br>细胞功能是通过其化学成分的相互作用来完成的。细胞代谢是细胞中发生的所有生化反应的总集合，例如涉及降解食物分子，合成大分子以及产生小前体分子的反应。它还包括所有涉及电子转移的反应。代谢过程通常分为两大类，即中间代谢阶段。一种是分解代谢，将各种底物分解成常见的代谢产物，包括从营养中去除电子，并在细胞呼吸中收集能量。换句话说，分解代谢包括降解和增能反应，其中复杂的物质和大分子分解为低分子量化合物。通常，分解代谢中的反应是氧化的，并产生还原电位。另一个是合成代谢，它合成氨基酸，脂肪酸和核酸等复杂分子，利用能量使分子富集电子，并需要细胞消耗从营养分解代谢中获得的能量。换句话说，合成代谢包括生物合成和需要能量的反应，其中复杂物质和大分子是由低分子量前体合成的。通常，合成代谢的反应是还原性的，并且消耗还原潜力。在分解代谢和合成代谢过程中，通过一组载体分子（例如ATP，GTP，NADH和NADPH）进行复杂的化学基团交换和还原-氧化（氧化还原）电势。这些载体分子及其转移的物质组成了细胞中的全部新陈代谢。图9.1说明了细胞代谢的主要部分，其中中间代谢将原材料转化为能量以及细胞的组成部分，例如蛋白质和膜。<br>细胞中的所有生化反应均由一种称为酶的特殊蛋白质催化，该蛋白质通常需要饮食中的矿物质，维生素和其他辅助因子才能正常运行。这些生化反应使生物能够生长，繁殖，维持其结构并对环境作出反应。在充满不同类型化学反应的生物系统中，能量（定义为工作能力）必不可少。生物系统中能量的两种基本类型是势能和动能。势能是物质由于其结构或位置而具有的状态或位置的能量。它是等待工作的存储能量。例如，化学键由于其结构而具有势能。动能是运动的能量。这是可以起作用的能量类型。动能和势能都可以以多种形式找到，例如电，光，化学，热和机械形式。在某些条件下，可以遵循热力学定律将能量从一种形式转换或转换为另一种形式。可用能量称为自由能（G）。不可利用的能量是熵，它衡量了系统的无序性。用能化学反应释放出自由能，并且自由能发生负向变化（DG，0）。内能化学反应消耗自由能，并且自由能发生正向变化（DG。0）。三磷酸腺苷（ATP）在生物系统中是一种能源。一种重要的能动反应是<br>ATP键的断裂，其中ATP在水解后释放出相对大量的自​​由能。 ATP循环耦合了能动和性能反应。它捕获在能级化学反应中释放的自由能，并将捕获的能量转移到负电子反应的反应物中。<br>酶是生物系统的催化剂，可通过降低能垒，提供引发反应所需的活化能来影响生化反应的速率[Sad07]。几乎所有已知的酶都是蛋白质。酶最显着的特征是它们的催化能力和特异性。酶不仅决定化学转化的方式，而且还介导一种能量形式向另一种能量形式的转化。在没有酶的情况下，生物系统中的大多数反应不会以可察觉的速率发生。通常，酶根据其催化的反应类型进行分类。国际生物化学联合会建立了一个酶委员会（EC）来开发酶的命名法，其中反应分为六个主要组，编号为1-6（表9.1）。这些组被细分并进一步细分，因此以四位数字开头的字母EC（用于酶委员会）可以精确识别所有酶。<br>代谢途径是细胞内发生的一系列化学反应，其中一种化学物质通过一系列酶的催化化学反应转化为另一种化学反应。代谢途径可以是几个反应的简单线性序列，也可以是广泛分支的反应，这些反应汇聚或偏离中心主要途径。生物系统中有许多代谢途径。其中一些是许多活生物体所共有的。例如，糖酵解代谢参与葡萄糖氧化以获得ATP，它是许多生物体中的能量转换途径。柠檬酸循环涉及乙酰基-CoA氧化，以获得GTP和有价值的中间体。它通常受底物可用性，产物抑制作用和某些循环中间体的调控。氧化磷酸化途径处理由糖酵解和柠檬酸循环释放的电子。戊糖磷酸途径参与戊糖的合成和合成代谢反应所需的还原能力的释放。其他主要的代谢途径包括脂肪酸代谢，糖原代谢和氨基酸代谢。许多化学物质可能参与细胞内存在的多种途径。这些途径的集合非常复杂，并形成了复杂的代谢网络，是代谢和身体的完整集合。确定细胞生理和生化特性的过程（见图9.2）。 这些网络包括代谢的化学反应以及指导这些反应的调节相互作用，并成为阐明细胞机制和建模代谢的强大工具。 随着基因组技术的发展，许多生物中的代谢网络可以通过生化反应来重建[Ree03]。<br>表9.2列出了一些主要的代谢网络数据库。 京都基因与基因组百科全书（KEGG）途径是一个数据库，其中包含有关确定细胞生理和生化特性的过程（见图9.2）。这些网络包括代谢的化学反应以及指导这些反应的调节相互作用，并成为阐明细胞机制和建模代谢的强大工具。随着基因组技术的发展，许多生物中的代谢网络可以通过生化反应来重建[Ree03]。<br>表9.2列出了一些主要的代谢网络数据库。京都基因与基因组百科全书（KEGG）途径是一个数据库，其中包含有关基因与蛋白质的分子相互作用和反应网络的信息。它包括来自各种生物体的所有已知代谢途径的图形途径图。 BioCyc是371个途径数据库的集合，其中包含特定于某些生物的完整数据库。 BioCyc集合中的每个途径数据库都描述了单个生物的基因组和代谢途径。例如，属于BioCyc的EcoCyc是关于大肠杆菌整个基因组的高度详细的生物信息学数据库。 EcoCyc包含有关转录调控，蛋白质复合物，酶，转运蛋白和代谢途径的文献资料。此外，MetaCyc是代谢途径的百科全书，是一种代谢途径和酶数据库，其中包含从1500种生物中阐明的1100条代谢途径。 MetaCyc中的大多数代谢途径均来自科学实验文献。 MetaCyc包含参与一级和二级代谢的途径，以及相关的化合物，酶和基因。 BRENDA是一个酶数据库，其中包含有关酶和酶反应的全面信息。它是欧洲生物信息研究所（EBI）的SRS5序列检索系统的代谢途径数据库集中嵌套的几个数据库之一。<br>代谢网络具有与其他生物网络共享的一些共同特性，并且还具有独特的特征。为了阐明生物代谢的组织原理和生物学原理，最近的研究采用图论方法分析大型代谢网络。与其他蜂窝网络的隔离功能模块组织不同，Ravasz等人。对许多生物的代谢网络进行了研究，发现它们被组织成许多高度连接的拓扑模块，这些模块以分层的方式结合了较大的，内聚力较小的单元[Rav02]。这种单元的数量和程度通常遵循幂律分布。 Jeong等。系统地比较了43种生物的代谢网络的数学分析[Jeo00]，发现这些<br>代谢网络具有相同的拓扑缩放特性，并且与复杂的非生物系统的固有组织具有惊人的相似性。相反，有田指出，代谢网络具有通量分布，其平均路径长度比网络结构中观察到的平均路径长度长，并且它们的功能状态可能不具有无标度特性[Ari04]。 Mahadevan和Palsson研究了代谢网络的结构和功能之间的关系[Mah05]。他们发现，与其他影响类型的生物网络（如蛋白质-蛋白质相互作用网络或调控网络）不同，在流动型代谢网络中，节点反应的实质与节点中心性无关。这些结果表明，由于网络表示和功能限制，不同生物网络之间存在根本差异。他们的研究表明，即使是代谢网络中连接最少的节点，对于那些连接程度高的节点，对于整个网络功能而言也很关键。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200406160731.png" alt></p>
+<p>9.1 细胞代谢和代谢途径/ 281<br>9.2 代谢网络分析与建模/ 286<br>9.2代谢网络分析与建模<br>代谢网络的动态仿真和分析使我们能够阐明代谢过程的潜在机制。信号网络和代谢网络均由许多生化反应组成。因此，自然代谢网络也可以通过常微分方程（ODE）或Petri网建模。但是，尽管与信令网络相似，但是它们具有一些不同的属性，在数学建模中应该考虑这些属性。在信号传导途径中，我们不仅关注物质流，还关注信号流，信号流是通过磷酸化和去磷酸化的蛋白质形式来实现的[Sac06]。相反，在代谢网络中，化学计量的反应方程式控制着新陈代谢的动力学，新陈代谢的动力学强调物质的流动。尤其是酶的活性动力学具有特殊的动力学。这些因素导致新陈代谢网络模拟的特殊功能，这些功能不同于其他生物分子网络。</p>
+<p>9.2.1 助焊剂平衡分析/ 286</p>
+<p>9.2.1通量平衡分析<br>磁通量平衡分析（FBA）是根据化学定律对代谢进行的数学分析，已被证明是分析细胞系统代谢能力的非常有用的技术。例如，使用FBA，只要已知某些营养素，我们就可以知道哪些代谢通量使生物体的生长速率最大化。亚马逊物流的基础知识已在文献[LeM06，Kau03]中进行了评论。在这里，我们仅作简要介绍。<br>图9.3说明了一个反应网络和FBA。化学计量是化学反应中反应物和产物的定量关系的计算。代谢网络可以由化学计量矩阵S表示，其行对应于代谢物，列对应于反应。 S中的元素是相关反应的化学计量系数。代谢通量，通常用v表示，是分子通过反应或酶的周转率。流量调节对于所有代谢途径的调节至关重要</p>
+<p>9.2.2 基本模式和极端路径分析/ 288<br>9.2.3 代谢网络建模/ 292</p>
+<p>9.2.3代谢网络建模<br>生化反应网络的建模在代谢途径领域获得了很大的成功。除了FBA和极端途径分析以外，还开发了许多其他技术来研究代谢系统。与信号通路建模一样，代谢网络建模也包含一系列生化反应，包括结合，解离，复合物形成，分子基团的转移，磷酸化和去磷酸化。尽管有这些相似之处，但信号传导和代谢之间仍存在重大差异，这导致了代谢网络建模中的某些特殊功能。例如，在代谢中，酶和底物的量通常相差几个数量级，这使得Michaelis – Menten动力学适合于对代谢网络进行建模[Kli06]。相反，在信号通路建模中，由于催化剂和底物分子的数量处于同一数量级，因此通常采用质量作用动力学。<br>尽管FBA和极端途径分析已广泛用于研究代谢网络，但它们实际上是基于代谢网络的拓扑分析。有几个可用的公共领域生化反应数据库，例如BRENDA，可提供酶促反应动力学，但与大量反应数据相比却不够。由于动力学参数数量不足，动力学建模仍然具有挑战性。已经提出了一种无需事先了解潜在速率方程式和参数就可以定量解释代谢系统可能动力学的方法[Ste06]。该方法通过使用局部线性模型建立在代谢通量和代谢中间体浓度上。每个稳定的代谢状态都与动态特性的唯一光谱相关，动态光谱由与相应状态一致的所有可能动力学模型的集合定义。该策略代表了从通量平衡分析到代谢系统明确动力学模型的中间步骤[Ste06]。</p>
+<p>9.3 代谢网络的重建/ 294<br>9.3.1 基于反应和化合物的寻路/ 294<br>9.3.2 基于通量曲线的化学计量方法/ 297<br>9.3.3 从时间过程数据/ 298推断生化网络<br>9.4 代谢网络中的药物靶标检测/ 300<br>9.4.1 药物目标检测问题/ 301<br>9.4.2 整数线性规划模型/ 302<br>9.4.3 数值验证/ 305<br>9.5 摘要/ 311</p>
+<h3 id="10-信令网络-建模和推理-313"><a href="#10-信令网络-建模和推理-313" class="headerlink" title="10 信令网络:建模和推理 313"></a>10 信令网络:建模和推理 313</h3><p>10.1 蜂窝系统中的信号转导/ 313<br>10.2 信号传导途径的建模/ 316<br>10.2.1 微分方程模型/ 317<br>10.2.2 Petri网模型/ 319<br>10.3 从高通量数据/ 321推断信令网 络<br>277<br>10.3.1 网页搜索方法/ 322<br>10.3.2 订购信号组件/ 323<br>10.3.3 颜色编码方法/ 324<br>10.4 通过线性编程/ 326推断信令网络<br>10.4.1 整数线性规划模型/ 327<br>10.4.2 重要措施/ 329<br>10.4.3 数值验证/ 329<br>10.4.4 通过网络流模型/ 338推断信令网络<br>10.5 从实验证据/ 341推断信号网络<br>10.6 摘要/ 343</p>
+<p>11 其他主题和新趋势 345<br>11.1 基于网络的蛋白质结构分析/ 345<br>11.2 生物分子网络整合/ 347<br>11.3 非编码RNA的转录后调控/ 349<br>11.4 生物分子相互作用与人类疾病/ 350<br>11.5 摘要/ 352<br>参考资料 353 指数 381</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文献阅读/" rel="tag"># 文献阅读</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/05/Elements-of-Computational-Systems-Biology-Wiley-Series-in-Bioinformatics/" rel="next" title="Elements of Computational Systems Biology (Wiley Series in Bioinformatics)">
+                <i class="fa fa-chevron-left"></i> Elements of Computational Systems Biology (Wiley Series in Bioinformatics)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/14/水稻耐盐讲座/" rel="prev" title="水稻耐盐讲座">
+                水稻耐盐讲座 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
+            
+              <p class="site-author-name" itemprop="name">Square Face</p>
+              <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#III-代谢网络和信号传导网路-279"><span class="nav-number">1.</span> <span class="nav-text">III 代谢网络和信号传导网路 279</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-代谢网络-分析，重构，与应用-281"><span class="nav-number">1.1.</span> <span class="nav-text">9 代谢网络:分析，重构，与应用 281</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-信令网络-建模和推理-313"><span class="nav-number">1.2.</span> <span class="nav-text">10 信令网络:建模和推理 313</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Square Face</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'squarefaceyao',
+            repo: 'SquarefaceyaoBlogComment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67d773eb8c34c8c51cfae4e93d8eb006b5e4b58d',
+            
+                client_id: 'Iv1.34be5dac3293773f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -81,13 +81,13 @@
 
 <meta name="description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚杰鹏的博客">
+<meta property="og:title" content="SquareFace Blog">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
-<meta property="og:site_name" content="姚杰鹏的博客">
+<meta property="og:site_name" content="SquareFace Blog">
 <meta property="og:description" content="少不吃苦是废人，老不吃苦是贵人">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚杰鹏的博客">
+<meta name="twitter:title" content="SquareFace Blog">
 <meta name="twitter:description" content="少不吃苦是废人，老不吃苦是贵人">
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>姚杰鹏的博客</title>
+  <title>SquareFace Blog</title>
   
 
 
@@ -149,13 +149,13 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta custom-logo">
     
 
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">姚杰鹏的博客</span>
+        <span class="site-title">SquareFace Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -221,9 +221,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,16 +284,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/docker搭建Hbase/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/拟南芥离子通道/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -271,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/28/docker搭建Hbase/" itemprop="url">docker搭建Hbase</a></h1>
+                <a class="post-title-link" href="/2019/11/18/拟南芥离子通道/" itemprop="url">拟南芥离子通道</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T09:31:25+08:00">
-                2019-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-18T10:13:35+08:00">
+                2019-11-18
               </time>
             
 
@@ -305,6 +337,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  123
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -323,62 +386,341 @@
       
         
           
-            <h2 id="单机配置Hbase"><a href="#单机配置Hbase" class="headerlink" title="单机配置Hbase"></a>单机配置Hbase</h2><p>###下载并运行镜像###<br>我已经备好集成了HBase单机版的镜像，可以执行以下命令下载到本地：</p>
-<p>docker pull bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
-<p>###运行容器###</p>
-<p>执行以下命令可以用刚刚下载的镜像创建一个容器，容器名称hbase001，60010端口映射到本机：</p>
-<p>docker run –name=hbase001 -p 60010:60010 -idt bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
-<p>###进入容器###<br>执行以下命令，可以进入hbase001容器：</p>
-<p>docker exec -it hbase001 /bin/bash</p>
-<p>###启动HBase服务###<br>进入hbase001容器后，输入以下命令就能启动hbase服务：</p>
-<p>/usr/local/work/hbase/bin/start-hbase.sh</p>
-<p>###进入HBase命令行###<br>执行以下命令，可以进入HBase的命令行模式：</p>
-<p>hbase shell</p>
-<h1 id="记录今天的操作"><a href="#记录今天的操作" class="headerlink" title="记录今天的操作"></a>记录今天的操作</h1><h2 id="docker启动springboot-Docker-NGINX-MySQL"><a href="#docker启动springboot-Docker-NGINX-MySQL" class="headerlink" title="docker启动springboot+Docker+NGINX+MySQL"></a>docker启动springboot+Docker+NGINX+MySQL</h2><p>启动的目录<br>/Users/squareface/IdeaProjects/dockercompose-springboot-mysql-nginx</p>
-<p>docker-compose.yaml 文件内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  hk-nginx:</span><br><span class="line">   container_name: hk-nginx</span><br><span class="line">   image: nginx:1.13</span><br><span class="line">   restart: always</span><br><span class="line">   ports:</span><br><span class="line">   - 80:80</span><br><span class="line">   - 443:443</span><br><span class="line">   volumes:</span><br><span class="line">   - ./nginx/conf.d:/etc/nginx/conf.d</span><br><span class="line">   depends_on:</span><br><span class="line">   - app</span><br><span class="line"> </span><br><span class="line">  hk-mysql:</span><br><span class="line">   container_name: hk-mysql</span><br><span class="line">   image: mysql/mysql-server:5.7</span><br><span class="line">   environment:</span><br><span class="line">    MYSQL_DATABASE: <span class="built_in">test</span></span><br><span class="line">    MYSQL_ROOT_PASSWORD: hellokoding</span><br><span class="line">    MYSQL_ROOT_HOST: <span class="string">'%'</span></span><br><span class="line">   ports:</span><br><span class="line">   - <span class="string">"3306:3306"</span></span><br><span class="line">   restart: always</span><br><span class="line">  </span><br><span class="line">  app:</span><br><span class="line">    restart: always</span><br><span class="line">    build: ./app</span><br><span class="line">    working_dir: /app</span><br><span class="line">    volumes:</span><br><span class="line">      - ./app:/app</span><br><span class="line">      - ~/.m2:/root/.m2</span><br><span class="line">    expose:</span><br><span class="line">      - <span class="string">"8080"</span></span><br><span class="line">    <span class="built_in">command</span>: mvn clean spring-boot:run</span><br><span class="line">    depends_on:</span><br><span class="line">      - hk-mysql</span><br></pre></td></tr></table></figure>
+            <p>beilby用的应该是浓度建立的模型</p>
+<p>我用膜片钳建立的模型，应该更精确。</p>
+<p>我可以看看拟南芥，因为基因组数据比较多，也可能做膜片钳的比较多。。</p>
+<p>小麦的膜片钳数据我估计是没有了。</p>
+<h1 id="Arabidopsis-thaliana"><a href="#Arabidopsis-thaliana" class="headerlink" title="Arabidopsis thaliana"></a>Arabidopsis thaliana</h1><h2 id="保卫细胞"><a href="#保卫细胞" class="headerlink" title="保卫细胞"></a>保卫细胞</h2><p><a href="https://plantmethods.biomedcentral.com/articles/10.1186/1746-4811-8-15" target="_blank" rel="noopener">https://plantmethods.biomedcentral.com/articles/10.1186/1746-4811-8-15</a>  保卫细胞内外钾通道和阴离子通道</p>
+<h2 id="表皮细胞"><a href="#表皮细胞" class="headerlink" title="表皮细胞"></a>表皮细胞</h2><h1 id="老师还是建议先做小麦膜片钳的数据。"><a href="#老师还是建议先做小麦膜片钳的数据。" class="headerlink" title="老师还是建议先做小麦膜片钳的数据。"></a>老师还是建议先做小麦膜片钳的数据。</h1>
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>执行docker-compose up 指令，自动启动项目。就多出4个images<br>mysql<br>maven<br>nginx<br>dockercompose-springboot-mysql-nginx_app</p>
-<h3 id="SpringBoot和NGINX的配置在项目的哪里有写？"><a href="#SpringBoot和NGINX的配置在项目的哪里有写？" class="headerlink" title="SpringBoot和NGINX的配置在项目的哪里有写？"></a>SpringBoot和NGINX的配置在项目的哪里有写？</h3><p>NGINX 反向代理 监听一个端口，进行转发。</p>
-<h2 id="docker-搭建Hbase完全分布式"><a href="#docker-搭建Hbase完全分布式" class="headerlink" title="docker 搭建Hbase完全分布式"></a>docker 搭建Hbase完全分布式</h2><p>使用的images： bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</p>
-<p>1、 运行下列docker-compose.yaml文件，会创建三个容器。名字分别为master、slave1、slave2、</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'2'</span></span><br><span class="line">services:</span><br><span class="line">  master: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19010:22"</span></span><br><span class="line">      - <span class="string">"50070:50070"</span></span><br><span class="line">      - <span class="string">"8088:8088"</span></span><br><span class="line">      - <span class="string">"16010:16010"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave1: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave1</span><br><span class="line">    depends_on:</span><br><span class="line">      - master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19011:22"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave2: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave2</span><br><span class="line">    depends_on:</span><br><span class="line">      - slave1</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19012:22"</span></span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure>
+    
 
-<p>查询容器的ip地址：<br>master 172.19.0.2<br>slave1 172.19.0.3<br>slave2 172.19.0.4</p>
-<p>CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                                                                                               NAMES<br>32481e89f8f8        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19012-&gt;22/tcp                                               slave2<br>2c3c9dd989ad        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19011-&gt;22/tcp                                               slave1<br>bcd27e44e3d6        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       0.0.0.0:8088-&gt;8088/tcp, 0.0.0.0:16010-&gt;16010/tcp, 0.0.0.0:50070-&gt;50070/tcp, 0.0.0.0:19010-&gt;22/tcp   master</p>
-<p>2、###配置hostname和hosts###</p>
-<p>修改master的/etc/sysconfig/network文件，将原有的HOSTNAME=localhost.localdomain改成HOSTNAME=master，对slave1和slave2也做修改，将HOSTNAME分别改成slave1和slave2；<br>分别修改master、slave1、slave2的/etc/hosts文件，都添加相同的内容如下：<br>172.19.0.2 master<br>172.19.0.3 slave1<br>172.19.0.4 slave2</p>
-<p>3 ###master、slave1、slave2之间配置相互免密码登录###</p>
-<p>– 分别修改master、slave1、slave2的/etc/ssh/sshd_config文件，找到下列内容，删除每行的注释符号”#”：<br>RSAAuthentication yes<br>PubkeyAuthentication yes</p>
-<p>– 分别在master、slave1、slave2上执行命令ssh-keygen -t rsa，一路回车下去，最终会在/root/.ssh目录下生成rsa文件</p>
-<p>– 在master上执行如下三行命令，执行完毕后，三个容器的rsa公钥都存在/root/.ssh/authorized_keys文件中了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave1 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave2 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+    
 
-<p>第一行命令将master的公钥写入authorized_keys，第二、第三行分别ssh登录slave1、slave2，将他们的公钥写入到master的authorized_keys文件中，由于是ssh登录，需要输入密码，这里是”password”</p>
-<p>– 分别在slave1、slave2上执行以下命令，将master上的authorized_keys文件复制过来：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@master cat ~/.ssh/authorized_keys&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+    
 
-<p>由于master的authorized_keys中包含了slave1、slave2的rsa公钥，所以在slave1和slave2上执行以上命令的时候是不需要登录的；</p>
-<p>现在三个容器的公钥都已经放在每一个容器上了，它们相互之间可以免密码登录了，例如在slave1上执行ssh root@slave2即可登录到slave2而不用输入密码</p>
-<p>4 ######在容器上创建所需目录###<br>分别在master、slave1、slave2上创建以下目录：</p>
-<p>/usr/local/work<br>/opt/hbase</p>
-<p>###安装zookeeper-3.4.6集群###</p>
-<p>去zookeeper官网下载zookeeper-3.4.6.tar.gz，然后解压到当前电脑；<br>在zookeeper-3.4.6/conf/目录下创建zoo.cfg文件，内容如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="comment"># The number of ticks that the initial </span></span><br><span class="line"><span class="comment"># synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="comment"># The number of ticks that can pass between </span></span><br><span class="line"><span class="comment"># sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="comment"># the directory where the snapshot is stored.</span></span><br><span class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just </span></span><br><span class="line"><span class="comment"># example sakes.</span></span><br><span class="line">dataDir=/usr/<span class="built_in">local</span>/work/zkdata</span><br><span class="line"><span class="comment"># the port at which the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="comment"># the maximum number of client connections.</span></span><br><span class="line"><span class="comment"># increase this if you need to handle more clients</span></span><br><span class="line"><span class="comment">#maxClientCnxns=60</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to read the maintenance section of the </span></span><br><span class="line"><span class="comment"># administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The number of snapshots to retain in dataDir</span></span><br><span class="line"><span class="comment">#autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="comment"># Purge task interval in hours</span></span><br><span class="line"><span class="comment"># Set to "0" to disable auto purge feature</span></span><br><span class="line"><span class="comment">#autopurge.purgeInterval=1</span></span><br><span class="line"></span><br><span class="line">server.1=master:2887:3887  </span><br><span class="line">server.2=slave1:2888:3888 </span><br><span class="line">server.3=slave2:2889:3889</span><br></pre></td></tr></table></figure>
+    <footer class="post-footer">
+      
 
-<p>其实也就是修改了dataDir的值，还有最后三行是新增的，其他内容都是从zoo_sample.cfg复制过来的；</p>
-<ol start="3">
-<li>在当前电脑上，用ssh工具执行以下三行命令，将前面解压的并且已经修改了zoo.cfg文件的zookeeper-3.4.6目录复制到master、slave1、slave2上去：</li>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/Myplant-MySQl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/10/Myplant-MySQl/" itemprop="url">Myplant_MySQl</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-10T12:55:23+08:00">
+                2019-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  565
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="create-MySQL-语句"><a href="#create-MySQL-语句" class="headerlink" title="create MySQL 语句"></a>create MySQL 语句</h1><p>CREATE TABLE <code>dataset</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>author</code> varchar(255) NOT NULL,<br>  <code>created_at</code> datetime NOT NULL,<br>  <code>dataset_meta_id</code> bigint(20) DEFAULT NULL,<br>  <code>description</code> varchar(500) DEFAULT NULL,<br>  <code>equipment_id</code> bigint(20) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>state</code> varchar(255) NOT NULL,<br>  <code>type</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime NOT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>dataset_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>detail</code> varchar(255) DEFAULT NULL,<br>  <code>goal</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>operators</code> varchar(255) DEFAULT NULL,<br>  <code>paper</code> varchar(255) DEFAULT NULL,<br>  <code>position</code> varchar(255) DEFAULT NULL,<br>  <code>sample</code> varchar(255) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>stimulus</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>environment</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>humidity</code> double DEFAULT NULL,<br>  <code>light</code> double DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>pressure</code> double DEFAULT NULL,<br>  <code>temperature</code> double DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>equipment</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>description</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>provider</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>iec_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>channel_num</code> smallint(6) DEFAULT NULL,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>duration</code> double DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>rate</code> int(11) DEFAULT NULL,<br>  <code>record_position</code> varchar(255) DEFAULT NULL,<br>  <code>sampling_rate</code> bigint(20) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>start_at</code> datetime DEFAULT NULL,<br>  <code>stimulate_detail</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_material</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_type</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>image_meta</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>duration</code> double DEFAULT NULL,<br>  <code>format</code> varchar(255) DEFAULT NULL,<br>  <code>frame_rate</code> int(11) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>record_area</code> varchar(255) DEFAULT NULL,<br>  <code>record_position</code> varchar(255) DEFAULT NULL,<br>  <code>signal_type</code> varchar(255) DEFAULT NULL,<br>  <code>start_at</code> datetime DEFAULT NULL,<br>  <code>stimulate_detail</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_material</code> varchar(255) DEFAULT NULL,<br>  <code>stimulate_type</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>sample</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>growth</code> varchar(255) DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>period</code> varchar(255) DEFAULT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>software</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>created_at</code> datetime DEFAULT NULL,<br>  <code>name</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime DEFAULT NULL,<br>  <code>user_id</code> bigint(20) NOT NULL,<br>  <code>version</code> varchar(255) DEFAULT NULL,<br>  PRIMARY KEY (<code>id</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;</p>
+<p>CREATE TABLE <code>user</code> (<br>  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br>  <code>address</code> varchar(255) NOT NULL,<br>  <code>created_at</code> datetime NOT NULL,<br>  <code>email</code> varchar(255) NOT NULL,<br>  <code>password</code> varchar(255) NOT NULL,<br>  <code>sex</code> varchar(255) NOT NULL,<br>  <code>updated_at</code> datetime NOT NULL,<br>  <code>username</code> varchar(255) NOT NULL,<br>  PRIMARY KEY (<code>id</code>),<br>  UNIQUE KEY <code>UK_ob8kqyqqgmefl0aco34akdtpe</code> (<code>email</code>),<br>  UNIQUE KEY <code>UK_sb8bbouer5wak8vyiiy4pf2bx</code> (<code>username</code>)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/预测出来-的电信号有啥用？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/07/预测出来-的电信号有啥用？/" itemprop="url">预测出来 的电信号有啥用？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-07T10:47:41+08:00">
+                2019-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  207
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我的技术难点在多对多的预测？</p>
+<p>这里面也是我为什么很长时间做不出来的原因，单条数据588个点。我觉得应该重点写这个！这样写的话难点在哪里？</p>
+<p>我要解决的问题也是可以写！</p>
+<ol>
+<li>胁迫的信号肯定携带盐浓度： 这个观点太空，不适合神经网络模型，适合机理模型。</li>
 </ol>
-<p>scp -P 19010 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19011 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19012 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work</p>
-<p>执行每行命令都要输入密码”password”</p>
-<ol start="4">
-<li>在master、slave1、slave2上创建目录/usr/local/work/zkdata，在该目录下创建文件myid，文件内容分别是是”1”、“2”、“3”；</li>
-<li>在master、slave1、slave2上依次执行启动zookeeper的命令/usr/local/work/zookeeper-3.4.6/bin/zkServer.sh start；</li>
-<li>在每个容器上分别执行以下命令可以检查zookeeper的集群状态：</li>
+<ol start="2">
+<li><p>具体的盐胁迫数值我可以知道，也就是在使用模型的时候，输入光诱导前的数据，我就可以知道这个植物适合在什么环境中生长，不同盐分下它的涨势评价指标。（这里也是老师重点描述的含义）</p>
+</li>
+<li><p>我对盐胁迫下的数据进行聚类分析，可以得出什么结论？？？</p>
+</li>
 </ol>
-<p>###启动zookeeper。error<br>出现好多奇奇怪怪的问题！！！</p>
-<p>删掉 /usr/local/work   /opt/hbase  重新来一遍</p>
 
           
         
@@ -427,16 +769,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/SpringBoot-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/文献查找-真核细胞/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -446,7 +788,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/27/SpringBoot-3/" itemprop="url">SpringBoot(3)</a></h1>
+                <a class="post-title-link" href="/2019/11/01/文献查找-真核细胞/" itemprop="url">文献查找-真核细胞</a></h1>
         
 
         <div class="post-meta">
@@ -458,8 +800,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:09:51+08:00">
-                2019-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-01T13:58:36+08:00">
+                2019-11-01
               </time>
             
 
@@ -480,6 +822,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  69
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
 
           
 
@@ -498,26 +871,9 @@
       
         
           
-            <p>application.yml 配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8081  <span class="comment"># 修改SpringBoot启动的端口</span></span><br><span class="line">  context-path: /girl <span class="comment">#修改启动路径</span></span><br></pre></td></tr></table></figure>
-
-<p>2、 把配置文件注入到controller里面变量。</p>
-<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p>控制器的使用，主要是用来接收客户端的请求<br>@Controller 处理http请求，不添加这个注解，浏览器无法访问到<br>@Restcontroller  原来返回json需要@ResponseBody配合@Controller<br>@RequsetMapping 配置url映射<br>@PathVariable 获取url中的数据<br>@RequestParam 获取请求参数的值<br>@GetMapping 组合注解</p>
-<p>后端提供result接口和返回json格式给前端。</p>
-<h3 id="Spring-Data-Jpa"><a href="#Spring-Data-Jpa" class="headerlink" title="Spring-Data-Jpa"></a>Spring-Data-Jpa</h3><p>JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate, TopLink</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: create  <span class="comment"># 运行时候自动创建表,create会清空表内之前的内容，update会保留表内原有的数据</span></span><br><span class="line">    show-sql: <span class="literal">true</span> <span class="comment"># 控制台看到sql语句</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>首先定义一个interface 继承 JpaRepository。<br>在创建一个controller类，在controller里面 实现api</p>
-<h4 id="更新数据库："><a href="#更新数据库：" class="headerlink" title="更新数据库："></a>更新数据库：</h4><p>有两种方法<br>    1、 new一个对象出来，重新赋值<br>    2、 通过id find这个条目，在重新赋值。</p>
-<h3 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h3><p>数据库操作<br>作为单个逻辑工作单元执行的一系列操作，要么完全执行，要么完全不执行</p>
-<p>只有在查询的时候不需要添加事务管理，添加一个注解 ：@Transactional</p>
-<h3 id="Spring-Boot-Web-进阶"><a href="#Spring-Boot-Web-进阶" class="headerlink" title="Spring Boot Web 进阶"></a>Spring Boot Web 进阶</h3><p>@Valid 表单验证</p>
-<p>AOP<br>记录每次请求</p>
-<p>统一异常处理</p>
-<p>test</p>
-<h3 id="添加一条数据的时候进行筛选"><a href="#添加一条数据的时候进行筛选" class="headerlink" title="添加一条数据的时候进行筛选"></a>添加一条数据的时候进行筛选</h3><p>1 需要在girl 类 里 添加条件。<br>2 controller</p>
-<p>AOP 处理统一处理请求日志<br>编程范式 设计思想 和语言无关</p>
-<p>使用日志可以记录程序的具体参数，</p>
+            <p>在生物学的范畴内，高等植物属于真核细胞。</p>
+<p>每个离子通道是有好多种家族的，每个家族他们的功能是一定的。</p>
+<p>只要找到相关的真核细胞的数据，就能放到植物上来用吧？</p>
 
           
         
@@ -566,16 +922,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/springboot笔记(2)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/实验室模型发展/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
+      <meta itemprop="name" content="SquareFace Blog">
     </span>
 
     
@@ -585,7 +941,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/25/springboot笔记(2)/" itemprop="url">SpringBoot笔记(2)</a></h1>
+                <a class="post-title-link" href="/2019/10/24/实验室模型发展/" itemprop="url">实验室模型发展</a></h1>
         
 
         <div class="post-meta">
@@ -597,8 +953,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-25T17:11:18+08:00">
-                2019-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T11:05:21+08:00">
+                2019-10-24
               </time>
             
 
@@ -619,256 +975,36 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>1 在DAO层<br> 创建数据表映射过来的class的时候，可以添加一个构造方法，这样在做测试的时候可以不需要new一个实例再去进行赋值。</p>
-<p>2 在 pol.xml中引入jpa和mysql依赖，可以实现对数据库的操作<br>注：把maven的下载源，替换成阿里云。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">	 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	 &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">3 PlantES的数据存储在Hbase和MySQL里，MySQL里存放 用户的信息和展示的数据的。原始的数据放在Hbase里，最后聚合在一起会放在mysql里。</span><br></pre></td></tr></table></figure>
-
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>v-on：绑定一个事件 @ 缩写<br>    通过buttun，设定一个click事件，这个事件会触发一个方法。</p>
-<p>计算属性</p>
-<p>侦听属性</p>
-<p>条件渲染<br>    V-if<br>    V-for</p>
-<p>列表渲染</p>
-<p>Class与Style绑定</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/web部署/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+            <div class="post-wordcount">
+              
                 
-                <a class="post-title-link" href="/2019/08/24/web部署/" itemprop="url">网站部署</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T17:11:18+08:00">
-                2019-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="人人网开源的网站"><a href="#人人网开源的网站" class="headerlink" title="人人网开源的网站"></a>人人网开源的网站</h2><p>项目部署到集群，可以实现三高：<br>高性能<br>高负载<br>高可用</p>
-<p>这的就需要Docker虚拟机来部署，同一服务会同时运行在多个容器里。</p>
-<p>这是一个企业级部署的实战，可以学习一下。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/SpringBoot笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚杰鹏的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
                 
-                <a class="post-title-link" href="/2019/08/23/SpringBoot笔记/" itemprop="url">SpringBoot笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  422
+                </span>
               
-                <span class="post-meta-item-text">发表于</span>
+
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-23T17:11:18+08:00">
-                2019-08-23
-              </time>
-            
+                <span class="post-meta-divider">|</span>
+              
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -888,9 +1024,33 @@
       
         
           
-            <p>Java 1.8.0<br>mvn 3.3.9</p>
-<p>通过一个项目对SpringBoot和VUE进行复习。。。</p>
-
+            <h1 id="2006年，多道植物电信号监测系统，"><a href="#2006年，多道植物电信号监测系统，" class="headerlink" title="2006年，多道植物电信号监测系统，"></a>2006年，多道植物电信号监测系统，</h1><h1 id="2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞"><a href="#2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞" class="headerlink" title="2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞"></a>2008年。建立单个细胞电位的模型，保卫细胞和叶肉细胞</h1><h2 id="建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。"><a href="#建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。" class="headerlink" title="建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。"></a>建立的是单个细胞的模型。采集到的电信号不是单个细胞的，而是几个细胞的。但是效果很好，可以继续使用。</h2><ul>
+<li>换句话说，我可以测到保卫细胞的电位，测到以后我怎么研究？有啥用？</li>
+<li>用HH模型建模，可以反推出来保卫细胞的电位。</li>
+</ul>
+<h2 id="那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号"><a href="#那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号" class="headerlink" title="那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号"></a>那是如何验证模型的？也就是说是如何采集到保卫细胞和叶肉细胞的电信号</h2><hr>
+<ul>
+<li><p>文中说的是用2006年的文章中的方法：微电极插入细胞内，</p>
+</li>
+<li><p>微电极（玻璃管、金属丝）可在细胞水平上对生物电现象进行观测与研究，其尖端直径小于 1微米，它可插入细胞附近及细胞体内，</p>
+</li>
+<li><p>引出的是少数几个甚至单个细胞的电活动。</p>
+</li>
+</ul>
+<h3 id="是如何找到保卫细胞和叶肉细胞？"><a href="#是如何找到保卫细胞和叶肉细胞？" class="headerlink" title="是如何找到保卫细胞和叶肉细胞？"></a>是如何找到保卫细胞和叶肉细胞？</h3><ul>
+<li>赵东杰 2010年硕士论文有详细提到。</li>
+</ul>
+<h1 id="2011年。-基于光标测技术的植物细胞电信号监测方法"><a href="#2011年。-基于光标测技术的植物细胞电信号监测方法" class="headerlink" title="2011年。 基于光标测技术的植物细胞电信号监测方法"></a>2011年。 基于光标测技术的植物细胞电信号监测方法</h1><h1 id="2013年。-基于光标测技术和MEA技术的植物电研究概述"><a href="#2013年。-基于光标测技术和MEA技术的植物电研究概述" class="headerlink" title="2013年。 基于光标测技术和MEA技术的植物电研究概述"></a>2013年。 基于光标测技术和MEA技术的植物电研究概述</h1><ul>
+<li>同时测量两个细胞以上的电位</li>
+</ul>
+<h1 id="2013年。-在植物中记录细胞外信号：建模和实验研究"><a href="#2013年。-在植物中记录细胞外信号：建模和实验研究" class="headerlink" title="2013年。 在植物中记录细胞外信号：建模和实验研究"></a>2013年。 在植物中记录细胞外信号：建模和实验研究</h1><ul>
+<li></li>
+<li>建立胞内和胞外的数量关系</li>
+</ul>
+<h1 id="2015年。-使用光学记录对植物的电活动进行高分辨率的非接触式测量"><a href="#2015年。-使用光学记录对植物的电活动进行高分辨率的非接触式测量" class="headerlink" title="2015年。 使用光学记录对植物的电活动进行高分辨率的非接触式测量"></a>2015年。 使用光学记录对植物的电活动进行高分辨率的非接触式测量</h1><ul>
+<li>光标测 传递熵 信号传递方向 向日葵 </li>
+</ul>
+<h1 id="2018年。无损表面电位测量，光诱导"><a href="#2018年。无损表面电位测量，光诱导" class="headerlink" title="2018年。无损表面电位测量，光诱导"></a>2018年。无损表面电位测量，光诱导</h1>
           
         
       
@@ -929,7 +1089,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -964,7 +1124,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://i2.tiimg.com/692414/289df3f1f51d8071.jpg" alt="Square Face">
+              <img class="site-author-image" itemprop="image" src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png" alt="Square Face">
             
               <p class="site-author-name" itemprop="name">Square Face</p>
               <p class="site-description motion-element" itemprop="description">少不吃苦是废人，老不吃苦是贵人</p>
@@ -977,7 +1137,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">114</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -999,7 +1159,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1009,6 +1169,34 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/squarefaceyao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:squarefaceyao@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/squarefaceyao" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -1042,6 +1230,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Square Face</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">41.3k</span>
   
 </div>
 
@@ -1218,6 +1415,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1232,6 +1746,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
