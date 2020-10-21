@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/youtube-dl使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/pandas的factorize-理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/02/youtube-dl使用/" itemprop="url">youtube-dl使用</a></h1>
+                <a class="post-title-link" href="/2020/03/07/pandas的factorize-理解/" itemprop="url">pandas的factorize()理解</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T23:10:28+08:00">
-                2020-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T22:41:42+08:00">
+                2020-03-07
               </time>
             
 
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  434
+                  318
                 </span>
               
 
@@ -386,19 +386,42 @@
       
         
           
-            <h1 id="下载视频"><a href="#下载视频" class="headerlink" title="下载视频"></a>下载视频</h1><ul>
-<li>youtube-dl –proxy “127.0.0.1:1087” “<a href="https://www.youtube.com/watch?v=hZ1OgQL9_Cw&quot;" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hZ1OgQL9_Cw&quot;</a></li>
-</ul>
-<h1 id="下载全部格式"><a href="#下载全部格式" class="headerlink" title="下载全部格式"></a>下载全部格式</h1><p> youtube-dl  –all-formats <a href="https://www.youtube.com/watch?v=hLQl3WQQoQ0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hLQl3WQQoQ0</a><br> –all-formats ： 添加这个参数之后，所有存在的格式一扫而尽，统统下载；</p>
-<h1 id="查看该视频所有格式类型，只看不下载-F或者–list-formats"><a href="#查看该视频所有格式类型，只看不下载-F或者–list-formats" class="headerlink" title="查看该视频所有格式类型，只看不下载 -F或者–list-formats"></a>查看该视频所有格式类型，只看不下载 -F或者–list-formats</h1><p> –list-formats ： 这是一个列清单参数，执行后并不会下载视频，但能知道这个目标视频都有哪些格式存在，这样就可以有选择的下载啦！</p>
-<p> youtube-dl –list-formats <a href="https://www.youtube.com/watch?v=hLQl3WQQoQ0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hLQl3WQQoQ0</a></p>
-<h1 id="下载指定格式视频"><a href="#下载指定格式视频" class="headerlink" title="下载指定格式视频"></a>下载指定格式视频</h1><p> -f + 编号：通过上一步获取到了所有视频格式的清单，最左边一列就是编号对应着不同的格式，例如我想下载22号那个mp4格式分辨率为1280*720的视频，则按下面的命令就可以轻松指定下载视频哦；</p>
-<p> youtube-dl -f 22 <a href="http://www.youtube.com/watch?v=BlXaGWbFVKY" target="_blank" rel="noopener">http://www.youtube.com/watch?v=BlXaGWbFVKY</a></p>
-<h1 id="下载youtube字幕及视频"><a href="#下载youtube字幕及视频" class="headerlink" title="下载youtube字幕及视频"></a>下载youtube字幕及视频</h1><p> 有的youtube视频是有字幕的可供下载的，但不是全部；如果过你想要下载字幕用这个脚本来操作也是很容易的；先来说说两个参数–write-sub：加入字幕文件 –all-subs：如果有字幕存在则全部下载</p>
-<p> youtube-dl –write-sub –all-subs <a href="https://www.youtube.com/watch?v=0TjgZbVdOLA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0TjgZbVdOLA</a></p>
-<h1 id="读取下载链接列表文件"><a href="#读取下载链接列表文件" class="headerlink" title="读取下载链接列表文件"></a>读取下载链接列表文件</h1><p> youtube-dl -a video_url.txt<br> 这里的 -a 参数表示读取外部链接文件,video_url.txt为包含视频地址的txt文件，一个地址 。</p>
-<h1 id="直接下载最高清版本"><a href="#直接下载最高清版本" class="headerlink" title="直接下载最高清版本"></a>直接下载最高清版本</h1><p>  如果你不想查看版本，直接下载最高清的版本，也可以直接用下面的命令</p>
-<p> youtube-dl -f bestvideo+bestaudio <a href="https://www.youtube.com/watch?v=0TjgZbVdOLA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0TjgZbVdOLA</a></p>
+            <p>pandas的factorize()理解<br>官网说明<br>pandas.factorize(values, sort=False, order=None, na_sentinel=-1, size_hint=None)<br>Encode input values as an enumerated type or categorical variable</p>
+<p>个人理解<br>factorize函数可以将Series中的标称型数据映射称为一组数字，相同的标称型映射为相同的数字。factorize函数的返回值是一个tuple（元组），元组中包含两个元素。第一个元素是一个array，其中的元素是标称型元素映射为的数字；第二个元素是Index类型，其中的元素是所有标称型元素，没有重复。</p>
+<p>实例</p>
+<pre><code class="python"><span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+In [<span class="number">43</span>]: df = pd.DataFrame({<span class="string">"id"</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>], <span class="string">"raw_grade"</span>:[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'b'</span>,
+    ...:  <span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'e'</span>,<span class="string">'c'</span>,<span class="string">'a'</span>]})
+
+In [<span class="number">44</span>]: df
+Out[<span class="number">44</span>]:
+   id raw_grade
+<span class="number">0</span>   <span class="number">1</span>         a
+<span class="number">1</span>   <span class="number">2</span>         b
+<span class="number">2</span>   <span class="number">3</span>         b
+<span class="number">3</span>   <span class="number">4</span>         a
+<span class="number">4</span>   <span class="number">5</span>         a
+<span class="number">5</span>   <span class="number">6</span>         e
+<span class="number">6</span>   <span class="number">3</span>         c
+<span class="number">7</span>   <span class="number">2</span>         a
+
+In [<span class="number">45</span>]: x = pd.factorize(df.raw_grade)
+
+In [<span class="number">46</span>]: x
+Out[<span class="number">46</span>]:
+(array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>], dtype=int64),
+ Index([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'e'</span>, <span class="string">'c'</span>], dtype=<span class="string">'object'</span>))
+<span class="comment">#array中的元素其实是df.raw_grade的对应位置元素在Index中的下标。例如array第一个元素是0，表示df.raw_grade的第一个元素为Index的第0个元素。</span>
+
+In [<span class="number">47</span>]: x[<span class="number">1</span>]
+Out[<span class="number">47</span>]: Index([<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'e'</span>, <span class="string">'c'</span>], dtype=<span class="string">'object'</span>)
+
+In [<span class="number">48</span>]: x[<span class="number">0</span>]
+Out[<span class="number">48</span>]: array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>], dtype=int64)
+
+In [<span class="number">49</span>]: type(x)
+Out[<span class="number">49</span>]: tuple</code></pre>
 
           
         
@@ -447,7 +470,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/KEGG富集分析原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/磁共振启发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -466,7 +489,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/02/KEGG富集分析原理/" itemprop="url">KEGG富集分析原理</a></h1>
+                <a class="post-title-link" href="/2020/03/06/磁共振启发/" itemprop="url">磁共振启发</a></h1>
         
 
         <div class="post-meta">
@@ -478,8 +501,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T09:58:09+08:00">
-                2020-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-06T15:45:47+08:00">
+                2020-03-06
               </time>
             
 
@@ -510,7 +533,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  322
+                  114
                 </span>
               
 
@@ -549,30 +572,189 @@
       
         
           
-            <h2 id="富集分析概念"><a href="#富集分析概念" class="headerlink" title="富集分析概念"></a>富集分析概念</h2><ul>
-<li>基因功能注释： 通过基因的CDS或氨基酸序列与数据库（Nr）做系列比对，找出在数据库中与其最相似的，提取其功能注释信息作为该基因的功能注释</li>
-<li>常 </li>
+            <p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200306154656.png" alt></p>
+<h2 id="如何可以获得每个节点的数据？"><a href="#如何可以获得每个节点的数据？" class="headerlink" title="如何可以获得每个节点的数据？"></a>如何可以获得每个节点的数据？</h2><ul>
+<li>如果把植物的一个器官（大一点的组织）堪称一个结点，</li>
 </ul>
-<p>用户登录名称 <a href="mailto:yjp@1858447101409070.onaliyun.com" target="_blank" rel="noopener">yjp@1858447101409070.onaliyun.com</a><br>AccessKey ID LTAI4Fra4zyQQSnn4geVNG4v<br>AccessKeySecret 1aJXo4atnDXPEYfNX1p6lrZJLK1a4y</p>
-<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image%E6%88%AA%E5%B1%8F2020-02-27%E4%B8%8B%E5%8D%889.19.10.png" alt></p>
-<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302160819.png" alt></p>
-<ol>
-<li>933个差异基因可以在KEGG里面注释到，ko_ID是map的id</li>
-<li>gene 这一栏说明的是拟南芥3W个基因里面注释到pathway里面的基因数目。</li>
-<li>7085是背景基因集。<font color="#FF7F50">背景基因集</font>就是拟南芥全部的3w个基因，可以在KEGG数据库注释到的基因。</li>
-</ol>
-<h3 id="我主要想只要：差异基因里面最主要参与哪个功能。"><a href="#我主要想只要：差异基因里面最主要参与哪个功能。" class="headerlink" title="我主要想只要：差异基因里面最主要参与哪个功能。"></a>我主要想只要：差异基因里面最主要参与哪个功能。</h3><ul>
-<li>看参与pathway的DEG，缺点是不准确，差异基因最多的通路不是我关心的通路。</li>
-<li>因此需要富集<br><font color="#FF7F50">通路富集的富集因子，表示差异基因中注释到的某通路的基因比例与所有基因中注释到该通路的基因比例的比值。</font>
+<p>存在的问题：</p>
+<ul>
+<li>区域划分的含义是什么？划分的结点有什么含义？这样也许可以证明信号的传递方向</li>
+<li>每一个结点的信号值如何计算呢？如果是建模的话，如何验证呢？</li>
+<li>把结点放大到植物的组织器官</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/抑郁症-磁共振/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/05/抑郁症-磁共振/" itemprop="url">抑郁症-磁共振</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-05T22:21:26+08:00">
+                2020-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基于功能连接和有效连接的抑郁症诊断方法研究"><a href="#基于功能连接和有效连接的抑郁症诊断方法研究" class="headerlink" title="基于功能连接和有效连接的抑郁症诊断方法研究"></a>基于功能连接和有效连接的抑郁症诊断方法研究</h1><h2 id="研究意义"><a href="#研究意义" class="headerlink" title="研究意义"></a>研究意义</h2><p>然抑郁症和健康被试有 如此多的结构和功能上的改变，我们只要能够找到其中某种稳定的改变足以区分 出抑郁症患者和健康被试，就可以把这种改变作为诊断抑郁症的标志</p>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><ul>
+<li><p>重度抑郁症患者与健康被试相比，存在特定脑部区域结构上的改变。<br>这些有结构方面改变的脑区包括:额叶区域，前扣带皮层，眶额叶皮质，海马体和尾状核的一部分。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200305223003.png" alt></p>
+</li>
+<li><p>脑区之间固有的功能连接的改变也在许多研究中被发现</p>
 </li>
 </ul>
-<h2 id="什么是显著性"><a href="#什么是显著性" class="headerlink" title="什么是显著性"></a>什么是显著性</h2><p>理解为评价指标，用超几何分布检验计算出来。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302171645.png" alt></p>
-<h3 id="文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。"><a href="#文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。" class="headerlink" title="文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。"></a><font color="#FF7F50">文章主要用显著性指标表示。通路富集的富集因子，用的不广泛。</font></h3><p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302224207.png" alt></p>
-<h2 id="在线富集平台"><a href="#在线富集平台" class="headerlink" title="在线富集平台"></a>在线富集平台</h2><ul>
-<li>KOBAS<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200303095119.png" alt></li>
+<h2 id="脑功能网络也在抑郁症的病理原因方面扮演了重要的角色"><a href="#脑功能网络也在抑郁症的病理原因方面扮演了重要的角色" class="headerlink" title="脑功能网络也在抑郁症的病理原因方面扮演了重要的角色"></a>脑功能网络也在抑郁症的病理原因方面扮演了重要的角色</h2><h3 id="默认网络，额顶网络，注意网络，凸显网络"><a href="#默认网络，额顶网络，注意网络，凸显网络" class="headerlink" title="默认网络，额顶网络，注意网络，凸显网络"></a><strong>默认网络，额顶网络，注意网络，凸显网络</strong></h3><ul>
+<li><p>Bin Zhang 等人发现抑郁症患者在特定的任务 条件下，默认网络会有一个显著的反激活现象。默认网络是一种在休息状态激活 而在任务状态不激活的一种特殊的网络，它被认为和人类的注意力，情绪等密切 相关。</p>
+</li>
+<li><p>默认网络主要由四个主要的脑区组成，内侧前额叶皮层(MPFC),后扣 带回皮质(PCC), 左外侧顶叶(LP_L)和右外侧顶叶(LP_R)。</p>
+</li>
+<li><p>背侧注意网络主要包 括左额叶区域(FEF_L)，右额叶区域(FEF_R)，左内沟区域(IPS_L)和右内沟区域 (IPS_R)。Fabio Sambataro 等人在与健康被试的对比分析中，发现了抑郁症患者 在背侧注意网络的异常改变[10]。</p>
+</li>
+<li><p>凸显网络主要由前扣带皮层(ACC), 左额前额皮 质(RPFC_L)和右额前额皮质(RPFC_R)组成，在抑郁症相关的任务态核磁成像研 究中，该网络显示出了明显的低频振荡(LFO)增强现象[11]。额顶网络主要由左侧 前额叶皮层(LPFC_L), 右侧前额叶皮层(LPFC_R), 左后壁皮层(PPC_L)和右后壁 皮层(PPC_R)组成。Aneta Brzezicka 发现，前额叶和顶叶区之间无效信息传播可能是重度抑郁症形成的主要原因[12]。</p>
+</li>
 </ul>
+<h2 id="功能连接"><a href="#功能连接" class="headerlink" title="功能连接"></a><strong>功能连接</strong></h2><p>功能连接是空间上不相邻的脑区在静息状态下或者在外界的刺激下反应的 时间相关性。如果两个脑区对某个刺激反应的时间相关性比较大，这两个脑区的 功能连接就比较强。度量相关性可以多种方法，最常用的是皮尔逊相关系数。</p>
+<ul>
+<li>脑区划分，因为功能连接度量的是脑区之间的相关性，如何划分脑区会对最终的相关性结果产生影响。AAL 模版(Automated Anatomical Labeling)、(Brainnetome)模版对脑区进行划分。</li>
+</ul>
+<h2 id="有效连接"><a href="#有效连接" class="headerlink" title="有效连接"></a><strong>有效连接</strong></h2><p>有效连接是一种在神经元水平上为脑区间信号响应进行因果建模的方法， 能够比较详细的分析出连接的改变。利用有效连接衡量这几个静息态脑网络的改 变可能比单纯使用功能连接更有效。DonaldR等人利用有效连接探索了重度抑郁症患者杏仁核和前扣带皮层的连接，发现与健康被试相比，有明显的异常。<br><strong>功能连接和有效连接的异常性改变可能能够作为一种稳定的诊断标志</strong></p>
+<h2 id="研究方法"><a href="#研究方法" class="headerlink" title="研究方法"></a>研究方法</h2><h3 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a><strong>时间序列</strong></h3><p>一般，仪器2s就可以对大脑进行一遍核磁共振扫描，得到一张3维图，即3维数据。如果每2s扫一次，扫多次，就可以得到随时间变化的一系列3维脑图，即再加一维时间维，为4维数据。对于大脑的某一个结点（固定前3维），可以得到一个时间序列（时间维变化）</p>
 
           
         
@@ -621,7 +803,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/DJango接受前端数据/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/Python表示图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -640,7 +822,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/29/DJango接受前端数据/" itemprop="url">DJango接受前端数据</a></h1>
+                <a class="post-title-link" href="/2020/03/05/Python表示图/" itemprop="url">Python表示图</a></h1>
         
 
         <div class="post-meta">
@@ -652,8 +834,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-29T16:25:44+08:00">
-                2019-12-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-05T10:58:15+08:00">
+                2020-03-05
               </time>
             
 
@@ -684,7 +866,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  65
+                  3
                 </span>
               
 
@@ -723,313 +905,179 @@
       
         
           
-            <ol>
-<li>vue 会给后端发送一个API链接（应该是保存在list里面），Django根据获取的url进行get请求。会获取到两种格式的数据，csv和image</li>
-<li>根据获取到的数据，在使用我提供的函数进行分析，</li>
+            <h1 id="Adjacency-Matrix"><a href="#Adjacency-Matrix" class="headerlink" title="Adjacency Matrix"></a>Adjacency Matrix</h1><h1 id="Adjacency-List"><a href="#Adjacency-List" class="headerlink" title="Adjacency List"></a>Adjacency List</h1><p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200305105945.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/图论算法在生物网络数据上的应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/03/图论算法在生物网络数据上的应用/" itemprop="url">图论算法在生物网络数据上的应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-03T20:28:19+08:00">
+                2020-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  596
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>文章分为两个部分：</p>
+<ol>
+<li>在必需蛋白预测研究中，考虑了蛋白所在的生物网络环境，以蛋白之间的连接关系重要程度来间接预测必需蛋白。除了主流的边聚类系数等图论特征，还利用了几何模型整合多种连接关系度量，有效减小了单一特征依赖问题。</li>
+<li>在活跃信号通路识别问题中，引入 KEGG 知识库参与 背景网络构建过程，之后应用图论中的路径模型识别生物体在受到刺激后产生的 应激反应信号通路，该方法保留了分子所属通路信息，使结果更具解释性，方便 生物医学研究人员提出机理性假设。</li>
 </ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/小麦膜片钳/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SquareFace Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/26/小麦膜片钳/" itemprop="url">小麦膜片钳</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T16:30:12+08:00">
-                2019-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  26
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="小麦里面是没有发现动作电位"><a href="#小麦里面是没有发现动作电位" class="headerlink" title="小麦里面是没有发现动作电位"></a>小麦里面是没有发现动作电位</h1><p>(小麦胚芽)[<a href="https://www.biorxiv.org/content/10.1101/781799v1.full]" target="_blank" rel="noopener">https://www.biorxiv.org/content/10.1101/781799v1.full]</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/Django-401/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SquareFace Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/23/Django-401/" itemprop="url">Django 401</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T14:59:07+08:00">
-                2019-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  20
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>vue发送的是json格式的数据</p>
-<p>所以Django接受Json格式的数据</p>
+<p>IEW算法：<a href="http://digbio.missouri.edu/IEW/index.html" target="_blank" rel="noopener">http://digbio.missouri.edu/IEW/index.html</a></p>
+<h2 id="信号通路识别（多分子析协同作用机理方面）"><a href="#信号通路识别（多分子析协同作用机理方面）" class="headerlink" title="信号通路识别（多分子析协同作用机理方面）"></a>信号通路识别（多分子析协同作用机理方面）</h2><p><a href="http://digbio.missouri.edu/impres" target="_blank" rel="noopener">http://digbio.missouri.edu/impres</a><br>活跃信号通路识别算法</p>
+<p>算法利用动态规划的思想，针对代谢通路。</p>
+<ol>
+<li>首先,利用 KEGG 数据库中对<strong>代谢通路</strong>的知识来构建背景网络。设计“类-实例”关系来扩展KEGG数据库中分子代谢通路，以获得基因参与的具体通路信息，</li>
+<li>其次,基于组学数据为生物网络中的分子、分子连接和代谢 通路分配罚分，来逐步探索最优信号通路。</li>
+<li>最后，从一个或多个起始基因开始，应用图论中的最短路径模型 识别下游信号通路，使其能最好地解释组学数据中分子的表达值。</li>
+</ol>
+<h3 id="活跃通路识别的目标"><a href="#活跃通路识别的目标" class="headerlink" title="活跃通路识别的目标"></a>活跃通路识别的目标</h3><p>在生物体受到外界刺激或自身基因组位点突变后，找到生物网络中哪些部位活跃起来并做出了相应反应。  </p>
+<ul>
+<li>合理地解释分子之间的级联反应顺序，即识别活跃信号通路</li>
+</ul>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<li>第一张提到哪些算法？在活跃信号通路识别领域</li>
+<li>图论中路径模型，都有那些算法，思想要了解，实现最简单的一个算法。文中提到最短路径，基于“节约生物系统”假设：生物会选择高效的路径完胜生物功能。</li>
+<li>网络节点的最小参与代价，这个是如何计算的？</li>
+</ul>
 
           
         
@@ -1069,7 +1117,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1117,7 +1165,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1139,7 +1187,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1218,7 +1266,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.3k</span>
+    <span title="Site words total count">45.5k</span>
   
 </div>
 

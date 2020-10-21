@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/pathway数据资源/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/06/PlantES帮助页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/27/pathway数据资源/" itemprop="url">pathway数据资源</a></h1>
+                <a class="post-title-link" href="/2020/05/06/PlantES帮助页面/" itemprop="url">PlantES帮助页面</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-27T22:48:23+08:00">
-                2020-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-06T09:34:40+08:00">
+                2020-05-06
               </time>
             
 
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  75
+                  312
                 </span>
               
 
@@ -386,20 +386,31 @@
       
         
           
-            <p>Google 索引的在线资源中心</p>
+            <h1 id="1-上传数据"><a href="#1-上传数据" class="headerlink" title="1. 上传数据"></a>1. 上传数据</h1><h2 id="数据上传"><a href="#数据上传" class="headerlink" title="数据上传"></a>数据上传</h2><p>用户登录后，可以上传数据。上传数据需要填写描述信息，便于数据共享和分析。在上传文件时需要选择文件类型CSV或Imag，这一步非常重要。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075050.png" alt></p>
+<p>设备描述信息<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075120.png" alt></p>
+<p>输入电信号描述信息<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075138.png" alt></p>
+<h1 id="2-分析数据"><a href="#2-分析数据" class="headerlink" title="2. 分析数据"></a>2. 分析数据</h1><h2 id="2-1-荧光图像分析"><a href="#2-1-荧光图像分析" class="headerlink" title="2.1 荧光图像分析"></a>2.1 荧光图像分析</h2><p>注意：需要上传多张荧光图像照片，用于分析信号变化。</p>
 <ul>
-<li><a href="http://www.pathguide.org/" target="_blank" rel="noopener">http://www.pathguide.org/</a></li>
+<li><p>拖动滑块可以选择分析区域大小。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508214947.png" alt></p>
+</li>
+<li><p>点击get获得单区域分析结果<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/imageget%E8%8E%B7%E5%BE%97%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C.png" alt></p>
+</li>
+<li><p>点击上方MultRegion获得多区域分析结果。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508214631.png" alt></p>
+</li>
+<li><p>点击上方HeatMap获得整张图片电信号变化热图</p>
+</li>
 </ul>
-<p>关于植物的网站有29个</p>
+<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200511122855.png" alt></p>
+<h2 id="2-2-AP信号分析"><a href="#2-2-AP信号分析" class="headerlink" title="2.2 AP信号分析"></a>2.2 AP信号分析</h2><p>通过模版匹配算法。快速判断AP波形</p>
+<p>第一步，在同一条波形上，选择三个参考点。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508071901.png" alt><br>第二步，点击下方validAP按钮分析数据，得到结果。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508071947.png" alt></p>
+<p>点击Exprot data可以导出分析结果<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508072026.png" alt></p>
+<h2 id="2-3-LIRB信号生成"><a href="#2-3-LIRB信号生成" class="headerlink" title="2.3 LIRB信号生成"></a>2.3 LIRB信号生成</h2><p>采用GAN技术，对LIRB信号生成，扩充电信号数据集。</p>
 <ul>
-<li><p><a href="http://www.plantcyc.org" target="_blank" rel="noopener">www.plantcyc.org</a></p>
-<p>PlantCyc Organism: Triticum aestivum</p>
+<li><p>在原始波形基础上选择三个参考点，提取LIRB信号特征<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508212927.png" alt></p>
 </li>
-<li><p><a href="https://plantreactome.gramene.org/index.php?lang=en" target="_blank" rel="noopener">https://plantreactome.gramene.org/index.php?lang=en</a></p>
+<li><p>点击Genera生成虚拟样本，Generated variety选择生成样本，Number选择生成数量。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200511213946.png" alt></p>
 </li>
 </ul>
-<p> 18602316985—-cjvip5926</p>
-<p> 复制这段内容后打开百度网盘手机App，操作更方便哦 链接：<a href="https://pan.baidu.com/s/1ZuDmS1X465r3fC9IEOR7ZA" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZuDmS1X465r3fC9IEOR7ZA</a> 提取码：26zm </p>
 
           
         
@@ -448,7 +459,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/信号转导网络的生物信息学分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/26/logisim-安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -467,7 +478,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/26/信号转导网络的生物信息学分析/" itemprop="url">信号转导网络的生物信息学分析</a></h1>
+                <a class="post-title-link" href="/2020/04/26/logisim-安装/" itemprop="url">logisim 安装</a></h1>
         
 
         <div class="post-meta">
@@ -479,8 +490,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T15:40:24+08:00">
-                2020-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-26T11:02:18+08:00">
+                2020-04-26
               </time>
             
 
@@ -511,7 +522,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  288
                 </span>
               
 
@@ -550,7 +561,9 @@
       
         
           
-            
+            <h1 id="获取Logisim"><a href="#获取Logisim" class="headerlink" title="获取Logisim"></a>获取Logisim</h1><p>Logisim应该在支持Java版本5或更高版本的任何平台上运行。</p>
+<p>Logisim需要Java 5或更高版本。如果您尚未在计算机上安装Java，则可以从java.sun.com获得Java 。<br>从Logisim的<a href="http://sourceforge.net/projects/circuit/" target="_blank" rel="noopener">SourceForge.net</a>页面下载Logisim 。您将选择下载哪个发行版的三个选择。<br>一个的.jar文件-运行在任何平台上，虽然不一定方便。<br>MacOS .tar.gz文件<br>Windows .exe文件<br>如果您使用MacOS或Windows，我建议您使用特定于您平台的版本。<br>要执行程序：<br>使用通用.jar文件：在Windows和MacOS系统上，您可能可以通过双击JAR文件来启动Logisim。如果这不起作用，或者您使用Linux或Solaris，则可以在命令行中键入`` java -jar logisim- XX .jar ‘’。<br>对于MacOS X版本：下载的 .tar.gz版本解压缩后（这可能会自动发生），只需双击Logisim图标即可启动。您可能需要将图标放入“应用程序”文件夹中。<br>对于Windows版本：只需双击Logisim图标。您可能希望在桌面上和/或在“开始”菜单中创建快捷方式，以使启动Logisim更加容易。</p>
+
           
         
       
@@ -598,7 +611,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/植物电信号-表型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/14/水稻耐盐讲座/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -617,7 +630,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/26/植物电信号-表型/" itemprop="url">植物电信号-表型</a></h1>
+                <a class="post-title-link" href="/2020/04/14/水稻耐盐讲座/" itemprop="url">水稻耐盐讲座</a></h1>
         
 
         <div class="post-meta">
@@ -629,8 +642,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T09:57:56+08:00">
-                2020-03-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-14T20:04:30+08:00">
+                2020-04-14
               </time>
             
 
@@ -661,7 +674,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  35
+                  4
                 </span>
               
 
@@ -700,8 +713,7 @@
       
         
           
-            <p>可以把植物电信号当成植物的表型数据进行处理和分析</p>
-<p>表型和基因的关系如下图<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200326095941.png" alt></p>
+            <p>苗期耐盐<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200416.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200543.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200718.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200927.png" alt></p>
 
           
         
@@ -750,7 +762,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/国内pathway预测/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -769,7 +781,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/25/国内pathway预测/" itemprop="url">国内pathway预测</a></h1>
+                <a class="post-title-link" href="/2020/04/06/Biomolecular-Networks-Methods-and-Applications-in-Systems-Biology/" itemprop="url">Biomolecular Networks Methods and Applications in Systems Biology</a></h1>
         
 
         <div class="post-meta">
@@ -781,8 +793,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-25T09:57:08+08:00">
-                2020-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T15:52:54+08:00">
+                2020-04-06
               </time>
             
 
@@ -813,7 +825,172 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k
+                  5.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 1 介绍 1.1<br>1.2 1.3 1.4<br>1
+分子生物学基础知识/ 1<br>1.1.1 基因组，基因和DNA复制过程/ 5<br>1.1.2 RNA合成的转录过程/ 6<br>1.1.3 蛋白质合成的翻译过程/ 7<br>细胞中的生物分子网络/ 8 网络系统生物学/ 13 关于本书/ 18<br>I 基因网络 23 2 转录法规:网络和模型 25<br>2.1 转录调控和基因表达/ 25<br>2.1.1 转录和基因调控/ 25<br>2.1.2 微阵列实验和数据库/ 28<br>2.1.3 芯片技术和转录因子数据库/ 30<br>2.2 转录监管网络/ 32<br>2.3 基于生化反应的非线性模型/ 36<br>2.4 监管网络的集成模型/ 43<br>2.5 摘要/ 44<br>vii</p>
+<p> ii 内容<br>3 基因调控网络的重建 47<br>3.1 基因调控网络的数学模型/ 47<br>3.1.1 布尔网络/ 48<br>3.1.2 贝叶斯网络/ 49<br>3.1.3 马尔可夫网络/ 52<br>3.1.4 微分方程/ 53<br>3.2 重建基因调控网络/ 55<br>3.2.1 奇异值分解/ 56<br>3.2.2 基于模型的优化/ 58<br>3.3 从多个数据集推断基因网络/ 61<br>3.3.1 多种数据集网络结构的一般解决方案和特殊解决方 案/ 63<br>3.3.2 分解算法/ 65<br>3.3.3 数值验证/ 67<br>3.4 基于基因网络的药物靶标识别/ 72<br>3.4.1 网络识别方法/ 73<br>3.4.2 线性编程框架/ 77<br>3.5 摘要/ 87<br>4 转录调控网络的推论 89<br>4.1 预测TF结合位点和启动子/ 89<br>4.2 转录相互作用的推论/ 92<br>4.2.1 微分方程方法/ 93<br>4.2.2 贝叶斯方法/ 96<br>4.2.3 数据挖掘和其他方法/ 98<br>4.3 确定TF的组合规定/ 99<br>4.4 推断合作监管网络/ 105<br>4.4.1 数学模型/ 105<br>4.4.2 估计TF活动/ 106<br>4.4.3 线性规划模型/ 108<br>4.4.4 数值验证/ 109<br>4.5 转录因子活性预测/ 114<br>4.5.1 矩阵分解/ 114<br>4.5.2 非线性模型/ 117<br>4.6 摘要/ 118</p>
+<p> II 蛋白质相互作用网络<br>5 蛋白质与蛋白质相互作用的预测<br>5.1 实验性蛋白质–蛋白质相互作用/ 121<br>5.2 蛋白质与蛋白质相互作用的预测/ 126<br>5.2.1 关联方法/ 127<br>5.2.2 最大可能性估算/ 134<br>5.2.3 确定性优化方法/ 139<br>5.3 基于多域对/ 150的蛋白质相互作用预测<br>5.3.1 合作域，强合作域，超域/ 152<br>5.3.2 多域交互的推论/ 154<br>5.3.3 数值验证/ 157<br>5.3.4 通过多域交互重构复杂对象/ 160<br>内容 iii 119 121<br>5.4 域交互预测方法/ 163<br>5.4.1 统计方法/ 163<br>5.4.2 域对排除分析/<br>5.4.3 简约解释方法/<br>5.4.4 整合方法/ 165<br>163 164<br>5.5 摘要/<br>6 生物分子网络的拓扑结构<br>167<br>6.1 生物分子网络的统计特性/ 169<br>6.2 蛋白质相互作用网络的进化/ 173<br>6.3 生物分子网络中的集线器，基序和模块化/<br>174<br>6.3.1 网络中心和集线器/ 174<br>6.3.2 网络模块化和图案/ 177<br>6.4 集线器和网络主题的探索性作用/ 179<br>6.4.1 集线器和网络主题组织的动态模块化 / 180<br>6.4.2 网络主题充当路径之间的连接器/ 186<br>6.5 生物分子网络的模块性评估/ 194<br>6.5.1 模块化密度D / 195<br>6.5.2 通过D / 196提高模块分辨率极限<br>169</p>
+<p> iv 内容<br>6.5.3 D和内核之间的等价k Means / 198<br>6.5.4 D扩展到一般标准:Dl 和Dw/<br>6.5.5 数值验证/ 200<br>6.6 摘要/ 204<br>7 生物分子网络的比对<br>7.1 多种生物分子网络/ 205<br>7.2 生物分子网络的成对比对/ 207<br>7.2.1 基于得分的算法/ 208<br>7.2.2 进化指导方法/ 211<br>7.2.3 图匹配算法/ 212<br>7.3 通过数学编程进行网络对齐/ 213<br>7.3.1 整数编程公式/ 214<br>199<br>7.3.2 整数二次编程方法/ 216的组成部分<br>7.3.3 数值验证/ 217<br>7.4 生物分子网络的多重比对/ 223<br>7.5 子网和路径查询/ 225<br>7.6 摘要/ 228<br>8 基于网络的蛋白质功能预测 231<br>8.1 蛋白质功能和注释/ 231<br>8.2 蛋白质功能模块检测/ 234<br>8.2.1 基于距离的聚类方法/ 235<br>8.2.2 图聚类方法/ 236<br>8.2.3 验证模块检测/ 238<br>8.3 蛋白质功能注释的功能链接/ 239<br>8.3.1 贝叶斯方法/ 239<br>8.3.2 Hopfield网络方法/ 241<br>8.3.3 p值法/ 242<br>8.3.4 统计框架/ 243<br>8.4 高通量数据对蛋白质功能的预测/ 249<br>8.4.1 邻里方法/ 250<br>8.4.2 优化方法/ 251<br>8.4.3 概率方法/ 254<br>8.4.4 机器学习技术/ 256<br>205</p>
+<p> 8.5 域的功能注释方法/ 265<br>8.5.1 域名来源/ 267<br>8.5.2 异构数据集成/ 268<br>8.5.3 域功能预测/ 270<br>8.5.4 数值验证/ 271<br>8.6 摘要/</p>
+<h2 id="III-代谢网络和信号传导网路-279"><a href="#III-代谢网络和信号传导网路-279" class="headerlink" title="III 代谢网络和信号传导网路 279"></a>III 代谢网络和信号传导网路 279</h2><h3 id="9-代谢网络-分析，重构，与应用-281"><a href="#9-代谢网络-分析，重构，与应用-281" class="headerlink" title="9 代谢网络:分析，重构，与应用 281"></a>9 代谢网络:分析，重构，与应用 281</h3><p>9.1细胞新陈代谢和代谢途径<br>细胞功能是通过其化学成分的相互作用来完成的。细胞代谢是细胞中发生的所有生化反应的总集合，例如涉及降解食物分子，合成大分子以及产生小前体分子的反应。它还包括所有涉及电子转移的反应。代谢过程通常分为两大类，即中间代谢阶段。一种是分解代谢，将各种底物分解成常见的代谢产物，包括从营养中去除电子，并在细胞呼吸中收集能量。换句话说，分解代谢包括降解和增能反应，其中复杂的物质和大分子分解为低分子量化合物。通常，分解代谢中的反应是氧化的，并产生还原电位。另一个是合成代谢，它合成氨基酸，脂肪酸和核酸等复杂分子，利用能量使分子富集电子，并需要细胞消耗从营养分解代谢中获得的能量。换句话说，合成代谢包括生物合成和需要能量的反应，其中复杂物质和大分子是由低分子量前体合成的。通常，合成代谢的反应是还原性的，并且消耗还原潜力。在分解代谢和合成代谢过程中，通过一组载体分子（例如ATP，GTP，NADH和NADPH）进行复杂的化学基团交换和还原-氧化（氧化还原）电势。这些载体分子及其转移的物质组成了细胞中的全部新陈代谢。图9.1说明了细胞代谢的主要部分，其中中间代谢将原材料转化为能量以及细胞的组成部分，例如蛋白质和膜。<br>细胞中的所有生化反应均由一种称为酶的特殊蛋白质催化，该蛋白质通常需要饮食中的矿物质，维生素和其他辅助因子才能正常运行。这些生化反应使生物能够生长，繁殖，维持其结构并对环境作出反应。在充满不同类型化学反应的生物系统中，能量（定义为工作能力）必不可少。生物系统中能量的两种基本类型是势能和动能。势能是物质由于其结构或位置而具有的状态或位置的能量。它是等待工作的存储能量。例如，化学键由于其结构而具有势能。动能是运动的能量。这是可以起作用的能量类型。动能和势能都可以以多种形式找到，例如电，光，化学，热和机械形式。在某些条件下，可以遵循热力学定律将能量从一种形式转换或转换为另一种形式。可用能量称为自由能（G）。不可利用的能量是熵，它衡量了系统的无序性。用能化学反应释放出自由能，并且自由能发生负向变化（DG，0）。内能化学反应消耗自由能，并且自由能发生正向变化（DG。0）。三磷酸腺苷（ATP）在生物系统中是一种能源。一种重要的能动反应是<br>ATP键的断裂，其中ATP在水解后释放出相对大量的自​​由能。 ATP循环耦合了能动和性能反应。它捕获在能级化学反应中释放的自由能，并将捕获的能量转移到负电子反应的反应物中。<br>酶是生物系统的催化剂，可通过降低能垒，提供引发反应所需的活化能来影响生化反应的速率[Sad07]。几乎所有已知的酶都是蛋白质。酶最显着的特征是它们的催化能力和特异性。酶不仅决定化学转化的方式，而且还介导一种能量形式向另一种能量形式的转化。在没有酶的情况下，生物系统中的大多数反应不会以可察觉的速率发生。通常，酶根据其催化的反应类型进行分类。国际生物化学联合会建立了一个酶委员会（EC）来开发酶的命名法，其中反应分为六个主要组，编号为1-6（表9.1）。这些组被细分并进一步细分，因此以四位数字开头的字母EC（用于酶委员会）可以精确识别所有酶。<br>代谢途径是细胞内发生的一系列化学反应，其中一种化学物质通过一系列酶的催化化学反应转化为另一种化学反应。代谢途径可以是几个反应的简单线性序列，也可以是广泛分支的反应，这些反应汇聚或偏离中心主要途径。生物系统中有许多代谢途径。其中一些是许多活生物体所共有的。例如，糖酵解代谢参与葡萄糖氧化以获得ATP，它是许多生物体中的能量转换途径。柠檬酸循环涉及乙酰基-CoA氧化，以获得GTP和有价值的中间体。它通常受底物可用性，产物抑制作用和某些循环中间体的调控。氧化磷酸化途径处理由糖酵解和柠檬酸循环释放的电子。戊糖磷酸途径参与戊糖的合成和合成代谢反应所需的还原能力的释放。其他主要的代谢途径包括脂肪酸代谢，糖原代谢和氨基酸代谢。许多化学物质可能参与细胞内存在的多种途径。这些途径的集合非常复杂，并形成了复杂的代谢网络，是代谢和身体的完整集合。确定细胞生理和生化特性的过程（见图9.2）。 这些网络包括代谢的化学反应以及指导这些反应的调节相互作用，并成为阐明细胞机制和建模代谢的强大工具。 随着基因组技术的发展，许多生物中的代谢网络可以通过生化反应来重建[Ree03]。<br>表9.2列出了一些主要的代谢网络数据库。 京都基因与基因组百科全书（KEGG）途径是一个数据库，其中包含有关确定细胞生理和生化特性的过程（见图9.2）。这些网络包括代谢的化学反应以及指导这些反应的调节相互作用，并成为阐明细胞机制和建模代谢的强大工具。随着基因组技术的发展，许多生物中的代谢网络可以通过生化反应来重建[Ree03]。<br>表9.2列出了一些主要的代谢网络数据库。京都基因与基因组百科全书（KEGG）途径是一个数据库，其中包含有关基因与蛋白质的分子相互作用和反应网络的信息。它包括来自各种生物体的所有已知代谢途径的图形途径图。 BioCyc是371个途径数据库的集合，其中包含特定于某些生物的完整数据库。 BioCyc集合中的每个途径数据库都描述了单个生物的基因组和代谢途径。例如，属于BioCyc的EcoCyc是关于大肠杆菌整个基因组的高度详细的生物信息学数据库。 EcoCyc包含有关转录调控，蛋白质复合物，酶，转运蛋白和代谢途径的文献资料。此外，MetaCyc是代谢途径的百科全书，是一种代谢途径和酶数据库，其中包含从1500种生物中阐明的1100条代谢途径。 MetaCyc中的大多数代谢途径均来自科学实验文献。 MetaCyc包含参与一级和二级代谢的途径，以及相关的化合物，酶和基因。 BRENDA是一个酶数据库，其中包含有关酶和酶反应的全面信息。它是欧洲生物信息研究所（EBI）的SRS5序列检索系统的代谢途径数据库集中嵌套的几个数据库之一。<br>代谢网络具有与其他生物网络共享的一些共同特性，并且还具有独特的特征。为了阐明生物代谢的组织原理和生物学原理，最近的研究采用图论方法分析大型代谢网络。与其他蜂窝网络的隔离功能模块组织不同，Ravasz等人。对许多生物的代谢网络进行了研究，发现它们被组织成许多高度连接的拓扑模块，这些模块以分层的方式结合了较大的，内聚力较小的单元[Rav02]。这种单元的数量和程度通常遵循幂律分布。 Jeong等。系统地比较了43种生物的代谢网络的数学分析[Jeo00]，发现这些<br>代谢网络具有相同的拓扑缩放特性，并且与复杂的非生物系统的固有组织具有惊人的相似性。相反，有田指出，代谢网络具有通量分布，其平均路径长度比网络结构中观察到的平均路径长度长，并且它们的功能状态可能不具有无标度特性[Ari04]。 Mahadevan和Palsson研究了代谢网络的结构和功能之间的关系[Mah05]。他们发现，与其他影响类型的生物网络（如蛋白质-蛋白质相互作用网络或调控网络）不同，在流动型代谢网络中，节点反应的实质与节点中心性无关。这些结果表明，由于网络表示和功能限制，不同生物网络之间存在根本差异。他们的研究表明，即使是代谢网络中连接最少的节点，对于那些连接程度高的节点，对于整个网络功能而言也很关键。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200406160731.png" alt></p>
+<p>9.1 细胞代谢和代谢途径/ 281<br>9.2 代谢网络分析与建模/ 286<br>9.2代谢网络分析与建模<br>代谢网络的动态仿真和分析使我们能够阐明代谢过程的潜在机制。信号网络和代谢网络均由许多生化反应组成。因此，自然代谢网络也可以通过常微分方程（ODE）或Petri网建模。但是，尽管与信令网络相似，但是它们具有一些不同的属性，在数学建模中应该考虑这些属性。在信号传导途径中，我们不仅关注物质流，还关注信号流，信号流是通过磷酸化和去磷酸化的蛋白质形式来实现的[Sac06]。相反，在代谢网络中，化学计量的反应方程式控制着新陈代谢的动力学，新陈代谢的动力学强调物质的流动。尤其是酶的活性动力学具有特殊的动力学。这些因素导致新陈代谢网络模拟的特殊功能，这些功能不同于其他生物分子网络。</p>
+<p>9.2.1 助焊剂平衡分析/ 286</p>
+<p>9.2.1通量平衡分析<br>磁通量平衡分析（FBA）是根据化学定律对代谢进行的数学分析，已被证明是分析细胞系统代谢能力的非常有用的技术。例如，使用FBA，只要已知某些营养素，我们就可以知道哪些代谢通量使生物体的生长速率最大化。亚马逊物流的基础知识已在文献[LeM06，Kau03]中进行了评论。在这里，我们仅作简要介绍。<br>图9.3说明了一个反应网络和FBA。化学计量是化学反应中反应物和产物的定量关系的计算。代谢网络可以由化学计量矩阵S表示，其行对应于代谢物，列对应于反应。 S中的元素是相关反应的化学计量系数。代谢通量，通常用v表示，是分子通过反应或酶的周转率。流量调节对于所有代谢途径的调节至关重要</p>
+<p>9.2.2 基本模式和极端路径分析/ 288<br>9.2.3 代谢网络建模/ 292</p>
+<p>9.2.3代谢网络建模<br>生化反应网络的建模在代谢途径领域获得了很大的成功。除了FBA和极端途径分析以外，还开发了许多其他技术来研究代谢系统。与信号通路建模一样，代谢网络建模也包含一系列生化反应，包括结合，解离，复合物形成，分子基团的转移，磷酸化和去磷酸化。尽管有这些相似之处，但信号传导和代谢之间仍存在重大差异，这导致了代谢网络建模中的某些特殊功能。例如，在代谢中，酶和底物的量通常相差几个数量级，这使得Michaelis – Menten动力学适合于对代谢网络进行建模[Kli06]。相反，在信号通路建模中，由于催化剂和底物分子的数量处于同一数量级，因此通常采用质量作用动力学。<br>尽管FBA和极端途径分析已广泛用于研究代谢网络，但它们实际上是基于代谢网络的拓扑分析。有几个可用的公共领域生化反应数据库，例如BRENDA，可提供酶促反应动力学，但与大量反应数据相比却不够。由于动力学参数数量不足，动力学建模仍然具有挑战性。已经提出了一种无需事先了解潜在速率方程式和参数就可以定量解释代谢系统可能动力学的方法[Ste06]。该方法通过使用局部线性模型建立在代谢通量和代谢中间体浓度上。每个稳定的代谢状态都与动态特性的唯一光谱相关，动态光谱由与相应状态一致的所有可能动力学模型的集合定义。该策略代表了从通量平衡分析到代谢系统明确动力学模型的中间步骤[Ste06]。</p>
+<p>9.3 代谢网络的重建/ 294<br>9.3.1 基于反应和化合物的寻路/ 294<br>9.3.2 基于通量曲线的化学计量方法/ 297<br>9.3.3 从时间过程数据/ 298推断生化网络<br>9.4 代谢网络中的药物靶标检测/ 300<br>9.4.1 药物目标检测问题/ 301<br>9.4.2 整数线性规划模型/ 302<br>9.4.3 数值验证/ 305<br>9.5 摘要/ 311</p>
+<h3 id="10-信令网络-建模和推理-313"><a href="#10-信令网络-建模和推理-313" class="headerlink" title="10 信令网络:建模和推理 313"></a>10 信令网络:建模和推理 313</h3><p>10.1 蜂窝系统中的信号转导/ 313<br>10.2 信号传导途径的建模/ 316<br>10.2.1 微分方程模型/ 317<br>10.2.2 Petri网模型/ 319<br>10.3 从高通量数据/ 321推断信令网 络<br>277<br>10.3.1 网页搜索方法/ 322<br>10.3.2 订购信号组件/ 323<br>10.3.3 颜色编码方法/ 324<br>10.4 通过线性编程/ 326推断信令网络<br>10.4.1 整数线性规划模型/ 327<br>10.4.2 重要措施/ 329<br>10.4.3 数值验证/ 329<br>10.4.4 通过网络流模型/ 338推断信令网络<br>10.5 从实验证据/ 341推断信号网络<br>10.6 摘要/ 343</p>
+<p>11 其他主题和新趋势 345<br>11.1 基于网络的蛋白质结构分析/ 345<br>11.2 生物分子网络整合/ 347<br>11.3 非编码RNA的转录后调控/ 349<br>11.4 生物分子相互作用与人类疾病/ 350<br>11.5 摘要/ 352<br>参考资料 353 指数 381</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/05/Elements-of-Computational-Systems-Biology-Wiley-Series-in-Bioinformatics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/05/Elements-of-Computational-Systems-Biology-Wiley-Series-in-Bioinformatics/" itemprop="url">Elements of Computational Systems Biology (Wiley Series in Bioinformatics)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-05T21:22:22+08:00">
+                2020-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
                 </span>
               
 
@@ -852,214 +1029,25 @@
       
         
           
-            <ul>
-<li>2005年北京大学，魏丽萍</li>
-<li>2006年清华大学，张毅</li>
-<li>2009年中国科学院数学研究所，任献文</li>
+            <p>1计算系统生物学的进展<br>胡玛·罗迪（Huma M. Lodhi）<br>1.1简介/ 3<br>1.2多尺度计算建模/ 4<br>1.3蛋白质组学/ 7<br>1.4计算系统生物学与老化/ 8<br>1.5药物设计中的计算系统生物学<br>1.6系统生物学软件工具/ 11<br>1.7结论/ 13<br>参考文献/ 13</p>
+<p>第二部分生物网络建模<br>系统生物学中的2种模型：参数问题和鲁棒性的含义<br>杰里米·古纳瓦德纳（Jeremy Gunawardena）<br>21<br>v
+2.1简介/ 2​​1<br>2.2作为动力系统的模型/ 23<br>2.2.1连续模型/ 24<br>2.2.2离散模型/ 25<br>2.3参数问题/ 26<br>2.3.1参数恐惧症/ 27<br>2.3.2测量与计算/<br>27</p>
+<p>3 联合治疗策略的计算机模拟分析对于心力衰竭<br>4 基于规则的建模和模型优化<br>5 细胞过程的（自然）计算观点<br>6 在细胞系统中模拟细丝动力学</p>
+<h1 id="第三部分生物网络推论"><a href="#第三部分生物网络推论" class="headerlink" title="第三部分生物网络推论"></a>第三部分生物网络推论</h1><h1 id="7-监督机器学习方法对生物网络的重构"><a href="#7-监督机器学习方法对生物网络的重构" class="headerlink" title="7 监督机器学习方法对生物网络的重构"></a>7 监督机器学习方法对生物网络的重构</h1><ul>
+<li>简介/ 165</li>
 </ul>
-<p>在pathway方面有一篇文章，但是没有找到硕士文章，参考性较低。<br>国内找到的文章都是10年之前的，参考性很低。<br>重点放到国外</p>
-<h1 id="北京大学-生物信息学老师研究方方向和网络分析有关的文章"><a href="#北京大学-生物信息学老师研究方方向和网络分析有关的文章" class="headerlink" title="北京大学-生物信息学老师研究方方向和网络分析有关的文章"></a>北京大学-生物信息学老师研究方方向和网络分析有关的文章</h1><ul>
-<li><p>张泽民<br>F. Hwang, G. Atluri, R. Kuang, V. Humar, T. Starr, K.AT.Siverstein, P.M. Haverty, Z. Zhang, and J. Liu. (2013), Large-scale integrative network-based analysis identifies common pathways disrupted by copy number alterations across cancers”. BMC Genomics, 14:440</p>
-</li>
-<li><p>2009-2011年，吉林大学，周春光<a href="http://fund.sciencenet.cn/project/324417?mobile=1" target="_blank" rel="noopener">国家自然科学基金项目-pathway预测方法研究</a></p>
-<ul>
-<li>生物信息学中的pathway预测研究对于理解生命系统中的生物过程以及疾病早期诊断方面具有十分重要的意义。本项目通过pathway元素识别和pathway结构图的构建两个阶段来研究pathway预测方法，并将图方法、聚类分析和统计学习理论等机器学习方法引入到pathway预测研究中，通过提出新的模型和算法来实现pathway的自动识别。在pathway预测中使用紧聚类方法预测pathway，能够达到很好的容噪效果；基于HMM的信号转导pathway重构；基于PSO的信号pathway动力学模型预测。通过以上方法研究，促进了系统生物学的应用基础研究，从而加快pathway预测的实用化和商业化的研究进展。</li>
-</ul>
-</li>
-<li><p>基于量子计算的基因网络功能模块挖掘及涌现机制研究 曹涌 西南林业大学</p>
-</li>
-<li><p>基于微生物相互作用的网络效应调控物种生长研究    肖延东 中国人民解放军国防科技大学</p>
-</li>
-<li><p><a href="http://fund.sciencenet.cn/project/324476" target="_blank" rel="noopener">从生物分子网络中挖掘功能模块和生物通路的模型与算法研究 章祥荪 中国科学院数学与系统科学研究院</a></p>
-<ul>
-<li>复杂网络特别是生物分子网络，是当前科学界的研究热点。从生物分子网络中挖掘重要信息（如功能模块和生物通路）是生物信息学和系统生物学中备受关注的核心问题。现有的理论和方法仍然存在重大不足，例如有向网络的处理、大规模网络的计算效率、对已知信息的利用等。本项目针对这些缺陷以及尚未探索的空白领域，运用运筹学中的最优化和图论方法，定义和识别生物分子网络中的局部结构特征，进而提取出有价值的生物信息。具体问题包括无向和有向网络模块划分定量评价，针对生物分子网络特别是有向代谢网络的有效划分算法，适合大规模网络比对（保守模块识别）的模型和算法，生物通路识别数学模型和算法，不完全信息下网络的信息挖掘等。本项目的研究将推动国内运筹学、生物信息学及计算机科学理论及算法的交叉研究，并形成一系列有广泛影响的具有自主知识产权的应用软件。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a href="http://fund.sciencenet.cn/project/325273" target="_blank" rel="noopener">基于特征挖掘的生物网络构建算法研究 熊赟 复旦大学</a><ul>
-<li>生物网络的构建与分析是系统生物学的重要内容，有助于从整体上理解生物学进程。第二代测序技术使得单个测序仪输出数据量可达40Gb每天，大数据对生物网络分析提出新挑战。生物网络研究的技术问题是生物学家对数据挖掘中新型技术的跟踪和掌握不够及时；而数据挖掘专家没有很好理解生物网络特点。这导致数据挖掘研究领域中的最新研究成果难以直接用于生物网络构建和分析中。因此，如何结合生物领域知识和需求，利用数据挖掘领域中的新技术更有效的研究生物网络是生物信息学中的重要研究内容之一。生物序列的特征对于构建生物网络具有重要影响，是构建生物网络的关键，然而，由于目前生物序列中已知功能元件数量较少以及基因表达数据质量难以保证，导致序列间关联关系的识别和预测准确性不高，因此，影响生物网络构建的准确性。本项目围绕这一重要问题开展了研究，深入分析了生物序列数据的特点，结合现有的数据挖掘技术，研究并设计了生物序列特征挖掘算法，包括基于序列模式的保守功能元件挖掘算法、基于多数据域描述的非保守功能元件挖掘算法、功能元件组合挖掘算法、基因表达数据的特征挖掘算法。在此基础上，研究基于不同语义路径的异质生物网络模型和构建方法，所构建的生物网络具有语义相关性。这些研究成果为生物网络分析研究提供了基础。本项目工作进展顺利，完成了项目要求的各项指标。下一步的研究将在生物网络深层次挖掘方面，包括异质生物网络的关键模块挖掘、基于生物网络的药物和疾病挖掘研究等。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><a href="https://doi.org/10.1016/j.ebiom.2019.05.010" target="_blank" rel="noopener">基于串扰分析的基于路径的生物标志物鉴定可在肝细胞癌中进行可靠的预后预测</a></p>
-<ul>
-<li>用到TCGA的数据库，找到差异表达基因，然后富集分析。</li>
-</ul>
-</li>
-<li><p><a href="http://www.ebiotrade.com/emagazine/content/1/2014_4_36_4/8F34CD30-7074-48F7-8754-E1260621FBAE/pdf/387.pdf" target="_blank" rel="noopener">基于蛋白质互作知识的生物学通路扩充新方法</a></p>
-<ul>
-<li>基因富集分析 KEGG</li>
-</ul>
-</li>
-</ul>
-<h1 id="国外研究"><a href="#国外研究" class="headerlink" title="国外研究"></a>国外研究</h1><p>主要看计算机专业的</p>
-<p><a href="https://www.biorxiv.org/content/10.1101/176230v1.full" target="_blank" rel="noopener">网络推断揭示了调节酵母盐反应中生长和防御的途径中的新颖联系</a><br>这篇文章有生物学实验，参考性比较低。</p>
-<p><a href="http://structuralbiology.cau.edu.cn/PlantGSEA/index.php" target="_blank" rel="noopener">中国农业大学研制的植物生物的基因组富集分析在线websever</a></p>
-<ul>
-<li><p>找到一个实验室，长期做生物网络分析相关研究</p>
-</li>
-<li><p>在bioinformatics杂志官网寻找关键词：Graph, pathway</p>
-<ul>
-<li><p><a href="https://academic.oup.com/bioinformatics/article/35/5/815/5068595?searchresult=1" target="_blank" rel="noopener">基因相互作用网络中的信息熵</a><br>动机<br>现代生物学实验通常会产生可能与研究表型有关的基因候选列表。有人会问，在现有知识的背景下，整个基因清单是否有意义：清单中的基因彼此之间是否合理相关，或者它们看起来像是随机装配？在某些情况下，人们想知道两个或多个基因集是否密切相关。如果我们假设只有两个基因实际上是相同的，它们才是相关的，那么基于计数两组共有基因的基因富集测试就足够了。如果说“相关”是指在交互网络空间中连接良好，则需要一种新的基因集相关性度量。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200325154400.png" alt></p>
-</li>
-<li><p><a href="https://academic.oup.com/bioinformatics/article/29/24/3181/194696?searchresult=1" target="_blank" rel="noopener">QSSPN：分子相互作用网络的动态模拟，描述人类细胞中的基因调控，信号传导和全细胞代谢</a></p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/21/物理学-卷三/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SquareFace Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/21/物理学-卷三/" itemprop="url">物理学-卷三</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-21T23:06:20+08:00">
-                2020-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  50
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://img.sslibrary.com/n/slib/book/slib/10233474/231bd39e52554369b2e9aa76a2f4625c/2b7fdea111fe6c34eb747a2f64883b5e.shtml?dxbaoku=false&amp;deptid=178&amp;fav=http%3A%2F%2Fwww.sslibrary.com%2Freader%2Fpdg%2Fpdgreader%3Fd%3D4396c7ed06b023a3ba4242f5416bdb0a%26ssid%3D10233474&amp;fenlei=1303&amp;spage=1&amp;t=5&amp;username=114.251.216.45&amp;view=-1" target="_blank" rel="noopener">http://img.sslibrary.com/n/slib/book/slib/10233474/231bd39e52554369b2e9aa76a2f4625c/2b7fdea111fe6c34eb747a2f64883b5e.shtml?dxbaoku=false&amp;deptid=178&amp;fav=http%3A%2F%2Fwww.sslibrary.com%2Freader%2Fpdg%2Fpdgreader%3Fd%3D4396c7ed06b023a3ba4242f5416bdb0a%26ssid%3D10233474&amp;fenlei=1303&amp;spage=1&amp;t=5&amp;username=114.251.216.45&amp;view=-1</a></p>
+<p>7.2图形重构作为模式识别问题</p>
+<p>在本综述章节中，我们将重点放在重构大型生物网络结构的问题上。所谓生物网络，是指图的顶点是给定目标生物中编码的全部或部分基因和蛋白质的顶点，其有向或无向边代表各种生物学特性。作为运行示例，我们考虑以下三个图形，尽管以下介绍的方法也可以应用于其他生物网络。<br>•蛋白质间相互作用（PPI）网络。这是一个没有自环的无向图，其中包含有机体编码的所有蛋白质作为顶点。如果两个蛋白质可以物理相互作用，则它们通过边缘连接。<br>•基因调控网络。这是一个有向图，其中包含生物的所有基因作为顶点。在这些基因中，一些称为转录因子（TFs）通过与DNA结合来调节其他基因的表达。图的边缘将TF连接到它们调控的基因。如果TF进行自我调节，则可能发生自循环。此外，原则上可以标记每个边缘以指示调节是阳性（激活）还是阴性（抑制）调节。<br>•代谢网络。该图仅包含作为顶点的基因的子集，即那些编码酶的基因。酶是蛋白质，其主要功能是催化化学反应，将底物分子转化为产物分子。如果两种酶可以催化代谢途径中的两个连续反应（即两个反应），则该图中的两个酶是相关的，从而第一个酶的主要产物是第二个酶的底物</p>
+<p>/ 168<br>7.2.1问题形式化/ 168<br>7.2.2模式识别/ 169<br>7.2.3图形推理作为模式识别问题<br>7.2.4使用局部模型进行图推理/ 171<br>7.2.5使用全局模型进行图推理/ 173<br>7.2.6备注/ 178<br>7.3范例/ 181<br>7.3.1代谢网络的重建/ 181<br>7.3.2重建PPI网络/ 182<br>/ 171<br>7.3.3基因调控网络的重建/ 183    </p>
+<p>我们回顾了几种将图推理问题转换为经典监督分类问题的策略，实际上可以通过任何模式识别算法来解决。与从头方法相反，这些策略假定一组边已已知，并使用有关顶点和已知边的可用数据来推断缺失边。在一些涉及从各种基因组数据推断代谢，PPI和调控网络的实验中，与最新的从头方法相比，这些方法显示出良好的效果，并且该策略的特定实现（本地模型）在所有数据集上始终给出非常好的结果。<br>从某种意义上说，在实验中观察到的监督方法相对于从头方法的优越性不足为奇，因为监督方法使用了更多的信息。由于这些附加信息可在许多实际应用中使用，因此建议在许多情况下，受监督的方法可能比从头的方法更好。但是，应该指出的是，通过将约束或先验分布放在要推断的图上，可以将我们分类为从头的某些方法（例如贝叶斯网络）轻松地适应有监督的推理方案。另一方面，监督方法的强度主要取决于良好训练集的可用性，在某些情况下（例如推断较小图的结构），这可能是不可用的。<br>我们观察到没有唯一的方法将该问题转换为二进制分类问题，这表明需要进一步的研究来设计最佳适应的方法。特别是，在三个基准实验中效果最好的局部方法具有明显的局限性，例如无法推断出没有已知边的顶点的新边。新策略的开发使具有已知边缘的顶点的局部方法保持有效，但借鉴了例如第7.2.5节的全局模型中的一些思想，以便能够推断具有很少或未知的顶点的边缘因此，边缘化是一个有前途的研究方向。</p>
+<p>8 从基因组数据和化学信息的集成来监督代谢网络<br>9 利用CF归纳法将生物学推断中的归纳法和归纳法相结合</p>
+<p>10 确定性和鲁棒性布尔网络的分析与控制</p>
+<p>11 概率方法和速率异质性<br>第四部分基因组学与计算系统生物学<br>12 从DNA主题到基因网络：回顾<br>13 相互作用模型<br>14 全基因组在系统生物学中筛选核受体结合位点的计算机模拟的影响。<br>微生物基因组序列对环境和生理的认识</p>
+<p>第五部分用于系统生物学的软件工具</p>
+<p>15 ALI BABA：系统生物学的文本挖掘工具</p>
+<p>16 监管模块发现中的验证问题</p>
+<p>17 系统生物学的计算成像与建模</p>
+<p>17.1生物信息学/ 383<br>17.1.1基因芯片/ 383<br>17.1.2质谱/ 383<br>17.1.3分子网络与途径/ 384<br>17.2高内涵筛选的生物图像信息学/ 385<br>17.2.1图像预处理/ 386<br>17.2.2细胞检测，分割和中心线<br>提取/ 386<br>17.2.3小区跟踪和注册/ 388<br>17.2.4特征提取/ 388<br>17.3连接生物信息学和生物医学成像<br>17.3.1使用HCS进行蜂窝网络分析<br>17.3.2使用HCS进行基因功能注释<br>17.3.3与临床影像学的关联研究<br>特质/ 390<br>17.3.4体内基因组学分析<br>17.3.5体内蛋白质组学分析<br>17.3.6体内遗传分析/<br>17.3.7体内RNAi实验/<br>17.4摘要/ 394致谢/ 394参考/ 394</p>
 
           
         
@@ -1099,7 +1087,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1147,7 +1135,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1169,7 +1157,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1248,7 +1236,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.3k</span>
+    <span title="Site words total count">45.5k</span>
   
 </div>
 

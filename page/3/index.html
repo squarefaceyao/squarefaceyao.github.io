@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/再次理解HH-H/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/centos7-Troan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/19/再次理解HH-H/" itemprop="url">再次理解HH-H</a></h1>
+                <a class="post-title-link" href="/2020/03/31/centos7-Troan/" itemprop="url">centos7-Trojan</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T09:12:55+08:00">
-                2020-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-31T20:11:07+08:00">
+                2020-03-31
               </time>
             
 
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  515
+                  157
                 </span>
               
 
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -386,10 +386,10 @@
       
         
           
-            <p><a href="https://www.st-andrews.ac.uk/~wjh/hh_model_intro/#k" target="_blank" rel="noopener">h-h外国人笔记</a></p>
-<p><a href="https://www.st-andrews.ac.uk/~wjh/neurosim/index.html" title="HH" target="_blank" rel="noopener">H-H 仿真软件</a><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200319092721.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">%===simulation time===</span><br><span class="line">simulationTime = 100; %in milliseconds</span><br><span class="line">deltaT=.01;</span><br><span class="line">t=0:deltaT:simulationTime;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%===specify the external current I===</span><br><span class="line">changeTimes = [0]; %in milliseconds</span><br><span class="line">currentLevels = [50]; %Change this to see effect of different currents on voltage (Suggested values: 3, 20, 50, 1000)</span><br><span class="line"></span><br><span class="line">%Set externally applied current across time</span><br><span class="line">%Here, first 500 timesteps are at current of 50, next 1500 timesteps at</span><br><span class="line">%current of zero (resets resting potential of neuron), and the rest of</span><br><span class="line">%timesteps are at constant current</span><br><span class="line">I(1:500) = currentLevels; I(501:2000) = 0; I(2001:numel(t)) = currentLevels;</span><br><span class="line">%Comment out the above line and uncomment the line below for constant current, and observe effects on voltage timecourse</span><br><span class="line">%I(1:numel(t)) = currentLevels;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%===constant parameters===%</span><br><span class="line">%All of these can be found in Table 3</span><br><span class="line">gbar_K=36; gbar_Na=120; g_L=.3;</span><br><span class="line">E_K = -12; E_Na=115; E_L=10.6;</span><br><span class="line">C=1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%===set the initial states===%</span><br><span class="line">V=0; %Baseline voltage</span><br><span class="line">alpha_n = .01 * ( (10-V) / (exp((10-V)/10)-1) ); %Equation 12</span><br><span class="line">beta_n = .125*exp(-V/80); %Equation 13</span><br><span class="line">alpha_m = .1*( (25-V) / (exp((25-V)/10)-1) ); %Equation 20</span><br><span class="line">beta_m = 4*exp(-V/18); %Equation 21</span><br><span class="line">alpha_h = .07*exp(-V/20); %Equation 23</span><br><span class="line">beta_h = 1/(exp((30-V)/10)+1); %Equation 24</span><br><span class="line"></span><br><span class="line">n(1) = alpha_n/(alpha_n+beta_n); %Equation 9</span><br><span class="line">m(1) = alpha_m/(alpha_m+beta_m); %Equation 18</span><br><span class="line">h(1) = alpha_h/(alpha_h+beta_h); %Equation 18</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i=1:numel(t)-1 %Compute coefficients, currents, and derivates at each time step</span><br><span class="line">   </span><br><span class="line">    %---calculate the coefficients---%</span><br><span class="line">    %Equations here are same as above, just calculating at each time step</span><br><span class="line">    alpha_n(i) = .01 * ( (10-V(i)) / (exp((10-V(i))/10)-1) );</span><br><span class="line">    beta_n(i) = .125*exp(-V(i)/80);</span><br><span class="line">    alpha_m(i) = .1*( (25-V(i)) / (exp((25-V(i))/10)-1) );</span><br><span class="line">    beta_m(i) = 4*exp(-V(i)/18);</span><br><span class="line">    alpha_h(i) = .07*exp(-V(i)/20);</span><br><span class="line">    beta_h(i) = 1/(exp((30-V(i))/10)+1);</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    %---calculate the currents---%</span><br><span class="line">    I_Na = (m(i)^3) * gbar_Na * h(i) * (V(i)-E_Na); %Equations 3 and 14</span><br><span class="line">    I_K = (n(i)^4) * gbar_K * (V(i)-E_K); %Equations 4 and 6</span><br><span class="line">    I_L = g_L *(V(i)-E_L); %Equation 5</span><br><span class="line">    I_ion = I(i) - I_K - I_Na - I_L;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    %---calculate the derivatives using Euler first order approximation---%</span><br><span class="line">    V(i+1) = V(i) + deltaT*I_ion/C;</span><br><span class="line">    n(i+1) = n(i) + deltaT*(alpha_n(i) *(1-n(i)) - beta_n(i) * n(i)); %Equation 7</span><br><span class="line">    m(i+1) = m(i) + deltaT*(alpha_m(i) *(1-m(i)) - beta_m(i) * m(i)); %Equation 15</span><br><span class="line">    h(i+1) = h(i) + deltaT*(alpha_h(i) *(1-h(i)) - beta_h(i) * h(i)); %Equation 16</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">V = V-70; %Set resting potential to -70mv</span><br><span class="line"></span><br><span class="line">%===plot Voltage===%</span><br><span class="line">plot(t,V,&apos;LineWidth&apos;,3)</span><br><span class="line">hold on</span><br><span class="line">legend(&#123;&apos;voltage&apos;&#125;)</span><br><span class="line">ylabel(&apos;Voltage (mv)&apos;)</span><br><span class="line">xlabel(&apos;time (ms)&apos;)</span><br><span class="line">title(&apos;Voltage over Time in Simulated Neuron&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%===plot Conductance===%</span><br><span class="line">figure</span><br><span class="line">p1 = plot(t,gbar_K*n.^4,&apos;LineWidth&apos;,2);</span><br><span class="line">hold on</span><br><span class="line">p2 = plot(t,gbar_Na*(m.^3).*h,&apos;r&apos;,&apos;LineWidth&apos;,2);</span><br><span class="line">legend([p1, p2], &apos;Conductance for Potassium&apos;, &apos;Conductance for Sodium&apos;)</span><br><span class="line">ylabel(&apos;Conductance&apos;)</span><br><span class="line">xlabel(&apos;time (ms)&apos;)</span><br><span class="line">title(&apos;Conductance for Potassium and Sodium Ions in Simulated Neuron&apos;)</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 下载软件 并安装</span><br><span class="line">1. wget https://raw.githubusercontent.com/TheWanderingCoel/Trojan-Scripts/master/trojan.sh &amp;&amp; chmod +x trojan.sh &amp;&amp; ./trojan.sh</span><br><span class="line"># 关闭防火墙</span><br><span class="line">2. systemctl stop firewalld</span><br><span class="line">3. systemctl disable firewalld</span><br><span class="line"></span><br><span class="line"># 查看nginx状态</span><br><span class="line">systemctl status nginx</span><br><span class="line"># 安装ssh插件</span><br><span class="line">yum install certbot</span><br><span class="line"></span><br><span class="line">certbot certonly --email 920126806@qq.com -d jnymhpp.website -d *.jnymhpp.website --preferred-challenges dns --manual</span><br><span class="line">## 对应的域名解析添加TXT，输入terminal里面的key。等待一会按下enter</span><br><span class="line">成功以后需要把证书文件下载下来，移动到指定文件夹。输入下面两个bash</span><br><span class="line"></span><br><span class="line">mv /etc/letsencrypt/archive/jnymhpp.website/privkey1.pem /usr/local/etc/certfiles/private_key.pem</span><br></pre></td></tr></table></figure>
 
+<p>———- V2Ray vmess URL / V2RayNG v0.4.1+ / V2RayN v2.1+ / 仅适合部分客户端 ————-</p>
+<p>vmess://ewoidiI6ICIyIiwKInBzIjogIjIzM3YyLmNvbV85Mi4zOC4xMzAuMTQ4IiwKImFkZCI6ICI5Mi4zOC4xMzAuMTQ4IiwKInBvcnQiOiAiNTg0MDciLAoiaWQiOiAiODFhNmYzOTAtMzBiMC00MTIxLTg2YjAtYTU3MjM4ODIwZTU3IiwKImFpZCI6ICIyMzMiLAoibmV0IjogInRjcCIsCiJ0eXBlIjogIm5vbmUiLAoiaG9zdCI6ICIiLAoicGF0aCI6ICIiLAoidGxzIjogIiIKfQo=</p>
 
           
         
@@ -438,7 +438,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/离子流和通道电流/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/28/老毛子安装trojan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -457,7 +457,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/18/离子流和通道电流/" itemprop="url">离子流和通道电流</a></h1>
+                <a class="post-title-link" href="/2020/03/28/老毛子安装trojan/" itemprop="url">Padavan老毛子安装trojan</a></h1>
         
 
         <div class="post-meta">
@@ -469,8 +469,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-18T22:30:48+08:00">
-                2020-03-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-28T11:29:51+08:00">
+                2020-03-28
               </time>
             
 
@@ -501,7 +501,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  652
+                  376
                 </span>
               
 
@@ -517,7 +517,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -540,27 +540,257 @@
       
         
           
-            <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<p>/* # youtube Ask<br>Thanks！May I ask you a question? How Converting ion flux into ion current？My mail address is <a href="mailto:squarefaceyao@gmail.com" target="_blank" rel="noopener">squarefaceyao@gmail.com</a></p>
-<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200318223246.png" alt></p>
-<h1 id="ion-flux-和-ion-flow-不是同一个意思，量纲单位不一致。"><a href="#ion-flux-和-ion-flow-不是同一个意思，量纲单位不一致。" class="headerlink" title="ion flux 和 ion flow  不是同一个意思，量纲单位不一致。"></a>ion flux 和 ion flow  不是同一个意思，量纲单位不一致。</h1><p>离子流ion flux  与通道电流还是有关系的</p>
-<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200320104055.png" alt></p>
-<h1 id="Fick-First-law"><a href="#Fick-First-law" class="headerlink" title="Fick First law"></a>Fick First law</h1><p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200320105000.png" alt></p>
-<h1 id="离子通量和通过膜的电流之间的关系"><a href="#离子通量和通过膜的电流之间的关系" class="headerlink" title="离子通量和通过膜的电流之间的关系"></a>离子通量和通过膜的电流之间的关系</h1><h2 id="1-Cellular-Physiology-and-Neurophysiology-by-Mordecai-P-Blaustein-Joseph-P-Y-Kao-Donald-R-Matteson"><a href="#1-Cellular-Physiology-and-Neurophysiology-by-Mordecai-P-Blaustein-Joseph-P-Y-Kao-Donald-R-Matteson" class="headerlink" title="1. Cellular Physiology and Neurophysiology by Mordecai P. Blaustein, Joseph P. Y. Kao, Donald R. Matteson"></a>1. Cellular Physiology and Neurophysiology by Mordecai P. Blaustein, Joseph P. Y. Kao, Donald R. Matteson</h2><p>这本神经科学的书中有涉及到<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200323150140.png" alt></p>
-<p>综上所示，用通量J讨论了离子通过膜的运动，通量J是每单位时间通过膜单位面积移动的离子的摩尔数。为了方便在细胞电的讨论，使用流过膜的电流（表示为I）而不是离子通量的概念。这两个概念是等效的，并且以简单的方式关联。电流是单位时间内电荷的运动。将通量转换为电流需要弄清楚离子的摩尔数与它们携带的电荷量之间的关系。如果每个离子具有z个电荷，则每摩尔离子有z摩尔电荷。此外，要将摩尔单位转换为电子单位，我们需要使用法拉第常数F=96485 C/mol。  </p>
-<p>离子通量和通过膜的电流之间的关系为：</p>
-<p>I=ZF\times J\times A_{mem}</p>
-<p>其中A_{mem}是发生通量/电流的膜面积。通量和电流这两个数量可以通过转换因子直接关联，可以认为是不同单位中的相同数量。<br>不同的符号约定用于描述细胞生理学中的通量和电流。 在通量理论中，将任何种类的“粒子”（即正离子，负离子或中性分子）流入电池的流量定义为正流量，而将正电荷从电池中流出的流量定义为正流量 电气理论中的最新知识。 表B-1总结了物理上可能出现的四种情况</p>
-<h2 id="物理学-电磁部分（邝-译）"><a href="#物理学-电磁部分（邝-译）" class="headerlink" title="物理学-电磁部分（邝 译）"></a>物理学-电磁部分（邝 译）</h2><ul>
-<li>311页提到电流和扩散通量的关系，如下图<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200323151029.png" alt></li>
-</ul>
-<p>这里提到的是扩散通量，和MIFE计算的离子流速到的是一样的吗？</p>
-<p>那么扩散通量是如何计算的呢？用到Fick First Law,在253页<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200323152617.png" alt></p>
-<p>薛琳师姐论文40有页介绍离子流速计算公式，也用到Fick定律<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200323152015.png" alt></p>
+            <p>使用Trojan作为代理，主要三个步骤</p>
 <ul>
-<li>从计算公式上看出来，离子流速=扩散通量。那么电流</li>
-<li>需要注意净通量，在254页提到净通量，是扩散通量和外力作用通量之和。这里也要区分净通量和离子流速的区别<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200323151405.png" alt></li>
+<li>配置Trojan for padavan</li>
+<li>配置config.josn</li>
+<li>路由器客户端配置</li>
+</ul>
+<p>下面是详细的操作。</p>
+<h1 id="1-下载trojan-for-Padavan"><a href="#1-下载trojan-for-Padavan" class="headerlink" title="1. 下载trojan for Padavan"></a>1. 下载trojan for Padavan</h1><p><a href="https://github.com/maskedeken/trojan-gfw/releases/download/1.15.1/trojan-1.15.1-linux-mipsel.tar.gz" target="_blank" rel="noopener">https://github.com/maskedeken/trojan-gfw/releases/download/1.15.1/trojan-1.15.1-linux-mipsel.tar.gz</a></p>
+<h1 id="2-解压trojan-1-15-1-linux-mipsel-tar-gz"><a href="#2-解压trojan-1-15-1-linux-mipsel-tar-gz" class="headerlink" title="2. 解压trojan-1.15.1-linux-mipsel.tar.gz"></a>2. 解压trojan-1.15.1-linux-mipsel.tar.gz</h1><h1 id="3-创建config-json配置文件"><a href="#3-创建config-json配置文件" class="headerlink" title="3. 创建config.json配置文件"></a>3. 创建config.json配置文件</h1><p>客户中心 - 产品详情中的单个节点的Trojan配置内容保存为 config.json<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200328114608.png" alt></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"run_type"</span>: <span class="string">"client"</span>,</span><br><span class="line">	<span class="attr">"local_addr"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">	<span class="attr">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">	<span class="attr">"remote_addr"</span>: <span class="string">"example.com"</span>,</span><br><span class="line">	<span class="attr">"remote_port"</span>: <span class="number">443</span>,</span><br><span class="line">	<span class="attr">"password"</span>: [<span class="string">"password"</span>],</span><br><span class="line">	<span class="attr">"log_level"</span>: <span class="number">1</span>,</span><br><span class="line">	<span class="attr">"ssl"</span>: &#123;</span><br><span class="line">		<span class="attr">"verify"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"verify_hostname"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"cert"</span>: <span class="string">""</span>,</span><br><span class="line">		<span class="attr">"cipher"</span>: <span class="string">"ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:AES128-SHA:AES256-SHA:DES-CBC3-SHA"</span>,</span><br><span class="line">		<span class="attr">"cipher_tls13"</span>: <span class="string">"TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384"</span>,</span><br><span class="line">		<span class="attr">"sni"</span>: <span class="string">""</span>,</span><br><span class="line">		<span class="attr">"alpn"</span>: [<span class="string">"h2"</span>, <span class="string">"http/1.1"</span>],</span><br><span class="line">		<span class="attr">"reuse_session"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"session_ticket"</span>: <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">"curves"</span>: <span class="string">""</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">"tcp"</span>: &#123;</span><br><span class="line">		<span class="attr">"no_delay"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"keep_alive"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"reuse_port"</span>: <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">"fast_open"</span>: <span class="literal">false</span>,</span><br><span class="line">		<span class="attr">"fast_open_qlen"</span>: <span class="number">20</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-打开路由器ssh连接"><a href="#4-打开路由器ssh连接" class="headerlink" title="4. 打开路由器ssh连接"></a>4. 打开路由器ssh连接</h1><p>高级设置-系统管理-服务-终端服务<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200328113539.png" alt></p>
+<h1 id="5-上传程序和配置文件到路由器"><a href="#5-上传程序和配置文件到路由器" class="headerlink" title="5. 上传程序和配置文件到路由器"></a>5. 上传程序和配置文件到路由器</h1><p>Mac下打开terminal，执行下面两行命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp ./trojan-1.15/config.json admin@192.168.123.1:/etc/storage</span><br><span class="line">scp ./trojan-1.15/trojan admin@192.168.123.1:/etc/storage</span><br></pre></td></tr></table></figure>
+
+<p>默认密码是admin</p>
+<h1 id="6-启动程序"><a href="#6-启动程序" class="headerlink" title="6. 启动程序"></a>6. 启动程序</h1><p>进入路由器/etc/storage目录，执行三行下面指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 config.json</span><br><span class="line">chmod 777 trojan</span><br><span class="line">./trojan -c /etc/storage/config.json</span><br></pre></td></tr></table></figure>
+
+<p>启动成功后关闭terminal</p>
+<h1 id="7-路由器客户端配置"><a href="#7-路由器客户端配置" class="headerlink" title="7. 路由器客户端配置"></a>7. 路由器客户端配置</h1><p>扩展功能-广告屏蔽功能-transocks<br>参数设置如下图<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200328114913.png" alt></p>
+<p>fm1-4.sstr-api.xyz</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/27/pathway数据资源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/27/pathway数据资源/" itemprop="url">pathway数据资源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-27T22:48:23+08:00">
+                2020-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Google 索引的在线资源中心</p>
+<ul>
+<li><a href="http://www.pathguide.org/" target="_blank" rel="noopener">http://www.pathguide.org/</a></li>
+</ul>
+<p>关于植物的网站有29个</p>
+<ul>
+<li><p><a href="http://www.plantcyc.org" target="_blank" rel="noopener">www.plantcyc.org</a></p>
+<p>PlantCyc Organism: Triticum aestivum</p>
+</li>
+<li><p><a href="https://plantreactome.gramene.org/index.php?lang=en" target="_blank" rel="noopener">https://plantreactome.gramene.org/index.php?lang=en</a></p>
+</li>
+</ul>
+<p> <img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200603085245.png" alt></p>
+<h1 id="single-pathway-分析文章"><a href="#single-pathway-分析文章" class="headerlink" title="single pathway 分析文章"></a>single pathway 分析文章</h1><ul>
+<li><p>1.<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0050905" target="_blank" rel="noopener">信号转导网络的仿真演进</a> </p>
+<ul>
+<li>信号转导是细胞间和细胞内通信的关键步骤<a href="https://www.nature.com/articles/nrm1838" target="_blank" rel="noopener">1</a>。在信号转导过程中，外部刺激通过蛋白质网络转化为细胞反应，最终改变了细胞的功能和行为[2]，[3]。通过实验信号[4]，[5]可以知道生物信号转导所显示的不同形式的输入输出关系。输入信号强度，动力学参数或网络拓扑的变化会引起持续的，振荡的或适应的响应。这些不同类型的反应是细胞特殊功能的基础，例如增殖，分化和凋亡[6]。<ul>
+<li>根据细胞类型和/或刺激显示不同反应类型的途径的一个例子是有丝分裂原激活的蛋白激酶（MAPK）途径。该途径涉及Raf，MEK（MAPK / ERK激酶）和ERK（细胞外信号调节激酶），被认为是细胞决策过程的主要参与者，在这些过程中，小的定量差异通常会导致主要的表型变化[7]，[8 ]。已经显示，上游分子在调节细胞功能和行为的ERK活性的持续时间和强度上引起数量和质量上的差异[6]。。MAPK途径是一般信号转导方案的原型，其中从配体结合受体接收信号后，所涉及的蛋白质通过翻译后修饰而被改变（“激活”）[9] – [11]。随后，活性形式通过诸如募集到特定位置，改变酶活性或构象变化的方式激活其他非活性蛋白，所述构象变化暴露了用于进一步结合伴侣的结合位点。要预测信令模块的功能，必须了解作为行为，功能和鲁棒性基础的信令网络（SN）的设计原理[12]。从实验中，既不了解SN的拓扑结构，也不了解其基本元素相互作用的动力学参数，因此它仍然是开放的，网络功能对这些参数的敏感程度。因此，探索允许动态参数突变，网络拓扑结构变化（例如添加新蛋白以模仿随后采集的其他调控层）的信号网络的发展似乎很有吸引力。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>在以前的研究中，各种建模方法已被应用于调查SN的行为。Francois和Hakim（2003）[13]进化了遗传电路以产生各种功能行为，并证明了转录后相互作用（即控制基因调控的蛋白质相互作用）的重要作用。这种进化方法已被其他人扩展到具有特定功能特征的蛋白质-蛋白质相互作用网络：振荡器，双稳态开关，稳态系统和频率滤波器[14]，[15]。但是，这些方法都没有研究过瞬态蛋白质-蛋白质复合物的形成对生成的网络有多大影响，或者缔合，解离或催化速率对网络性质是否至关重要。</p>
+</li>
+<li><p>在这项研究中，我们使用常微分方程（ODE）来描述节点的动力学，这些节点代表形成SN的蛋白质和瞬时复合物。这项研究的重点主要在于，当面临通过通过任意动力学产生高于阈值的响应来检测信号存在的基本任务时，由于动力学参数变化或添加新节点而导致的SN响应的演变。我们发现，详细的参数值对于网络的功能响应不是至关重要的。交互强度会影响网络的灵敏度，即是否响应给定强度的输入，而不是响应瞬态或持续输出。</p>
+</li>
+<li><p>我们设计了一个数学模型，该模型执行与活细胞的信号传递过程相似的基本信号传递任务。我们使用相互作用蛋白及其复合物的信号网络的简单动力学模型。该模型将有助于了解信号通路中涉及的蛋白质的动态行为。它还将有助于了解在反应速率和网络拓扑变化时输出响应动力学的鲁棒性。</p>
+</li>
+</ul>
+</li>
+<li><ol start="2">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/29548149/" target="_blank" rel="noopener">噪声信号传输网络中串扰的建模演化</a></li>
+</ol>
+</li>
+<li><ol start="3">
+<li><a href="https://researcher.watson.ibm.com/researcher/view_group.php?id=8241" target="_blank" rel="noopener">IBM-信令网络重建  </a>  </li>
+</ol>
+<ul>
+<li>从高通量数据推断细胞信号网络是系统生物学中一个具有挑战性的问题。在不断适应环境刺激的细胞过程中，细胞信号传导起着核心作用。几种细胞分子可以相互作用形成一个复杂的信号网络，其子集与一个或多个信号通路相关，以维持细胞组织和器官的健康。<br>基于随机系统上可用的有限信息，这些网络不是完全可预测的。统计方法在“网络估计和推断”工作中起着重要作用。更具体地说，因果推理是一种有效的工具，可用于发信号通知网络重构以识别生物分子之间的因果关系。<br>随着定量蛋白质丰度和蛋白质翻译后修饰的实验技术的进步，通过统计手段重建这些网络的接线图变得可行。特别地，大规模细胞计数法允许以单细胞分辨率监测大约50种不同的蛋白质，因此为解决该逆问题提供了前所未有的数据。</li>
+<li><ol start="4">
+<li><a href="https://www.nature.com/articles/nrm1838" target="_blank" rel="noopener">Cell-signalling dynamics in time and space</a></li>
+</ol>
+</li>
+<li>信号网络的通用基序是蛋白质修饰循环，可被相反的酶（例如激酶和磷酸酶或鸟嘌呤核苷酸交换因子和GTPase活化蛋白）催化。建模揭示了循环和级联如何处理和积分信号，以及哪种反馈架构可实现鲁棒性，线性或超灵敏响应，双稳态和振荡</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ol start="5">
+<li><a href="https://science.sciencemag.org/content/283/5400/381" target="_blank" rel="noopener">生物信号通路网络的新兴特性</a></li>
+</ol>
+<ul>
+<li>1999年 Science</li>
+<li>许多不同的信号传导途径使细胞能够接收，处理和响应信息。通常，不同途径的成分相互作用，形成信号网络。用实验获得的常数构建生化信号网络，并通过计算方法进行分析，以了解其在复杂生物过程中的作用。这些网络展现出新兴的特性，例如跨多个时标的信号集成，取决于输入强度和持续时间的不同输出的生成以及自我维持的反馈回路。反馈可导致双稳态行为，具有离散的稳态活动，状态之间的过渡和延长的信号输出的定义明确的输入阈值，以及响应瞬态刺激的信号调制。</li>
+<li>要开发信号通路的模型，有必要考虑信号传输发生的机制。在生物系统中，信号传输主要通过两种机制发生：（i）蛋白质-蛋白质相互作用和酶促反应，例如蛋白质磷酸化和去磷酸化（ii）或蛋白质降解或细胞内信使的产生。在包括所有这些反应的方法中，我们使用了以下基本化学反应方案：</li>
+</ul>
+<h2 id="高通量数据推断信号网络"><a href="#高通量数据推断信号网络" class="headerlink" title="高通量数据推断信号网络"></a>高通量数据推断信号网络</h2><ul>
+<li><ol>
+<li><a href="https://www.nature.com/articles/s41598-019-56444-5" target="_blank" rel="noopener">从单细胞提示响应数据稳定重建信号网络</a></li>
+</ol>
+<ul>
+<li>从高通量数据推断细胞信号网络是系统生物学中一个具有挑战性的问题。细胞计数技术的最新进展使我们能够跨时间测量单细胞水平上大量蛋白质的丰度。传统的网络重建方法通常会分别考虑每个时间点，从而导致推断的网络会随时间变化很大。为了解决信令网络中可能存在的时间不变的物理耦合，我们用附加的正则化函数扩展了传统的图形套索，该正则化函数惩罚了网络随时间变化的问题。ROC对计算机数据的方法的评估显示，重建精度比标准图形套索更高。我们还测试了我们的方法对同时测量26种磷酸蛋白的IFNγ刺激的THP1细胞单细胞大规模细胞计数数据的影响。我们的方法概括了已知的信号传导关系，例如JAK / STAT途径内的连接，并在表征带有PI3K，MEK1 / 2和AMPK抑制剂的干扰信号传导网络中得到了进一步验证。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200607101844.png" alt></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ol start="2">
+<li><a href="https://www.mcponline.org/content/19/5/744" target="_blank" rel="noopener">以单细胞分辨率分析细胞信号网络</a> </li>
+</ol>
+<ul>
+<li><p>文章亮点</p>
+<p>信号网络在组织中的细胞之间可能高度异质。</p>
+<p>各种技术允许以单小区分辨率分析信令网络。</p>
+<p>总结了每种单细胞方法的优缺点。</p>
+<p>讨论了单细胞信令网络分析中的混杂因素。</p>
+<p>抽象<br>信号网络处理细胞内和细胞外信息以调节细胞功能。信号网络的失调会导致异常的细胞生理状态，并经常引发疾病。由于细胞遗传和非遗传变异的许多来源，对刺激或药物治疗的网络响应在组织中的各个细胞之间可能高度异质。信号网络异质性是许多生物学过程（例如细胞分化和耐药性）的关键。直到最近，多路复用单细胞测量技术的出现才有可能评估这种异质性。在这篇综述中，我们通过它们的方法，覆盖范围和应用对当前建立的单小区信令网络分析方法进行了分类，并讨论了每种技术的优点和局限性。我们还描述了使用单细胞数据进行网络表征的可用计算工具，并讨论了在单细胞信令网络分析中需要考虑的潜在混杂因素。</p>
+</li>
+</ul>
+</li>
 </ul>
 
           
@@ -610,7 +840,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/AP通用动力学模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/信号转导网络的生物信息学分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -629,7 +859,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/17/AP通用动力学模型/" itemprop="url">AP通用动力学模型</a></h1>
+                <a class="post-title-link" href="/2020/03/26/信号转导网络的生物信息学分析/" itemprop="url">信号转导网络的生物信息学分析</a></h1>
         
 
         <div class="post-meta">
@@ -641,8 +871,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-17T22:31:18+08:00">
-                2020-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T15:40:24+08:00">
+                2020-03-26
               </time>
             
 
@@ -673,7 +903,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  188
+                  0
                 </span>
               
 
@@ -712,15 +942,7 @@
       
         
           
-            <h1 id="Communication-and-Information-Theory-of-Single-Action-Potential-Signals-in-Plants"><a href="#Communication-and-Information-Theory-of-Single-Action-Potential-Signals-in-Plants" class="headerlink" title="Communication and Information Theory of Single Action Potential Signals in Plants"></a>Communication and Information Theory of Single Action Potential Signals in Plants</h1><p>这篇文章提出分子通信的概念，可以把分子看作是一种信息或一种信息的载体，采用扩散和主动传输的方法进行通信。</p>
-<p><strong>作者在文中声明，以下研究假设AP信号是单个细胞发出的。并且只考虑细胞间通信，</strong></p>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>通过与没有AP信号的情况进行比较，研究AP信号对发射区域的互作用和传播速度的影响，并探索AP的传播范围</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
-<li>model for the generation of single action potential signals in a plant cell.</li>
-<li>基于扩散分子通信概念，研究AP信号和输出分子数量的关系</li>
-<li>计算传播速度</li>
-</ol>
-
+            
           
         
       
@@ -768,7 +990,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/甲壳虫网络分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/植物电信号-表型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -787,7 +1009,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/15/甲壳虫网络分析/" itemprop="url">甲壳虫网络分析</a></h1>
+                <a class="post-title-link" href="/2020/03/26/植物电信号-表型/" itemprop="url">植物电信号-表型</a></h1>
         
 
         <div class="post-meta">
@@ -799,8 +1021,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-15T15:04:33+08:00">
-                2020-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T09:57:56+08:00">
+                2020-03-26
               </time>
             
 
@@ -831,7 +1053,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  30
+                  35
                 </span>
               
 
@@ -870,160 +1092,8 @@
       
         
           
-            <p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200315150413.png" alt></p>
-<p>查找文献绘制甲壳动物免疫系统网络，在转换成图的时候没有使用算法</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/老毛子配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SquareFace Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/14/老毛子配置/" itemprop="url">老毛子配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-14T21:17:43+08:00">
-                2020-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  25
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>华硕路由器官方固件</p>
-<p>把网线插到wan口。主要是对ipv6进行配置。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200314211958.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200314212020.png" alt></p>
+            <p>可以把植物电信号当成植物的表型数据进行处理和分析</p>
+<p>表型和基因的关系如下图<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200326095941.png" alt></p>
 
           
         
@@ -1063,7 +1133,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1111,7 +1181,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1133,7 +1203,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1212,7 +1282,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.3k</span>
+    <span title="Site words total count">45.5k</span>
   
 </div>
 

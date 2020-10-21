@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020年第三次组会</title>
+    <url>/2020/07/25/2020%E5%B9%B4%E7%AC%AC%E4%B8%89%E6%AC%A1%E7%BB%84%E4%BC%9A/</url>
+    <content><![CDATA[<h2 id="2020级新生第一次参加组会"><a href="#2020级新生第一次参加组会" class="headerlink" title="2020级新生第一次参加组会"></a>2020级新生第一次参加组会</h2>]]></content>
+      <tags>
+        <tag>组会</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LSTM新思路</title>
+    <url>/2020/07/24/LSTM%E6%96%B0%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<p>我最终的目的是快速分类，只采集a波形</p>
+<p>最后可以知道是否耐盐，而且效果还不错。而且时间比较快，</p>
+<p>最后的落脚点是分类。<br>    可以采集更短时间的电信号，就可以分类，模拟盐胁迫的过程。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Anti-Hebbian learning</title>
+    <url>/2020/06/18/Anti-Hebbian-learning/</url>
+    <content><![CDATA[<h1 id="Hebbian学习"><a href="#Hebbian学习" class="headerlink" title="Hebbian学习"></a>Hebbian学习</h1><p>Hebbian学习通常定义如下：突触前和突触后神经元中的相关激活导致两个神经元之间的连接增强<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200618102822.png" alt></p>
+<ul>
+<li>参考文章<br><a href="https://www.sciencedirect.com/science/article/pii/S0968000420300037" target="_blank" rel="noopener">信号网络的学习：分子机制</a></li>
+</ul>
+<p>除了众所周知的神经元学习过程外，非神经元单个细胞还能学习并在重复相同刺激时显示出更强大（通常更快）的适应性反应。</p>
+<p>细胞学习的已知例子是敏化或习惯型反应。</p>
+<p>神经元学习的几种分子机制，例如构象记忆，蛋白质易位，信号级联，miRNA，lncRNA和染色质记忆，也参与了非神经元单细胞的学习。</p>
+<p>我们建议这些分子机制形成信号网络的整合内存，并通过增加信号传播所经过的边缘权重来显示广义的Hebbian学习过程。</p>
+<p>信号网络可以通过细胞骨架[47]和细胞间[ 48 ]网络以及细胞间信号[ 49 ]，丝状[ 50 ]和膜[ 51 ]网络扩展。这些网络在促进非神经细胞的细胞学习中可能都具有潜在的作用，迄今为止尚未确切描述。</p>
+<p>Signaling networks may be extended by cytoskeletal <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002421" target="_blank" rel="noopener">47</a> and interorganelle <a href="https://www.sciencedirect.com/science/article/pii/S0891584918316241" target="_blank" rel="noopener">48</a> networks as well<br>as by intercellular signaling <a href="https://bmcsystbiol.biomedcentral.com/articles/10.1186/1752-0509-8-49" target="_blank" rel="noopener">49</a>, filamental <a href="https://science.sciencemag.org/content/325/5945/1258" target="_blank" rel="noopener">50</a>, and membrane <a href="https://science.sciencemag.org/content/359/6380/1100" target="_blank" rel="noopener">51</a> networks. These networks<br>may all have a potential role, heretofore not exactly described, in promoting cellular learning of<br>non-neuronal cells.</p>
+<ol start="47">
+<li>Craddock, T.J. et al. (2012) Cytoskeletal signaling: is memory encoded in microtubule lattices by CaMKII phosphorylation?<br>PLoS Comput. Biol. 8, e1002421</li>
+<li>Cheikhi, A. et al. (2019) Mitochondria are a substrate of cellular<br>memory. Free Radic. Biol. Med. 130, 528–541</li>
+<li>Dönitz, J. and Wingender, E. (2014) EndoNet: an information re- source about the intercellular signaling network. BMC Syst. Biol.<br>8, 49</li>
+<li>Gogolla, N. et al. (2009) Perineuronal nets protect fear memories<br>from erasure. Science 325, 1258–1261</li>
+<li>Winkler, F. and Wick, W. (2018) Harmful networks in the brain<br>and beyond. Science 359, 1100–1101</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Vivado.2015.4下载链接和安装教程</title>
+    <url>/2020/06/04/vivado-2015-4%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Vivado-2015-4下载链接和安装教程"><a href="#Vivado-2015-4下载链接和安装教程" class="headerlink" title="Vivado.2015.4下载链接和安装教程"></a>Vivado.2015.4下载链接和安装教程</h1><h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><ul>
+<li><p><a href="https://pan.baidu.com/s/1wYxCYMoIm5UWOMKyFytZ6Q" target="_blank" rel="noopener">百度云分享链接</a><br>提取密码:c44d</p>
+</li>
+<li><p><a href="http://cloud2.cau.edu.cn/share?id=xmq66njtw312" target="_blank" rel="noopener">农大云盘分享链接</a><br>提取密码:UWJW<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200604002000.png" alt></p>
+</li>
+</ul>
+<h2 id="License下载"><a href="#License下载" class="headerlink" title="License下载"></a>License下载</h2><ul>
+<li><a href="http://cloud2.cau.edu.cn/share?id=xieqkcjtwyax" target="_blank" rel="noopener">License分享链接</a><br>提取密码:IGBC<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2>参考网上安装教程  </li>
+<li><a href="https://blog.csdn.net/taowei1314520/article/details/74860356" target="_blank" rel="noopener">VIVADO 安装教程</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>tip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整合plantes</title>
+    <url>/2020/05/08/%E6%95%B4%E5%90%88plantes/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>PlantES帮助页面</title>
+    <url>/2020/05/06/PlantES%E5%B8%AE%E5%8A%A9%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<h1 id="1-上传数据"><a href="#1-上传数据" class="headerlink" title="1. 上传数据"></a>1. 上传数据</h1><h2 id="数据上传"><a href="#数据上传" class="headerlink" title="数据上传"></a>数据上传</h2><p>用户登录后，可以上传数据。上传数据需要填写描述信息，便于数据共享和分析。在上传文件时需要选择文件类型CSV或Imag，这一步非常重要。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075050.png" alt></p>
+<p>设备描述信息<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075120.png" alt></p>
+<p>输入电信号描述信息<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508075138.png" alt></p>
+<h1 id="2-分析数据"><a href="#2-分析数据" class="headerlink" title="2. 分析数据"></a>2. 分析数据</h1><h2 id="2-1-荧光图像分析"><a href="#2-1-荧光图像分析" class="headerlink" title="2.1 荧光图像分析"></a>2.1 荧光图像分析</h2><p>注意：需要上传多张荧光图像照片，用于分析信号变化。</p>
+<ul>
+<li><p>拖动滑块可以选择分析区域大小。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508214947.png" alt></p>
+</li>
+<li><p>点击get获得单区域分析结果<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/imageget%E8%8E%B7%E5%BE%97%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C.png" alt></p>
+</li>
+<li><p>点击上方MultRegion获得多区域分析结果。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508214631.png" alt></p>
+</li>
+<li><p>点击上方HeatMap获得整张图片电信号变化热图</p>
+</li>
+</ul>
+<p><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200511122855.png" alt></p>
+<h2 id="2-2-AP信号分析"><a href="#2-2-AP信号分析" class="headerlink" title="2.2 AP信号分析"></a>2.2 AP信号分析</h2><p>通过模版匹配算法。快速判断AP波形</p>
+<p>第一步，在同一条波形上，选择三个参考点。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508071901.png" alt><br>第二步，点击下方validAP按钮分析数据，得到结果。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508071947.png" alt></p>
+<p>点击Exprot data可以导出分析结果<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508072026.png" alt></p>
+<h2 id="2-3-LIRB信号生成"><a href="#2-3-LIRB信号生成" class="headerlink" title="2.3 LIRB信号生成"></a>2.3 LIRB信号生成</h2><p>采用GAN技术，对LIRB信号生成，扩充电信号数据集。</p>
+<ul>
+<li><p>在原始波形基础上选择三个参考点，提取LIRB信号特征<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200508212927.png" alt></p>
+</li>
+<li><p>点击Genera生成虚拟样本，Generated variety选择生成样本，Number选择生成数量。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200511213946.png" alt></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>logisim 安装</title>
+    <url>/2020/04/26/logisim-%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="获取Logisim"><a href="#获取Logisim" class="headerlink" title="获取Logisim"></a>获取Logisim</h1><p>Logisim应该在支持Java版本5或更高版本的任何平台上运行。</p>
+<p>Logisim需要Java 5或更高版本。如果您尚未在计算机上安装Java，则可以从java.sun.com获得Java 。<br>从Logisim的<a href="http://sourceforge.net/projects/circuit/" target="_blank" rel="noopener">SourceForge.net</a>页面下载Logisim 。您将选择下载哪个发行版的三个选择。<br>一个的.jar文件-运行在任何平台上，虽然不一定方便。<br>MacOS .tar.gz文件<br>Windows .exe文件<br>如果您使用MacOS或Windows，我建议您使用特定于您平台的版本。<br>要执行程序：<br>使用通用.jar文件：在Windows和MacOS系统上，您可能可以通过双击JAR文件来启动Logisim。如果这不起作用，或者您使用Linux或Solaris，则可以在命令行中键入`` java -jar logisim- XX .jar ‘’。<br>对于MacOS X版本：下载的 .tar.gz版本解压缩后（这可能会自动发生），只需双击Logisim图标即可启动。您可能需要将图标放入“应用程序”文件夹中。<br>对于Windows版本：只需双击Logisim图标。您可能希望在桌面上和/或在“开始”菜单中创建快捷方式，以使启动Logisim更加容易。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>水稻耐盐讲座</title>
     <url>/2020/04/14/%E6%B0%B4%E7%A8%BB%E8%80%90%E7%9B%90%E8%AE%B2%E5%BA%A7/</url>
     <content><![CDATA[<p>苗期耐盐<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200416.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200543.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200718.png" alt><br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200414200927.png" alt></p>
@@ -113,8 +211,74 @@
 <li><p><a href="https://plantreactome.gramene.org/index.php?lang=en" target="_blank" rel="noopener">https://plantreactome.gramene.org/index.php?lang=en</a></p>
 </li>
 </ul>
-<p> 18602316985—-cjvip5926</p>
-<p> 复制这段内容后打开百度网盘手机App，操作更方便哦 链接：<a href="https://pan.baidu.com/s/1ZuDmS1X465r3fC9IEOR7ZA" target="_blank" rel="noopener">https://pan.baidu.com/s/1ZuDmS1X465r3fC9IEOR7ZA</a> 提取码：26zm </p>
+<p> <img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200603085245.png" alt></p>
+<h1 id="single-pathway-分析文章"><a href="#single-pathway-分析文章" class="headerlink" title="single pathway 分析文章"></a>single pathway 分析文章</h1><ul>
+<li><p>1.<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0050905" target="_blank" rel="noopener">信号转导网络的仿真演进</a> </p>
+<ul>
+<li>信号转导是细胞间和细胞内通信的关键步骤<a href="https://www.nature.com/articles/nrm1838" target="_blank" rel="noopener">1</a>。在信号转导过程中，外部刺激通过蛋白质网络转化为细胞反应，最终改变了细胞的功能和行为[2]，[3]。通过实验信号[4]，[5]可以知道生物信号转导所显示的不同形式的输入输出关系。输入信号强度，动力学参数或网络拓扑的变化会引起持续的，振荡的或适应的响应。这些不同类型的反应是细胞特殊功能的基础，例如增殖，分化和凋亡[6]。<ul>
+<li>根据细胞类型和/或刺激显示不同反应类型的途径的一个例子是有丝分裂原激活的蛋白激酶（MAPK）途径。该途径涉及Raf，MEK（MAPK / ERK激酶）和ERK（细胞外信号调节激酶），被认为是细胞决策过程的主要参与者，在这些过程中，小的定量差异通常会导致主要的表型变化[7]，[8 ]。已经显示，上游分子在调节细胞功能和行为的ERK活性的持续时间和强度上引起数量和质量上的差异[6]。。MAPK途径是一般信号转导方案的原型，其中从配体结合受体接收信号后，所涉及的蛋白质通过翻译后修饰而被改变（“激活”）[9] – [11]。随后，活性形式通过诸如募集到特定位置，改变酶活性或构象变化的方式激活其他非活性蛋白，所述构象变化暴露了用于进一步结合伴侣的结合位点。要预测信令模块的功能，必须了解作为行为，功能和鲁棒性基础的信令网络（SN）的设计原理[12]。从实验中，既不了解SN的拓扑结构，也不了解其基本元素相互作用的动力学参数，因此它仍然是开放的，网络功能对这些参数的敏感程度。因此，探索允许动态参数突变，网络拓扑结构变化（例如添加新蛋白以模仿随后采集的其他调控层）的信号网络的发展似乎很有吸引力。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>在以前的研究中，各种建模方法已被应用于调查SN的行为。Francois和Hakim（2003）[13]进化了遗传电路以产生各种功能行为，并证明了转录后相互作用（即控制基因调控的蛋白质相互作用）的重要作用。这种进化方法已被其他人扩展到具有特定功能特征的蛋白质-蛋白质相互作用网络：振荡器，双稳态开关，稳态系统和频率滤波器[14]，[15]。但是，这些方法都没有研究过瞬态蛋白质-蛋白质复合物的形成对生成的网络有多大影响，或者缔合，解离或催化速率对网络性质是否至关重要。</p>
+</li>
+<li><p>在这项研究中，我们使用常微分方程（ODE）来描述节点的动力学，这些节点代表形成SN的蛋白质和瞬时复合物。这项研究的重点主要在于，当面临通过通过任意动力学产生高于阈值的响应来检测信号存在的基本任务时，由于动力学参数变化或添加新节点而导致的SN响应的演变。我们发现，详细的参数值对于网络的功能响应不是至关重要的。交互强度会影响网络的灵敏度，即是否响应给定强度的输入，而不是响应瞬态或持续输出。</p>
+</li>
+<li><p>我们设计了一个数学模型，该模型执行与活细胞的信号传递过程相似的基本信号传递任务。我们使用相互作用蛋白及其复合物的信号网络的简单动力学模型。该模型将有助于了解信号通路中涉及的蛋白质的动态行为。它还将有助于了解在反应速率和网络拓扑变化时输出响应动力学的鲁棒性。</p>
+</li>
+</ul>
+</li>
+<li><ol start="2">
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/29548149/" target="_blank" rel="noopener">噪声信号传输网络中串扰的建模演化</a></li>
+</ol>
+</li>
+<li><ol start="3">
+<li><a href="https://researcher.watson.ibm.com/researcher/view_group.php?id=8241" target="_blank" rel="noopener">IBM-信令网络重建  </a>  </li>
+</ol>
+<ul>
+<li>从高通量数据推断细胞信号网络是系统生物学中一个具有挑战性的问题。在不断适应环境刺激的细胞过程中，细胞信号传导起着核心作用。几种细胞分子可以相互作用形成一个复杂的信号网络，其子集与一个或多个信号通路相关，以维持细胞组织和器官的健康。<br>基于随机系统上可用的有限信息，这些网络不是完全可预测的。统计方法在“网络估计和推断”工作中起着重要作用。更具体地说，因果推理是一种有效的工具，可用于发信号通知网络重构以识别生物分子之间的因果关系。<br>随着定量蛋白质丰度和蛋白质翻译后修饰的实验技术的进步，通过统计手段重建这些网络的接线图变得可行。特别地，大规模细胞计数法允许以单细胞分辨率监测大约50种不同的蛋白质，因此为解决该逆问题提供了前所未有的数据。</li>
+<li><ol start="4">
+<li><a href="https://www.nature.com/articles/nrm1838" target="_blank" rel="noopener">Cell-signalling dynamics in time and space</a></li>
+</ol>
+</li>
+<li>信号网络的通用基序是蛋白质修饰循环，可被相反的酶（例如激酶和磷酸酶或鸟嘌呤核苷酸交换因子和GTPase活化蛋白）催化。建模揭示了循环和级联如何处理和积分信号，以及哪种反馈架构可实现鲁棒性，线性或超灵敏响应，双稳态和振荡</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ol start="5">
+<li><a href="https://science.sciencemag.org/content/283/5400/381" target="_blank" rel="noopener">生物信号通路网络的新兴特性</a></li>
+</ol>
+<ul>
+<li>1999年 Science</li>
+<li>许多不同的信号传导途径使细胞能够接收，处理和响应信息。通常，不同途径的成分相互作用，形成信号网络。用实验获得的常数构建生化信号网络，并通过计算方法进行分析，以了解其在复杂生物过程中的作用。这些网络展现出新兴的特性，例如跨多个时标的信号集成，取决于输入强度和持续时间的不同输出的生成以及自我维持的反馈回路。反馈可导致双稳态行为，具有离散的稳态活动，状态之间的过渡和延长的信号输出的定义明确的输入阈值，以及响应瞬态刺激的信号调制。</li>
+<li>要开发信号通路的模型，有必要考虑信号传输发生的机制。在生物系统中，信号传输主要通过两种机制发生：（i）蛋白质-蛋白质相互作用和酶促反应，例如蛋白质磷酸化和去磷酸化（ii）或蛋白质降解或细胞内信使的产生。在包括所有这些反应的方法中，我们使用了以下基本化学反应方案：</li>
+</ul>
+<h2 id="高通量数据推断信号网络"><a href="#高通量数据推断信号网络" class="headerlink" title="高通量数据推断信号网络"></a>高通量数据推断信号网络</h2><ul>
+<li><ol>
+<li><a href="https://www.nature.com/articles/s41598-019-56444-5" target="_blank" rel="noopener">从单细胞提示响应数据稳定重建信号网络</a></li>
+</ol>
+<ul>
+<li>从高通量数据推断细胞信号网络是系统生物学中一个具有挑战性的问题。细胞计数技术的最新进展使我们能够跨时间测量单细胞水平上大量蛋白质的丰度。传统的网络重建方法通常会分别考虑每个时间点，从而导致推断的网络会随时间变化很大。为了解决信令网络中可能存在的时间不变的物理耦合，我们用附加的正则化函数扩展了传统的图形套索，该正则化函数惩罚了网络随时间变化的问题。ROC对计算机数据的方法的评估显示，重建精度比标准图形套索更高。我们还测试了我们的方法对同时测量26种磷酸蛋白的IFNγ刺激的THP1细胞单细胞大规模细胞计数数据的影响。我们的方法概括了已知的信号传导关系，例如JAK / STAT途径内的连接，并在表征带有PI3K，MEK1 / 2和AMPK抑制剂的干扰信号传导网络中得到了进一步验证。<br><img src="https://squareface.oss-cn-beijing.aliyuncs.com/image20200607101844.png" alt></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ol start="2">
+<li><a href="https://www.mcponline.org/content/19/5/744" target="_blank" rel="noopener">以单细胞分辨率分析细胞信号网络</a> </li>
+</ol>
+<ul>
+<li><p>文章亮点</p>
+<p>信号网络在组织中的细胞之间可能高度异质。</p>
+<p>各种技术允许以单小区分辨率分析信令网络。</p>
+<p>总结了每种单细胞方法的优缺点。</p>
+<p>讨论了单细胞信令网络分析中的混杂因素。</p>
+<p>抽象<br>信号网络处理细胞内和细胞外信息以调节细胞功能。信号网络的失调会导致异常的细胞生理状态，并经常引发疾病。由于细胞遗传和非遗传变异的许多来源，对刺激或药物治疗的网络响应在组织中的各个细胞之间可能高度异质。信号网络异质性是许多生物学过程（例如细胞分化和耐药性）的关键。直到最近，多路复用单细胞测量技术的出现才有可能评估这种异质性。在这篇综述中，我们通过它们的方法，覆盖范围和应用对当前建立的单小区信令网络分析方法进行了分类，并讨论了每种技术的优点和局限性。我们还描述了使用单细胞数据进行网络表征的可用计算工具，并讨论了在单细胞信令网络分析中需要考虑的潜在混杂因素。</p>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>文献阅读</tag>
@@ -195,6 +359,10 @@
 </ul>
 </li>
 </ul>
+<h2 id="高通量数据预测信号通路"><a href="#高通量数据预测信号通路" class="headerlink" title="高通量数据预测信号通路"></a>高通量数据预测信号通路</h2><ul>
+<li><a href="https://www.worldscientific.com/doi/abs/10.1142/S0219720019500112" target="_blank" rel="noopener">发现信号通路的细胞周期和蛋白质复合物动力学</a></li>
+</ul>
+<p>信号通路负责调节细胞过程，例如监测外部环境，跨膜传输信息以及做出细胞命运决定。考虑到可用的生物学数据的数量不断增加，并且最近发现表明许多疾病与细胞信号转导级联的破坏有关，因此计算机生物学中信号传导途径的计算机化发现已成为近年来的活跃研究主题。然而，信号通路的重建仍然是一个挑战，主要是因为需要用于预测因果关系的系统方法，例如边缘方向以及信号流中相互作用蛋白之间的激活/抑制。我们提出了一种预测信号传导途径的方法，该方法整合了蛋白质相互作用，基因表达，表型，和蛋白质复合信息。我们的方法首先使用基于有向边的算法找到候选途径，然后定义一个图模型以使用细胞周期基因表达和表型推断酵母中一致的途径的候选途径包括蛋白质之间的因果激活关系。然后，我们并入蛋白质复合物覆盖率信息，以决定最终的预测信号通路。我们展示了我们的方法使用不同的排名指标可以改善现有技术的预测结果。我们纳入蛋白质复合物覆盖率信息，以决定最终的预测信号通路。我们展示了我们的方法使用不同的排名指标可以改善现有技术的预测结果。我们纳入蛋白质复合物覆盖率信息，以决定最终的预测信号通路。我们展示了我们的方法使用不同的排名指标可以改善现有技术的预测结果。</p>
 ]]></content>
       <tags>
         <tag>文献阅读</tag>
@@ -1695,18 +1863,6 @@ else:
 问题：膜电导是膜电阻的倒数？</code></pre>]]></content>
   </entry>
   <entry>
-    <title>Flask</title>
-    <url>/2019/09/07/flask/</url>
-    <content><![CDATA[<p>现在是对固定的文件完成分类，可以返回分类结果。</p>
-<p>但是无法自定义输入进行分类，</p>
-<p>前端读取数据<br>发送到flask接口</p>
-<p>现在问题是对flask框架不熟悉</p>
-]]></content>
-      <tags>
-        <tag>Python3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数学模型构建</title>
     <url>/2019/09/07/flask%E7%9A%84%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<h3 id="保卫细胞电信号数学模型的构建"><a href="#保卫细胞电信号数学模型的构建" class="headerlink" title="保卫细胞电信号数学模型的构建"></a>保卫细胞电信号数学模型的构建</h3><p>根据保卫细胞膜电路模型</p>
@@ -1739,17 +1895,15 @@ else:
       </tags>
   </entry>
   <entry>
-    <title>docker创建MySQl容器</title>
-    <url>/2019/08/29/Docker+MySQL/</url>
-    <content><![CDATA[<p>1、使用Docker 创建Mysql。用idea在运行 Springboot+VUE的项目</p>
-<p>MySql使用的配置文件：</p>
-<pre><code class="bash"></code></pre>
-<p>简单的使用Docker-compose.yaml 文件配置容器。</p>
-<p>2、后端的Get Post方法 </p>
-<p>Vue是如何发送请求的</p>
+    <title>Flask</title>
+    <url>/2019/09/07/flask/</url>
+    <content><![CDATA[<p>现在是对固定的文件完成分类，可以返回分类结果。</p>
+<p>但是无法自定义输入进行分类，</p>
+<p>前端读取数据<br>发送到flask接口</p>
+<p>现在问题是对flask框架不熟悉</p>
 ]]></content>
       <tags>
-        <tag>Docker</tag>
+        <tag>Python3</tag>
       </tags>
   </entry>
   <entry>
@@ -1816,6 +1970,20 @@ return admin;</code></pre><p>  }</p>
 }</code></pre>]]></content>
       <tags>
         <tag>Vue2.5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker创建MySQl容器</title>
+    <url>/2019/08/29/Docker+MySQL/</url>
+    <content><![CDATA[<p>1、使用Docker 创建Mysql。用idea在运行 Springboot+VUE的项目</p>
+<p>MySql使用的配置文件：</p>
+<pre><code class="bash"></code></pre>
+<p>简单的使用Docker-compose.yaml 文件配置容器。</p>
+<p>2、后端的Get Post方法 </p>
+<p>Vue是如何发送请求的</p>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>

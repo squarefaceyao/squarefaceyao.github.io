@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/MyPlant启动/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/seq2seq优化思路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -303,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/MyPlant启动/" itemprop="url">docker创建MySQl容器</a></h1>
+                <a class="post-title-link" href="/2019/09/25/seq2seq优化思路/" itemprop="url">seq2seq优化思路</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T09:31:25+08:00">
-                2019-08-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T09:42:18+08:00">
+                2019-09-25
               </time>
             
 
@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  736
+                  208
                 </span>
               
 
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -386,40 +386,13 @@
       
         
           
-            <p>启动mysql的dockerfile</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  hk-mysql:</span><br><span class="line">   container_name: hk-mysql</span><br><span class="line">   image: mysql/mysql-server:5.7</span><br><span class="line">   environment:</span><br><span class="line">    MYSQL_DATABASE: testdb</span><br><span class="line">    MYSQL_ROOT_PASSWORD: hellokoding</span><br><span class="line">    MYSQL_ROOT_HOST: <span class="string">'%'</span></span><br><span class="line">   ports:</span><br><span class="line">   - <span class="string">"3306:3306"</span></span><br><span class="line">   restart: always</span><br></pre></td></tr></table></figure>
+            <p>问题：<br>    1. 程序添加测试集对模型进行离线验证，加上评价指标rmse<br>        上次写的测试部分，数据来自训练集。<br>    2. 添加网格搜索和交叉验证</p>
+<h3 id="RMSE函数"><a href="#RMSE函数" class="headerlink" title="RMSE函数"></a>RMSE函数</h3><p>‘’’<br>from sklearn.metrics import mean_squared_error<br>import numpy as np<br>import sklearn.metrics as sm</p>
+<p>def rmse(y_true, y_pred):<br>    return np.sqrt(mean_squared_error(y_true, y_pred))</p>
+<p>‘’’</p>
+<h3 id="需要搜索的参数："><a href="#需要搜索的参数：" class="headerlink" title="需要搜索的参数："></a>需要搜索的参数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">batch_size = 5  # Low value used for live demo purposes - 100 and 1000 would be possible too, crank that up!</span><br><span class="line">hidden_dim = 12  # Count of hidden neurons in the recurrent units.</span><br><span class="line">layers_stacked_count = 2  # Number of stacked recurrent cells, on the neural depth axis.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">learning_rate = 0.007  # Small lr helps not to diverge during training.</span><br><span class="line">nb_iters = 300  # How many times we perform a training step (therefore how many times we show a batch).</span><br><span class="line">lr_decay = 0.92  # default: 0.9 . Simulated annealing.</span><br><span class="line">momentum = 0.5  # default: 0.0 . Momentum technique in weights update</span><br><span class="line">lambda_l2_reg = 0.003  # L2 regularization of weights - avoids overfitting</span><br></pre></td></tr></table></figure>
 
-<p>启动hbase</p>
-<p>docker run -d -h myhbase -p 2181:2181 -p 8080:8080 -p 8085:8085 -p 9090:9090 -p 9095:9095 -p 16000:16000 -p 16010:16010 -p 16201:16201 -p 16301:16301 –name hbase1.3 harisekhon/hbase –net=host</p>
-<p>参考 <a href="https://github.com/tanwenliang/spring-boot-hbase-example" target="_blank" rel="noopener">https://github.com/tanwenliang/spring-boot-hbase-example</a></p>
-<p>这样启动的话没有nginx，每个单独的容器是相互分离的。</p>
-<h3 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h3><h4 id="这一块的问题属于运维的，无需太关心这个问题。"><a href="#这一块的问题属于运维的，无需太关心这个问题。" class="headerlink" title="这一块的问题属于运维的，无需太关心这个问题。"></a>这一块的问题属于运维的，无需太关心这个问题。</h4><p>hbase容器启动后，ip地址无法ping通<br>导致springboot无法连接 hbase，控制台提示错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">: Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)</span><br><span class="line">2019-09-04 13:32:37.240  INFO 57045 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session</span><br><span class="line">2019-09-04 13:32:37.254  INFO 57045 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x16cfab6764d0007, negotiated timeout = 90000</span><br><span class="line">2019-09-04 13:32:38.099  INFO 57045 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Ma</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2019-09-04 13:42:32.376  INFO 57045 --- [ared--pool2-t10] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38320 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:42:42.388  INFO 57045 --- [ared--pool2-t10] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48332 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:43:30.859  INFO 57045 --- [ared--pool2-t11] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38399 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:43:40.930  INFO 57045 --- [ared--pool2-t11] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48470 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:44:29.359  INFO 57045 --- [ared--pool2-t12] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38405 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:44:39.461  INFO 57045 --- [ared--pool2-t12] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=11, retries=35, started=48507 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br><span class="line">2019-09-04 13:45:38.022  INFO 57045 --- [ared--pool2-t13] o.a.h.hbase.client.RpcRetryingCaller     : Call exception, tries=10, retries=35, started=38380 ms ago, cancelled=<span class="literal">false</span>, msg=Connection refused row <span class="string">'h_file,1000000000000000,99999999999999'</span> on table <span class="string">'hbase:meta'</span> at region=hbase:meta,,1.1588230740, hostname=myhbase,16020,1567574361014, seqNum=0</span><br></pre></td></tr></table></figure>
-
-<p>正确的hbase配置</p>
-<p>package com.example.config;</p>
-<p>import org.apache.hadoop.conf.Configuration;<br>import org.apache.hadoop.hbase.<em>;
-import org.apache.hadoop.hbase.client.</em>;
-import org.apache.hadoop.hbase.filter.*;<br>import org.apache.hadoop.hbase.util.Bytes;<br>import org.springframework.context.annotation.Bean;</p>
-<p>import java.io.IOException;</p>
-<p>/**</p>
-<ul>
-<li><p>@author allen</p>
-</li>
-<li><p>/
-@org.springframework.context.annotation.Configuration<br>public class Hbase {<br>  @Bean<br>  public Connection getHbaseConnect() throws IOException {</p>
-<pre><code>Configuration conf = HBaseConfiguration.create();
-conf.set(&quot;hbase.zookeeper.quorum&quot;, &quot;myhbase&quot;);
-conf.set(&quot;hbase.zookeeper.property.clientPort&quot;, &quot;2181&quot;);
-conf.set(&quot;log4j.logger.org.apache.hadoop.hbase&quot;, &quot;WARN&quot;);
-Connection connection = ConnectionFactory.createConnection(conf);
-return connection;</code></pre><p>  }</p>
-<p>  @Bean<br>  public Admin getHbaseAdmin(Connection connection) throws IOException{</p>
-<pre><code>Admin admin = connection.getAdmin();
-return admin;</code></pre><p>  }</p>
-</li>
-</ul>
-<p>}</p>
+<h3 id="交叉验证资料"><a href="#交叉验证资料" class="headerlink" title="交叉验证资料"></a>交叉验证资料</h3><h4 id="k可不可以放到网格搜索里面呢？"><a href="#k可不可以放到网格搜索里面呢？" class="headerlink" title="k可不可以放到网格搜索里面呢？"></a>k可不可以放到网格搜索里面呢？</h4><p><a href="https://zhuanlan.zhihu.com/p/24825503" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24825503</a></p>
 
           
         
@@ -468,7 +441,7 @@ return admin;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/Vue笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/22/m-tm-h-th计算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -487,7 +460,7 @@ return admin;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/29/Vue笔记/" itemprop="url">Vue笔记</a></h1>
+                <a class="post-title-link" href="/2019/09/22/m-tm-h-th计算/" itemprop="url">m_tm_h_th计算</a></h1>
         
 
         <div class="post-meta">
@@ -499,8 +472,160 @@ return admin;</code></pre><p>  }</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T09:31:25+08:00">
-                2019-08-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-22T21:33:18+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  196
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>需要数据</p>
+<p>电压(mv)   -56            -36            -16            4            24            44            64<br>时间(ms) 电导（nS）         电导（nS）       电导（nS）    电导（nS）    电导（nS）    电导（nS）    电导（nS）<br>0.92  0.641966251    0.90082361    1.509488212    4.654255319    16.16202946    15.537514    22.62749071<br>2.5   2.29273661    6.391557996    15.09488212    24.60106383    26.59574468    27.4356103    28.70651807<br>5     4.524333578    12.05387783    22.21104083    26.59574468    26.39116203    28.62541993    28.49544073<br>7.5   6.572511617    15.87165408    23.00172513    25.48758865    24.75450082    27.4356103    27.86220871<br>10    8.192712155    18.44543583    22.28292122    23.93617021    24.34533552    26.59574468    27.44005404<br>15    10.60772805    20.63315031    20.91719379    21.05496454    22.50409165    25.05599104    26.63796015<br>20    12.71704573    21.01921757    19.91086832    17.95212766    20.45826514    23.65621501    26.17359<br>30    14.67351431    21.01921757    18.68890167    15.95744681    18.20785597    21.90649496    25.32928065<br>40    16.20200538    21.44818119    17.53881541    15.29255319    16.16202946    20.99664054    24.8649105<br>50    17.02739056    21.44818119    18.25761932    15.29255319    15.54828151    20.64669653    24.48497129<br>60    17.11910002    21.44818119    18.25761932    15.29255319    15.34369885    20.29675252    24.10503208</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/Hodgkin-Huxley-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Square Face">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SquareFace Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/18/Hodgkin-Huxley-2/" itemprop="url">Hodgkin-Huxley-2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-18T22:47:51+08:00">
+                2019-09-18
               </time>
             
 
@@ -570,23 +695,10 @@ return admin;</code></pre><p>  }</p>
       
         
           
-            <h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>.js ES6 webpack Npm</p>
-<p>v-for=”item in list” # 遍历list里面的数据，放到item</p>
-<p>绑定事件 v-on:click=””</p>
-<p>v-model 数据的双向绑定<br>v-on 监听事件<br>v-bind的简写是 ：</p>
-<p>通过input框里的内容，放到页面里面显示。</p>
-<p>MVVM格式。</p>
-<p>mpv模式</p>
-<p>model 数据<br>presenter 呈现层<br>view 视图层</p>
-<p>Vue.component(“”) 创建一个全局组件</p>
-<p>子组件 向副组件 传值</p>
-<h3 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h3><p>Vue 生命周期<br>生命周期函数就是vue实例在某一个时间点会自动执行的函数</p>
-<p>####模版语法<br>   v-text  v-html</p>
-<p>js表达式</p>
-<p>####计算属性，方法和监听</p>
-<p>计算属性：<br>    computed:{<br>        fullname:function(){</p>
-<pre><code>        }
-}</code></pre>
+            <h3 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h3><pre><code>该技术是由电压钳（voltageclamp）发展而来的，电压钳技术由Cole和Marment设计，后经Hodgkin和Huxley改进并成功地应用于神经纤维动作电位的研究 
+ 。其设计原理是根据离子作跨膜移动时形成了跨膜离子电流（I），而通透性即离子通过膜的难易程度，其膜电阻（R）的倒数，也就是膜电导（G）。因此，膜对某种离子通透性增大时，实际上时膜电阻变小，即膜对该离子的电导加大。根据欧姆定律U=IR，即I=U/R=UG，
+
+问题：膜电导是膜电阻的倒数？</code></pre>
           
         
       
@@ -634,7 +746,7 @@ return admin;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/docker搭建Hbase/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/flask的副本/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -653,7 +765,7 @@ return admin;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/28/docker搭建Hbase/" itemprop="url">docker搭建Hbase</a></h1>
+                <a class="post-title-link" href="/2019/09/07/flask的副本/" itemprop="url">数学模型构建</a></h1>
         
 
         <div class="post-meta">
@@ -665,8 +777,8 @@ return admin;</code></pre><p>  }</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T09:31:25+08:00">
-                2019-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
+                2019-09-07
               </time>
             
 
@@ -697,213 +809,7 @@ return admin;</code></pre><p>  }</p>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="单机配置Hbase"><a href="#单机配置Hbase" class="headerlink" title="单机配置Hbase"></a>单机配置Hbase</h2><p>###下载并运行镜像###<br>我已经备好集成了HBase单机版的镜像，可以执行以下命令下载到本地：</p>
-<p>docker pull bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
-<p>###运行容器###</p>
-<p>执行以下命令可以用刚刚下载的镜像创建一个容器，容器名称hbase001，60010端口映射到本机：</p>
-<p>docker run –name=hbase001 -p 60010:60010 -idt bolingcavalry/centos7-hbase126-standalone:0.0.1</p>
-<p>###进入容器###<br>执行以下命令，可以进入hbase001容器：</p>
-<p>docker exec -it hbase001 /bin/bash</p>
-<p>###启动HBase服务###<br>进入hbase001容器后，输入以下命令就能启动hbase服务：</p>
-<p>/usr/local/work/hbase/bin/start-hbase.sh</p>
-<p>###进入HBase命令行###<br>执行以下命令，可以进入HBase的命令行模式：</p>
-<p>hbase shell</p>
-<h1 id="记录今天的操作"><a href="#记录今天的操作" class="headerlink" title="记录今天的操作"></a>记录今天的操作</h1><h2 id="docker启动springboot-Docker-NGINX-MySQL"><a href="#docker启动springboot-Docker-NGINX-MySQL" class="headerlink" title="docker启动springboot+Docker+NGINX+MySQL"></a>docker启动springboot+Docker+NGINX+MySQL</h2><p>启动的目录<br>/Users/squareface/IdeaProjects/dockercompose-springboot-mysql-nginx</p>
-<p>docker-compose.yaml 文件内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">version: <span class="string">'3'</span></span><br><span class="line">services:</span><br><span class="line">  hk-nginx:</span><br><span class="line">   container_name: hk-nginx</span><br><span class="line">   image: nginx:1.13</span><br><span class="line">   restart: always</span><br><span class="line">   ports:</span><br><span class="line">   - 80:80</span><br><span class="line">   - 443:443</span><br><span class="line">   volumes:</span><br><span class="line">   - ./nginx/conf.d:/etc/nginx/conf.d</span><br><span class="line">   depends_on:</span><br><span class="line">   - app</span><br><span class="line"> </span><br><span class="line">  hk-mysql:</span><br><span class="line">   container_name: hk-mysql</span><br><span class="line">   image: mysql/mysql-server:5.7</span><br><span class="line">   environment:</span><br><span class="line">    MYSQL_DATABASE: <span class="built_in">test</span></span><br><span class="line">    MYSQL_ROOT_PASSWORD: hellokoding</span><br><span class="line">    MYSQL_ROOT_HOST: <span class="string">'%'</span></span><br><span class="line">   ports:</span><br><span class="line">   - <span class="string">"3306:3306"</span></span><br><span class="line">   restart: always</span><br><span class="line">  </span><br><span class="line">  app:</span><br><span class="line">    restart: always</span><br><span class="line">    build: ./app</span><br><span class="line">    working_dir: /app</span><br><span class="line">    volumes:</span><br><span class="line">      - ./app:/app</span><br><span class="line">      - ~/.m2:/root/.m2</span><br><span class="line">    expose:</span><br><span class="line">      - <span class="string">"8080"</span></span><br><span class="line">    <span class="built_in">command</span>: mvn clean spring-boot:run</span><br><span class="line">    depends_on:</span><br><span class="line">      - hk-mysql</span><br></pre></td></tr></table></figure>
-
-<p>执行docker-compose up 指令，自动启动项目。就多出4个images<br>mysql<br>maven<br>nginx<br>dockercompose-springboot-mysql-nginx_app</p>
-<h3 id="SpringBoot和NGINX的配置在项目的哪里有写？"><a href="#SpringBoot和NGINX的配置在项目的哪里有写？" class="headerlink" title="SpringBoot和NGINX的配置在项目的哪里有写？"></a>SpringBoot和NGINX的配置在项目的哪里有写？</h3><p>NGINX 反向代理 监听一个端口，进行转发。</p>
-<h2 id="docker-搭建Hbase完全分布式"><a href="#docker-搭建Hbase完全分布式" class="headerlink" title="docker 搭建Hbase完全分布式"></a>docker 搭建Hbase完全分布式</h2><p>使用的images： bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</p>
-<p>1、 运行下列docker-compose.yaml文件，会创建三个容器。名字分别为master、slave1、slave2、</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'2'</span></span><br><span class="line">services:</span><br><span class="line">  master: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19010:22"</span></span><br><span class="line">      - <span class="string">"50070:50070"</span></span><br><span class="line">      - <span class="string">"8088:8088"</span></span><br><span class="line">      - <span class="string">"16010:16010"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave1: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave1</span><br><span class="line">    depends_on:</span><br><span class="line">      - master</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19011:22"</span></span><br><span class="line">    restart: always</span><br><span class="line">  slave2: </span><br><span class="line">    image: bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1</span><br><span class="line">    container_name: slave2</span><br><span class="line">    depends_on:</span><br><span class="line">      - slave1</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"19012:22"</span></span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure>
-
-<p>查询容器的ip地址：<br>master 172.19.0.2<br>slave1 172.19.0.3<br>slave2 172.19.0.4</p>
-<p>CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                                                                                               NAMES<br>32481e89f8f8        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19012-&gt;22/tcp                                               slave2<br>2c3c9dd989ad        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       8088/tcp, 16010/tcp, 50070/tcp, 0.0.0.0:19011-&gt;22/tcp                                               slave1<br>bcd27e44e3d6        bolingcavalry/centos6.7-jdk1.8-ssh:0.0.1   “/bin/sh -c ‘service…”   12 minutes ago      Up 12 minutes       0.0.0.0:8088-&gt;8088/tcp, 0.0.0.0:16010-&gt;16010/tcp, 0.0.0.0:50070-&gt;50070/tcp, 0.0.0.0:19010-&gt;22/tcp   master</p>
-<p>2、###配置hostname和hosts###</p>
-<p>修改master的/etc/sysconfig/network文件，将原有的HOSTNAME=localhost.localdomain改成HOSTNAME=master，对slave1和slave2也做修改，将HOSTNAME分别改成slave1和slave2；<br>分别修改master、slave1、slave2的/etc/hosts文件，都添加相同的内容如下：<br>172.19.0.2 master<br>172.19.0.3 slave1<br>172.19.0.4 slave2</p>
-<p>3 ###master、slave1、slave2之间配置相互免密码登录###</p>
-<p>– 分别修改master、slave1、slave2的/etc/ssh/sshd_config文件，找到下列内容，删除每行的注释符号”#”：<br>RSAAuthentication yes<br>PubkeyAuthentication yes</p>
-<p>– 分别在master、slave1、slave2上执行命令ssh-keygen -t rsa，一路回车下去，最终会在/root/.ssh目录下生成rsa文件</p>
-<p>– 在master上执行如下三行命令，执行完毕后，三个容器的rsa公钥都存在/root/.ssh/authorized_keys文件中了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave1 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">ssh root@slave2 cat ~/.ssh/id_rsa.pub&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>第一行命令将master的公钥写入authorized_keys，第二、第三行分别ssh登录slave1、slave2，将他们的公钥写入到master的authorized_keys文件中，由于是ssh登录，需要输入密码，这里是”password”</p>
-<p>– 分别在slave1、slave2上执行以下命令，将master上的authorized_keys文件复制过来：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@master cat ~/.ssh/authorized_keys&gt;&gt; ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>由于master的authorized_keys中包含了slave1、slave2的rsa公钥，所以在slave1和slave2上执行以上命令的时候是不需要登录的；</p>
-<p>现在三个容器的公钥都已经放在每一个容器上了，它们相互之间可以免密码登录了，例如在slave1上执行ssh root@slave2即可登录到slave2而不用输入密码</p>
-<p>4 ######在容器上创建所需目录###<br>分别在master、slave1、slave2上创建以下目录：</p>
-<p>/usr/local/work<br>/opt/hbase</p>
-<p>###安装zookeeper-3.4.6集群###</p>
-<p>去zookeeper官网下载zookeeper-3.4.6.tar.gz，然后解压到当前电脑；<br>在zookeeper-3.4.6/conf/目录下创建zoo.cfg文件，内容如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="comment"># The number of ticks that the initial </span></span><br><span class="line"><span class="comment"># synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="comment"># The number of ticks that can pass between </span></span><br><span class="line"><span class="comment"># sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="comment"># the directory where the snapshot is stored.</span></span><br><span class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just </span></span><br><span class="line"><span class="comment"># example sakes.</span></span><br><span class="line">dataDir=/usr/<span class="built_in">local</span>/work/zkdata</span><br><span class="line"><span class="comment"># the port at which the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="comment"># the maximum number of client connections.</span></span><br><span class="line"><span class="comment"># increase this if you need to handle more clients</span></span><br><span class="line"><span class="comment">#maxClientCnxns=60</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to read the maintenance section of the </span></span><br><span class="line"><span class="comment"># administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The number of snapshots to retain in dataDir</span></span><br><span class="line"><span class="comment">#autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="comment"># Purge task interval in hours</span></span><br><span class="line"><span class="comment"># Set to "0" to disable auto purge feature</span></span><br><span class="line"><span class="comment">#autopurge.purgeInterval=1</span></span><br><span class="line"></span><br><span class="line">server.1=master:2887:3887  </span><br><span class="line">server.2=slave1:2888:3888 </span><br><span class="line">server.3=slave2:2889:3889</span><br></pre></td></tr></table></figure>
-
-<p>其实也就是修改了dataDir的值，还有最后三行是新增的，其他内容都是从zoo_sample.cfg复制过来的；</p>
-<ol start="3">
-<li>在当前电脑上，用ssh工具执行以下三行命令，将前面解压的并且已经修改了zoo.cfg文件的zookeeper-3.4.6目录复制到master、slave1、slave2上去：</li>
-</ol>
-<p>scp -P 19010 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19011 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work<br>scp -P 19012 -r ./zookeeper-3.4.6 root@localhost:/usr/local/work</p>
-<p>执行每行命令都要输入密码”password”</p>
-<ol start="4">
-<li>在master、slave1、slave2上创建目录/usr/local/work/zkdata，在该目录下创建文件myid，文件内容分别是是”1”、“2”、“3”；</li>
-<li>在master、slave1、slave2上依次执行启动zookeeper的命令/usr/local/work/zookeeper-3.4.6/bin/zkServer.sh start；</li>
-<li>在每个容器上分别执行以下命令可以检查zookeeper的集群状态：</li>
-</ol>
-<p>###启动zookeeper。error<br>出现好多奇奇怪怪的问题！！！</p>
-<p>删掉 /usr/local/work   /opt/hbase  重新来一遍</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/SpringBoot-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Square Face">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://squareface.oss-cn-beijing.aliyuncs.com/image20200302164052.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SquareFace Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/27/SpringBoot-3/" itemprop="url">SpringBoot(3)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:09:51+08:00">
-                2019-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  435
+                  54
                 </span>
               
 
@@ -942,27 +848,9 @@ return admin;</code></pre><p>  }</p>
       
         
           
-            <p>application.yml 配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8081  <span class="comment"># 修改SpringBoot启动的端口</span></span><br><span class="line">  context-path: /girl <span class="comment">#修改启动路径</span></span><br></pre></td></tr></table></figure>
-
-<p>2、 把配置文件注入到controller里面变量。</p>
-<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p>控制器的使用，主要是用来接收客户端的请求<br>@Controller 处理http请求，不添加这个注解，浏览器无法访问到<br>@Restcontroller  原来返回json需要@ResponseBody配合@Controller<br>@RequsetMapping 配置url映射<br>@PathVariable 获取url中的数据<br>@RequestParam 获取请求参数的值<br>@GetMapping 组合注解</p>
-<p>后端提供result接口和返回json格式给前端。</p>
-<h3 id="Spring-Data-Jpa"><a href="#Spring-Data-Jpa" class="headerlink" title="Spring-Data-Jpa"></a>Spring-Data-Jpa</h3><p>JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate, TopLink</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jpa:</span><br><span class="line">    hibernate:</span><br><span class="line">      ddl-auto: create  <span class="comment"># 运行时候自动创建表,create会清空表内之前的内容，update会保留表内原有的数据</span></span><br><span class="line">    show-sql: <span class="literal">true</span> <span class="comment"># 控制台看到sql语句</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>首先定义一个interface 继承 JpaRepository。<br>在创建一个controller类，在controller里面 实现api</p>
-<h4 id="更新数据库："><a href="#更新数据库：" class="headerlink" title="更新数据库："></a>更新数据库：</h4><p>有两种方法<br>    1、 new一个对象出来，重新赋值<br>    2、 通过id find这个条目，在重新赋值。</p>
-<h3 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h3><p>数据库操作<br>作为单个逻辑工作单元执行的一系列操作，要么完全执行，要么完全不执行</p>
-<p>只有在查询的时候不需要添加事务管理，添加一个注解 ：@Transactional</p>
-<h3 id="Spring-Boot-Web-进阶"><a href="#Spring-Boot-Web-进阶" class="headerlink" title="Spring Boot Web 进阶"></a>Spring Boot Web 进阶</h3><p>@Valid 表单验证</p>
-<p>AOP<br>记录每次请求</p>
-<p>统一异常处理</p>
-<p>test</p>
-<h3 id="添加一条数据的时候进行筛选"><a href="#添加一条数据的时候进行筛选" class="headerlink" title="添加一条数据的时候进行筛选"></a>添加一条数据的时候进行筛选</h3><p>1 需要在girl 类 里 添加条件。<br>2 controller</p>
-<p>AOP 处理统一处理请求日志<br>编程范式 设计思想 和语言无关</p>
-<p>使用日志可以记录程序的具体参数，</p>
-
+            <h3 id="保卫细胞电信号数学模型的构建"><a href="#保卫细胞电信号数学模型的构建" class="headerlink" title="保卫细胞电信号数学模型的构建"></a>保卫细胞电信号数学模型的构建</h3><p>根据保卫细胞膜电路模型</p>
+<p>Hodgkin-Huxley 和Goldman-Hodgkin-Katz 两个方程，都是Nernst方程的推广</p>
+<h2 id="电流是电荷对时间的导数"><a href="#电流是电荷对时间的导数" class="headerlink" title="电流是电荷对时间的导数"></a>电流是电荷对时间的导数</h2>
           
         
       
@@ -1010,7 +898,7 @@ return admin;</code></pre><p>  }</p>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/springboot笔记(2)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/nginx配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Square Face">
@@ -1029,7 +917,7 @@ return admin;</code></pre><p>  }</p>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/08/25/springboot笔记(2)/" itemprop="url">SpringBoot笔记(2)</a></h1>
+                <a class="post-title-link" href="/2019/09/07/nginx配置/" itemprop="url">Flask</a></h1>
         
 
         <div class="post-meta">
@@ -1041,8 +929,8 @@ return admin;</code></pre><p>  }</p>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-25T17:11:18+08:00">
-                2019-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T09:31:25+08:00">
+                2019-09-07
               </time>
             
 
@@ -1073,7 +961,7 @@ return admin;</code></pre><p>  }</p>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  238
+                  405
                 </span>
               
 
@@ -1089,7 +977,7 @@ return admin;</code></pre><p>  }</p>
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -1112,16 +1000,20 @@ return admin;</code></pre><p>  }</p>
       
         
           
-            <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>1 在DAO层<br> 创建数据表映射过来的class的时候，可以添加一个构造方法，这样在做测试的时候可以不需要new一个实例再去进行赋值。</p>
-<p>2 在 pol.xml中引入jpa和mysql依赖，可以实现对数据库的操作<br>注：把maven的下载源，替换成阿里云。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">	 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	 &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">3 PlantES的数据存储在Hbase和MySQL里，MySQL里存放 用户的信息和展示的数据的。原始的数据放在Hbase里，最后聚合在一起会放在mysql里。</span><br></pre></td></tr></table></figure>
+            <p>我要对输入的序列进行</p>
+<pre><code>--- 维度扩展 
+    x_test_1 = np.expand_dims(x_test[12], axis=0)
 
-<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><p>v-on：绑定一个事件 @ 缩写<br>    通过buttun，设定一个click事件，这个事件会触发一个方法。</p>
-<p>计算属性</p>
-<p>侦听属性</p>
-<p>条件渲染<br>    V-if<br>    V-for</p>
-<p>列表渲染</p>
-<p>Class与Style绑定</p>
+
+--- PCA降维
+    pca = PCA(n_components=5,copy=True) 
+    newX = pca.fit_transform(x)</code></pre><p>报错提示：在post给的内容没有在excle中找到</p>
+<p>是程序逻辑的问题，需要在看下flask</p>
+<p>src文件夹内的文件结构如下：</p>
+<p>├── App.vue<br>├── assets<br>│   └── logo.png<br>├── components<br>│   └── HelloWorld.vue<br>├── main.js<br>├── router.js<br>└── views<br>    ├── About.vue<br>    └── Home.vue<br>详解：</p>
+<p>main.js app入口点，它与根组件一起加载和初始化Vue。<br>app.vue 根组件，它是开始渲染所有其他组件时的起点。<br>‘components’ 存储UI组件<br>router.js 定义URL并将URL映射到对应的组件<br>‘views’ 存储绑定到路由器的UI组件<br>‘asset’ 存储静态资源，如图像和字体</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, jsonify</span><br><span class="line">from flask_cors import CORS</span><br><span class="line">import pandas as pd</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.naive_bayes import GaussianNB</span><br><span class="line">from sklearn.decomposition import PCA</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment"># configuration</span></span><br><span class="line">DEBUG = True</span><br><span class="line"></span><br><span class="line"><span class="comment"># instantiate the app</span></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enable CORS</span></span><br><span class="line">CORS(app, resources=&#123;r<span class="string">'/*'</span>: &#123;<span class="string">'origins'</span>: <span class="string">'*'</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># sanity check route</span></span><br><span class="line">@app.route(<span class="string">'/ping'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def ping_pong():</span><br><span class="line">    <span class="built_in">return</span> jsonify(<span class="string">'pong!,hhh'</span>)</span><br><span class="line"></span><br><span class="line">def Bayes():</span><br><span class="line">    df = pd.read_excel(<span class="string">'./Data.xls'</span>)</span><br><span class="line">    df_T=df.T</span><br><span class="line">    x=df_T.iloc[:,0:1764]</span><br><span class="line">    y1 = df_T.iloc[0:26,1764:1765]     <span class="comment">#1 类的类别</span></span><br><span class="line">    y2 = df_T.iloc[26:59,1764:1765]   <span class="comment">#2 类的类别</span></span><br><span class="line">    pca = PCA(n_components=5,copy=True)</span><br><span class="line">    newX = pca.fit_transform(x)</span><br><span class="line">    <span class="comment">#  拆分</span></span><br><span class="line">    newX1 = newX[0:26,:]</span><br><span class="line">    newX2 = newX[26:59,:]</span><br><span class="line">    x_train1,x_test1,y_train1,y_test1 = train_test_split(newX1,y1,test_size=0.2,random_state=5)</span><br><span class="line">    x_train2,x_test2,y_train2,y_test2 = train_test_split(newX2,y2,test_size=0.2,random_state=5)</span><br><span class="line">    x_train = np.vstack((x_train1 , x_train2))</span><br><span class="line">    x_test = np.vstack((x_test1 , x_test2))</span><br><span class="line">    y_train = np.vstack((y_train1 , y_train2))</span><br><span class="line">    y_test = np.vstack((y_test1 , y_test2))</span><br><span class="line">    <span class="built_in">print</span>(x_test[1])</span><br><span class="line">    gnb = GaussianNB()</span><br><span class="line">    gnb = gnb.fit(x_train,y_train)</span><br><span class="line">    <span class="built_in">return</span> gnb</span><br><span class="line"></span><br><span class="line">def pretreatment(list1):</span><br><span class="line">    array = np.array(list1)</span><br><span class="line">    <span class="built_in">return</span> np.expand_dims(array, axis=0)</span><br><span class="line"></span><br><span class="line">@app.route(<span class="string">'/predict'</span>, methods=[<span class="string">'GET'</span>])</span><br><span class="line">def main():</span><br><span class="line">    gnb = Bayes()</span><br><span class="line">    predict = gnb.predict(pretreatment([2187.82169246, 153.58047602, -124.83874381, -339.65293843, -5.28906774]))</span><br><span class="line">    value = int(predict[0])</span><br><span class="line">    <span class="built_in">return</span> jsonify(value)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -1161,7 +1053,7 @@ return admin;</code></pre><p>  }</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1209,7 +1101,7 @@ return admin;</code></pre><p>  }</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">121</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1231,7 +1123,7 @@ return admin;</code></pre><p>  }</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1310,7 +1202,7 @@ return admin;</code></pre><p>  }</p>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.3k</span>
+    <span title="Site words total count">45.5k</span>
   
 </div>
 
